@@ -1,0 +1,16 @@
+{
+    "name": "portfolio",
+    "version": "1.0.0",
+    "description": "Portfolio website for Edda Ósk Óskarsdóttir",
+    "main": "index.html",
+    "scripts": {
+        "sass": "sass src/scss:src/css --watch",
+        "start": "live-server src"
+    },
+    "author": "Edda Ósk Óskarsdóttir",
+    "license": "MIT",
+    "devDependencies": {
+        "live-server": "^1.2.2",
+        "sass": "^1.63.6"
+    }
+}
