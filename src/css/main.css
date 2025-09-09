@@ -1,0 +1,58 @@
+body {
+  font-family: "Inter", sans-serif;
+  color: #333333;
+  background-color: #ffffff;
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+.navbar .navbar-brand {
+  font-weight: 600;
+  color: #e6e6fa;
+}
+.navbar .nav-link {
+  color: #333333;
+  transition: color 0.3s ease;
+}
+.navbar .nav-link:hover {
+  color: #e6e6fa;
+}
+.navbar .nav-link.active {
+  color: #e6e6fa;
+}
+
+.hero {
+  background: linear-gradient(135deg, #e6e6fa, #b0c4de);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.hero h1 {
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: white;
+  margin-bottom: 1rem;
+}
+.hero .lead {
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer {
+  background-color: #d3d3d3;
+  padding: 2rem 0;
+  margin-top: 4rem;
+}
+.footer .social-link {
+  font-size: 1.5rem;
+  color: #333333;
+  transition: color 0.3s ease;
+}
+.footer .social-link:hover {
+  color: #e6e6fa;
+}
+
+/*# sourceMappingURL=main.css.map */

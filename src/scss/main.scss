@@ -1,0 +1,76 @@
+// Variables
+$color-primary: #e6e6fa; // Pastel Purple
+$color-secondary: #b0c4de; // Pastel Blue
+$color-accent: #dcd0ff; // Lilla
+$color-gray: #d3d3d3; // Pastel Gray
+$color-text: #333333;
+$font-primary: "Inter", sans-serif;
+
+// Global styles
+body {
+    font-family: $font-primary;
+    color: $color-text;
+    background-color: #ffffff;
+}
+
+// Navigation
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+
+    .navbar-brand {
+        font-weight: 600;
+        color: $color-primary;
+    }
+
+    .nav-link {
+        color: $color-text;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $color-primary;
+        }
+
+        &.active {
+            color: $color-primary;
+        }
+    }
+}
+
+// Hero section
+.hero {
+    background: linear-gradient(135deg, $color-primary, $color-secondary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+
+    h1 {
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        color: white;
+        margin-bottom: 1rem;
+    }
+
+    .lead {
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+// Footer
+.footer {
+    background-color: $color-gray;
+    padding: 2rem 0;
+    margin-top: 4rem;
+
+    .social-link {
+        font-size: 1.5rem;
+        color: $color-text;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
+}
