@@ -1,3 +1,8 @@
+// Use Bootstrap's recommended import order so variables can use assertion mixins
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
 // Variables
 $color-primary: #e6e6fa; // Pastel Purple
 $color-secondary: #b0c4de; // Pastel Blue
@@ -13,6 +18,27 @@ body {
     background-color: #ffffff;
 }
 
+// Projects page
+.projects {
+    // Add extra spacing between projects
+    .project-row {
+        margin-bottom: 3rem; // a little more space between rows
+    }
+
+    .project-row:last-child {
+        margin-bottom: 0; // avoid extra space after the last project
+    }
+
+    // Use Bootstrap's breakpoint mixin to auto-alternate layout on large screens
+    @include media-breakpoint-up(lg) {
+        .project-row {
+            margin-bottom: 8rem; // slightly more space on large screens
+        }
+        .project-list > .project-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+    }
+}
 // Navigation
 .navbar {
     background-color: rgba(255, 255, 255, 0.95);

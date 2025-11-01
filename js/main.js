@@ -24,4 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
     fadeElements.forEach((element) => {
         fadeInObserver.observe(element);
     });
+
+    // Set current year in footer(s)
+    const currentYear = new Date().getFullYear();
+    document.querySelectorAll(".js-current-year").forEach((el) => {
+        el.textContent = currentYear;
+    });
 });
