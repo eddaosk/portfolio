@@ -1,102 +1,314 @@
-// Use Bootstrap's recommended import order so variables can use assertion mixins
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
-
-// Variables
-$color-primary: #e6e6fa; // Pastel Purple
-$color-secondary: #b0c4de; // Pastel Blue
-$color-accent: #dcd0ff; // Lilla
-$color-gray: #d3d3d3; // Pastel Gray
-$color-text: #333333;
-$font-primary: "Inter", sans-serif;
-
-// Global styles
-body {
-    font-family: $font-primary;
-    color: $color-text;
-    background-color: #ffffff;
+/* ==============================
+   Font families
+============================== */
+:root {
+    --font-body: "Noto Sans", sans-serif;
+    --font-accent: "Rubik", sans-serif;
+    --font-heading: "Poppins", sans-serif;
 }
 
-// Projects page
+/* ==============================
+   Global styles
+============================== */
+body {
+    font-family: var(--font-body);
+    color: #2e2e2e;
+    background-color: #f9f9f9;
+}
+
+/* ==============================
+   Projects section
+============================== */
 .projects {
-    // Add extra spacing between projects
     .project-row {
-        margin-bottom: 3rem; // a little more space between rows
-    }
+        margin-bottom: 3rem;
 
-    .project-row:last-child {
-        margin-bottom: 0; // avoid extra space after the last project
-    }
-
-    // Use Bootstrap's breakpoint mixin to auto-alternate layout on large screens
-    @include media-breakpoint-up(lg) {
-        .project-row {
-            margin-bottom: 8rem; // slightly more space on large screens
+        &:last-child {
+            margin-bottom: 0;
         }
+    }
+
+    @media (min-width: 992px) {
+        .project-row {
+            margin-bottom: 8rem;
+        }
+
         .project-list > .project-row:nth-child(even) {
             flex-direction: row-reverse;
         }
     }
 }
-// Navigation
+
+/* ==============================
+   Navbar
+============================== */
 .navbar {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: #f9f9f9;
     padding: 1rem 0;
     transition: all 0.3s ease;
 
     .navbar-brand {
         font-weight: 600;
-        color: $color-primary;
+        color: #1c355e;
     }
 
     .nav-link {
-        color: $color-text;
+        color: #2e2e2e;
         transition: color 0.3s ease;
 
         &:hover {
-            color: $color-primary;
+            color: #f2b950;
         }
 
         &.active {
-            color: $color-primary;
+            color: #1c355e;
         }
     }
 }
 
-// Hero section
+/* ==============================
+   Hero section
+============================== */
 .hero {
-    background: linear-gradient(135deg, $color-primary, $color-secondary);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+    background: #1c355e;
+    padding: 8rem 1.5rem 6rem;
+    text-align: center;
 
     h1 {
+        font-family: var(--font-heading);
         font-weight: 700;
         letter-spacing: 0.2em;
-        color: white;
+        color: #f9f9f9;
         margin-bottom: 1rem;
+        font-size: clamp(2rem, 5vw, 4rem);
     }
 
     .lead {
-        letter-spacing: 0.1em;
-        color: rgba(255, 255, 255, 0.9);
+        letter-spacing: 0.15em;
+        color: #f2b950;
+        opacity: 0.95;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+    }
+
+    .tagline {
+        font-family: var(--font-accent);
+        color: #e9dcc9;
+        font-size: clamp(1.2rem, 2vw, 1.8rem);
+        letter-spacing: 0.05em;
+        line-height: 1.4;
+        opacity: 0.95;
+        max-width: 900px;
+        margin: 0 auto;
+        white-space: nowrap;
+
+        @media (max-width: 992px) {
+            white-space: normal;
+            font-size: 1.4rem;
+        }
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        height: 60px;
+        background: linear-gradient(to bottom, rgba(28, 53, 94, 1), rgba(28, 53, 94, 0));
+    }
+
+    @media (max-width: 768px) {
+        min-height: auto;
+        padding: 6rem 0;
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            white-space: normal;
+        }
+    }
+
+    @media (max-width: 576px) {
+        h1 {
+            font-size: 2rem;
+            letter-spacing: 0.15em;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+        }
     }
 }
 
-// Footer
+/* ==============================
+   Intro section
+============================== */
+.intro-text {
+    background-color: #f9f9f9;
+    padding: 5rem 1.5rem 6rem;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        padding: 4rem 1.5rem;
+    }
+}
+
+.intro-description {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: #2e2e2e;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+    letter-spacing: 0.01em;
+    animation: fadeInUp 1.2s ease-out both;
+
+    @media (max-width: 768px) {
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==============================
+   Logos
+============================== */
+.intro-logo {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+
+    img {
+        height: 70px;
+        opacity: 0.9;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+
+        &:hover {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            height: 40px;
+        }
+    }
+}
+
+/* ==============================
+   Footer
+============================== */
 .footer {
-    background-color: $color-gray;
+    background-color: #e9dcc9;
     padding: 2rem 0;
     margin-top: 4rem;
 
     .social-link {
         font-size: 1.5rem;
-        color: $color-text;
+        color: #1c355e;
         transition: color 0.3s ease;
 
         &:hover {
-            color: $color-primary;
+            color: #f2b950;
         }
     }
+}
+
+/* ==============================
+   Typography
+============================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+}
+
+.lead,
+blockquote {
+    font-family: var(--font-accent);
+}
+
+/* ==============================
+   Skills & Tools
+============================== */
+.skill-set {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #2e2e2e;
+    opacity: 0.9;
+}
+
+.tool-logo {
+    transition: transform 0.3s ease;
+    filter: grayscale(100%) opacity(70%);
+
+    &:hover {
+        transform: translateY(-5px);
+        filter: grayscale(0%) opacity(100%);
+    }
+}
+
+.tool-name {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: #2e2e2e;
+    opacity: 0.8;
+}
+
+/* ==============================
+   About page & UI components
+============================== */
+.about-section {
+    background-color: #f9f9f9;
+
+    &.bg-light {
+        background-color: #1c355e !important;
+        color: #f9f9f9;
+    }
+}
+
+.badge.text-bg-primary {
+    background-color: #1c355e !important;
+    color: #f9f9f9 !important;
+}
+
+.card-quote {
+    background-color: #f9f9f9;
+    border-left: 5px solid #f2b950;
+}
+
+.btn-primary {
+    background-color: #f2b950;
+    border-color: #2e2e2e;
+    color: #f9f9f9;
+
+    &:hover {
+        background-color: #f2b950;
+        border-color: #f2b950;
+        color: #1c355e;
+    }
+}
+
+.text-primary {
+    color: #1c355e !important;
+}
+
+.text-muted {
+    color: #2e2e2e !important;
+    opacity: 0.7;
 }
