@@ -48,35 +48,157 @@ body {
 
 .hero {
     background: #1c355e;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+    padding: 8rem 1.5rem 6rem; // smaller height
+    text-align: center;
 }
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 .hero h1 {
     font-family: var(--font-heading);
     font-weight: 700;
     letter-spacing: 0.2em;
     color: #f9f9f9;
     margin-bottom: 1rem;
-}
-.hero .lead {
-    letter-spacing: 0.1em;
-    color: #f2b950;
-    opacity: 0.9;
+    font-size: clamp(2rem, 5vw, 4rem);
 }
 
-.hero .hero-content {
-    padding: 2rem 0;
+.hero .lead {
+    letter-spacing: 0.15em;
+    color: #f2b950;
+    opacity: 0.95;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
 }
 
 .hero .tagline {
     font-family: var(--font-accent);
     color: #e9dcc9;
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
     letter-spacing: 0.05em;
-    margin: 0 auto;
+    line-height: 1.4;
     opacity: 0.95;
-    white-space: nowrap;
+    max-width: 900px;
+    margin: 0 auto;
+    white-space: nowrap; // keeps it one line on desktop
+}
+
+@media (max-width: 992px) {
+    .hero .tagline {
+        white-space: normal; // allow wrapping on tablets/mobiles
+        font-size: 1.4rem;
+    }
+}
+
+/* Section below the hero */
+.intro-text {
+    background-color: #f9f9f9;
+    padding: 5rem 1.5rem 6rem;
+    text-align: center;
+}
+
+.intro-description {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: #2e2e2e;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+    letter-spacing: 0.01em;
+    animation: fadeInUp 1.2s ease-out both;
+}
+
+@media (max-width: 768px) {
+    .intro-text {
+        padding: 4rem 1.5rem;
+    }
+
+    .intro-description {
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+}
+
+.hero::after {
+    content: "";
+    display: block;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(28, 53, 94, 1), rgba(28, 53, 94, 0));
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: 6rem 0;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .tagline {
+        font-size: 1.5rem;
+        white-space: normal;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2rem;
+        letter-spacing: 0.15em;
+    }
+
+    .hero .tagline {
+        font-size: 1.25rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+}
+
+.intro-logo {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.intro-logo-img {
+    height: 70px;
+    opacity: 0.9;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.intro-logo-img:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .intro-logo-img {
+        height: 40px;
+    }
 }
 
 .footer {
@@ -115,6 +237,24 @@ blockquote {
     line-height: 1.6;
     color: #2e2e2e;
     opacity: 0.9;
+}
+
+/* Tools section */
+.tool-logo {
+    transition: transform 0.3s ease;
+    filter: grayscale(100%) opacity(70%);
+}
+
+.tool-logo:hover {
+    transform: translateY(-5px);
+    filter: grayscale(0%) opacity(100%);
+}
+
+.tool-name {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: #2e2e2e;
+    opacity: 0.8;
 }
 
 /* About page sections */
