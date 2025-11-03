@@ -48,7 +48,7 @@ body {
 
 .hero {
     background: #1c355e;
-    padding: 8rem 1.5rem 6rem; // smaller height
+    padding: 8rem 1.5rem 6rem;
     text-align: center;
 }
 
@@ -83,219 +83,219 @@ body {
     opacity: 0.95;
     max-width: 900px;
     margin: 0 auto;
-    white-space: nowrap; // keeps it one line on desktop
-}
+    white-space: nowrap;
 
-@media (max-width: 992px) {
-    .hero .tagline {
-        white-space: normal; // allow wrapping on tablets/mobiles
-        font-size: 1.4rem;
+    @media (max-width: 992px) {
+        .hero .tagline {
+            white-space: normal;
+            font-size: 1.4rem;
+        }
     }
-}
 
-/* Section below the hero */
-.intro-text {
-    background-color: #f9f9f9;
-    padding: 5rem 1.5rem 6rem;
-    text-align: center;
-}
-
-.intro-description {
-    font-family: var(--font-body);
-    font-size: 1.2rem;
-    line-height: 1.9;
-    color: #2e2e2e;
-    max-width: 800px;
-    margin: 0 auto;
-    opacity: 0.9;
-    letter-spacing: 0.01em;
-    animation: fadeInUp 1.2s ease-out both;
-}
-
-@media (max-width: 768px) {
+    /* Section below the hero */
     .intro-text {
-        padding: 4rem 1.5rem;
+        background-color: #f9f9f9;
+        padding: 5rem 1.5rem 6rem;
+        text-align: center;
     }
 
     .intro-description {
-        font-size: 1.05rem;
-        line-height: 1.7;
-    }
-}
-
-.hero::after {
-    content: "";
-    display: block;
-    height: 60px;
-    background: linear-gradient(to bottom, rgba(28, 53, 94, 1), rgba(28, 53, 94, 0));
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero {
-        min-height: auto;
-        padding: 6rem 0;
+        font-family: var(--font-body);
+        font-size: 1.2rem;
+        line-height: 1.9;
+        color: #2e2e2e;
+        max-width: 800px;
+        margin: 0 auto;
+        opacity: 0.9;
+        letter-spacing: 0.01em;
+        animation: fadeInUp 1.2s ease-out both;
     }
 
-    .hero h1 {
-        font-size: 2.5rem;
+    @media (max-width: 768px) {
+        .intro-text {
+            padding: 4rem 1.5rem;
+        }
+
+        .intro-description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
     }
 
-    .hero .tagline {
-        font-size: 1.5rem;
-        white-space: normal;
+    .hero::after {
+        content: "";
+        display: block;
+        height: 60px;
+        background: linear-gradient(to bottom, rgba(28, 53, 94, 1), rgba(28, 53, 94, 0));
     }
 
-    .hero-description {
-        font-size: 1.1rem;
-        padding: 0 20px;
-    }
-}
-
-@media (max-width: 576px) {
-    .hero h1 {
-        font-size: 2rem;
-        letter-spacing: 0.15em;
-    }
-
-    .hero .tagline {
-        font-size: 1.25rem;
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
-    .hero-description {
-        font-size: 1rem;
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .hero {
+            min-height: auto;
+            padding: 6rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            white-space: normal;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            padding: 0 20px;
+        }
     }
-}
 
-.intro-logo {
-    margin-top: 2.5rem;
-    display: flex;
-    justify-content: center;
-}
+    @media (max-width: 576px) {
+        .hero h1 {
+            font-size: 2rem;
+            letter-spacing: 0.15em;
+        }
 
-.intro-logo-img {
-    height: 70px;
-    opacity: 0.9;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
+        .hero .tagline {
+            font-size: 1.25rem;
+        }
 
-.intro-logo-img:hover {
-    transform: scale(1.05);
-    opacity: 1;
-}
+        .hero-description {
+            font-size: 1rem;
+        }
+    }
 
-@media (max-width: 768px) {
+    .intro-logo {
+        margin-top: 2.5rem;
+        display: flex;
+        justify-content: center;
+    }
+
     .intro-logo-img {
-        height: 40px;
+        height: 70px;
+        opacity: 0.9;
+        transition: transform 0.3s ease, opacity 0.3s ease;
     }
-}
 
-.footer {
-    background-color: #e9dcc9;
-    padding: 2rem 0;
-    margin-top: 4rem;
-}
-.footer .social-link {
-    font-size: 1.5rem;
-    color: #1c355e;
-    transition: color 0.3s ease;
-}
-.footer .social-link:hover {
-    color: #f2b950;
-}
+    .intro-logo-img:hover {
+        transform: scale(1.05);
+        opacity: 1;
+    }
 
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-heading);
-}
+    @media (max-width: 768px) {
+        .intro-logo-img {
+            height: 40px;
+        }
+    }
 
-.lead,
-blockquote {
-    font-family: var(--font-accent);
-}
+    .footer {
+        background-color: #e9dcc9;
+        padding: 2rem 0;
+        margin-top: 4rem;
+    }
+    .footer .social-link {
+        font-size: 1.5rem;
+        color: #1c355e;
+        transition: color 0.3s ease;
+    }
+    .footer .social-link:hover {
+        color: #f2b950;
+    }
 
-/* Skill sets */
-.skill-set {
-    font-family: var(--font-body);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #2e2e2e;
-    opacity: 0.9;
-}
+    /* Typography */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-heading);
+    }
 
-/* Tools section */
-.tool-logo {
-    transition: transform 0.3s ease;
-    filter: grayscale(100%) opacity(70%);
-}
+    .lead,
+    blockquote {
+        font-family: var(--font-accent);
+    }
 
-.tool-logo:hover {
-    transform: translateY(-5px);
-    filter: grayscale(0%) opacity(100%);
-}
+    /* Skill sets */
+    .skill-set {
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #2e2e2e;
+        opacity: 0.9;
+    }
 
-.tool-name {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: #2e2e2e;
-    opacity: 0.8;
-}
+    /* Tools section */
+    .tool-logo {
+        transition: transform 0.3s ease;
+        filter: grayscale(100%) opacity(70%);
+    }
 
-/* About page sections */
-.about-section {
-    background-color: #f9f9f9;
-}
+    .tool-logo:hover {
+        transform: translateY(-5px);
+        filter: grayscale(0%) opacity(100%);
+    }
 
-.about-section.bg-light {
-    background-color: #1c355e !important;
-    color: #f9f9f9;
-}
+    .tool-name {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: #2e2e2e;
+        opacity: 0.8;
+    }
 
-.badge.text-bg-primary {
-    background-color: #1c355e !important;
-    color: #f9f9f9 !important;
-}
+    /* About page sections */
+    .about-section {
+        background-color: #f9f9f9;
+    }
 
-.card-quote {
-    background-color: #f9f9f9;
-    border-left: 5px solid #f2b950;
-}
+    .about-section.bg-light {
+        background-color: #1c355e !important;
+        color: #f9f9f9;
+    }
 
-.btn-primary {
-    background-color: #f2b950;
-    border-color: #2e2e2e;
-    color: #f9f9f9;
-}
+    .badge.text-bg-primary {
+        background-color: #1c355e !important;
+        color: #f9f9f9 !important;
+    }
 
-.btn-primary:hover {
-    background-color: #f2b950;
-    border-color: #f2b950;
-    color: #1c355e;
-}
+    .card-quote {
+        background-color: #f9f9f9;
+        border-left: 5px solid #f2b950;
+    }
 
-.text-primary {
-    color: #1c355e !important;
-}
+    .btn-primary {
+        background-color: #f2b950;
+        border-color: #2e2e2e;
+        color: #f9f9f9;
+    }
 
-.text-muted {
-    color: #2e2e2e !important;
-    opacity: 0.7;
-}
+    .btn-primary:hover {
+        background-color: #f2b950;
+        border-color: #f2b950;
+        color: #1c355e;
+    }
 
-/*# sourceMappingURL=main.css.map */
+    .text-primary {
+        color: #1c355e !important;
+    }
+
+    .text-muted {
+        color: #2e2e2e !important;
+        opacity: 0.7;
+    }
+
+    /*# sourceMappingURL=main.css.map */
+}
