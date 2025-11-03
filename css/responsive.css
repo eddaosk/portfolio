@@ -1,0 +1,94 @@
+/* General Responsive Styles */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+
+    .projects .project-row {
+        margin-bottom: 4rem;
+    }
+
+    .about-section {
+        padding: 4rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    .navbar-toggler {
+        border: none;
+        padding: 0.25rem 0;
+    }
+
+    .skill-set {
+        font-size: 1rem;
+    }
+
+    .footer {
+        padding: 1.5rem 0;
+        margin-top: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    .projects .project-row {
+        margin-bottom: 3rem;
+    }
+
+    .about-section {
+        padding: 3rem 0;
+    }
+
+    .card-quote {
+        margin: 1rem 0;
+    }
+}
+
+/* Utilities for better mobile experience */
+@media (max-width: 768px) {
+    .my-md-4 {
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .py-md-4 {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+
+    .text-center-mobile {
+        text-align: center !important;
+    }
+}
