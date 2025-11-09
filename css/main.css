@@ -293,6 +293,18 @@ blockquote {
   }
 }
 
+.about-portrait {
+  width: 100%;
+  transition: all 0.3s ease;
+}
+@media (max-width: 767.98px) {
+  .about-portrait {
+    height: 300px;
+    object-fit: cover;
+    object-position: center 90%;
+  }
+}
+
 .badge.text-bg-primary {
   background-color: #1c355e !important;
   color: #f9f9f9 !important;
