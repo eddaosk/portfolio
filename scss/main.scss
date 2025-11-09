@@ -1,3 +1,8 @@
+// Import Bootstrap functions, variables, and mixins for breakpoints
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
 /* ==============================
    Font families
 ============================== */
@@ -64,6 +69,15 @@ body {
             color: #1c355e;
         }
     }
+
+    .navbar-toggler {
+        border: none;
+        padding: 0.25rem 0;
+    }
+
+    @include media-breakpoint-down(lg) {
+        padding: 0.5rem 1rem;
+    }
 }
 
 /* ==============================
@@ -102,7 +116,7 @@ body {
         margin: 0 auto;
         white-space: nowrap;
 
-        @media (max-width: 992px) {
+        @include media-breakpoint-down(lg) {
             white-space: normal;
             font-size: 1.4rem;
         }
@@ -115,7 +129,7 @@ body {
         background: linear-gradient(to bottom, rgba(28, 53, 94, 1), rgba(28, 53, 94, 0));
     }
 
-    @media (max-width: 768px) {
+    @include media-breakpoint-down(md) {
         min-height: auto;
         padding: 6rem 0;
 
@@ -129,7 +143,7 @@ body {
         }
     }
 
-    @media (max-width: 576px) {
+    @include media-breakpoint-down(sm) {
         h1 {
             font-size: 2rem;
             letter-spacing: 0.15em;
@@ -149,7 +163,7 @@ body {
     padding: 5rem 1.5rem 6rem;
     text-align: center;
 
-    @media (max-width: 768px) {
+    @include media-breakpoint-down(md) {
         padding: 4rem 1.5rem;
     }
 }
@@ -165,7 +179,7 @@ body {
     letter-spacing: 0.01em;
     animation: fadeInUp 1.2s ease-out both;
 
-    @media (max-width: 768px) {
+    @include media-breakpoint-down(md) {
         font-size: 1.05rem;
         line-height: 1.7;
     }
@@ -200,7 +214,7 @@ body {
             opacity: 1;
         }
 
-        @media (max-width: 768px) {
+        @include media-breakpoint-down(md) {
             height: 40px;
         }
     }
@@ -222,6 +236,11 @@ body {
         &:hover {
             color: #f2b950;
         }
+    }
+
+    @include media-breakpoint-down(md) {
+        padding: 1.5rem 0;
+        margin-top: 3rem;
     }
 }
 
@@ -251,6 +270,10 @@ blockquote {
     line-height: 1.6;
     color: #2e2e2e;
     opacity: 0.9;
+
+    @include media-breakpoint-down(md) {
+        font-size: 1rem;
+    }
 }
 
 .tool-logo {
@@ -280,6 +303,14 @@ blockquote {
         background-color: #1c355e !important;
         color: #f9f9f9;
     }
+
+    @include media-breakpoint-down(lg) {
+        padding: 4rem 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+        padding: 3rem 0;
+    }
 }
 
 .badge.text-bg-primary {
@@ -290,6 +321,10 @@ blockquote {
 .card-quote {
     background-color: #f9f9f9;
     border-left: 5px solid #f2b950;
+
+    @include media-breakpoint-down(sm) {
+        margin: 1rem 0;
+    }
 }
 
 .btn-primary {
