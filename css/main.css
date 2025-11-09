@@ -304,7 +304,14 @@ blockquote {
   .about-portrait {
     height: 300px;
     object-fit: cover;
-    object-position: center 90%;
+    object-position: center 70%;
+  }
+}
+@media (max-width: 575.98px) {
+  .about-portrait {
+    height: 300px;
+    object-fit: cover;
+    object-position: center 88%;
   }
 }
 
