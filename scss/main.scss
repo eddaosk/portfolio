@@ -1,4 +1,6 @@
 // Import Bootstrap functions, variables, and mixins for breakpoints
+// Using @import as Bootstrap 5.3 doesn't fully support @use yet
+// Bootstrap 6 will use the module system - this will be updated then
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins/breakpoints";
@@ -325,11 +327,17 @@ blockquote {
 .about-portrait {
     width: 100%;
     transition: all 0.3s ease;
-
+    
     @include media-breakpoint-down(md) {
         height: 300px;
         object-fit: cover;
-        object-position: center 90%;
+        object-position: center 70%;
+    }
+    
+    @include media-breakpoint-down(sm) {
+        height: 300px;
+        object-fit: cover;
+        object-position: center 88%;
     }
 }
 
