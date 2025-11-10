@@ -4,7 +4,7 @@
     "description": "Portfolio website for Edda Ósk Óskarsdóttir",
     "main": "index.html",
     "scripts": {
-        "sass": "sass --load-path=node_modules scss:css --watch",
+        "sass": "sass --load-path=node_modules scss:css --watch --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions",
         "start": "live-server ."
     },
     "author": "Edda Ósk Óskarsdóttir",

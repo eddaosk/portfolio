@@ -1,4 +1,7 @@
 /* ==============================
+   Color Variables
+============================== */
+/* ==============================
    Font families
 ============================== */
 :root {
@@ -56,6 +59,15 @@ body {
 .navbar .nav-link.active {
   color: #1c355e;
 }
+.navbar .navbar-toggler {
+  border: none;
+  padding: 0.25rem 0;
+}
+@media (max-width: 991.98px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+}
 
 /* ==============================
    Hero section
@@ -91,7 +103,7 @@ body {
   margin: 0 auto;
   white-space: nowrap;
 }
-@media (max-width: 992px) {
+@media (max-width: 991.98px) {
   .hero .tagline {
     white-space: normal;
     font-size: 1.4rem;
@@ -103,7 +115,7 @@ body {
   height: 60px;
   background: linear-gradient(to bottom, rgb(28, 53, 94), rgba(28, 53, 94, 0));
 }
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .hero {
     min-height: auto;
     padding: 6rem 0;
@@ -116,7 +128,7 @@ body {
     white-space: normal;
   }
 }
-@media (max-width: 576px) {
+@media (max-width: 575.98px) {
   .hero h1 {
     font-size: 2rem;
     letter-spacing: 0.15em;
@@ -134,7 +146,7 @@ body {
   padding: 5rem 1.5rem 6rem;
   text-align: center;
 }
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .intro-text {
     padding: 4rem 1.5rem;
   }
@@ -151,7 +163,7 @@ body {
   letter-spacing: 0.01em;
   animation: fadeInUp 1.2s ease-out both;
 }
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .intro-description {
     font-size: 1.05rem;
     line-height: 1.7;
@@ -185,7 +197,7 @@ body {
   transform: scale(1.05);
   opacity: 1;
 }
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .intro-logo img {
     height: 40px;
   }
@@ -206,6 +218,12 @@ body {
 }
 .footer .social-link:hover {
   color: #f2b950;
+}
+@media (max-width: 767.98px) {
+  .footer {
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+  }
 }
 
 /* ==============================
@@ -235,6 +253,11 @@ blockquote {
   color: #2e2e2e;
   opacity: 0.9;
 }
+@media (max-width: 767.98px) {
+  .skill-set {
+    font-size: 1rem;
+  }
+}
 
 .tool-logo {
   transition: transform 0.3s ease;
@@ -262,6 +285,35 @@ blockquote {
   background-color: #1c355e !important;
   color: #f9f9f9;
 }
+@media (max-width: 991.98px) {
+  .about-section {
+    padding: 4rem 0;
+  }
+}
+@media (max-width: 575.98px) {
+  .about-section {
+    padding: 3rem 0;
+  }
+}
+
+.about-portrait {
+  width: 100%;
+  transition: all 0.3s ease;
+}
+@media (max-width: 767.98px) {
+  .about-portrait {
+    height: 300px;
+    object-fit: cover;
+    object-position: center 70%;
+  }
+}
+@media (max-width: 575.98px) {
+  .about-portrait {
+    height: 300px;
+    object-fit: cover;
+    object-position: center 88%;
+  }
+}
 
 .badge.text-bg-primary {
   background-color: #1c355e !important;
@@ -271,6 +323,11 @@ blockquote {
 .card-quote {
   background-color: #f9f9f9;
   border-left: 5px solid #f2b950;
+}
+@media (max-width: 575.98px) {
+  .card-quote {
+    margin: 1rem 0;
+  }
 }
 
 .btn-primary {
