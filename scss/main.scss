@@ -1,3 +1,19 @@
+// Import Bootstrap functions, variables, and mixins for breakpoints
+// Using @import as Bootstrap 5.3 doesn't fully support @use yet
+// Bootstrap 6 will use the module system - this will be updated then
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
+/* ==============================
+   Color Variables
+============================== */
+$color-primary: #1c355e;      // Navy blue
+$color-accent: #f2b950;       // Gold
+$color-background: #f9f9f9;   // Off-white
+$color-text: #2e2e2e;         // Dark gray
+$color-footer-bg: #e9dcc9;    // Beige
+
 /* ==============================
    Font families
 ============================== */
@@ -12,8 +28,8 @@
 ============================== */
 body {
     font-family: var(--font-body);
-    color: #2e2e2e;
-    background-color: #f9f9f9;
+    color: $color-text;
+    background-color: $color-background;
 }
 
 /* ==============================
@@ -28,7 +44,7 @@ body {
         }
     }
 
-    @media (min-width: 992px) {
+    @include media-breakpoint-up(lg) {
         .project-row {
             margin-bottom: 8rem;
         }
@@ -43,26 +59,35 @@ body {
    Navbar
 ============================== */
 .navbar {
-    background-color: #f9f9f9;
+    background-color: $color-background;
     padding: 1rem 0;
     transition: all 0.3s ease;
 
     .navbar-brand {
         font-weight: 600;
-        color: #1c355e;
+        color: $color-primary;
     }
 
     .nav-link {
-        color: #2e2e2e;
+        color: $color-text;
         transition: color 0.3s ease;
 
         &:hover {
-            color: #f2b950;
+            color: $color-accent;
         }
 
         &.active {
-            color: #1c355e;
+            color: $color-primary;
         }
+    }
+
+    .navbar-toggler {
+        border: none;
+        padding: 0.25rem 0;
+    }
+
+    @include media-breakpoint-down(lg) {
+        padding: 0.5rem 1rem;
     }
 }
 
@@ -70,7 +95,7 @@ body {
    Hero section
 ============================== */
 .hero {
-    background: #1c355e;
+    background: $color-primary;
     padding: 8rem 1.5rem 6rem;
     text-align: center;
 
@@ -78,14 +103,14 @@ body {
         font-family: var(--font-heading);
         font-weight: 700;
         letter-spacing: 0.2em;
-        color: #f9f9f9;
+        color: $color-background;
         margin-bottom: 1rem;
         font-size: clamp(2rem, 5vw, 4rem);
     }
 
     .lead {
         letter-spacing: 0.15em;
-        color: #f2b950;
+        color: $color-accent;
         opacity: 0.95;
         font-weight: 500;
         margin-bottom: 1.5rem;
@@ -93,7 +118,7 @@ body {
 
     .tagline {
         font-family: var(--font-accent);
-        color: #e9dcc9;
+        color: $color-footer-bg;
         font-size: clamp(1.2rem, 2vw, 1.8rem);
         letter-spacing: 0.05em;
         line-height: 1.4;
@@ -102,7 +127,7 @@ body {
         margin: 0 auto;
         white-space: nowrap;
 
-        @media (max-width: 992px) {
+        @include media-breakpoint-down(lg) {
             white-space: normal;
             font-size: 1.4rem;
         }
@@ -115,7 +140,7 @@ body {
         background: linear-gradient(to bottom, rgba(28, 53, 94, 1), rgba(28, 53, 94, 0));
     }
 
-    @media (max-width: 768px) {
+    @include media-breakpoint-down(md) {
         min-height: auto;
         padding: 6rem 0;
 
@@ -129,7 +154,7 @@ body {
         }
     }
 
-    @media (max-width: 576px) {
+    @include media-breakpoint-down(sm) {
         h1 {
             font-size: 2rem;
             letter-spacing: 0.15em;
@@ -145,11 +170,11 @@ body {
    Intro section
 ============================== */
 .intro-text {
-    background-color: #f9f9f9;
+    background-color: $color-background;
     padding: 5rem 1.5rem 6rem;
     text-align: center;
 
-    @media (max-width: 768px) {
+    @include media-breakpoint-down(md) {
         padding: 4rem 1.5rem;
     }
 }
@@ -158,14 +183,14 @@ body {
     font-family: var(--font-body);
     font-size: 1.2rem;
     line-height: 1.9;
-    color: #2e2e2e;
+    color: $color-text;
     max-width: 800px;
     margin: 0 auto;
     opacity: 0.9;
     letter-spacing: 0.01em;
     animation: fadeInUp 1.2s ease-out both;
 
-    @media (max-width: 768px) {
+    @include media-breakpoint-down(md) {
         font-size: 1.05rem;
         line-height: 1.7;
     }
@@ -200,7 +225,7 @@ body {
             opacity: 1;
         }
 
-        @media (max-width: 768px) {
+        @include media-breakpoint-down(md) {
             height: 40px;
         }
     }
@@ -210,18 +235,23 @@ body {
    Footer
 ============================== */
 .footer {
-    background-color: #e9dcc9;
+    background-color: $color-footer-bg;
     padding: 2rem 0;
     margin-top: 4rem;
 
     .social-link {
         font-size: 1.5rem;
-        color: #1c355e;
+        color: $color-primary;
         transition: color 0.3s ease;
 
         &:hover {
-            color: #f2b950;
+            color: $color-accent;
         }
+    }
+
+    @include media-breakpoint-down(md) {
+        padding: 1.5rem 0;
+        margin-top: 3rem;
     }
 }
 
@@ -249,8 +279,12 @@ blockquote {
     font-family: var(--font-body);
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #2e2e2e;
+    color: $color-text;
     opacity: 0.9;
+
+    @include media-breakpoint-down(md) {
+        font-size: 1rem;
+    }
 }
 
 .tool-logo {
@@ -266,7 +300,7 @@ blockquote {
 .tool-name {
     font-family: var(--font-body);
     font-size: 0.9rem;
-    color: #2e2e2e;
+    color: $color-text;
     opacity: 0.8;
 }
 
@@ -274,41 +308,70 @@ blockquote {
    About page & UI components
 ============================== */
 .about-section {
-    background-color: #f9f9f9;
+    background-color: $color-background;
 
     &.bg-light {
-        background-color: #1c355e !important;
-        color: #f9f9f9;
+        background-color: $color-primary !important;
+        color: $color-background;
+    }
+
+    @include media-breakpoint-down(lg) {
+        padding: 4rem 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+        padding: 3rem 0;
+    }
+}
+
+.about-portrait {
+    width: 100%;
+    transition: all 0.3s ease;
+    
+    @include media-breakpoint-down(md) {
+        height: 300px;
+        object-fit: cover;
+        object-position: center 70%;
+    }
+    
+    @include media-breakpoint-down(sm) {
+        height: 300px;
+        object-fit: cover;
+        object-position: center 88%;
     }
 }
 
 .badge.text-bg-primary {
-    background-color: #1c355e !important;
-    color: #f9f9f9 !important;
+    background-color: $color-primary !important;
+    color: $color-background !important;
 }
 
 .card-quote {
-    background-color: #f9f9f9;
-    border-left: 5px solid #f2b950;
+    background-color: $color-background;
+    border-left: 5px solid $color-accent;
+
+    @include media-breakpoint-down(sm) {
+        margin: 1rem 0;
+    }
 }
 
 .btn-primary {
-    background-color: #f2b950;
-    border-color: #2e2e2e;
-    color: #f9f9f9;
+    background-color: $color-accent;
+    border-color: $color-text;
+    color: $color-background;
 
     &:hover {
-        background-color: #f2b950;
-        border-color: #f2b950;
-        color: #1c355e;
+        background-color: $color-accent;
+        border-color: $color-accent;
+        color: $color-primary;
     }
 }
 
 .text-primary {
-    color: #1c355e !important;
+    color: $color-primary !important;
 }
 
 .text-muted {
-    color: #2e2e2e !important;
+    color: $color-text !important;
     opacity: 0.7;
 }
