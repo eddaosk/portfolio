@@ -8,11 +8,11 @@
 /* ==============================
    Color Variables
 ============================== */
-$color-primary: #1c355e;      // Navy blue
-$color-accent: #f2b950;       // Gold
-$color-background: #f9f9f9;   // Off-white
-$color-text: #2e2e2e;         // Dark gray
-$color-footer-bg: #e9dcc9;    // Beige
+$color-primary: #1c355e; // Navy blue
+$color-accent: #f2b950; // Gold
+$color-background: #f9f9f9; // Off-white
+$color-text: #2e2e2e; // Dark gray
+$color-footer-bg: #e9dcc9; // Beige
 
 /* ==============================
    Font families
@@ -35,44 +35,15 @@ body {
 /* ==============================
    Projects section
 ============================== */
-.projects {
-    .project-row {
-        margin-bottom: 3rem;
+.project-row {
+    margin-bottom: 150px;
 
-        p {
-            text-align: justify;
-        }
-
-        &:last-child {
-            margin-bottom: 0;
-        }
+    p {
+        text-align: justify;
     }
 
-    @include media-breakpoint-up(lg) {
-        .project-row {
-            margin-bottom: 8rem;
-        }
-        
-        .project-list > .project-row:nth-child(even) {
-            flex-direction: row-reverse;
-            
-            .textual {
-                direction: rtl;
-            }
-        }
-    }
-}
-
-/* ==============================
-   Navbar
-============================== */
-.navbar {
-    background-color: $color-background;
-    padding: 1rem 0;
-    transition: all 0.3s ease;
-
-    .navbar-brand {
-        font-weight: 600;
+    &:last-child {
+        margin-bottom: 0;
         color: $color-primary;
     }
 
@@ -270,7 +241,7 @@ body {
         padding: 0 3rem;
 
         &:not(:last-child)::after {
-            content: '';
+            content: "";
             position: absolute;
             right: 0;
             top: 50%;
@@ -282,7 +253,7 @@ body {
 
         @include media-breakpoint-down(md) {
             padding: 1rem;
-            
+
             &:not(:last-child)::after {
                 display: none;
             }
@@ -406,13 +377,13 @@ blockquote {
 .about-portrait {
     width: 100%;
     transition: all 0.3s ease;
-    
+
     @include media-breakpoint-down(md) {
         height: 300px;
         object-fit: cover;
         object-position: center 70%;
     }
-    
+
     @include media-breakpoint-down(sm) {
         height: 300px;
         object-fit: cover;
@@ -459,17 +430,213 @@ blockquote {
 .project-carousel {
     border-radius: 0.375rem; // Matches Bootstrap .rounded class
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    
+    height: 100%;
+
+    .carousel-inner,
     .carousel-item {
-        height: 400px;
+        height: 100%;
         background-color: #f0f0f0; // Placeholder color
-        
-        img, video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
+    }
+
+    .carousel-item img,
+    .carousel-item video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+}
+
+// Sticky A4 wrapper for carousels
+.carousel-wrapper {
+    position: relative;
+    aspect-ratio: 297 / 210; // A4 Landscape
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+
+    @include media-breakpoint-up(lg) {
+        position: sticky;
+        top: 40px; // Critical for sticky behavior
+    }
+}
+
+// Slide counter badge overlay
+.slide-counter {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    padding: 4px 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    line-height: 1;
+    letter-spacing: 0.02em;
+}
+
+// Text column structure
+.textual {
+    padding-left: 1rem; // Give the text a little breathing room from the carousel
+
+    // 1. HEADER UNIT SPACING REFINEMENT
+    h2 {
+        font-size: clamp(2rem, 3vw, 2.5rem);
+        color: $color-primary;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1rem; // Increased space below title
+    }
+
+    h4 {
+        font-weight: 400; // Keep subtitle lighter
+        color: darken($color-text, 15%);
+        font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+        margin-bottom: 2rem; // Significant space below subheading
+    }
+
+    // Retain tag styling
+    .tags {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.06rem;
+        color: rgba($color-text, 0.7);
+        border-left: 3px solid $color-accent;
+        padding-left: 0.5rem;
+        margin-bottom: 0; // Spacing is handled by the pitch
+    }
+
+    // 2. PITCH SEPARATION
+    .fw-bold {
+        color: darken($color-text, 8%);
+        line-height: 1.7;
+        font-size: clamp(1rem, 1.6vw, 1.15rem);
+        margin-top: 3rem; // Clear gap between metadata and pitch
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba($color-text, 0.05);
+    }
+
+    // 3. INNER CONTENT & CONTRAST FIXES
+    details.deep-dive {
+        summary {
+            list-style: none;
+            cursor: pointer;
+            color: $color-primary;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s ease;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "▸";
+            font-size: 0.95rem;
+            line-height: 1;
+            transform: translateY(1px);
+            transition: transform 0.2s ease, color 0.2s ease;
+            color: $color-primary;
+        }
+
+        summary:hover {
+            color: $color-accent;
+        }
+
+        &[open] summary::after {
+            content: "▾";
+            color: $color-accent;
+        }
+
+        .deep-content {
+            // Inner Headers (H5) Contrast Fix: Navy text with Gold Accent
+            h5 {
+                color: $color-primary !important; // Accessible Navy Blue Text
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                line-height: 1.1;
+
+                // Gold Accent Border (retains brand color pop)
+                border-bottom: 3px solid $color-accent;
+                padding-bottom: 0.25rem;
+
+                // Maximize vertical separation between inner sections
+                margin-top: 4rem; // Large top gap for clear section break
+                margin-bottom: 1.25rem;
+            }
+
+            // Body Text (P/LI) Size and Line Height
+            p,
+            li {
+                font-size: 1.1rem; // Increased size for comfort reading
+                line-height: 1.8; // Increased line height for better rhythm
+                color: darken($color-text, 5%);
+                margin-bottom: 0.75rem;
+            }
+
+            ul {
+                padding-left: 1.5rem;
+                margin-bottom: 2.5rem; // More space below lists
+            }
+        }
+    }
+}
+
+// Details/summary styling for the deep dive
+details.deep-dive {
+    margin-top: 1rem; // add whitespace above the accordion
+    border-top: 1px solid rgba($color-text, 0.15);
+    padding-top: 0.75rem;
+
+    summary {
+        list-style: none;
+        cursor: pointer;
+        color: $color-primary;
+        text-decoration: underline;
+        font-weight: 500;
+        outline: none;
+    }
+
+    // Remove default marker
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .deep-content {
+        margin-top: 0.75rem;
+
+        h5 {
+            font-size: 1rem; // Slight bump to match new body size
+            color: $color-primary; // High-contrast navy for accessibility
+            border-bottom: 3px solid $color-accent; // Gold underline anchor
+            padding-bottom: 0.25rem;
+            font-weight: 800; // Extra bold
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            line-height: 1.1;
+            margin-top: 4rem; // significant spacing above new sections
+            margin-bottom: 1.25rem;
+        }
+
+        p,
+        li {
+            font-size: 1.1rem; // increased size for comfort reading
+            line-height: 1.8; // improved vertical rhythm
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            margin-bottom: 2.5rem; // add more space below the list
+            padding-left: 1.2rem;
         }
     }
 }
