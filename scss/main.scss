@@ -17,6 +17,32 @@ $color-footer-bg: #e9dcc9; // Beige
 /* ==============================
    Projects section
 ============================== */
+.projects {
+    // 1. PAGE TITLE STYLING
+    h1 {
+        font-family: var(--font-heading);
+        font-weight: 700; // Bold
+        color: $color-primary; // Navy Blue
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        position: relative;
+        display: inline-block;
+
+        // *** SPACING FIX ***
+        margin-bottom: 4rem; // Huge gap below the title (approx 64px)
+
+        // Gold Underline
+        &::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: $color-accent;
+            margin: 1.5rem auto 0; // Space between text and line
+            border-radius: 2px;
+        }
+    }
+}
 // Project Row Layout
 .project-row {
     // 1. DEFAULT SEPARATION (For Odd Rows)
@@ -416,6 +442,76 @@ blockquote {
 
     @include media-breakpoint-down(sm) {
         margin: 1rem 0;
+    }
+}
+
+/* ==============================
+   About Page Headers
+============================== */
+
+// 1. MAIN TITLE ("About Me") - Left Aligned
+// Matches the project page brand, but aligned to the text
+.about-intro h1 {
+    font-family: var(--font-heading);
+    font-weight: 700; // Bold
+    color: $color-primary; // Navy
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+
+    // Gold Underline (Left Aligned)
+    &::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background-color: $color-accent; // Gold
+        margin-top: 0.5rem; // Space below text
+        border-radius: 2px;
+    }
+}
+
+// 2. SUB-HEADINGS ("How I work", "What I can do")
+.about-intro h2 {
+    font-family: var(--font-heading);
+    color: $color-primary;
+    font-weight: 700;
+    font-size: 1.5rem; // Clear hierarchy (smaller than H1)
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    // No underline for these sub-points
+}
+
+// 3. CENTERED SECTION TITLES ("Skills", "Tools")
+// These behave like the "My Projects" title (Centered)
+.skill-section h2,
+.tools-section h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: $color-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 2.5rem; // Large section impact
+    position: relative;
+    display: inline-block;
+    margin-bottom: 4rem; // Good separation from content
+
+    // Gold Underline (Centered)
+    &::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background-color: $color-accent;
+        margin: 1rem auto 0; // Auto margin centers it
+        border-radius: 2px;
+    }
+
+    // Responsive size
+    @include media-breakpoint-down(md) {
+        font-size: 2rem;
     }
 }
 
