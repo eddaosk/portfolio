@@ -346,12 +346,12 @@ $color-footer-bg: #e9dcc9; // Beige
         object-fit: contain;
         opacity: 0.7;
         transition: all 0.3s ease;
-        filter: grayscale(100%);
+        filter: saturate(30%);
         display: block;
 
         &:hover {
             opacity: 1;
-            filter: grayscale(0%);
+            filter: saturate(100%);
             transform: translateY(-5px);
         }
 
@@ -1042,13 +1042,13 @@ blockquote {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        // Default: grayscale; Hover: restore color
-        filter: grayscale(100%);
+        // Default: desaturate; Hover: restore full color
+        filter: saturate(30%);
         // Subtle hover effect
         transition: transform 0.4s ease, filter 0.3s ease;
         &:hover {
             transform: scale(1.03);
-            filter: grayscale(0%);
+            filter: saturate(100%);
         }
     }
 }
