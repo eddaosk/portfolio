@@ -816,6 +816,25 @@ blockquote {
 .textual details.deep-dive .deep-content ul {
   padding-left: 1.2rem;
 }
+.textual details.deep-dive .deep-content {
+  /* ==============================
+     Project Links Inside Deep Dive
+  ============================== */
+}
+.textual details.deep-dive .deep-content .project-links-inside {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(28, 53, 94, 0.1);
+}
+.textual details.deep-dive .deep-content .project-links-inside a.project-link {
+  font-weight: 600;
+  color: #1c355e;
+  text-decoration: underline;
+  display: inline-block;
+}
+.textual details.deep-dive .deep-content .project-links-inside a.project-link:hover {
+  color: #f2b950;
+}
 
 /* ==============================
    About Page Hobby Masonry Grid

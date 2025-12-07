@@ -952,6 +952,27 @@ blockquote {
             ul {
                 padding-left: 1.2rem;
             }
+
+            /* ==============================
+               Project Links Inside Deep Dive
+            ============================== */
+            .project-links-inside {
+                margin-top: 3rem; // Significant spacing to separate link from content above
+                padding-top: 1rem; // Small padding above the link
+                border-top: 1px solid rgba($color-primary, 0.1); // Light separator line
+
+                // Styling for the text link itself
+                a.project-link {
+                    font-weight: 600; // Semi-bold for emphasis
+                    color: $color-primary; // Navy link color
+                    text-decoration: underline;
+                    display: inline-block;
+
+                    &:hover {
+                        color: $color-accent; // Gold hover
+                    }
+                }
+            }
         }
     }
 }
