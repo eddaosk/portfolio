@@ -4,6 +4,26 @@
 /* ==============================
    Projects section
 ============================== */
+.projects h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #1c355e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 4rem;
+}
+.projects h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #f2b950;
+  margin: 1.5rem auto 0;
+  border-radius: 2px;
+}
+
 .project-row {
   padding-bottom: 4rem;
   margin-bottom: 4rem;
@@ -378,6 +398,67 @@ blockquote {
 @media (max-width: 575.98px) {
   .card-quote {
     margin: 1rem 0;
+  }
+}
+
+/* ==============================
+   About Page Headers
+============================== */
+.about-intro h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #1c355e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+.about-intro h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #f2b950;
+  margin-top: 0.5rem;
+  border-radius: 2px;
+}
+
+.about-intro h2 {
+  font-family: var(--font-heading);
+  color: #1c355e;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.skill-section h2,
+.tools-section h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #1c355e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 2.5rem;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 4rem;
+}
+.skill-section h2::after,
+.tools-section h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #f2b950;
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+@media (max-width: 767.98px) {
+  .skill-section h2,
+  .tools-section h2 {
+    font-size: 2rem;
   }
 }
 
