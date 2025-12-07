@@ -80,17 +80,6 @@ $color-footer-bg: #e9dcc9; // Beige
         text-align: justify;
     }
 
-    .nav-link {
-        color: $color-text;
-        transition: color 0.3s ease;
-        &:hover {
-            color: $color-accent;
-        }
-        &.active {
-            color: $color-primary;
-        }
-    }
-
     .navbar-toggler {
         border: none;
         padding: 0.25rem 0;
@@ -189,12 +178,13 @@ $color-footer-bg: #e9dcc9; // Beige
    Intro section
 ============================== */
 .intro-text {
-    background-color: $color-background;
-    padding: 5rem 1.5rem 6rem;
+    background-color: transparent; // Remove off-white background behind intro-description
+    // REMOVE bottom padding which is now controlled by the card's position
+    padding: 5rem 1.5rem 0;
     text-align: center;
 
     @include media-breakpoint-down(md) {
-        padding: 4rem 1.5rem;
+        padding: 4rem 1.5rem 0;
     }
 }
 
@@ -248,13 +238,19 @@ $color-footer-bg: #e9dcc9; // Beige
    Logos
 ============================== */
 .intro-logo {
-    margin-top: 2.5rem;
+    margin-top: 2rem; // Space above the logo container
     display: flex;
     justify-content: center;
+    margin-bottom: 4rem; // Increased space below the heart logo for better UX/UI
+
+    @include media-breakpoint-down(md) {
+        margin-bottom: 3rem; // Slightly reduced on mobile to maintain balance
+    }
 
     img {
         width: 70px;
-        margin: 55px 0px;
+        // SIGNIFICANTLY REDUCED MARGINS: Removed the original 55px vertical margins
+        margin: 0;
         opacity: 0.9;
         transition: transform 0.3s ease, opacity 0.3s ease;
         animation: heartbeat 1.5s infinite ease-in-out;
@@ -269,31 +265,74 @@ $color-footer-bg: #e9dcc9; // Beige
     }
 }
 
+.intro-divider {
+    width: 100%;
+    max-width: 900px;
+    height: 2px; // thinner divider
+    background-color: $color-accent; // Gold
+    border-radius: 1px;
+    margin: 1.5rem auto 2rem; // spacing between heart and logos
+
+    @include media-breakpoint-down(md) {
+        height: 2px;
+        margin: 1rem auto 1.5rem;
+    }
+}
+
 .project-icons-row {
     margin-top: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    // Add spacing between icons (column and row gaps)
+    gap: 1.5rem 3rem;
+
+    @include media-breakpoint-down(lg) {
+        gap: 1.25rem 2.5rem;
+    }
+
+    @include media-breakpoint-down(md) {
+        // Extra breathing room when icons stack into two rows
+        gap: 1.25rem 2rem;
+        margin-top: 2rem;
+    }
+
+    // Ensure all logos stay in one line on desktop/laptop screens
+    @include media-breakpoint-up(lg) {
+        flex-wrap: nowrap;
+    }
+
+    // ADD NEW RULES FOR PREDICTABLE STACKING ON MOBILE/TABLET
+    @include media-breakpoint-down(lg) {
+        // Tablet: Ensure they wrap cleanly, allowing for 3 logos per row
+        .project-icon-wrapper {
+            flex-basis: 30%;
+            margin-bottom: 3rem; /* Adds space between wrapped rows */
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        // Mobile: Ensure they stack as 2 logos per row
+        .project-icon-wrapper {
+            flex-basis: 45%;
+            margin-bottom: 3rem;
+        }
+    }
 
     .project-icon-wrapper {
         position: relative;
-        padding: 0 3rem;
+        // Simplify spacing to let flex gap and flex-basis control layout
+        padding: 0;
 
+        // REMOVE the vertical line divider between icons
         &:not(:last-child)::after {
-            content: "";
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 40px;
-            width: 1px;
-            background-color: rgba($color-text, 0.2);
+            display: none;
         }
 
         @include media-breakpoint-down(md) {
-            padding: 1rem;
-
+            // Let flex gap handle spacing on small screens
+            padding: 0;
             &:not(:last-child)::after {
                 display: none;
             }
@@ -301,8 +340,9 @@ $color-footer-bg: #e9dcc9; // Beige
     }
 
     .project-icon {
-        height: 70px;
-        width: auto;
+        // Set a consistent maximum area size for all logos
+        max-width: 120px; /* Standard Max Width */
+        height: 70px; /* Consistent Max Height */
         object-fit: contain;
         opacity: 0.7;
         transition: all 0.3s ease;
@@ -316,7 +356,76 @@ $color-footer-bg: #e9dcc9; // Beige
         }
 
         @include media-breakpoint-down(md) {
-            height: 40px;
+            max-width: 80px; /* Smaller max width on mobile */
+            height: 40px; /* Smaller max height on mobile */
+            margin: 0 auto; /* Center logo within its wrapper on mobile */
+        }
+    }
+
+    // ADD NEW CLASS: For logos that need extra visual weight (DKB)
+    .logo-weighted {
+        max-width: 150px; /* Increase the area size */
+        height: 90px;
+
+        @include media-breakpoint-down(md) {
+            max-width: 100px;
+            height: 60px;
+        }
+    }
+}
+
+/* ==============================
+   Home Page Intro & Logo Section
+============================== */
+
+// 1. Style the new section header
+.section-title-home {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: $color-primary; // Navy
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 2rem;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+    margin-top: 0;
+
+    // Gold Underline for Polish
+    &::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background-color: $color-accent;
+        margin: 1rem auto 0;
+        border-radius: 2px;
+    }
+}
+
+.lead-in-home {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: $color-text;
+    opacity: 0.85;
+    margin-bottom: 4rem; // Extra space before the logos
+
+    @include media-breakpoint-down(md) {
+        margin-bottom: 3rem;
+    }
+}
+
+// 2. Modify Logo Row: Remove Vertical Dividers
+.project-icons-row {
+    // The main row styles remain
+
+    .project-icon-wrapper {
+        // ... (existing styles)
+
+        // REMOVE the vertical line divider between icons
+        &:not(:last-child)::after {
+            display: none;
         }
     }
 }
@@ -325,9 +434,10 @@ $color-footer-bg: #e9dcc9; // Beige
    Footer
 ============================== */
 .footer {
+    // REMOVE the top margin which is now handled by the card's margin-bottom
     background-color: $color-footer-bg;
     padding: 2rem 0;
-    margin-top: 4rem;
+    margin-top: 0;
 
     .social-link {
         font-size: 1.5rem;
@@ -342,6 +452,24 @@ $color-footer-bg: #e9dcc9; // Beige
     @include media-breakpoint-down(md) {
         padding: 1.5rem 0;
         margin-top: 3rem;
+    }
+}
+
+// ADD NEW BLOCK: Home Page Floating Project Card
+.home-project-card {
+    // Mimics .project-row:nth-of-type(even) for a consistent look
+    background-color: #ffffff; // Pure White fill
+    border-radius: 16px; // Rounded corners
+    padding: 3.5rem 2rem; // Internal padding
+    margin-top: -1rem; // Pulls the card up less to create net 3rem white space
+    margin-bottom: 5rem; // Creates a large gap before the footer
+
+    // Add Shadow to make it float
+    box-shadow: 0 10px 40px -10px rgba($color-primary, 0.08);
+
+    @include media-breakpoint-down(lg) {
+        margin-top: 0; // Reset on mobile/tablet to prevent stacking issues
+        margin-bottom: 3rem;
     }
 }
 
@@ -360,6 +488,43 @@ h6 {
 .lead,
 blockquote {
     font-family: var(--font-accent);
+}
+
+/* ==============================
+   Navigation Bar
+============================== */
+.navbar {
+    // STICKY FIX: Always visible on scroll
+    position: sticky;
+    top: 0;
+    z-index: 1020; // Ensure it sits above other content
+    background-color: $color-background; // Prevent content showing through
+    box-shadow: 0 2px 5px rgba($color-primary, 0.05); // Subtle lift
+
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    // Links should use the heading font and primary color
+    .nav-link {
+        font-family: var(--font-heading);
+        font-weight: 500;
+        color: $color-primary;
+        transition: color 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: 0.95rem;
+
+        // Hover effect: Use the gold accent color
+        &:hover {
+            color: $color-accent;
+        }
+
+        // Active link: Bold Navy to distinguish the current page
+        &.active {
+            color: $color-primary;
+            font-weight: 700;
+        }
+    }
 }
 
 /* ==============================
@@ -401,8 +566,56 @@ blockquote {
     background-color: $color-background;
 
     &.bg-light {
-        background-color: $color-primary !important;
-        color: $color-background;
+        background-color: $color-primary !important; // Navy background
+        color: $color-background; // White text
+
+        // ADD MARGINS: Space above/below the CTA banner (already correct)
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        padding-top: 3.5rem; // Increase internal padding for more space
+        padding-bottom: 3.5rem;
+
+        // Headline Text Styling (H2) - Make it large and authoritative
+        h2 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 2rem; // Much larger CTA headline
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+
+            // Gold Underline for Polish
+            &::after {
+                content: "";
+                display: block;
+                width: 80px;
+                height: 3px;
+                background-color: $color-accent;
+                margin-top: 0.5rem;
+            }
+        }
+
+        // *** BUTTON FIX: SOLID GOLD FILL WITH NAVY TEXT (MAX CONTRAST) ***
+        .btn-primary {
+            background-color: $color-accent; // Solid Gold fill
+            border-color: $color-primary; // Navy border
+            color: $color-primary; // Navy text (High Contrast)
+
+            &:hover {
+                background-color: darken($color-accent, 5%); // Darker Gold on hover
+                border-color: darken($color-primary, 5%);
+                color: darken($color-primary, 5%);
+            }
+        }
+
+        // Paragraph styling for readability on dark background
+        p {
+            font-size: 1.125rem; // ~18px for better readability
+            font-weight: 500; // Slightly increased weight
+            line-height: 1.5;
+            margin-bottom: 0; // Tight spacing in CTA body copy
+        }
     }
 
     @include media-breakpoint-down(lg) {
@@ -459,7 +672,8 @@ blockquote {
     letter-spacing: 0.05em;
     position: relative;
     display: inline-block;
-    margin-bottom: 2rem;
+    // MODIFY MARGIN-BOTTOM TO CREATE SPACE BETWEEN H1 AND FIRST PARAGRAPH
+    margin-bottom: 4rem;
 
     // Gold Underline (Left Aligned)
     &::after {
@@ -479,9 +693,30 @@ blockquote {
     color: $color-primary;
     font-weight: 700;
     font-size: 1.5rem; // Clear hierarchy (smaller than H1)
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    // INCREASE SPACE ABOVE H2 FOR BETTER HIERARCHY
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
     // No underline for these sub-points
+}
+
+// ADD NEW RULE: Consistent paragraph spacing within bio area
+.about-intro p {
+    margin-bottom: 2rem !important; // Forces consistent space below paragraphs
+}
+
+// Spacing adjustments for Skills & Tools sections
+.skill-section {
+    padding-bottom: 2rem !important; // Adjusted bottom padding
+}
+
+.tools-section {
+    // INCREASE TOP PADDING TO CREATE LARGE GAP FROM SKILLS LIST
+    padding-top: 6rem !important;
+
+    @include media-breakpoint-down(md) {
+        // Keep responsive padding for mobile
+        padding-top: 4rem !important;
+    }
 }
 
 // 3. CENTERED SECTION TITLES ("Skills", "Tools")
