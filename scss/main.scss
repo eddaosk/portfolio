@@ -431,16 +431,16 @@ $color-footer-bg: #e9dcc9; // Beige
 }
 
 /* ==============================
-   Footer
+   Footer (Reverted to Original Simple Centered)
 ============================== */
 .footer {
-    // REMOVE the top margin which is now handled by the card's margin-bottom
-    background-color: $color-footer-bg;
-    padding: 2rem 0;
+    background-color: $color-footer-bg; // Beige background
+    padding-top: 4rem; // Good vertical padding
+    padding-bottom: 4rem;
     margin-top: 0;
 
     .social-link {
-        font-size: 1.5rem;
+        font-size: 2rem; // Large icon for visibility
         color: $color-primary;
         transition: color 0.3s ease;
 
@@ -449,9 +449,15 @@ $color-footer-bg: #e9dcc9; // Beige
         }
     }
 
+    p {
+        font-size: 0.9rem;
+        color: $color-text;
+        opacity: 0.8;
+        margin-bottom: 0;
+    }
+
     @include media-breakpoint-down(md) {
-        padding: 1.5rem 0;
-        margin-top: 3rem;
+        padding: 3rem 0;
     }
 }
 
@@ -462,7 +468,7 @@ $color-footer-bg: #e9dcc9; // Beige
     border-radius: 16px; // Rounded corners
     padding: 3.5rem 2rem; // Internal padding
     margin-top: -1rem; // Pulls the card up less to create net 3rem white space
-    margin-bottom: 5rem; // Creates a large gap before the footer
+    margin-bottom: 5rem; // Restore large gap for floating shadow
 
     // Add Shadow to make it float
     box-shadow: 0 10px 40px -10px rgba($color-primary, 0.08);

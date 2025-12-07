@@ -363,25 +363,31 @@
 }
 
 /* ==============================
-   Footer
+   Footer (Reverted to Original Simple Centered)
 ============================== */
 .footer {
   background-color: #e9dcc9;
-  padding: 2rem 0;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   margin-top: 0;
 }
 .footer .social-link {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #1c355e;
   transition: color 0.3s ease;
 }
 .footer .social-link:hover {
   color: #f2b950;
 }
+.footer p {
+  font-size: 0.9rem;
+  color: #2e2e2e;
+  opacity: 0.8;
+  margin-bottom: 0;
+}
 @media (max-width: 767.98px) {
   .footer {
-    padding: 1.5rem 0;
-    margin-top: 3rem;
+    padding: 3rem 0;
   }
 }
 
