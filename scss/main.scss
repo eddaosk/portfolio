@@ -15,46 +15,51 @@ $color-text: #2e2e2e; // Dark gray
 $color-footer-bg: #e9dcc9; // Beige
 
 /* ==============================
-   Font families
-============================== */
-:root {
-    --font-body: "Noto Sans", sans-serif;
-    --font-accent: "Rubik", sans-serif;
-    --font-heading: "Poppins", sans-serif;
-}
-
-/* ==============================
-   Global styles
-============================== */
-body {
-    font-family: var(--font-body);
-    color: $color-text;
-    background-color: $color-background;
-}
-
-/* ==============================
    Projects section
 ============================== */
+// Project Row Layout
 .project-row {
-    margin-bottom: 150px;
+    // 1. DEFAULT SEPARATION (For Odd Rows)
+    padding-bottom: 4rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid rgba($color-text, 0.1); // Keep distinct line for standard rows
 
-    p {
-        text-align: justify;
+    // 2. "FEATURED CARD" STYLE (For Even Rows)
+    // This creates a White Card effect for every 2nd project
+    &:nth-of-type(even) {
+        background-color: #ffffff; // crisp white against the #f9f9f9 body
+        border-radius: 16px; // Modern rounded corners
+        padding: 3rem; // Internal spacing
+        margin-bottom: 5rem; // Extra space outside the card
+        border-bottom: none; // Remove the line (card defines the edge)
+
+        // Soft Shadow to lift the card
+        box-shadow: 0 10px 40px -10px rgba(28, 53, 94, 0.08);
     }
 
+    // Remove border/margin for the very last project if it's odd
     &:last-child {
+        border-bottom: none;
         margin-bottom: 0;
-        color: $color-primary;
+        padding-bottom: 0;
+    }
+
+    // Optional override: remove divider on specific rows
+    &.no-divider {
+        border-bottom: none;
+    }
+
+    // 3. INTERNAL STYLING
+    p {
+        text-align: justify;
     }
 
     .nav-link {
         color: $color-text;
         transition: color 0.3s ease;
-
         &:hover {
             color: $color-accent;
         }
-
         &.active {
             color: $color-primary;
         }
@@ -65,8 +70,17 @@ body {
         padding: 0.25rem 0;
     }
 
+    // 4. MOBILE ADJUSTMENTS
     @include media-breakpoint-down(lg) {
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 1rem; // Default padding
+        margin-bottom: 3rem;
+
+        // Reset the "Card" style on mobile to save screen space?
+        // Or keep it but reduce padding. Let's reduce padding.
+        &:nth-of-type(even) {
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+        }
     }
 }
 
@@ -479,112 +493,121 @@ blockquote {
 
 // Text column structure
 .textual {
-    padding-left: 1rem; // Give the text a little breathing room from the carousel
+    // Desktop: Add breathing room from the carousel
+    padding-left: 2rem;
 
-    // 1. HEADER UNIT SPACING REFINEMENT
+    // Mobile/Tablet: Remove left padding since it stacks under the image
+    @include media-breakpoint-down(lg) {
+        padding-left: 0.5rem; // Small gutter
+        padding-right: 0.5rem;
+        margin-top: 1.5rem; // Add space between Carousel and Text
+    }
+
+    // 1. PROJECT TITLE
     h2 {
-        font-size: clamp(2rem, 3vw, 2.5rem);
+        font-family: var(--font-heading);
         color: $color-primary;
         font-weight: 700;
         line-height: 1.1;
-        margin-bottom: 1rem; // Increased space below title
+        // Increased spacing for better UI hierarchy
+        margin-bottom: 0.75rem;
+
+        // Responsive Font Size
+        font-size: 2.5rem;
+        @include media-breakpoint-down(md) {
+            font-size: 1.75rem;
+        }
     }
 
-    h4 {
-        font-weight: 400; // Keep subtitle lighter
-        color: darken($color-text, 15%);
-        font-size: clamp(1.1rem, 1.5vw, 1.35rem);
-        margin-bottom: 2rem; // Significant space below subheading
+    // 2. PROJECT SUBTITLE
+    .project-subtitle {
+        font-family: var(--font-heading);
+        font-weight: 400;
+        color: lighten($color-primary, 15%);
+        margin-bottom: 1.5rem;
+
+        // Responsive Font Size
+        font-size: 1.35rem;
+        @include media-breakpoint-down(md) {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
     }
 
-    // Retain tag styling
-    .tags {
+    // 3. ROLE / METADATA
+    .project-meta {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
         text-transform: uppercase;
-        font-size: 0.8rem;
-        letter-spacing: 0.06rem;
-        color: rgba($color-text, 0.7);
-        border-left: 3px solid $color-accent;
-        padding-left: 0.5rem;
-        margin-bottom: 0; // Spacing is handled by the pitch
+        letter-spacing: 0.05em;
+        font-weight: 600;
+        color: #888;
+        margin-bottom: 1.5rem;
+        display: block;
     }
 
-    // 2. PITCH SEPARATION
-    .fw-bold {
-        color: darken($color-text, 8%);
-        line-height: 1.7;
-        font-size: clamp(1rem, 1.6vw, 1.15rem);
-        margin-top: 3rem; // Clear gap between metadata and pitch
-        margin-bottom: 2rem;
-        padding-bottom: 2rem;
-        border-bottom: 1px solid rgba($color-text, 0.05);
+    // 4. THE PITCH (Responsive Border Layout)
+    .project-pitch {
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: $color-text;
+
+        // Desktop: Pull border left for a "hanging" look
+        border-left: 4px solid $color-accent;
+        padding-left: 1.5rem;
+        margin-left: -1.5rem;
+        margin-bottom: 2.5rem;
+
+        // Mobile: Reset negative margins
+        @include media-breakpoint-down(md) {
+            margin-left: 0;
+            padding-left: 1rem;
+            border-left-width: 3px;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
     }
 
-    // 3. INNER CONTENT & CONTRAST FIXES
+    // 5. DEEP DIVE / CASE STUDY SECTIONS
     details.deep-dive {
         summary {
-            list-style: none;
-            cursor: pointer;
-            color: $color-primary;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            transition: color 0.2s ease;
-        }
-
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        summary::after {
-            content: "▸";
-            font-size: 0.95rem;
-            line-height: 1;
-            transform: translateY(1px);
-            transition: transform 0.2s ease, color 0.2s ease;
-            color: $color-primary;
-        }
-
-        summary:hover {
-            color: $color-accent;
-        }
-
-        &[open] summary::after {
-            content: "▾";
-            color: $color-accent;
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
         }
 
         .deep-content {
-            // Inner Headers (H5) Contrast Fix: Navy text with Gold Accent
             h5 {
-                color: $color-primary !important; // Accessible Navy Blue Text
-                font-weight: 800;
+                font-family: var(--font-heading);
+                color: $color-primary;
+                font-weight: 700;
                 text-transform: uppercase;
                 letter-spacing: 0.1em;
-                line-height: 1.1;
+                font-size: 0.95rem;
+                border-bottom: 2px solid $color-accent;
+                padding-bottom: 0.5rem;
+                display: inline-block;
 
-                // Gold Accent Border (retains brand color pop)
-                border-bottom: 3px solid $color-accent;
-                padding-bottom: 0.25rem;
+                // Responsive Spacing
+                margin-top: 3.5rem;
+                margin-bottom: 1rem;
 
-                // Maximize vertical separation between inner sections
-                margin-top: 4rem; // Large top gap for clear section break
-                margin-bottom: 1.25rem;
+                @include media-breakpoint-down(md) {
+                    margin-top: 2.5rem;
+                }
             }
 
-            // Body Text (P/LI) Size and Line Height
             p,
             li {
-                font-size: 1.1rem; // Increased size for comfort reading
-                line-height: 1.8; // Increased line height for better rhythm
+                font-family: var(--font-body);
+                font-size: 1rem;
+                line-height: 1.7;
                 color: darken($color-text, 5%);
-                margin-bottom: 0.75rem;
+                margin-bottom: 1rem;
             }
 
             ul {
-                padding-left: 1.5rem;
-                margin-bottom: 2.5rem; // More space below lists
+                padding-left: 1.2rem;
             }
         }
     }
