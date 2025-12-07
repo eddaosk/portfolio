@@ -8,74 +8,58 @@
 /* ==============================
    Color Variables
 ============================== */
-$color-primary: #1c355e;      // Navy blue
-$color-accent: #f2b950;       // Gold
-$color-background: #f9f9f9;   // Off-white
-$color-text: #2e2e2e;         // Dark gray
-$color-footer-bg: #e9dcc9;    // Beige
-
-/* ==============================
-   Font families
-============================== */
-:root {
-    --font-body: "Noto Sans", sans-serif;
-    --font-accent: "Rubik", sans-serif;
-    --font-heading: "Poppins", sans-serif;
-}
-
-/* ==============================
-   Global styles
-============================== */
-body {
-    font-family: var(--font-body);
-    color: $color-text;
-    background-color: $color-background;
-}
+$color-primary: #1c355e; // Navy blue
+$color-accent: #f2b950; // Gold
+$color-background: #f9f9f9; // Off-white
+$color-text: #2e2e2e; // Dark gray
+$color-footer-bg: #e9dcc9; // Beige
 
 /* ==============================
    Projects section
 ============================== */
-.projects {
-    .project-row {
-        margin-bottom: 3rem;
+// Project Row Layout
+.project-row {
+    // 1. DEFAULT SEPARATION (For Odd Rows)
+    padding-bottom: 4rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid rgba($color-text, 0.1); // Keep distinct line for standard rows
 
-        &:last-child {
-            margin-bottom: 0;
-        }
+    // 2. "FEATURED CARD" STYLE (For Even Rows)
+    // This creates a White Card effect for every 2nd project
+    &:nth-of-type(even) {
+        background-color: #ffffff; // crisp white against the #f9f9f9 body
+        border-radius: 16px; // Modern rounded corners
+        padding: 3rem; // Internal spacing
+        margin-bottom: 5rem; // Extra space outside the card
+        border-bottom: none; // Remove the line (card defines the edge)
+
+        // Soft Shadow to lift the card
+        box-shadow: 0 10px 40px -10px rgba(28, 53, 94, 0.08);
     }
 
-    @include media-breakpoint-up(lg) {
-        .project-row {
-            margin-bottom: 8rem;
-        }
-
-        .project-list > .project-row:nth-child(even) {
-            flex-direction: row-reverse;
-        }
+    // Remove border/margin for the very last project if it's odd
+    &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
-}
 
-/* ==============================
-   Navbar
-============================== */
-.navbar {
-    background-color: $color-background;
-    padding: 1rem 0;
-    transition: all 0.3s ease;
+    // Optional override: remove divider on specific rows
+    &.no-divider {
+        border-bottom: none;
+    }
 
-    .navbar-brand {
-        font-weight: 600;
-        color: $color-primary;
+    // 3. INTERNAL STYLING
+    p {
+        text-align: justify;
     }
 
     .nav-link {
         color: $color-text;
         transition: color 0.3s ease;
-
         &:hover {
             color: $color-accent;
         }
-
         &.active {
             color: $color-primary;
         }
@@ -86,8 +70,17 @@ body {
         padding: 0.25rem 0;
     }
 
+    // 4. MOBILE ADJUSTMENTS
     @include media-breakpoint-down(lg) {
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 1rem; // Default padding
+        margin-bottom: 3rem;
+
+        // Reset the "Card" style on mobile to save screen space?
+        // Or keep it but reduce padding. Let's reduce padding.
+        &:nth-of-type(even) {
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+        }
     }
 }
 
@@ -207,6 +200,24 @@ body {
     }
 }
 
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    14% {
+        transform: scale(1.05);
+    }
+    28% {
+        transform: scale(1);
+    }
+    42% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(1);
+    }
+}
+
 /* ==============================
    Logos
 ============================== */
@@ -216,13 +227,66 @@ body {
     justify-content: center;
 
     img {
-        height: 70px;
+        width: 70px;
+        margin: 55px 0px;
         opacity: 0.9;
         transition: transform 0.3s ease, opacity 0.3s ease;
+        animation: heartbeat 1.5s infinite ease-in-out;
 
         &:hover {
-            transform: scale(1.05);
             opacity: 1;
+        }
+
+        @include media-breakpoint-down(md) {
+            height: 40px;
+        }
+    }
+}
+
+.project-icons-row {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .project-icon-wrapper {
+        position: relative;
+        padding: 0 3rem;
+
+        &:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 40px;
+            width: 1px;
+            background-color: rgba($color-text, 0.2);
+        }
+
+        @include media-breakpoint-down(md) {
+            padding: 1rem;
+
+            &:not(:last-child)::after {
+                display: none;
+            }
+        }
+    }
+
+    .project-icon {
+        height: 70px;
+        width: auto;
+        object-fit: contain;
+        opacity: 0.7;
+        transition: all 0.3s ease;
+        filter: grayscale(100%);
+        display: block;
+
+        &:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: translateY(-5px);
         }
 
         @include media-breakpoint-down(md) {
@@ -327,13 +391,13 @@ blockquote {
 .about-portrait {
     width: 100%;
     transition: all 0.3s ease;
-    
+
     @include media-breakpoint-down(md) {
         height: 300px;
         object-fit: cover;
         object-position: center 70%;
     }
-    
+
     @include media-breakpoint-down(sm) {
         height: 300px;
         object-fit: cover;
@@ -374,4 +438,228 @@ blockquote {
 .text-muted {
     color: $color-text !important;
     opacity: 0.7;
+}
+
+// Carousel styling for consistent project images
+.project-carousel {
+    border-radius: 0.375rem; // Matches Bootstrap .rounded class
+    overflow: hidden;
+    height: 100%;
+
+    .carousel-inner,
+    .carousel-item {
+        height: 100%;
+        background-color: #f0f0f0; // Placeholder color
+    }
+
+    .carousel-item img,
+    .carousel-item video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+}
+
+// Sticky A4 wrapper for carousels
+.carousel-wrapper {
+    position: relative;
+    aspect-ratio: 297 / 210; // A4 Landscape
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+
+    @include media-breakpoint-up(lg) {
+        position: sticky;
+        top: 40px; // Critical for sticky behavior
+    }
+}
+
+// Slide counter badge overlay
+.slide-counter {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    padding: 4px 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    line-height: 1;
+    letter-spacing: 0.02em;
+}
+
+// Text column structure
+.textual {
+    // Desktop: Add breathing room from the carousel
+    padding-left: 2rem;
+
+    // Mobile/Tablet: Remove left padding since it stacks under the image
+    @include media-breakpoint-down(lg) {
+        padding-left: 0.5rem; // Small gutter
+        padding-right: 0.5rem;
+        margin-top: 1.5rem; // Add space between Carousel and Text
+    }
+
+    // 1. PROJECT TITLE
+    h2 {
+        font-family: var(--font-heading);
+        color: $color-primary;
+        font-weight: 700;
+        line-height: 1.1;
+        // Increased spacing for better UI hierarchy
+        margin-bottom: 0.75rem;
+
+        // Responsive Font Size
+        font-size: 2.5rem;
+        @include media-breakpoint-down(md) {
+            font-size: 1.75rem;
+        }
+    }
+
+    // 2. PROJECT SUBTITLE
+    .project-subtitle {
+        font-family: var(--font-heading);
+        font-weight: 400;
+        color: lighten($color-primary, 15%);
+        margin-bottom: 1.5rem;
+
+        // Responsive Font Size
+        font-size: 1.35rem;
+        @include media-breakpoint-down(md) {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    // 3. ROLE / METADATA
+    .project-meta {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+        color: #888;
+        margin-bottom: 1.5rem;
+        display: block;
+    }
+
+    // 4. THE PITCH (Responsive Border Layout)
+    .project-pitch {
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: $color-text;
+
+        // Desktop: Pull border left for a "hanging" look
+        border-left: 4px solid $color-accent;
+        padding-left: 1.5rem;
+        margin-left: -1.5rem;
+        margin-bottom: 2.5rem;
+
+        // Mobile: Reset negative margins
+        @include media-breakpoint-down(md) {
+            margin-left: 0;
+            padding-left: 1rem;
+            border-left-width: 3px;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    // 5. DEEP DIVE / CASE STUDY SECTIONS
+    details.deep-dive {
+        summary {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .deep-content {
+            h5 {
+                font-family: var(--font-heading);
+                color: $color-primary;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                font-size: 0.95rem;
+                border-bottom: 2px solid $color-accent;
+                padding-bottom: 0.5rem;
+                display: inline-block;
+
+                // Responsive Spacing
+                margin-top: 3.5rem;
+                margin-bottom: 1rem;
+
+                @include media-breakpoint-down(md) {
+                    margin-top: 2.5rem;
+                }
+            }
+
+            p,
+            li {
+                font-family: var(--font-body);
+                font-size: 1rem;
+                line-height: 1.7;
+                color: darken($color-text, 5%);
+                margin-bottom: 1rem;
+            }
+
+            ul {
+                padding-left: 1.2rem;
+            }
+        }
+    }
+}
+
+// Details/summary styling for the deep dive
+details.deep-dive {
+    margin-top: 1rem; // add whitespace above the accordion
+    border-top: 1px solid rgba($color-text, 0.15);
+    padding-top: 0.75rem;
+
+    summary {
+        list-style: none;
+        cursor: pointer;
+        color: $color-primary;
+        text-decoration: underline;
+        font-weight: 500;
+        outline: none;
+    }
+
+    // Remove default marker
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .deep-content {
+        margin-top: 0.75rem;
+
+        h5 {
+            font-size: 1rem; // Slight bump to match new body size
+            color: $color-primary; // High-contrast navy for accessibility
+            border-bottom: 3px solid $color-accent; // Gold underline anchor
+            padding-bottom: 0.25rem;
+            font-weight: 800; // Extra bold
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            line-height: 1.1;
+            margin-top: 4rem; // significant spacing above new sections
+            margin-bottom: 1.25rem;
+        }
+
+        p,
+        li {
+            font-size: 1.1rem; // increased size for comfort reading
+            line-height: 1.8; // improved vertical rhythm
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            margin-bottom: 2.5rem; // add more space below the list
+            padding-left: 1.2rem;
+        }
+    }
 }

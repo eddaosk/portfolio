@@ -2,70 +2,54 @@
    Color Variables
 ============================== */
 /* ==============================
-   Font families
-============================== */
-:root {
-  --font-body: "Noto Sans", sans-serif;
-  --font-accent: "Rubik", sans-serif;
-  --font-heading: "Poppins", sans-serif;
-}
-
-/* ==============================
-   Global styles
-============================== */
-body {
-  font-family: var(--font-body);
-  color: #2e2e2e;
-  background-color: #f9f9f9;
-}
-
-/* ==============================
    Projects section
 ============================== */
-.projects .project-row {
-  margin-bottom: 3rem;
+.project-row {
+  padding-bottom: 4rem;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid rgba(46, 46, 46, 0.1);
 }
-.projects .project-row:last-child {
+.project-row:nth-of-type(even) {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 3rem;
+  margin-bottom: 5rem;
+  border-bottom: none;
+  box-shadow: 0 10px 40px -10px rgba(28, 53, 94, 0.08);
+}
+.project-row:last-child {
+  border-bottom: none;
   margin-bottom: 0;
+  padding-bottom: 0;
 }
-@media (min-width: 992px) {
-  .projects .project-row {
-    margin-bottom: 8rem;
-  }
-  .projects .project-list > .project-row:nth-child(even) {
-    flex-direction: row-reverse;
-  }
+.project-row.no-divider {
+  border-bottom: none;
 }
-
-/* ==============================
-   Navbar
-============================== */
-.navbar {
-  background-color: #f9f9f9;
-  padding: 1rem 0;
-  transition: all 0.3s ease;
+.project-row p {
+  text-align: justify;
 }
-.navbar .navbar-brand {
-  font-weight: 600;
-  color: #1c355e;
-}
-.navbar .nav-link {
+.project-row .nav-link {
   color: #2e2e2e;
   transition: color 0.3s ease;
 }
-.navbar .nav-link:hover {
+.project-row .nav-link:hover {
   color: #f2b950;
 }
-.navbar .nav-link.active {
+.project-row .nav-link.active {
   color: #1c355e;
 }
-.navbar .navbar-toggler {
+.project-row .navbar-toggler {
   border: none;
   padding: 0.25rem 0;
 }
 @media (max-width: 991.98px) {
-  .navbar {
+  .project-row {
     padding: 0.5rem 1rem;
+    margin-bottom: 3rem;
+  }
+  .project-row:nth-of-type(even) {
+    padding: 1.5rem;
+    margin-bottom: 3rem;
   }
 }
 
@@ -180,6 +164,23 @@ body {
     transform: translateY(0);
   }
 }
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.05);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
 /* ==============================
    Logos
 ============================== */
@@ -189,16 +190,66 @@ body {
   justify-content: center;
 }
 .intro-logo img {
-  height: 70px;
+  width: 70px;
+  margin: 55px 0px;
   opacity: 0.9;
   transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: heartbeat 1.5s infinite ease-in-out;
 }
 .intro-logo img:hover {
-  transform: scale(1.05);
   opacity: 1;
 }
 @media (max-width: 767.98px) {
   .intro-logo img {
+    height: 40px;
+  }
+}
+
+.project-icons-row {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.project-icons-row .project-icon-wrapper {
+  position: relative;
+  padding: 0 3rem;
+}
+.project-icons-row .project-icon-wrapper:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40px;
+  width: 1px;
+  background-color: rgba(46, 46, 46, 0.2);
+}
+@media (max-width: 767.98px) {
+  .project-icons-row .project-icon-wrapper {
+    padding: 1rem;
+  }
+  .project-icons-row .project-icon-wrapper:not(:last-child)::after {
+    display: none;
+  }
+}
+.project-icons-row .project-icon {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+  display: block;
+}
+.project-icons-row .project-icon:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: translateY(-5px);
+}
+@media (max-width: 767.98px) {
+  .project-icons-row .project-icon {
     height: 40px;
   }
 }
@@ -348,6 +399,195 @@ blockquote {
 .text-muted {
   color: #2e2e2e !important;
   opacity: 0.7;
+}
+
+.project-carousel {
+  border-radius: 0.375rem;
+  overflow: hidden;
+  height: 100%;
+}
+.project-carousel .carousel-inner,
+.project-carousel .carousel-item {
+  height: 100%;
+  background-color: #f0f0f0;
+}
+.project-carousel .carousel-item img,
+.project-carousel .carousel-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.carousel-wrapper {
+  position: relative;
+  aspect-ratio: 297/210;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+@media (min-width: 992px) {
+  .carousel-wrapper {
+    position: sticky;
+    top: 40px;
+  }
+}
+
+.slide-counter {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 4px 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.textual {
+  padding-left: 2rem;
+}
+@media (max-width: 991.98px) {
+  .textual {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-top: 1.5rem;
+  }
+}
+.textual h2 {
+  font-family: var(--font-heading);
+  color: #1c355e;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  font-size: 2.5rem;
+}
+@media (max-width: 767.98px) {
+  .textual h2 {
+    font-size: 1.75rem;
+  }
+}
+.textual .project-subtitle {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  color: rgb(45.5573770492, 86.2336065574, 152.9426229508);
+  margin-bottom: 1.5rem;
+  font-size: 1.35rem;
+}
+@media (max-width: 767.98px) {
+  .textual .project-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+}
+.textual .project-meta {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: #888;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+.textual .project-pitch {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #2e2e2e;
+  border-left: 4px solid #f2b950;
+  padding-left: 1.5rem;
+  margin-left: -1.5rem;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 767.98px) {
+  .textual .project-pitch {
+    margin-left: 0;
+    padding-left: 1rem;
+    border-left-width: 3px;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+.textual details.deep-dive summary {
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+}
+.textual details.deep-dive .deep-content h5 {
+  font-family: var(--font-heading);
+  color: #1c355e;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.95rem;
+  border-bottom: 2px solid #f2b950;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 767.98px) {
+  .textual details.deep-dive .deep-content h5 {
+    margin-top: 2.5rem;
+  }
+}
+.textual details.deep-dive .deep-content p,
+.textual details.deep-dive .deep-content li {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgb(33.25, 33.25, 33.25);
+  margin-bottom: 1rem;
+}
+.textual details.deep-dive .deep-content ul {
+  padding-left: 1.2rem;
+}
+
+details.deep-dive {
+  margin-top: 1rem;
+  border-top: 1px solid rgba(46, 46, 46, 0.15);
+  padding-top: 0.75rem;
+}
+details.deep-dive summary {
+  list-style: none;
+  cursor: pointer;
+  color: #1c355e;
+  text-decoration: underline;
+  font-weight: 500;
+  outline: none;
+}
+details.deep-dive summary::-webkit-details-marker {
+  display: none;
+}
+details.deep-dive .deep-content {
+  margin-top: 0.75rem;
+}
+details.deep-dive .deep-content h5 {
+  font-size: 1rem;
+  color: #1c355e;
+  border-bottom: 3px solid #f2b950;
+  padding-bottom: 0.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+  margin-top: 4rem;
+  margin-bottom: 1.25rem;
+}
+details.deep-dive .deep-content p,
+details.deep-dive .deep-content li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+details.deep-dive .deep-content ul {
+  margin-bottom: 2.5rem;
+  padding-left: 1.2rem;
 }
 
 /*# sourceMappingURL=main.css.map */
