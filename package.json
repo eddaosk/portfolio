@@ -5,13 +5,15 @@
     "main": "index.html",
     "scripts": {
         "sass": "sass --load-path=node_modules scss:css --watch --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions",
-        "start": "live-server ."
+        "start": "live-server .",
+        "optimize-images": "node scripts/optimize-images.js"
     },
     "author": "Edda Ósk Óskarsdóttir",
     "license": "MIT",
     "devDependencies": {
         "bootstrap": "^5.3.8",
         "live-server": "^1.2.2",
-        "sass": "^1.63.6"
+        "sass": "^1.63.6",
+        "sharp": "^0.33.5"
     }
 }

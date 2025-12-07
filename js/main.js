@@ -29,4 +29,57 @@ document.addEventListener("DOMContentLoaded", function () {
             if (currentEl && idx >= 0) currentEl.textContent = String(idx + 1);
         });
     });
+
+    // Randomize hobby grid items order on each load for a varied layout
+    const hobbyGrid = document.querySelector(".hobby-grid");
+    if (hobbyGrid) {
+        const items = Array.from(hobbyGrid.children);
+        // Fisher-Yates shuffle
+        for (let i = items.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [items[i], items[j]] = [items[j], items[i]];
+        }
+        // Re-append in shuffled order
+        items.forEach((el) => hobbyGrid.appendChild(el));
+
+        // Lightbox setup
+        const overlay = document.querySelector(".lightbox-overlay");
+        const overlayImg = overlay ? overlay.querySelector(".lightbox-img") : null;
+        const overlayClose = overlay ? overlay.querySelector(".lightbox-close") : null;
+
+        function openLightbox(src, alt) {
+            if (!overlay || !overlayImg) return;
+            overlayImg.src = src;
+            overlayImg.alt = alt || "Full-size image";
+            overlay.classList.add("open");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+            if (!overlay || !overlayImg) return;
+            overlay.classList.remove("open");
+            overlayImg.src = "";
+            document.body.style.overflow = "";
+        }
+
+        // Click on image opens lightbox
+        hobbyGrid.querySelectorAll(".hobby-item img").forEach((img) => {
+            img.addEventListener("click", () => openLightbox(img.src, img.alt));
+            img.style.cursor = "zoom-in";
+        });
+
+        // Close button
+        if (overlayClose) overlayClose.addEventListener("click", closeLightbox);
+
+        // Click outside content closes
+        if (overlay) {
+            overlay.addEventListener("click", (e) => {
+                if (e.target === overlay) closeLightbox();
+            });
+        }
+        // Escape key closes
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeLightbox();
+        });
+    }
 });
