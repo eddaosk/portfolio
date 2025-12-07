@@ -625,8 +625,7 @@ blockquote {
   }
 }
 
-.skill-section h2,
-.tools-section h2 {
+.hobby-section h2, .tools-section h2, .skill-section h2 {
   font-family: var(--font-heading);
   font-weight: 700;
   color: #1c355e;
@@ -637,8 +636,7 @@ blockquote {
   display: inline-block;
   margin-bottom: 4rem;
 }
-.skill-section h2::after,
-.tools-section h2::after {
+.hobby-section h2::after, .tools-section h2::after, .skill-section h2::after {
   content: "";
   display: block;
   width: 80px;
@@ -648,8 +646,7 @@ blockquote {
   border-radius: 2px;
 }
 @media (max-width: 767.98px) {
-  .skill-section h2,
-  .tools-section h2 {
+  .hobby-section h2, .tools-section h2, .skill-section h2 {
     font-size: 2rem;
   }
 }
@@ -820,6 +817,80 @@ blockquote {
   padding-left: 1.2rem;
 }
 
+/* ==============================
+   About Page Hobby Masonry Grid
+============================== */
+.hobby-section {
+  background-color: #ffffff;
+  padding-bottom: 6rem !important;
+  padding-top: 6rem !important;
+}
+.hobby-section h2 {
+  margin-bottom: 2rem;
+}
+.hobby-section .lead-in-home {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 20px;
+  grid-auto-rows: auto;
+  grid-auto-flow: dense;
+}
+@media (max-width: 991.98px) {
+  .hobby-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 575.98px) {
+  .hobby-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+}
+
+.hobby-item {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  aspect-ratio: 297/210;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-origin: center;
+}
+.hobby-item:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 2;
+}
+.hobby-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+.hobby-item img:hover {
+  transform: scale(1.03);
+  filter: grayscale(0%);
+}
+
+.hobby-item.span-2 {
+  grid-row-end: auto;
+}
+
+.hobby-item.span-3 {
+  grid-row-end: auto;
+}
+
+.hobby-item.span-4 {
+  grid-row-end: auto;
+}
+
 details.deep-dive {
   margin-top: 1rem;
   border-top: 1px solid rgba(46, 46, 46, 0.15);
@@ -861,6 +932,62 @@ details.deep-dive .deep-content li {
 details.deep-dive .deep-content ul {
   margin-bottom: 2.5rem;
   padding-left: 1.2rem;
+}
+
+/* ==============================
+   Lightbox Overlay for Hobby Grid
+============================== */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 2rem;
+}
+
+.lightbox-overlay.open {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.lightbox-img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1c355e;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.lightbox-close:hover {
+  background: #ffffff;
 }
 
 /*# sourceMappingURL=main.css.map */
