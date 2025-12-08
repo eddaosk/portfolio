@@ -469,6 +469,26 @@ blockquote {
   font-weight: 700;
 }
 
+.navbar .nav-item.nav-cta {
+  margin-left: 1rem;
+}
+.navbar .nav-item.nav-cta .nav-link {
+  background-color: #f2b950;
+  color: #1c355e !important;
+  border: 2px solid #f2b950;
+  border-radius: 6px;
+  padding: 0.5rem 1rem !important;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.navbar .nav-item.nav-cta .nav-link.active {
+  font-weight: 700;
+}
+.navbar .nav-item.nav-cta .nav-link:hover, .navbar .nav-item.nav-cta .nav-link:focus {
+  background-color: #1c355e;
+  color: #f2b950 !important;
+  border-color: #1c355e;
+}
+
 /* ==============================
    Skills & Tools
 ============================== */
