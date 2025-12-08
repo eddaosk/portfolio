@@ -261,7 +261,7 @@ $color-footer-bg: #e9dcc9; // Beige
     margin-top: 2rem; // Space above the logo container
     display: flex;
     justify-content: center;
-    margin-bottom: 4rem; // Increased space below the heart logo for better UX/UI
+    margin-bottom: 1.5rem; // Reduced space below the heart logo to bring CTA closer
 
     @include media-breakpoint-down(md) {
         margin-bottom: 3rem; // Slightly reduced on mobile to maintain balance
@@ -487,7 +487,7 @@ $color-footer-bg: #e9dcc9; // Beige
     background-color: #ffffff; // Pure White fill
     border-radius: 16px; // Rounded corners
     padding: 3.5rem 2rem; // Internal padding
-    margin-top: -1rem; // Pulls the card up less to create net 3rem white space
+    margin-top: 0; // Prevent the card from pulling into the CTA area
     margin-bottom: 5rem; // Restore large gap for floating shadow
 
     // Add Shadow to make it float
