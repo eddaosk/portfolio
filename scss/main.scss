@@ -655,6 +655,10 @@ blockquote {
 
 .about-portrait {
     width: 100%;
+    // ADD THESE RULES FOR DESKTOP ALIGNMENT FIX
+    height: 100%; // Fill the height of the stretched column
+    object-fit: cover; // Ensure the image aspect ratio is maintained by cropping
+    // END ADDITION
     transition: all 0.3s ease;
 
     @include media-breakpoint-down(md) {
@@ -728,6 +732,11 @@ blockquote {
 // ADD NEW RULE: Consistent paragraph spacing within bio area
 .about-intro p {
     margin-bottom: 2rem !important; // Forces consistent space below paragraphs
+}
+
+// Remove bottom margin from the final paragraph to align with image bottom edge
+.about-intro .col-md-7 p:last-child {
+    margin-bottom: 0 !important;
 }
 
 // Spacing adjustments for Skills & Tools sections
