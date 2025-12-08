@@ -146,6 +146,23 @@
   }
 }
 
+.intro-text .btn-intro {
+  background-color: transparent;
+  border: 2px solid #1c355e;
+  color: #1c355e;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 12px 30px;
+  transition: all 0.3s ease;
+}
+.intro-text .btn-intro:hover, .intro-text .btn-intro:focus {
+  background-color: #1c355e;
+  color: #f2b950;
+  border-color: #1c355e;
+  text-decoration: none;
+}
+
 .intro-description {
   font-family: var(--font-body);
   font-size: 1.2rem;
