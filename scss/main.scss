@@ -188,6 +188,26 @@ $color-footer-bg: #e9dcc9; // Beige
     }
 }
 
+// CTA button in Intro section
+.intro-text .btn-intro {
+    background-color: transparent; // Default: transparent background
+    border: 2px solid $color-primary; // Navy border
+    color: $color-primary; // Navy text
+    text-transform: uppercase; // Uppercase text
+    font-weight: 600; // Semi-bold
+    letter-spacing: 0.05em; // Slight tracking
+    padding: 12px 30px; // Comfortable target size
+    transition: all 0.3s ease; // Smooth transition
+
+    &:hover,
+    &:focus {
+        background-color: $color-primary; // Fill with Navy on hover
+        color: $color-accent; // Gold text (brand accent)
+        border-color: $color-primary; // Keep Navy border
+        text-decoration: none; // Remove underline on hover
+    }
+}
+
 .intro-description {
     font-family: var(--font-body);
     font-size: 1.2rem;
