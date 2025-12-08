@@ -553,6 +553,35 @@ blockquote {
     }
 }
 
+// New styles for the high-contrast CTA button in the navbar
+.navbar .nav-item.nav-cta {
+    // Add separation from the adjacent 'PROJECTS' link
+    margin-left: 1rem;
+
+    .nav-link {
+        // Override standard link style to look like a button
+        background-color: $color-accent; // Gold Fill
+        color: $color-primary !important; // Navy Text
+        border: 2px solid $color-accent; // Gold Border
+        border-radius: 6px;
+        padding: 0.5rem 1rem !important; // Add padding for the button shape
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; // Ensure border transition is also smooth
+
+        // Ensure standard links retain their active styling
+        &.active {
+            font-weight: 700;
+        }
+
+        &:hover,
+        &:focus {
+            // Complete color swap for maximum engagement
+            background-color: $color-primary; // Navy Fill
+            color: $color-accent !important; // Gold Text
+            border-color: $color-primary; // Navy Border
+        }
+    }
+}
+
 /* ==============================
    Skills & Tools
 ============================== */
