@@ -99,6 +99,13 @@ $color-footer-bg: #e9dcc9; // Beige
     }
 }
 
+// Ensure the final SheCodes card keeps the same bottom spacing as other even "zebra" cards
+.project-list #shecodes.project-row {
+    // Restore spacing removed by .project-row:last-child reset
+    padding-bottom: 3rem !important; // match zebra card padding
+    margin-bottom: 5rem !important; // match zebra card outer spacing
+}
+
 /* ==============================
    Hero section
 ============================== */
@@ -1031,6 +1038,27 @@ blockquote {
                     }
                 }
             }
+        }
+    }
+}
+
+/* ==============================
+   Project Links (Global usage)
+   Apply brand link styling outside deep-dive blocks as well
+============================== */
+.project-links-inside {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba($color-primary, 0.1);
+
+    a.project-link {
+        font-weight: 600;
+        color: $color-primary;
+        text-decoration: underline;
+        display: inline-block;
+
+        &:hover {
+            color: $color-accent;
         }
     }
 }

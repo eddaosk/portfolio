@@ -63,6 +63,11 @@
   }
 }
 
+.project-list #shecodes.project-row {
+  padding-bottom: 3rem !important;
+  margin-bottom: 5rem !important;
+}
+
 /* ==============================
    Hero section
 ============================== */
@@ -876,6 +881,25 @@ blockquote {
   display: inline-block;
 }
 .textual details.deep-dive .deep-content .project-links-inside a.project-link:hover {
+  color: #f2b950;
+}
+
+/* ==============================
+   Project Links (Global usage)
+   Apply brand link styling outside deep-dive blocks as well
+============================== */
+.project-links-inside {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(28, 53, 94, 0.1);
+}
+.project-links-inside a.project-link {
+  font-weight: 600;
+  color: #1c355e;
+  text-decoration: underline;
+  display: inline-block;
+}
+.project-links-inside a.project-link:hover {
   color: #f2b950;
 }
 
