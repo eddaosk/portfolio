@@ -561,6 +561,8 @@ blockquote {
 
 .about-portrait {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: all 0.3s ease;
 }
 @media (max-width: 767.98px) {
@@ -627,6 +629,10 @@ blockquote {
 
 .about-intro p {
   margin-bottom: 2rem !important;
+}
+
+.about-intro .col-md-7 p:last-child {
+  margin-bottom: 0 !important;
 }
 
 .skill-section {
