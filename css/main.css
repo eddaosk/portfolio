@@ -81,31 +81,31 @@
   font-weight: 700;
   letter-spacing: 0.2em;
   color: #f9f9f9;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-size: clamp(2rem, 5vw, 4rem);
 }
 .hero .lead {
-  letter-spacing: 0.15em;
+  letter-spacing: 0.3em;
   color: #f2b950;
   opacity: 0.95;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 2.5rem;
 }
 .hero .tagline {
   font-family: var(--font-accent);
   color: #e9dcc9;
-  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
   letter-spacing: 0.05em;
   line-height: 1.4;
   opacity: 0.95;
   max-width: 900px;
   margin: 0 auto;
-  white-space: nowrap;
+  font-style: italic;
 }
 @media (max-width: 991.98px) {
   .hero .tagline {
     white-space: normal;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 }
 .hero::after {
