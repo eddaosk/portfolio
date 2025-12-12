@@ -10,6 +10,7 @@
 ============================== */
 $color-primary: #1c355e; // Twilight Indigo
 $color-accent: #f2b950; // Sunflower Gold
+$color-subheading: #395679; // Dusk Blue
 $color-background: #f9f9f9; // Bright Snow
 $color-text: #2e2e2e; // Graphite
 $color-footer-bg: #e9dcc9; // Bone
@@ -139,13 +140,12 @@ $color-white: #ffffff; // Pure white
         letter-spacing: 0.05em;
         line-height: 1.4;
         opacity: 0.95;
-        white-space: normal; // Reverted to default
-        max-width: 1000px; // Restore original max-width
         margin: 0 auto;
         font-style: italic;
+        white-space: nowrap; // Keep on one line for large screens
 
         @include media-breakpoint-down(lg) {
-            white-space: normal; // Ensure this remains normal
+            white-space: normal;
             font-size: 1.5rem;
         }
     }
@@ -199,10 +199,10 @@ $color-white: #ffffff; // Pure white
 
 // CTA button in Intro section
 .intro-text .btn-intro {
-    // Revert to Transparent/Navy style
-    background-color: transparent; // Transparent background
-    border: 2px solid $color-primary; // Navy border
-    color: $color-primary; // Navy text
+    // Default: Gold fill, Gold border, Navy text (match nav CTA)
+    background-color: $color-accent;
+    border: 2px solid $color-accent;
+    color: $color-primary;
 
     // Remaining styles are kept the same
     text-transform: uppercase;
@@ -211,12 +211,12 @@ $color-white: #ffffff; // Pure white
     padding: 12px 30px;
     transition: all 0.3s ease;
 
-    // Hover: Navy fill, Gold text, Navy border
+    // Hover: Navy fill, Gold text, Navy border (reverse like nav CTA)
     &:hover,
     &:focus {
-        background-color: $color-primary; // Fill with Navy on hover
-        color: $color-accent; // Gold text
-        border-color: $color-primary; // Keep Navy border
+        background-color: $color-primary;
+        color: $color-accent;
+        border-color: $color-primary;
         text-decoration: none;
     }
 }
@@ -958,7 +958,7 @@ blockquote {
     .project-subtitle {
         font-family: var(--font-heading);
         font-weight: 400;
-        color: $color-primary; // Revert to brand primary
+        color: $color-subheading; // Use the new Deep Teal
         margin-bottom: 1.5rem;
 
         // Responsive Font Size
@@ -1045,7 +1045,11 @@ blockquote {
                 padding-left: 1.2rem;
             }
 
-            // Revert: remove custom strong styling inside lists
+            /* Adjust strong tags within project list items */
+            li strong {
+                font-weight: 600; // Reduce from default 700 to 600
+                color: darken($color-text, 5%); // Use dark gray to reduce visual competition
+            }
 
             /* ==============================
                Project Links Inside Deep Dive

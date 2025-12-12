@@ -98,9 +98,9 @@
   letter-spacing: 0.05em;
   line-height: 1.4;
   opacity: 0.95;
-  max-width: 1000px;
   margin: 0 auto;
   font-style: italic;
+  white-space: nowrap;
 }
 @media (max-width: 991.98px) {
   .hero .tagline {
@@ -152,8 +152,8 @@
 }
 
 .intro-text .btn-intro {
-  background-color: transparent;
-  border: 2px solid #1c355e;
+  background-color: #f2b950;
+  border: 2px solid #f2b950;
   color: #1c355e;
   text-transform: uppercase;
   font-weight: 600;
@@ -559,13 +559,18 @@ blockquote {
 }
 .about-section.bg-light .btn-primary {
   background-color: #f2b950;
-  border-color: #1c355e;
+  border: 2px solid #f2b950;
   color: #1c355e;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem !important;
 }
-.about-section.bg-light .btn-primary:hover {
-  background-color: rgb(240.2367021277, 175.5053191489, 56.2632978723);
-  border-color: rgb(22.1475409836, 41.9221311475, 74.3524590164);
-  color: rgb(22.1475409836, 41.9221311475, 74.3524590164);
+.about-section.bg-light .btn-primary:hover, .about-section.bg-light .btn-primary:focus {
+  background-color: #1c355e;
+  color: #f2b950;
+  border-color: #1c355e;
 }
 .about-section.bg-light p {
   font-size: 1.125rem;
@@ -714,6 +719,18 @@ blockquote {
   color: #1c355e !important;
 }
 
+.text-accent {
+  color: #f2b950 !important;
+}
+
+.text-accessible-heading {
+  color: #1c355e !important;
+}
+
+.text-subheading {
+  color: #395679 !important;
+}
+
 .text-muted {
   color: #2e2e2e !important;
   opacity: 0.7;
@@ -792,7 +809,7 @@ blockquote {
 .textual .project-subtitle {
   font-family: var(--font-heading);
   font-weight: 400;
-  color: rgb(45.5573770492, 86.2336065574, 152.9426229508);
+  color: #395679;
   margin-bottom: 1.5rem;
   font-size: 1.35rem;
 }
@@ -863,6 +880,13 @@ blockquote {
 }
 .textual details.deep-dive .deep-content ul {
   padding-left: 1.2rem;
+}
+.textual details.deep-dive .deep-content {
+  /* Adjust strong tags within project list items */
+}
+.textual details.deep-dive .deep-content li strong {
+  font-weight: 600;
+  color: rgb(33.25, 33.25, 33.25);
 }
 .textual details.deep-dive .deep-content {
   /* ==============================
@@ -989,6 +1013,11 @@ details.deep-dive summary {
   text-decoration: underline;
   font-weight: 500;
   outline: none;
+  transition: color 0.3s ease;
+}
+details.deep-dive summary:hover, details.deep-dive summary:focus {
+  color: #f2b950;
+  text-decoration-color: #f2b950;
 }
 details.deep-dive summary::-webkit-details-marker {
   display: none;
