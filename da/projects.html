@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="da">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Projekter - Edda Ósk Óskarsdóttir</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Rubik:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="../css/main.css" />
+        <link rel="icon" href="../img/logo-gold.svg" type="image/svg+xml" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="../img/logo-gold.svg" alt="Edda Ósk logo" height="40" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Forside</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Om mig</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="projects.html">Projekter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../projects.html">🇬🇧 EN</a>
+                        </li>
+                        <li class="nav-item nav-cta">
+                            <a class="nav-link" href="https://www.linkedin.com/in/eddaoskarsdottir/" target="_blank" title="Forbind på LinkedIn">CONNECT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class="projects py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h1>Mine projekter</h1>
+                    </div>
+                </div>
+                <div class="project-list">
+                    <!-- JuicOrganic -->
+                    <div class="row g-5 project-row no-divider" id="juicorganic">
+                        <div class="col-12 col-lg-6 graphical">
+                            <div class="carousel-wrapper">
+                                <div id="carouselJuicOrganic" class="carousel slide project-carousel" data-bs-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="../img/JO1.png" class="d-block w-100" alt="JuicOrganic billede 1" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <video class="d-block w-100" autoplay muted loop playsinline>
+                                                <source src="../img/JO2.mp4" type="video/mp4" />
+                                                Din browser understøtter ikke videoelementet.
+                                            </video>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/JO3.png" class="d-block w-100" alt="JuicOrganic billede 3" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/JO4.jpg" class="d-block w-100" alt="JuicOrganic billede 4" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/JO5.png" class="d-block w-100" alt="JuicOrganic billede 5" />
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselJuicOrganic" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Forrige</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselJuicOrganic" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Næste</span>
+                                    </button>
+                                </div>
+                                <div class="slide-counter"><span class="current-slide">1</span> / <span class="total-slides">X</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Text column -->
+                        <div class="col-12 col-lg-6 textual">
+                            <h2>JuicOrganic</h2>
+                            <h4 class="project-subtitle">Smart Vending Machine Kiosk UI</h4>
+                            <div class="project-meta">UX Research & Design · Front-End Udvikling · Motion Graphics</div>
+                            <p class="project-pitch">Som 2. semester eksamensprojekt hjalp vi JuicOrganic med at skifte fra B2B- til B2C-model. Vi udviklede et smart vending machine-koncept, der skaber incitament for genbrug og opfordrer brugere til at genfylde genanvendelige flasker via en digital brugerflade med et belønningssystem.</p>
+                            <details class="deep-dive">
+                                <summary>Læs Casestudie</summary>
+                                <div class="deep-content">
+                                    <h5>MY ROLE</h5>
+                                    <p>Vores gruppe på tre arbejdede tæt sammen om alle dele, men jeg havde to hovedroller: UX Designer og Udvikler. Jeg brugte antropologiske metoder til at lave dybdegående interviews for at forstå, hvorfor brugere tøver med at bruge genanvendelige løsninger. Herefter omsatte jeg indsigterne til user journeys, personaer og low-fi wireframes. På den tekniske side byggede jeg front-end arkitekturen. Jeg kodede brugerfladen med HTML, SCSS og JavaScript, og sikrede, at designet var responsivt. Jeg animerede desuden en promoveringsvideo i After Effects, som også blev integreret i vending machine-interfacet.</p>
+                                    <h5>KEY DELIVERABLES</h5>
+                                    <ul>
+                                        <li><strong>UX Research:</strong> Personaer og dataanalyse.</li>
+                                        <li><strong>UX Design:</strong> Wireframes og informationsarkitektur.</li>
+                                        <li><strong>Front-End Code:</strong> En responsiv prototype kodet med HTML, SCSS, JavaScript og Bootstrap.</li>
+                                        <li><strong>Motion Graphics:</strong> Promoveringsvideo til sociale medier.</li>
+                                    </ul>
+                                    <h5>KEY TAKEAWAYS</h5>
+                                    <div class="learning-box">
+                                        <ul>
+                                            <li><strong>Developer Handoff:</strong> At skrive koden selv lærte mig, hvor vigtigt det er at have organiserede designfiler til udviklere.</li>
+                                            <li><strong>Iterativ Testning:</strong> Vi testede konceptet flere gange. Jeg lærte værdien af at slippe den første idé og bruge test-indsigter til at iterere.</li>
+                                            <li><strong>Tæt teamsamarbejde:</strong> Vores team arbejdede tæt sammen og byggede på hinandens idéer og arbejde – uden plads til ego.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="project-links-inside mt-4">
+                                        <a href="https://eddaosk.github.io/JuicOrganic/" target="_blank" class="project-link">Se kodet prototype (optimeret til iPad Pro)</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Das Büro – Digital Design Studio -->
+                    <div class="row g-5 project-row" id="dkb">
+                        <div class="col-12 col-lg-6 graphical">
+                            <div class="carousel-wrapper">
+                                <div id="carouselDasBuro" class="carousel slide project-carousel" data-bs-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <video class="d-block w-100" autoplay muted loop playsinline>
+                                                <source src="../img/DKB1.mp4" type="video/mp4" />
+                                                Din browser understøtter ikke videoelementet.
+                                            </video>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/DKB2.jpg" class="d-block w-100" alt="Das Kleine Büro billede 2" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/DKB3.png" class="d-block w-100" alt="Das Kleine Büro billede 3" />
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDasBuro" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Forrige</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselDasBuro" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Næste</span>
+                                    </button>
+                                </div>
+                                <div class="slide-counter"><span class="current-slide">1</span> / <span class="total-slides">X</span></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 textual">
+                            <h2>Das Kleine Büro</h2>
+                            <h4 class="project-subtitle">Digitalt Bureaussimulering</h4>
+                            <div class="project-meta">Projektkoordinator · Team Manager</div>
+                            <p class="project-pitch">Vi etablerede et digitalt bureau bestående af ni personer for at levere reelle klientopgaver inden for branding, prototyping og visuelt design. Udfordringen var at opretholde kvalitet og sammenhængskraft på tværs af et mangfoldigt studenterteam, samtidig med at vi håndterede flere klientkonti.</p>
+                            <details class="deep-dive">
+                                <summary>Læs Casestudie</summary>
+                                <div class="deep-content">
+                                    <h5>MY ROLE</h5>
+                                    <p>Mit primære fokus var Projektkoordination. Jeg havde overblik over hele workflowet, ledte daglige stand-ups, faciliterede kommunikation mellem sub-teams og holdt vores fungerende CEO (underviser) informeret om fremskridt. Jeg matchede teammedlemmer med opgaver baseret på deres individuelle styrker for at maksimere effektiviteten. Jeg trådte desuden til for at assistere i forskellige projekter, når flaskehalse opstod. Udover teamledelse bevarede jeg også en hands-on rolle ved at overtage en af klientopgaverne.</p>
+                                    <h5>KEY DELIVERABLES</h5>
+                                    <ul>
+                                        <li><strong>Team Framework:</strong> Strukturerede workflows og kommunikationskanaler.</li>
+                                        <li><strong>Resource Management:</strong> Opgaveuddelegering baseret på kompetencekortlægning.</li>
+                                        <li><strong>Client Management:</strong> Overvågning af flere klientopgaver og leverancer.</li>
+                                    </ul>
+                                    <h5>KEY TAKEAWAYS</h5>
+                                    <div class="learning-box">
+                                        <ul>
+                                            <li><strong>Leadership:</strong> Jeg trådte ind i en mere ledende rolle end kun koordinering. Her lærte jeg værdifulde lektioner om <em>servant leadership</em>, og hvordan det ofte handler om at fjerne forhindringer, så mine holdkammerater kan levere deres bedste arbejde.</li>
+                                            <li><strong>Soft Skills:</strong> Vores gruppe fik topkarakterer for samarbejde, både fra medstuderende og undervisere. Dette bekræftede, at den psykologiske sikkerhed, jeg skabte, var en nøgledriver for vores kreative output og teamsucces.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Econiq -->
+                    <div class="row g-5 project-row no-divider" id="econiq">
+                        <div class="col-12 col-lg-6 graphical">
+                            <div class="carousel-wrapper">
+                                <div id="carouselEconiq" class="carousel slide project-carousel" data-bs-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="../img/EC1.jpg" class="d-block w-100" alt="Econiq billede 1" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/EC2.png" class="d-block w-100" alt="Econiq billede 2" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/EC3.png" class="d-block w-100" alt="Econiq billede 3" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/EC4.jpg" class="d-block w-100" alt="Econiq billede 4" />
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselEconiq" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Forrige</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselEconiq" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Næste</span>
+                                    </button>
+                                </div>
+                                <div class="slide-counter"><span class="current-slide">1</span> / <span class="total-slides">X</span></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 textual">
+                            <h2>Econiq</h2>
+                            <h4 class="project-subtitle">FinTech SaaS Prototype</h4>
+                            <div class="project-meta">Product Owner · UX & Design Lead</div>
+                            <p class="project-pitch">Econiq var en klient for vores bureau-simulering, Das Kleine Büro. De er en FinTech startup, der havde brug for en brugercentreret SaaS-prototype. Udfordringen lå i at omdanne et komplekst finansielt forecasting-værktøj til en intuitiv brugerflade for ikke-ekspertbrugere.</p>
+                            <details class="deep-dive">
+                                <summary>Læs Casestudie</summary>
+                                <div class="deep-content">
+                                    <h5>MY ROLE</h5>
+                                    <p>Jeg fungerede som Product Owner og byggede bro mellem klientens forretningskrav og vores team. Samtidig var jeg UX & Design Lead og tog projektet fra koncept til high-fidelity. Jeg startede med low-fidelity wireframes for at kortlægge de finansielle workflows. Derefter fortsatte jeg i Figma for at bygge den endelige prototype. Jeg udførte brugertests for at validere brugerfladen og sikre, at komplekse data blev omsat til en ren, intuitiv brugeroplevelse.</p>
+                                    <h5>KEY DELIVERABLES</h5>
+                                    <ul>
+                                        <li><strong>UX/UI Design:</strong> End-to-end design fra low-fi wireframes til en testet, klikbar Figma-prototype.</li>
+                                        <li><strong>Information Architecture:</strong> Forenklede sitemaps til komplekse data.</li>
+                                        <li><strong>UX Strategy:</strong> User journeys med fokus på tillid og klarhed.</li>
+                                    </ul>
+                                    <h5>KEY TAKEAWAYS</h5>
+                                    <div class="learning-box">
+                                        <ul>
+                                            <li><strong>Simplification:</strong> Mit tagline er "From Complexity to Clarity," og dette projekt var den ultimative test. Jeg lærte at reducere den kognitive belastning for brugere, der håndterer stressfremkaldende finansielle data.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Gestalt – Digital Magazine -->
+                    <div class="row g-5 project-row" id="gestalt">
+                        <div class="col-12 col-lg-6 graphical">
+                            <div class="carousel-wrapper">
+                                <div id="carouselGestalt" class="carousel slide project-carousel" data-bs-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="../img/GES1.jpg" class="d-block w-100" alt="Gestalt billede 1" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/GES2.jpg" class="d-block w-100" alt="Gestalt billede 2" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/GES3.jpg" class="d-block w-100" alt="Gestalt billede 3" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/GES4.jpg" class="d-block w-100" alt="Gestalt billede 4" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/GES5.jpg" class="d-block w-100" alt="Gestalt billede 5" />
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselGestalt" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Forrige</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselGestalt" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Næste</span>
+                                    </button>
+                                </div>
+                                <div class="slide-counter"><span class="current-slide">1</span> / <span class="total-slides">X</span></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 textual">
+                            <h2>Gestalt</h2>
+                            <h4 class="project-subtitle">Digitalt Magasin</h4>
+                            <div class="project-meta">Skribent · Fotograf · Redaktionel Designer</div>
+                            <p class="project-pitch">Som en del af valgfaget Visuelt Design og Layout bidrog jeg med en feature-artikel til et kollaborativt digitalt magasin. Artiklen undersøger, hvordan digitale medier former vores virkelighedsopfattelse gennem ekkokamre.</p>
+                            <details class="deep-dive">
+                                <summary>Læs Casestudie</summary>
+                                <div class="deep-content">
+                                    <h5>MY ROLE</h5>
+                                    <p>Dette var en solo-eksekvering inden for en kollaborativ ramme. Jeg skrev artiklen med et visuelt-antropologisk perspektiv og fotograferede alle originale aktiver for at sikre et unikt visuelt sprog. Derefter designede jeg layoutet med streng anvendelse af Gestalt-principper og grid-systemer for at skabe en læseoplevelse, der føltes struktureret, men samtidig fordybende.</p>
+                                    <h5>KEY DELIVERABLES</h5>
+                                    <ul>
+                                        <li><strong>Redaktionelt Design:</strong> High-fidelity layout med strenge grids.</li>
+                                        <li><strong>Content Creation:</strong> Original artikel og fotografi.</li>
+                                        <li><strong>Visuel Teori:</strong> Praktisk anvendelse af Gestalt-principper.</li>
+                                    </ul>
+                                    <h5>KEY TAKEAWAYS</h5>
+                                    <div class="learning-box">
+                                        <ul>
+                                            <li><strong>Visuel Storytelling:</strong> Jeg lærte, hvordan fotografiet kan fungere som et narrativt medie – ikke kun dekoration.</li>
+                                            <li><strong>The Power of Grids:</strong> Jeg fik en dybere værdsættelse af, hvordan rigide grid-systemer faktisk giver plads til større kreativ frihed.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="project-links-inside mt-4">
+                                        <a href="https://heyzine.com/flip-book/28e8dc8430.html#page/49" target="_blank" class="project-link">Læs Magasinartikel</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Hoedown After Dark -->
+                    <div class="row g-5 project-row no-divider" id="hoedown">
+                        <div class="col-12 col-lg-6 graphical">
+                            <div class="carousel-wrapper">
+                                <div id="carouselHoedown" class="carousel slide project-carousel" data-bs-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="../img/HD1.jpg" class="d-block w-100" alt="Hoedown billede 1" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/HD2.jpg" class="d-block w-100" alt="Hoedown billede 2" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/HD3.jpg" class="d-block w-100" alt="Hoedown billede 3" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/HD4.jpg" class="d-block w-100" alt="Hoedown billede 4" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/HD5.png" class="d-block w-100" alt="Hoedown billede 5" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/HD6.png" class="d-block w-100" alt="Hoedown billede 6" />
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselHoedown" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Forrige</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselHoedown" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Næste</span>
+                                    </button>
+                                </div>
+                                <div class="slide-counter"><span class="current-slide">1</span> / <span class="total-slides">X</span></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 textual">
+                            <h2>Hoedown After Dark</h2>
+                            <h4 class="project-subtitle">E-commerce Brand</h4>
+                            <div class="project-meta">Projektkoordination · Strategist · Visuel & Brand Designer</div>
+                            <p class="project-pitch">Vi etablerede et tøjmærke, der kombinerer western-æstetik med underground techno-kultur og queer-miljøet. Målet var at skabe en stærk visuel identitet og en testet produktlinje, der støttede velgørenhedsorganisationen LGBT Asylum.</p>
+                            <details class="deep-dive">
+                                <summary>Læs Casestudie</summary>
+                                <div class="deep-content">
+                                    <h5>MY ROLE</h5>
+                                    <p>Jeg tog ansvaret for projektledelsen og brugte et Kanban board til at opretholde et agile workflow. Vi anvendte Lean Startup-principper for hurtigt at teste og validere brandkonceptet med vores målgruppe. Jeg udviklede forretningsmodellen og SEO-strategi for at sikre, at brandet var kommercielt levedygtigt. Designmæssigt var jeg med til at forme den visuelle identitet og bruge persuasive design-principper i webprototypen for at øge donationerne.</p>
+                                    <h5>KEY DELIVERABLES</h5>
+                                    <ul>
+                                        <li><strong>Visuel &amp; Brand Identity:</strong> En sammenhængende brandguide.</li>
+                                        <li><strong>Project Management:</strong> Agile workflow via Kanban.</li>
+                                        <li><strong>Business Strategy:</strong> SEO-analyse og Business Model Canvas.</li>
+                                    </ul>
+                                    <h5>KEY TAKEAWAYS</h5>
+                                    <div class="learning-box">
+                                        <ul>
+                                            <li><strong>Niche Targeting:</strong> Jeg lærte, at forsøget på at appellere til alle ikke appellerer til nogen; at læne sig ind i en specifik subkultur skabte et stærkere brand.</li>
+                                            <li><strong>Agile Management:</strong> Brugen af Kanban hjalp os med at forblive organiserede og målrettede.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="project-links-inside mt-4">
+                                        <a href="https://www.instagram.com/hoedownafterdark/" target="_blank" class="project-link">Se Brand Instagram</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="row g-5 project-row no-divider" id="shecodes">
+                        <div class="col-12 col-lg-6 graphical">
+                            <div class="carousel-wrapper">
+                                <div id="carouselSheCodes" class="carousel slide project-carousel" data-bs-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="../img/SC1.png" class="d-block w-100" alt="SheCodes projekt screenshot: teknisk øvelse 1" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../img/SC2.png" class="d-block w-100" alt="SheCodes projekt screenshot: teknisk øvelse 2" />
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselSheCodes" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Forrige</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselSheCodes" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Næste</span>
+                                    </button>
+                                </div>
+                                <div class="slide-counter"><span class="current-slide">1</span> / <span class="total-slides">2</span></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 textual">
+                            <h2>SheCodes</h2>
+                            <h4 class="project-subtitle">Front-End Kodning & Kontinuerlig Udvikling</h4>
+                            <div class="project-meta">HTML · CSS · JavaScript</div>
+
+                            <p class="project-pitch">Jeg tager aktivt kurser hos SheCodes for at udvikle og styrke mine kompetencer inden for front-end udvikling. Jeg er i øjeblikket i gang med SheCodes Plus-workshops, hvor jeg fokuserer på at bygge professionelle applikationer med moderne JavaScript og fremtidig API-integration.</p>
+
+                            <h5>TECHNICAL FOCUS</h5>
+                            <ul>
+                                <li>Responsive Layout Builds</li>
+                                <li>Custom JavaScript Functions</li>
+                            </ul>
+
+                            <div class="project-links-inside mt-5">
+                                <a href="https://www.shecodes.io/graduates/170708-edda-oskarsdottir" target="_blank" class="project-link">Se min SheCodes-profil</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <a href="https://www.linkedin.com/in/eddaoskarsdottir/" target="_blank" class="social-link" title="LinkedIn-profil">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <p class="mt-3">&copy; <span class="js-current-year">2025</span> Edda Ósk Óskarsdóttir. Alle rettigheder forbeholdes.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Custom JS -->
+        <script src="../js/main.js"></script>
+    </body>
+</html>
