@@ -8,11 +8,12 @@
 /* ==============================
    Color Variables
 ============================== */
-$color-primary: #1c355e; // Navy blue
-$color-accent: #f2b950; // Gold
-$color-background: #f9f9f9; // Off-white
-$color-text: #2e2e2e; // Dark gray
-$color-footer-bg: #e9dcc9; // Beige
+$color-primary: #1c355e; // Twilight Indigo
+$color-accent: #f2b950; // Sunflower Gold
+$color-background: #f9f9f9; // Bright Snow
+$color-text: #2e2e2e; // Graphite
+$color-footer-bg: #e9dcc9; // Bone
+$color-white: #ffffff; // Pure white
 
 /* ==============================
    Projects section
@@ -138,12 +139,13 @@ $color-footer-bg: #e9dcc9; // Beige
         letter-spacing: 0.05em;
         line-height: 1.4;
         opacity: 0.95;
-        max-width: 1000px;
+        white-space: normal; // Reverted to default
+        max-width: 1000px; // Restore original max-width
         margin: 0 auto;
         font-style: italic;
 
         @include media-breakpoint-down(lg) {
-            white-space: normal;
+            white-space: normal; // Ensure this remains normal
             font-size: 1.5rem;
         }
     }
@@ -197,21 +199,25 @@ $color-footer-bg: #e9dcc9; // Beige
 
 // CTA button in Intro section
 .intro-text .btn-intro {
-    background-color: transparent; // Default: transparent background
+    // Revert to Transparent/Navy style
+    background-color: transparent; // Transparent background
     border: 2px solid $color-primary; // Navy border
     color: $color-primary; // Navy text
-    text-transform: uppercase; // Uppercase text
-    font-weight: 600; // Semi-bold
-    letter-spacing: 0.05em; // Slight tracking
-    padding: 12px 30px; // Comfortable target size
-    transition: all 0.3s ease; // Smooth transition
 
+    // Remaining styles are kept the same
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 12px 30px;
+    transition: all 0.3s ease;
+
+    // Hover: Navy fill, Gold text, Navy border
     &:hover,
     &:focus {
         background-color: $color-primary; // Fill with Navy on hover
-        color: $color-accent; // Gold text (brand accent)
+        color: $color-accent; // Gold text
         border-color: $color-primary; // Keep Navy border
-        text-decoration: none; // Remove underline on hover
+        text-decoration: none;
     }
 }
 
@@ -658,16 +664,24 @@ blockquote {
             }
         }
 
-        // *** BUTTON FIX: SOLID GOLD FILL WITH NAVY TEXT (MAX CONTRAST) ***
+        // *** CTA BUTTON: SOLID GOLD FILL WITH NAVY TEXT (MAX CONTRAST) ***
         .btn-primary {
-            background-color: $color-accent; // Solid Gold fill
-            border-color: $color-primary; // Navy border
-            color: $color-primary; // Navy text (High Contrast)
+            // Apply the brand's primary CTA style
+            background-color: $color-accent; // Gold Fill
+            border: 2px solid $color-accent; // Gold Border
+            color: $color-primary; // Navy Text (High Contrast)
+            text-transform: uppercase; // Enforce ALL CAPS
+            font-weight: 600; // Semi-bold for professionalism
+            letter-spacing: 0.05em;
+            border-radius: 6px; // Match header button's slight rounding
+            padding: 0.75rem 1.5rem !important; // Larger size for primary CTA
 
-            &:hover {
-                background-color: darken($color-accent, 5%); // Darker Gold on hover
-                border-color: darken($color-primary, 5%);
-                color: darken($color-primary, 5%);
+            &:hover,
+            &:focus {
+                // Complete color swap for maximum engagement (matching navbar CTA)
+                background-color: $color-primary; // Navy Fill
+                color: $color-accent; // Gold Text
+                border-color: $color-primary; // Navy Border
             }
         }
 
@@ -843,6 +857,19 @@ blockquote {
     color: $color-primary !important;
 }
 
+.text-accent {
+    color: $color-accent !important;
+}
+
+.text-accessible-heading {
+    // Removed accessible heading color; fallback to primary
+    color: $color-primary !important;
+}
+
+.text-subheading {
+    color: $color-subheading !important;
+}
+
 .text-muted {
     color: $color-text !important;
     opacity: 0.7;
@@ -931,7 +958,7 @@ blockquote {
     .project-subtitle {
         font-family: var(--font-heading);
         font-weight: 400;
-        color: lighten($color-primary, 15%);
+        color: $color-primary; // Revert to brand primary
         margin-bottom: 1.5rem;
 
         // Responsive Font Size
@@ -1017,6 +1044,8 @@ blockquote {
             ul {
                 padding-left: 1.2rem;
             }
+
+            // Revert: remove custom strong styling inside lists
 
             /* ==============================
                Project Links Inside Deep Dive
@@ -1160,10 +1189,18 @@ details.deep-dive {
     summary {
         list-style: none;
         cursor: pointer;
-        color: $color-primary;
-        text-decoration: underline;
+        color: $color-primary; // Navy Blue (Primary Link Color)
+        text-decoration: underline; // Ensure it looks like a link
         font-weight: 500;
         outline: none;
+        transition: color 0.3s ease; // Smooth color transition
+
+        // Add Hover/Focus state using the Gold accent color
+        &:hover,
+        &:focus {
+            color: $color-accent; // Gold accent on hover
+            text-decoration-color: $color-accent; // Ensure underline color changes too
+        }
     }
 
     // Remove default marker
