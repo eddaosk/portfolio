@@ -72,9 +72,14 @@
    Hero section
 ============================== */
 .hero {
-  background: #1c355e;
+  background-image: linear-gradient(rgba(28, 53, 94, 0.7), rgba(28, 53, 94, 0.7)), url("../img/eddab3.jpg");
+  background-size: cover;
+  background-position: center 25%;
+  background-color: #1c355e;
+  background-repeat: no-repeat;
   padding: 8rem 1.5rem 6rem;
   text-align: center;
+  min-height: 640px;
 }
 .hero h1 {
   font-family: var(--font-heading);
@@ -107,12 +112,6 @@
     white-space: normal;
     font-size: 1.5rem;
   }
-}
-.hero::after {
-  content: "";
-  display: block;
-  height: 60px;
-  background: linear-gradient(to bottom, rgb(28, 53, 94), rgba(28, 53, 94, 0));
 }
 @media (max-width: 767.98px) {
   .hero {
