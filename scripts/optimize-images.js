@@ -12,8 +12,8 @@ const path = require("path");
 const sharp = require("sharp");
 
 const ROOT = path.resolve(__dirname, "..");
-const INPUT_DIR = path.join(ROOT, "img", "hobbies");
-const TARGET_MAX_BYTES = 300 * 1024; // 300KB
+const DEFAULT_INPUT_DIR = path.join(ROOT, "img", "hobbies");
+const TARGET_MAX_BYTES_DEFAULT = 300 * 1024; // 300KB
 const START_JPEG_QUALITY = 78; // good quality baseline
 
 function isImage(file) {
@@ -21,9 +21,9 @@ function isImage(file) {
     return [".jpg", ".jpeg", ".png"].includes(ext);
 }
 
-async function optimizeOne(file) {
-    const inputPath = path.join(INPUT_DIR, file);
-    const ext = path.extname(file).toLowerCase();
+async function optimizeOnePath(inputPath, opts = {}) {
+    const ext = path.extname(inputPath).toLowerCase();
+    const TARGET_MAX_BYTES = opts.targetMaxBytes || TARGET_MAX_BYTES_DEFAULT;
 
     // Read metadata for dimensions
     let meta;
@@ -34,7 +34,8 @@ async function optimizeOne(file) {
         return;
     }
 
-    let width = Math.min(1200, meta.width || 1200);
+    const maxWidth = opts.maxWidth || 1200;
+    let width = Math.min(maxWidth, meta.width || maxWidth);
     let jpegQuality = START_JPEG_QUALITY;
     let pngCompression = 9;
     let usePalette = true;
@@ -61,7 +62,8 @@ async function optimizeOne(file) {
         if (buffer.length <= TARGET_MAX_BYTES) {
             // Write and finish
             await sharp(buffer).toFile(inputPath);
-            console.log(`✔ ${file} → ${Math.round(buffer.length / 1024)}KB, width=${width}${ext.includes("jpg") ? `, q=${jpegQuality}` : `, pngCL=${pngCompression}, palette=${usePalette}`}`);
+            const fileName = path.basename(inputPath);
+            console.log(`✔ ${fileName} → ${Math.round(buffer.length / 1024)}KB, width=${width}${ext.includes("jpg") ? `, q=${jpegQuality}` : `, pngCL=${pngCompression}, palette=${usePalette}`}`);
             return;
         }
 
@@ -90,32 +92,77 @@ async function optimizeOne(file) {
     // Best-effort write even if above target
     if (bestBuffer) {
         await sharp(bestBuffer).toFile(inputPath);
-        console.warn(`≈ ${file} best-effort → ${Math.round(bestBuffer.length / 1024)}KB, width=${width}`);
+        const fileName = path.basename(inputPath);
+        console.warn(`≈ ${fileName} best-effort → ${Math.round(bestBuffer.length / 1024)}KB, width=${width}`);
     }
 }
 
 async function run() {
+    // Optional args: [pathOrDir] [maxWidth] [targetKB]
+    const argPath = process.argv[2];
+    const argMaxWidth = parseInt(process.argv[3], 10);
+    const argTargetKB = parseInt(process.argv[4], 10);
+
+    const opts = {
+        maxWidth: Number.isFinite(argMaxWidth) ? argMaxWidth : undefined,
+        targetMaxBytes: Number.isFinite(argTargetKB) ? argTargetKB * 1024 : undefined,
+    };
+
+    if (argPath) {
+        const input = path.isAbsolute(argPath) ? argPath : path.join(ROOT, argPath);
+        if (!fs.existsSync(input)) {
+            console.error(`Path not found: ${input}`);
+            process.exit(1);
+        }
+
+        const stat = fs.statSync(input);
+        if (stat.isFile()) {
+            // Optimize a single file
+            console.log(`Optimizing single file: ${input} ...`);
+            await optimizeOnePath(input, opts);
+            console.log("Done.");
+            return;
+        }
+
+        if (stat.isDirectory()) {
+            // Optimize all images in the directory
+            const files = fs.readdirSync(input).filter(isImage);
+            if (!files.length) {
+                console.log("No images found to optimize.");
+                return;
+            }
+            console.log(`Optimizing ${files.length} images in ${input} ...`);
+            for (const f of files) {
+                try {
+                    await optimizeOnePath(path.join(input, f), opts);
+                } catch (e) {
+                    console.error(`Error optimizing ${f}: ${e.message}`);
+                }
+            }
+            console.log("Done.");
+            return;
+        }
+    }
+
+    // Default behavior: optimize hobbies directory
+    const INPUT_DIR = DEFAULT_INPUT_DIR;
     if (!fs.existsSync(INPUT_DIR)) {
         console.error(`Directory not found: ${INPUT_DIR}`);
         process.exit(1);
     }
-
     const files = fs.readdirSync(INPUT_DIR).filter(isImage);
     if (!files.length) {
         console.log("No images found to optimize.");
         return;
     }
-
     console.log(`Optimizing ${files.length} images in ${INPUT_DIR} ...`);
-
     for (const f of files) {
         try {
-            await optimizeOne(f);
+            await optimizeOnePath(path.join(INPUT_DIR, f), {});
         } catch (e) {
             console.error(`Error optimizing ${f}: ${e.message}`);
         }
     }
-
     console.log("Done.");
 }
 

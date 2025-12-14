@@ -9,6 +9,33 @@
 			"isBackground": false,
 			"problemMatcher": [],
 			"group": "build"
+		},
+		{
+			"label": "optimize-single-image",
+			"type": "shell",
+			"command": "node scripts/optimize-images.js",
+			"args": [
+				"img/eddab3.jpg",
+				"1600",
+				"260"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "optimize-single-image",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"scripts/optimize-images.js",
+				"img/eddab3.jpg",
+				"1600",
+				"260"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
 		}
 	]
 }
