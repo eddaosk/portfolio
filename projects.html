@@ -4,19 +4,28 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Projects - Edda Ósk Óskarsdóttir</title>
+        <meta name="description" content="Selected projects by Edda Ósk Óskarsdóttir — UX design, branding, front-end development, and more." />
+        <!-- Open Graph -->
+        <meta property="og:title" content="Projects — Edda Ósk Óskarsdóttir" />
+        <meta property="og:description" content="Selected projects in UX design, branding, front-end development, and more." />
+        <meta property="og:image" content="https://eddaosk.dk/img/edda.jpg" />
+        <meta property="og:url" content="https://eddaosk.dk/projects.html" />
+        <meta property="og:type" content="website" />
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Rubik:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+        <!-- AOS (Animate on Scroll) -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
         <!-- Custom CSS -->
         <link rel="stylesheet" href="css/main.css" />
         <link rel="icon" href="img/logo-gold.svg" type="image/svg+xml" />
     </head>
     <body>
         <nav class="navbar navbar-expand-lg">
-            <div class="container">
+            <div class="container-fluid px-4 px-lg-5">
                 <a class="navbar-brand" href="index.html">
                     <img src="img/logo-gold.svg" alt="Edda Ósk logo" height="40" />
                 </a>
@@ -29,10 +38,10 @@
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About Me</a>
+                            <a class="nav-link active" href="projects.html">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="projects.html">Projects</a>
+                            <a class="nav-link" href="about.html">About Me</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="da/projects.html" title="Dansk">🇩🇰 DA</a>
@@ -48,13 +57,13 @@
         <section class="projects py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 text-center mb-5">
+                    <div class="col-12 text-center mb-5" data-aos="fade-up" data-aos-duration="800">
                         <h1>My Projects</h1>
                     </div>
                 </div>
                 <div class="project-list">
-                    <!-- JuicOrganic -->
-                    <div class="row g-5 project-row no-divider" id="juicorganic">
+<!-- JuicOrganic -->
+                    <div class="row g-5 project-row" id="juicorganic" data-aos="fade-up" data-aos-duration="800">
                         <div class="col-12 col-lg-6 graphical">
                             <div class="carousel-wrapper">
                                 <div id="carouselJuicOrganic" class="carousel slide project-carousel" data-bs-interval="false">
@@ -95,27 +104,25 @@
                         <div class="col-12 col-lg-6 textual">
                             <h2>JuicOrganic</h2>
                             <h4 class="project-subtitle">Smart Vending Machine Kiosk UI</h4>
-                            <div class="project-meta">UX Research & Design &middot; Front-End Development &middot; Motion Graphics</div>
-                            <p class="project-pitch">As a 2nd Semester Exam Project, we were tasked with helping JuicOrganic pivot from a B2B model to B2C. We came up with a smart vending machine concept that encourages sustainability, inspiring users to refill reusable bottles through a digital interface with a reward system.</p>
+                            <div class="project-meta">UX Research &middot; Interaction Design &middot; Front-End Development</div>
+                            <p class="project-pitch">JuicOrganic is a Danish juice company operating B2B. We were challenged to take them direct-to-consumer — and instead of designing a typical landing page, we created a smart vending machine concept that encourages bottle reuse through a digital kiosk interface with a built-in reward system. I led the UX research and built the coded prototype.</p>
                             <details class="deep-dive">
                                 <summary>View Case Study</summary>
                                 <div class="deep-content">
-                                    <h5>My Contribution</h5>
-                                    <p>Our group of three worked closely on all aspects, but I wore two main hats on this project: UX Designer and Developer. I leveraged anthropological methods to conduct deep-dive interviews to understand why users hesitate to use reusable solutions, then translated those insights into user journeys and personas and low-fi wireframes. On the technical side, I built the front-end architecture. I coded the interface using HTML, SCSS, and JavaScript, ensuring the design was responsive. I also animated a promotional video in After Effects, which was also used as part of the vending machine interface.</p>
-                                    <h5>Key Deliverables</h5>
+                                    <h5>The Challenge</h5>
+                                    <p>The brief was open-ended: find a way to bring JuicOrganic to consumers. The real design challenge came after we landed on the vending machine concept — how do you design a kiosk interface for users who are in a hurry? We observed existing touch interfaces (McDonald’s ordering kiosks, coffee machines) and quickly realised our early wireframes had too many steps. The placement of the machines — transit hubs, busy locations — meant the interaction had to be fast and intuitive.</p>
+                                    <h5>My Role &amp; Process</h5>
                                     <ul>
-                                        <li><strong>UX Research:</strong> Personas and data analysis.</li>
-                                        <li><strong>UX Design:</strong> Wireframes and information architecture</li>
-                                        <li><strong>Front-End Code:</strong> A responsive prototype using HTML, SCSS, JavaScript and Bootstrap.</li>
-                                        <li><strong>Motion Graphics:</strong> A promotional social media video.</li>
+                                        <li>Conducted 2 in-depth interviews using anthropological methods on sustainability attitudes and reusable bottle adoption</li>
+                                        <li>Translated insights into user journey maps, feature priorities, and user scenarios</li>
+                                        <li>Iterated wireframes heavily — stripping steps until the flow matched the speed users needed</li>
+                                        <li>Teammates took wireframes into high-fidelity Figma (visual design + illustrations)</li>
+                                        <li>Coded a complete user flow as a working front-end prototype (HTML, SCSS, JavaScript, Bootstrap), optimised for iPad Pro</li>
+                                        <li>Animated the idle-screen promotional video in After Effects, doubling as social media content</li>
                                     </ul>
-                                    <h5>What I Learned</h5>
+                                    <h5>Outcome</h5>
                                     <div class="learning-box">
-                                        <ul>
-                                            <li><strong>The Developer Handoff:</strong> Writing the code myself taught me how important it is to keep design files organised for developers.</li>
-                                            <li><strong>Iterative Testing:</strong> We tested the concept multiple times, and I learned not to get too attached to the first idea and the value of testing insights.</li>
-                                            <li><strong>Close team collaboration:</strong> Our team worked very well together, building on each other’s ideas and work, with no space for ego.</li>
-                                        </ul>
+                                        <p>We delivered a working coded prototype, a high-fidelity Figma design, and a promotional video — a full product concept, not just screens. The project received top marks (12). The part I’m most proud of is the concept itself: we could have played it safe with a simple website, but we thought bigger and backed it up with real research and a functional prototype.</p>
                                     </div>
                                     <div class="project-links-inside mt-4">
                                         <a href="https://eddaosk.github.io/JuicOrganic/" target="_blank" class="project-link">View Coded Prototype (Optimized for iPad Pro)</a>
@@ -125,67 +132,8 @@
                         </div>
                     </div>
 
-                    <!-- Das Büro – Digital Design Studio -->
-                    <div class="row g-5 project-row" id="dkb">
-                        <div class="col-12 col-lg-6 graphical">
-                            <div class="carousel-wrapper">
-                                <div id="carouselDasBuro" class="carousel slide project-carousel" data-bs-interval="false">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <video class="d-block w-100" autoplay muted loop playsinline>
-                                                <source src="img/DKB1.mp4" type="video/mp4" />
-                                                Your browser does not support the video tag.
-                                            </video>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="img/DKB2.jpg" class="d-block w-100" alt="Das Kleine Büro image 2" />
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="img/DKB3.png" class="d-block w-100" alt="Das Kleine Büro image 3" />
-                                        </div>
-                                    </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDasBuro" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselDasBuro" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
-                                </div>
-                                <div class="slide-counter"><span class="current-slide">1</span> / <span class="total-slides">X</span></div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6 textual">
-                            <h2>Das Kleine Büro</h2>
-                            <h4 class="project-subtitle">Digital Agency Simulation</h4>
-                            <div class="project-meta">Project Coordinator &middot; Team Manager</div>
-                            <p class="project-pitch">We formed a nine-person digital agency to deliver real client work, including branding, prototyping and visual design. The challenge was maintaining quality and coherence across a diverse student team while simultaneously managing multiple client accounts.</p>
-                            <details class="deep-dive">
-                                <summary>View Case Study</summary>
-                                <div class="deep-content">
-                                    <h5>My Contribution</h5>
-                                    <p>My primary focus was Project Coordination. I oversaw the entire workflow, led daily stand-ups, facilitated communication between sub-teams, and kept our Acting CEO (teacher) informed on progress. I matched team members to tasks based on their individual strengths to maximise efficiency, stepping in to assist across projects whenever bottlenecks appeared. Beyond team management, I also maintained a hands-on role by taking ownership of one of the client cases.</p>
-                                    <h5>Key Deliverables</h5>
-                                    <ul>
-                                        <li><strong>Team Framework:</strong> structured workflows and communication channels.</li>
-                                        <li><strong>Resource Management:</strong> Task delegation based on skill mapping.</li>
-                                        <li><strong>Client Management:</strong> Oversight of multiple client cases and delivery</li>
-                                    </ul>
-                                    <h5>What I Learned</h5>
-                                    <div class="learning-box">
-                                        <ul>
-                                            <li><strong>Leadership:</strong> I leaned into more of a leadership role, beyond only coordination, and learned valuable lessons about servant leadership and how it's often about clearing obstacles for my teammates so they can do their best work.</li>
-                                            <li><strong>Soft Skills:</strong> Our group received top marks for teamwork, both from other students and our teachers, confirming that the psychological safety I fostered was a key driver for our creative output and team success.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </details>
-                        </div>
-                    </div>
-
                     <!-- Econiq -->
-                    <div class="row g-5 project-row no-divider" id="econiq">
+                    <div class="row g-5 project-row" id="econiq" data-aos="fade-up" data-aos-duration="800">
                         <div class="col-12 col-lg-6 graphical">
                             <div class="carousel-wrapper">
                                 <div id="carouselEconiq" class="carousel slide project-carousel" data-bs-interval="false">
@@ -218,57 +166,145 @@
                         <div class="col-12 col-lg-6 textual">
                             <h2>Econiq</h2>
                             <h4 class="project-subtitle">FinTech SaaS Prototype</h4>
-                            <div class="project-meta">Product Owner &middot; UX & Design Lead</div>
-                            <p class="project-pitch">Econiq was a client for our agency simulation, Das Kleine Büro. They are a FinTech startup that needed a user-centered SaaS prototype. The challenge was transforming a complex financial forecasting tool into an intuitive interface for non-expert users.</p>
+                            <div class="project-meta">UX Lead &middot; Information Architecture &middot; User Testing</div>
+                            <p class="project-pitch">A FinTech founder needed to turn a complex financial forecasting tool into something non-experts could actually use. His existing prototype — largely AI-generated — had no navigation, inconsistent layouts, and an information architecture that confused even financially literate users. We delivered a complete redesign: a cohesive brand identity and a tested Figma prototype built from the ground up.</p>
                             <details class="deep-dive">
                                 <summary>View Case Study</summary>
                                 <div class="deep-content">
-                                    <h5>My Contribution</h5>
-                                    <p>I served as the Product Owner, bridging the gap between the client's business requirements and our team. Simultaneously, I acted as UX & Design Lead, taking the project from concept to high-fidelity. I started by structuring the layout with low-fidelity wireframes to map out financial workflows, then moved into Figma to build the final prototype. I conducted user testing to validate the interface, ensuring complex data became a clean, intuitive user experience.</p>
-                                    <h5>Key Deliverables</h5>
+                                    <h5>The Challenge</h5>
+                                    <p>The founder had a working concept but the prototype was built through AI tools without design expertise. The result: no navigation system, too many steps in the onboarding flow, a disjointed visual identity, and an information architecture that didn't hold up under scrutiny. The core challenge was making dense financial data — forecasting questionnaires, business dashboards — feel approachable for small business owners with no finance background.</p>
+                                    <h5>My Role &amp; Process</h5>
+                                    <p>Two-person design team — I led UX, my partner handled visual identity and UI.</p>
                                     <ul>
-                                        <li><strong>UX/UI Design:</strong> End-to-end design from low-fi wireframes to a tested clickable Figma prototype.</li>
-                                        <li><strong>Information Architecture:</strong> Simplified sitemaps for complex data.</li>
-                                        <li><strong>UX Strategy:</strong> User journeys focused on trust and clarity.</li>
+                                        <li>Audited the founder’s existing AI-generated prototype, documenting every usability issue</li>
+                                        <li>Restructured the information architecture — reducing steps and introducing clear navigation</li>
+                                        <li>Reorganised the onboarding wizard so users could complete it without getting lost</li>
+                                        <li>Built the redesigned prototype in Figma</li>
+                                        <li>Tested with 5 users (think-aloud sessions + interviews) from a local startup community</li>
+                                        <li>Ran expert reviews with a financial instructor to validate domain-specific flows</li>
                                     </ul>
-                                    <h5>What I Learned</h5>
+                                    <h5>Outcome</h5>
                                     <div class="learning-box">
-                                        <ul>
-                                            <li><strong>Simplification:</strong> My tagline is "From Complexity to Clarity," and this project was the ultimate test of that. I learned how to reduce cognitive load for users dealing with stress-inducing financial data.</li>
-                                        </ul>
+                                        <p>The founder received two things he didn't have before: a professional brand identity and a usable prototype. He accepted the redesign as the foundation for his product launch. Testing confirmed that users could navigate the forecasting questionnaire and dashboard without assistance — a clear improvement over the original, where even expert reviewers struggled with the flow.</p>
                                     </div>
                                 </div>
                             </details>
                         </div>
                     </div>
 
-                    <!-- Gestalt – Digital Magazine -->
-                    <div class="row g-5 project-row" id="gestalt">
+                    <!-- GradeAid – Design Internship -->
+                    <div class="row g-5 project-row" id="gradeaid-internship" data-aos="fade-up" data-aos-duration="800">
                         <div class="col-12 col-lg-6 graphical">
                             <div class="carousel-wrapper">
-                                <div id="carouselGestalt" class="carousel slide project-carousel" data-bs-interval="false">
+                                <div id="carouselGradeAidIntern" class="carousel slide project-carousel" data-bs-interval="false">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img src="img/GES1.jpg" class="d-block w-100" alt="Gestalt image 1" />
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="img/GES2.jpg" class="d-block w-100" alt="Gestalt image 2" />
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="img/GES3.jpg" class="d-block w-100" alt="Gestalt image 3" />
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="img/GES4.jpg" class="d-block w-100" alt="Gestalt image 4" />
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="img/GES5.jpg" class="d-block w-100" alt="Gestalt image 5" />
+                                            <img src="img/GA1.jpg" class="d-block w-100" alt="GradeAid Internship image 1" />
                                         </div>
                                     </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselGestalt" data-bs-slide="prev">
+                                </div>
+                                <div class="slide-counter"><span class="current-slide">1</span> / <span class="total-slides">1</span></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 textual">
+                            <h2>GradeAid</h2>
+                            <h4 class="project-subtitle">Design Internship</h4>
+                            <div class="project-meta">Illustration &middot; Character Design &middot; Motion Design &middot; UI Design</div>
+                            <p class="project-pitch">Returning to GradeAid as a design intern after the initial school collaboration. Illustrating Aidly — a new brand mascot — from scratch in Adobe Fresco and Illustrator, designing the learning path and PBL platform UI in Figma, and producing character animations in After Effects for web and social media.</p>
+                            <details class="deep-dive">
+                                <summary>View Case Study</summary>
+                                <div class="deep-content">
+                                    <h5>The Challenge</h5>
+                                    <p>After our school collaboration, I joined GradeAid as a design intern. The company needed to take the concept from the exam project and make implementation decisions that made sense for them as a product. The role called for illustrating Aidly (a brand mascot), redesigning the learning path based on visual storytelling with the character, and creating animation content that would actually perform on the web — all while keeping the visual language gentle enough for the kids using it.</p>
+                                    <h5>My Role &amp; Process</h5>
+                                    <ul>
+                                        <li>Illustrated Aidly — GradeAid's brand mascot — from scratch in Adobe Fresco and Illustrator, serving as a visual guide and learning companion across the entire ecosystem</li>
+                                        <li>Created a library of character poses, expressions, and scene illustrations for the platform and marketing materials</li>
+                                        <li>Designed the learning path and built a prototype in Google AI Studio</li>
+                                        <li>Proposed approaches for integrating the character into the website</li>
+                                        <li>Optimized SVGs for lightweight, high-resolution graphics — cleaning up export code to minimize file size and load times</li>
+                                        <li>Developed Aidly animations in After Effects, Fresco Motion, and SVG for the PBL platform, balancing visual quality with web performance</li>
+                                        <li>Assisted in user testing to evaluate platform navigation and accessibility for the target student demographic</li>
+                                    </ul>
+                                    <h5>Outcome</h5>
+                                    <div class="learning-box">
+                                        <p>The biggest shift from school project to internship was ownership. In the school project, every decision went through a team. Here, I own the character, the motion pipeline, and front-end experiments end to end. Working inside a startup taught me to move fast with unfinished information — shipping something testable instead of waiting for a perfect brief. The school project gave me empathy for the users and creative freedom; the internship is teaching me how to actually build for them.</p>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                    
+                    <!-- GradeAid – AI Learning Assistant -->
+                    <div class="row g-5 project-row" id="gradeaid" data-aos="fade-up" data-aos-duration="800">
+                        <div class="col-12 col-lg-6 graphical">
+                            <div class="carousel-wrapper">
+                                <div id="carouselGradeAid" class="carousel slide project-carousel" data-bs-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="img/GA1.jpg" class="d-block w-100" alt="GradeAid image 1" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slide-counter"><span class="current-slide">1</span> / <span class="total-slides">1</span></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 textual">
+                            <h2>GradeAid</h2>
+                            <h4 class="project-subtitle">AI-Powered Learning Assistant</h4>
+                            <div class="project-meta">Gamification Design &middot; UX Research &middot; Motion Design</div>
+                            <p class="project-pitch">GradeAid is a DTU-backed edtech startup building an AI learning platform for children who need extra support. We were briefed to design a visual identity and create three animated characters. We went further — grounding the entire product in Blue Mind theory and neuro-inclusive design research, then reimagining it as a gamified underwater world built specifically for neurodivergent learners.</p>
+                            <details class="deep-dive">
+                                <summary>View Case Study</summary>
+                                <div class="deep-content">
+                                    <h5>The Challenge</h5>
+                                    <p>The client had working AI technology but needed a visual identity, logo, and at least three animated characters with tintable looks and accessories to guide children through the app. When we researched the target group — neurodivergent children experiencing school refusal — we found that the existing design choices (color palette, interaction patterns) risked overstimulating the very users they were meant to help. Most edtech assumes a motivated, neurotypical learner. We needed to design an experience grounded in how neurodivergent brains actually process visual information, motivation, and failure.</p>
+                                    <h5>My Role &amp; Process</h5>
+                                    <ul>
+                                        <li>Contributed to desk research on neuro-inclusive design and Blue Mind theory</li>
+                                        <li>Conducted an expert interview with a special educator on color palettes and gamification for neurodivergent children</li>
+                                        <li>Created a 5-phase user journey map from discovery through advocacy</li>
+                                        <li>Designed the full gamification system — coral reef metaphor, XP/currency loop, age-adaptive progression, and reward shop</li>
+                                        <li>Co-designed the game world characters (Lix, Vitu, Kiko) with tintable skins and age-adaptive visual evolution</li>
+                                        <li>Contributed to the visual identity alongside teammates</li>
+                                        <li>Produced character animations in After Effects — slow, fluid movements to avoid vestibular overstimulation</li>
+                                    </ul>
+                                    <h5>Outcome</h5>
+                                    <div class="learning-box">
+                                        <p>The project received top marks (12). Instructors complimented the team’s collaboration — noting all three members were equally engaged across every aspect of the work. What started as a visual identity and character animation brief became a complete product reimagining. We challenged the client’s existing color choices with research-backed alternatives, introduced a gamification system they hadn’t asked for, and delivered a concept grounded in real testing with children and expert validation from a special educator.</p>
+                                    </div>
+                                    <div class="project-links-inside mt-4">
+                                        <a href="#" target="_blank" class="project-link">View Prototype</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+<!-- Das Büro – Digital Design Studio -->
+                    <div class="row g-5 project-row" id="dkb" data-aos="fade-up" data-aos-duration="800">
+                        <div class="col-12 col-lg-6 graphical">
+                            <div class="carousel-wrapper">
+                                <div id="carouselDasBuro" class="carousel slide project-carousel" data-bs-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <video class="d-block w-100" autoplay muted loop playsinline>
+                                                <source src="img/DKB1.mp4" type="video/mp4" />
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/DKB2.jpg" class="d-block w-100" alt="Das Kleine Büro image 2" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/DKB3.png" class="d-block w-100" alt="Das Kleine Büro image 3" />
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDasBuro" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="visually-hidden">Previous</span>
                                     </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselGestalt" data-bs-slide="next">
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselDasBuro" data-bs-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="visually-hidden">Next</span>
                                     </button>
@@ -277,37 +313,35 @@
                             </div>
                         </div>
                         <div class="col-12 col-lg-6 textual">
-                            <h2>Gestalt</h2>
-                            <h4 class="project-subtitle">Digital Magazine</h4>
-                            <div class="project-meta">Writer &middot; Photographer &middot; Editorial Designer</div>
-                            <p class="project-pitch">As part of the elective course Visual Design and Layout, I contributed a feature article to a collaborative digital magazine. The piece explores how digital media shapes our perception of reality through the concept of echo chambers.</p>
+                            <h2>Das Kleine Büro</h2>
+                            <h4 class="project-subtitle">Digital Agency Simulation</h4>
+                            <div class="project-meta">Project Management &middot; Team Leadership &middot; Client Coordination</div>
+                            <p class="project-pitch">A six-week simulation of a real digital agency: nine people, five client accounts, one remote team member in a different time zone. I managed the team's workflow, formed sub-teams based on individual skill profiles, and kept multiple client deliveries on track — while learning to step into a leadership role I didn't initially expect.</p>
                             <details class="deep-dive">
                                 <summary>View Case Study</summary>
                                 <div class="deep-content">
-                                    <h5>My Contribution</h5>
-                                    <p>This was a solo execution within a collaborative framework. I authored the article to interpret the theme through a visual anthropological lens and photographed all original assets to ensure a unique visual language. I then designed the layout, strictly applying Gestalt principles and grid systems to create a reading experience that felt structured yet immersive.</p>
-                                    <h5>Key Deliverables</h5>
+                                    <h5>The Challenge</h5>
+                                    <p>The scope was deliberately overwhelming — that was the point. Nine people with different skill sets, ambition levels, and working styles needed to deliver real work to real clients simultaneously. The challenge wasn't just producing good design work — it was building a team structure that could actually function under pressure, with clear communication channels and accountability.</p>
+                                    <h5>My Role &amp; Process</h5>
                                     <ul>
-                                        <li><strong>Editorial Design:</strong> High-fidelity layout using strict grids.</li>
-                                        <li><strong>Content Creation:</strong> Original article and photography.</li>
-                                        <li><strong>Visual Theory:</strong> Practical application of Gestalt principles.</li>
+                                        <li>Surveyed the team on hard skills, soft skills, and working preferences to form sub-teams</li>
+                                        <li>Assigned client accounts — matching people to projects for maximum effectiveness</li>
+                                        <li>Introduced daily stand-ups for cross-project visibility and early bottleneck detection</li>
+                                        <li>Assigned single points of contact per client to keep communication focused</li>
+                                        <li>People management — encouraging ownership, stepping in during bottlenecks, maintaining quality consistency</li>
+                                        <li>Took direct ownership of one client case (Econiq) alongside coordination duties</li>
                                     </ul>
-                                    <h5>What I Learned</h5>
+                                    <h5>Outcome</h5>
                                     <div class="learning-box">
-                                        <ul>
-                                            <li><strong>Visual Storytelling:</strong> I learned how photography can act as a narrative medium, not just decoration.</li>
-                                            <li><strong>The Power of Grids:</strong> I gained a deeper appreciation for how rigid grid systems actually allow for more creative freedom.</li>
-                                        </ul>
-                                    </div>
-                                    <div class="project-links-inside mt-4">
-                                        <a href="https://heyzine.com/flip-book/28e8dc8430.html#page/49" target="_blank" class="project-link">Read Magazine Article</a>
+                                        <p>All client projects were delivered on deadline. When three agency teams had to choose one team to collaborate with, both local teams selected the international team — but the international team chose us, citing our inclusive team culture. Instructors highlighted our collaboration as a standout. The biggest personal takeaway: I went in calling myself "just a coordinator" and came out understanding that effective teams need someone willing to lead, not just organise.</p>
                                     </div>
                                 </div>
                             </details>
                         </div>
                     </div>
+
                     <!-- Hoedown After Dark -->
-                    <div class="row g-5 project-row no-divider" id="hoedown">
+                    <div class="row g-5 project-row" id="hoedown" data-aos="fade-up" data-aos-duration="800">
                         <div class="col-12 col-lg-6 graphical">
                             <div class="carousel-wrapper">
                                 <div id="carouselHoedown" class="carousel slide project-carousel" data-bs-interval="false">
@@ -346,25 +380,23 @@
                         <div class="col-12 col-lg-6 textual">
                             <h2>Hoedown After Dark</h2>
                             <h4 class="project-subtitle">E-commerce Brand</h4>
-                            <div class="project-meta">Project Coordination &middot; Strategist &middot; Visual &amp; Brand Designer</div>
-                            <p class="project-pitch">We created a fashion brand blending Western aesthetics with underground techno culture and the queer community. The goal was to build a strong visual identity and a tested product line that supported the LGBT Asylum charity.</p>
+                            <div class="project-meta">Brand Strategy &middot; Visual Design &middot; Project Coordination</div>
+                            <p class="project-pitch">A fashion brand blending Western aesthetics with underground techno culture and the queer community. We designed the brand, built a web shop, and sold real products — donating all revenue to LGBT Asylum. I led the brand strategy and project coordination while shaping the visual identity.</p>
                             <details class="deep-dive">
                                 <summary>Read Case Study</summary>
                                 <div class="deep-content">
-                                    <h5>My Contribution</h5>
-                                    <p>I took charge of the project management, using a Kanban board to maintain an agile workflow. We applied Lean Startup principles to quickly test and validate the brand concept with our target audience. I developed the business model and SEO strategy to ensure the brand was commercially viable. In terms of design, I helped shape the visual identity and applied persuasive design principles to the web prototype to drive donations.</p>
-                                    <h5>Key Deliverables</h5>
+                                    <h5>The Challenge</h5>
+                                    <p>The brief was to create a working e-commerce brand from scratch — product design, web shop, and actual sales. The real challenge was building a brand with a genuine identity, not just a student exercise. We leaned into the group’s shared connection to queer culture and the techno scene, which gave the brand an authenticity that a more generic concept wouldn’t have had.</p>
+                                    <h5>My Role &amp; Process</h5>
                                     <ul>
-                                        <li><strong>Visual &amp; Brand Identity:</strong> A cohesive brand guide.</li>
-                                        <li><strong>Project Management:</strong> Agile workflow via Kanban.</li>
-                                        <li><strong>Business Strategy:</strong> SEO analysis and Business Model Canvas.</li>
+                                        <li>Led brand strategy — Business Model Canvas, SEO, and persuasive design principles</li>
+                                        <li>Applied CTA hierarchy and donation framing to drive conversions and charity contributions</li>
+                                        <li>Validated the concept using Lean Startup methods: MVP tested at a flea market in a techno club with queer roots</li>
+                                        <li>Used direct target-audience feedback to shape the final product line and brand direction</li>
                                     </ul>
-                                    <h5>What I Learned</h5>
+                                    <h5>Outcome</h5>
                                     <div class="learning-box">
-                                        <ul>
-                                            <li><strong>Niche Targeting:</strong> I learned that trying to appeal to everyone appeals to no one; leaning into a specific subculture created a stronger brand.</li>
-                                            <li><strong>Agile Management:</strong> Using Kanban helped us stay organised and on target.</li>
-                                        </ul>
+                                        <p>We launched a functioning web shop, sold real T-shirts, tote bags, and stickers, and donated all revenue — nearly 1,000 DKK — to LGBT Asylum. We were the only group to donate proceeds and the top-selling group at the project showcase. The brand gained genuine traction on Instagram, including a DJ posting a photo wearing our T-shirt, which drove significant engagement. The project stands out in my portfolio for being the most creatively different — and for proving that leaning into a specific subculture creates a far stronger brand than trying to appeal to everyone.</p>
                                     </div>
                                     <div class="project-links-inside mt-4">
                                         <a href="https://www.instagram.com/hoedownafterdark/" target="_blank" class="project-link">View Brand Instagram</a>
@@ -373,7 +405,71 @@
                             </details>
                         </div>
                     </div>
-                    <div class="row g-5 project-row no-divider" id="shecodes">
+
+                    <!-- Gestalt – Digital Magazine -->
+                    <div class="row g-5 project-row" id="gestalt" data-aos="fade-up" data-aos-duration="800">
+                        <div class="col-12 col-lg-6 graphical">
+                            <div class="carousel-wrapper">
+                                <div id="carouselGestalt" class="carousel slide project-carousel" data-bs-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="img/GES1.jpg" class="d-block w-100" alt="Gestalt image 1" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/GES2.jpg" class="d-block w-100" alt="Gestalt image 2" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/GES3.jpg" class="d-block w-100" alt="Gestalt image 3" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/GES4.jpg" class="d-block w-100" alt="Gestalt image 4" />
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/GES5.jpg" class="d-block w-100" alt="Gestalt image 5" />
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselGestalt" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselGestalt" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                                <div class="slide-counter"><span class="current-slide">1</span> / <span class="total-slides">X</span></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 textual">
+                            <h2>Gestalt</h2>
+                            <h4 class="project-subtitle">Digital Magazine</h4>
+                            <div class="project-meta">Editorial Design &middot; Photography &middot; Content Creation</div>
+                            <p class="project-pitch">A feature article for a collaborative digital magazine, arguing that echo chambers aren’t just an online phenomenon — they’re built into our cultures, languages, and communities. I wrote the article, photographed all original assets, and designed the layout in InDesign using Gestalt principles and strict grid systems.</p>
+                            <details class="deep-dive">
+                                <summary>View Case Study</summary>
+                                <div class="deep-content">
+                                    <h5>The Challenge</h5>
+                                    <p>The theme was perception and reality. I needed to find an angle that went beyond the obvious “social media is bad” take, then execute every part — concept, research, writing, photography, and layout — as a solo project.</p>
+                                    <h5>My Role &amp; Process</h5>
+                                    <ul>
+                                        <li>Drew on anthropological background to frame echo chambers as everyday phenomena: culture as “the original algorithm”, language as a filter, communities as feedback loops</li>
+                                        <li>Interviewed friends to avoid writing from inside my own bubble — used their quotes throughout</li>
+                                        <li>Photographed real people to create a visual language reflecting the theme</li>
+                                        <li>Edited photography in Lightroom</li>
+                                        <li>Designed the full layout in InDesign using Gestalt principles and grid systems</li>
+                                    </ul>
+                                    <h5>Outcome</h5>
+                                    <div class="learning-box">
+                                        <p>The article was published in the final collaborative magazine. One instructor noted the layout looked like it could belong in a professional publication. The project demonstrates visual thinking, grid-based design, and the ability to own an entire creative process from concept to finished product.</p>
+                                    </div>
+                                    <div class="project-links-inside mt-4">
+                                        <a href="https://heyzine.com/flip-book/28e8dc8430.html#page/49" target="_blank" class="project-link">Read Magazine Article</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                    <div class="row g-5 project-row" id="shecodes" data-aos="fade-up" data-aos-duration="800">
                         <div class="col-12 col-lg-6 graphical">
                             <div class="carousel-wrapper">
                                 <div id="carouselSheCodes" class="carousel slide project-carousel" data-bs-interval="false">
@@ -399,15 +495,16 @@
                         </div>
                         <div class="col-12 col-lg-6 textual">
                             <h2>SheCodes</h2>
-                            <h4 class="project-subtitle">Front-End Coding & Ongoing Development</h4>
+                            <h4 class="project-subtitle">Front-End Development · Ongoing</h4>
                             <div class="project-meta">HTML · CSS · JavaScript</div>
 
-                            <p class="project-pitch">I actively take courses with SheCodes to further develop and deepen my skills within front-end development. I am currently working through the SheCodes Plus workshops, focusing on building professional-grade applications with modern JavaScript and in the future, API integration as well.</p>
+                            <p class="project-pitch">I'm building my front-end skills through SheCodes, a globally recognized coding program for women in tech. The curriculum covers HTML, CSS, and JavaScript with hands-on workshops — I'm currently completing the Plus track, which focuses on interactive applications and API integration.</p>
 
-                            <h5>Technical Focus</h5>
+                            <h5>What I've Practised</h5>
                             <ul>
-                                <li>Responsive Layout Builds</li>
-                                <li>Custom JavaScript Functions</li>
+                                <li>Responsive layouts with Flexbox and CSS Grid</li>
+                                <li>JavaScript DOM manipulation and event handling</li>
+                                <li>Building and deploying multi-page websites</li>
                             </ul>
 
                             <div class="project-links-inside mt-5">
@@ -434,6 +531,8 @@
 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- AOS JS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <!-- Custom JS -->
         <script src="js/main.js"></script>
     </body>

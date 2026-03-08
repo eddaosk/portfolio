@@ -3,13 +3,22 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Edda Ósk Óskarsdóttir - Multimediedesignstuderende</title>
+        <title>Edda Ósk Óskarsdóttir - Digital Designer</title>
+        <meta name="description" content="Portfolio af Edda Ósk Óskarsdóttir — digital designer og antropolog med fokus på UX research, visuelt design og frontend-udvikling." />
+        <!-- Open Graph -->
+        <meta property="og:title" content="Edda Ósk Óskarsdóttir — Digital Designer" />
+        <meta property="og:description" content="Digital designer og antropolog med fokus på UX research, visuelt design og frontend-udvikling." />
+        <meta property="og:image" content="https://eddaosk.dk/img/edda.jpg" />
+        <meta property="og:url" content="https://eddaosk.dk/da/" />
+        <meta property="og:type" content="website" />
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Rubik:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+        <!-- AOS (Animate on Scroll) -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
         <!-- Custom CSS -->
         <link rel="stylesheet" href="../css/main.css" />
         <!-- SVG favicon -->
@@ -17,7 +26,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg">
-            <div class="container">
+            <div class="container-fluid px-4 px-lg-5">
                 <a class="navbar-brand" href="index.html">
                     <img src="../img/logo-gold.svg" alt="Edda Ósk logo" height="40" />
                 </a>
@@ -30,10 +39,10 @@
                             <a class="nav-link active" href="index.html">Forside</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">Om mig</a>
+                            <a class="nav-link" href="projects.html">Projekter</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="projects.html">Projekter</a>
+                            <a class="nav-link" href="about.html">Om mig</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../index.html">🇬🇧 EN</a>
@@ -49,64 +58,83 @@
         <section class="hero">
             <div class="container text-center">
                 <div class="hero-content">
-                    <h1 class="display-1 mb-3">EDDA ÓSK ÓSKARSDÓTTIR</h1>
-                    <p class="lead mb-4">DIGITAL DESIGNER & ANTROPOLOG</p>
-                    <p class="tagline">From complexity to clarity — putting people at the heart of design</p>
+                    <h1 class="display-1 mb-3" data-aos="fade-up" data-aos-duration="900">Edda Ósk Óskarsdóttir</h1>
+                    <p class="lead mb-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">Digital Designer & Antropolog</p>
+                    <p class="tagline" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">From complexity to clarity — putting people at the heart of design</p>
                 </div>
             </div>
         </section>
 
         <section class="intro-text">
             <div class="container">
-                <p class="intro-description mx-auto mb-3">Hej, jeg hedder Edda. Jeg arbejder i krydsfeltet mellem menneskelig adfærd og digital virkelighed. Min vej ind i designverdenen startede med en nysgerrighed på mennesker. Med en bachelor i antropologi og en kandidat i turisme i bagagen, har jeg brugt år på at forstå, hvordan vi oplever verden. I dag omsætter jeg de indsigter til digitale produkter. Jeg kombinerer research, visuelt design og kode for at skabe løsninger, der ikke bare ser godt ud, men som er intuitive for helt almindelige mennesker at bruge.</p>
-                <div class="intro-logo">
+                <p class="intro-description mx-auto mb-3" data-aos="fade-up" data-aos-duration="800">
+                    Jeg er digital designer med en baggrund i antropologi — jeg bruger research til at gøre komplekse ting enkle og menneskelige.
+                </p>
+                <p class="intro-description mx-auto mb-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    Jeg arbejder på tværs af UX research, visuelt design og frontend-kode for at bygge digitale produkter, der giver mening for rigtige mennesker.
+                </p>
+                <div class="intro-logo" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
                     <img src="../img/logo-indigo.svg" alt="Edda Ósk logo" class="intro-logo-img" />
                 </div>
-                <div class="text-center mt-5 mb-5">
-                    <a href="projects.html" class="btn btn-intro">SE ALLE PROJEKTER</a>
+                <div class="text-center mt-3 mb-5" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+                    <a href="projects.html" class="btn btn-intro">Se Alle Projekter</a>
                 </div>
             </div>
         </section>
 
-        <div class="container home-project-card text-center">
-            <div class="row mb-5 justify-content-center">
-                <div class="col-lg-12">
-                    <h2 class="section-title-home">Udvalgte cases</h2>
+        <section class="featured-projects" data-aos="fade-up" data-aos-duration="800">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title-home">Udvalgte projekter</h2>
                     <p class="lead-in-home">
-                        Her er et udvalg af virksomheder og koncepter, hvor jeg har bidraget med design, strategi og kode. <br />
-                        Dyk ned i detaljerne på siden Projekter.
+                        Et udvalg af nyere arbejde inden for UX design, frontend-udvikling og projektledelse.
                     </p>
                 </div>
-            </div>
 
-            <div class="project-icons-row">
-                <div class="project-icon-wrapper">
-                    <a href="projects.html#gestalt" class="project-icon-link" aria-label="Se Gestalt-projektet">
-                        <img src="../img/project-icons/gestalt.webp" alt="Gestalt-projekt" class="project-icon" />
-                    </a>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <a href="projects.html#juicorganic" class="project-card">
+                            <div class="project-card-img">
+                                <img src="../img/JO1.png" alt="JuicOrganic kiosk-interface" loading="lazy" />
+                            </div>
+                            <div class="project-card-body">
+                                <h3>JuicOrganic</h3>
+                                <p class="project-card-subtitle">Smart Vending Machine Kiosk UI</p>
+                                <span class="project-card-role">UX Design &middot; Frontend-udvikling</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="projects.html#econiq" class="project-card">
+                            <div class="project-card-img">
+                                <img src="../img/EC1.jpg" alt="Econiq SaaS dashboard-prototype" loading="lazy" />
+                            </div>
+                            <div class="project-card-body">
+                                <h3>Econiq</h3>
+                                <p class="project-card-subtitle">FinTech SaaS-prototype</p>
+                                <span class="project-card-role">Product Owner &middot; UX &amp; Design Lead</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="projects.html#dkb" class="project-card">
+                            <div class="project-card-img">
+                                <img src="../img/DKB2.jpg" alt="Das Kleine Büro agentursimulering" loading="lazy" />
+                            </div>
+                            <div class="project-card-body">
+                                <h3>Das Kleine Büro</h3>
+                                <p class="project-card-subtitle">Digital agentursimulering</p>
+                                <span class="project-card-role">Projektkoordinator &middot; Team på 9</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="project-icon-wrapper">
-                    <a href="projects.html#econiq" class="project-icon-link" aria-label="Se Econiq-projektet">
-                        <img src="../img/project-icons/econiq-logo.png" alt="Econiq-projekt" class="project-icon" />
-                    </a>
-                </div>
-                <div class="project-icon-wrapper">
-                    <a href="projects.html#dkb" class="project-icon-link" aria-label="Se Das Kleine Büro-projektet">
-                        <img src="../img/project-icons/dkb-logo.png" alt="DKB-projekt" class="project-icon logo-weighted" />
-                    </a>
-                </div>
-                <div class="project-icon-wrapper">
-                    <a href="projects.html#juicorganic" class="project-icon-link" aria-label="Se JuicOrganic-projektet">
-                        <img src="../img/project-icons/juic-organic.png" alt="JuicOrganic-projekt" class="project-icon" />
-                    </a>
-                </div>
-                <div class="project-icon-wrapper">
-                    <a href="projects.html#hoedown" class="project-icon-link" aria-label="Se Hoedown After Dark-projektet">
-                        <img src="../img/project-icons/hoedown-logo.png" alt="Hoedown-projekt" class="project-icon" />
-                    </a>
+
+                <div class="text-center mt-5">
+                    <a href="projects.html" class="link-arrow">Se alle projekter</a>
                 </div>
             </div>
-        </div>
+        </section>
 
         <footer class="footer">
             <div class="container">
@@ -123,6 +151,8 @@
 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- AOS JS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <!-- Custom JS -->
         <script src="../js/main.js"></script>
     </body>

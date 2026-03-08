@@ -4,19 +4,28 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>About - Edda Ósk Óskarsdóttir</title>
+        <meta name="description" content="About Edda Ósk Óskarsdóttir — background, skills, tools, and creative process." />
+        <!-- Open Graph -->
+        <meta property="og:title" content="About — Edda Ósk Óskarsdóttir" />
+        <meta property="og:description" content="Background, skills, tools, and creative process of Edda Ósk Óskarsdóttir." />
+        <meta property="og:image" content="https://eddaosk.dk/img/edda.jpg" />
+        <meta property="og:url" content="https://eddaosk.dk/about.html" />
+        <meta property="og:type" content="website" />
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Rubik:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+        <!-- AOS (Animate on Scroll) -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
         <!-- Custom CSS -->
         <link rel="stylesheet" href="css/main.css" />
         <link rel="icon" href="img/logo-gold.svg" type="image/svg+xml" />
     </head>
     <body>
         <nav class="navbar navbar-expand-lg">
-            <div class="container">
+            <div class="container-fluid px-4 px-lg-5">
                 <a class="navbar-brand" href="index.html">
                     <img src="img/logo-gold.svg" alt="Edda Ósk logo" height="40" />
                 </a>
@@ -29,10 +38,10 @@
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="about.html">About Me</a>
+                            <a class="nav-link" href="projects.html">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="projects.html">Projects</a>
+                            <a class="nav-link active" href="about.html">About Me</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="da/about.html" title="Dansk">🇩🇰 DA</a>
@@ -49,39 +58,39 @@
         <section class="py-5 about-intro">
             <div class="container">
                 <div class="row g-3 g-lg-5">
-                    <div class="col-md-5 text-center">
+                    <div class="col-md-5 text-center" data-aos="fade-up" data-aos-duration="800">
                         <img src="img/edda.jpg" alt="Portrait of Edda Ósk Óskarsdóttir" class="img-fluid rounded-3 shadow-sm about-portrait" loading="lazy" />
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-7" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
                         <h1 class="mt-0">About me</h1>
-                        <p class="fs-5 mb-4">Hello, I'm Edda, an Icelandic Multimedia Design student at Zealand Academy, with a focus on UX Research, Visual Design, Front-End Development and Project Management. My approach to design is methodical and informed. I use my completed BA in Anthropology and Master's in Tourism to deeply analyze human challenges and translate those insights into clear, innovative digital solutions.</p>
+                        <p class="fs-5 mb-4">I'm Edda, an Icelandic digital designer with a BA in Anthropology, a Master's in Tourism, and a degree in Multimedia Design from Zealand Academy. I came to design through a curiosity about people — and stayed for the craft of making complex things usable. I focus on UX research, visual design, front-end development, and project management.</p>
 
                         <h2>How I work</h2>
-                        <p class="fs-5 mb-4">Great digital experiences emerge from a methodology rooted in empathy and rigorous teamwork. My background ensures every project is grounded in genuine user understanding and sound reasoning. Maintaining an efficient workflow necessitates open communication and methodical structures. Ultimately, my focus is on contributing to solutions that are visually balanced, functionally clear, and authentically reflect human behavior.</p>
+                        <p class="fs-5 mb-4">I start with people, not pixels. Before I design anything, I do the UX research — interviews, usability tests, data analysis. My anthropology training means I dig into why people behave the way they do, not just what they click on. Depending on the project, I work within Double Diamond, Design Thinking, or Lean Startup — moving from research through information architecture and wireframes to tested prototypes, keeping the team aligned with clear structure and open communication.</p>
 
                         <h2>What I can do</h2>
-                        <p class="fs-5">I am a highly versatile team member, contributing across the full product lifecycle. My strategic analysis skills blend with hands-on execution, covering deep UX Research, prototyping, UI, and technical Front-End Coding (HTML/SCSS/JS). I maintain a calm, methodical mindset throughout every task. This blend of creative ideas and technical skills helps the team deliver meaningful results.</p>
+                        <p class="fs-5">I research, design, and code. I bring an anthropological lens to user research — then design responsive interfaces in Figma and build the front-end in HTML, SCSS, and JavaScript, often using AI tools to accelerate both design and code. I also create illustrations and motion graphics. I've led project coordination for teams of up to nine people using agile methods.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- LinkedIn CTA -->
-        <section class="about-section bg-light py-5">
+        <section class="about-section bg-light py-5" data-aos="fade-up" data-aos-duration="800">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-8">
                         <h2 class="h3 mb-2">Come say hello!</h2>
-                            <p class="mb-0">I believe the best insights come from open conversation and exploring human journeys. </br> 
-                            Find me on LinkedIn - I’m always up for a coffee to discuss UX, anthropology, or the creative process.</p>
+                            <p class="mb-0">I'm open to full-time roles, student positions, and collaborations in UX and design. <br />
+                            Find me on LinkedIn — I'd love to hear about your project.</p>
                     </div>
-                    <div class="col-lg-4 text-lg-end mt-3 mt-lg-0"><a href="https://www.linkedin.com/in/eddaoskarsdottir/" class="btn btn-primary">LET'S CONNECT</a></div>
+                    <div class="col-lg-4 text-lg-end mt-3 mt-lg-0"><a href="https://www.linkedin.com/in/eddaoskarsdottir/" class="btn btn-primary">Let’s Connect</a></div>
                 </div>
             </div>
         </section>
 
         <!-- Skills -->
-        <section class="py-5 skill-section">
+        <section class="py-5 skill-section" data-aos="fade-up" data-aos-duration="800">
             <div class="container">
                 <div class="row mb-4">
                     <div class="col-lg-8 mx-auto text-center">
@@ -90,19 +99,19 @@
                 </div>
                 <div class="row g-4 mb-5">
                     <div class="col-md-6 col-lg-3 mb-4 text-center">
-                        <h3 class="h4 text-subheading mb-3">UX & Design</h3>
+                        <h4 class="text-subheading mb-3">UX & Design</h4>
                         <p class="skill-set mb-0">User Research · Personas · User Journeys · Information Architecture · Figma Prototyping · Accessibility</p>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 text-center">
-                        <h3 class="h4 text-subheading mb-3">Development</h3>
+                        <h4 class="text-subheading mb-3">Development</h4>
                         <p class="skill-set mb-0">Front-End Coding (HTML, SCSS, JavaScript, Bootstrap) · Interactive Prototypes</p>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 text-center">
-                        <h3 class="h4 text-subheading mb-3">Visual Communication</h3>
+                        <h4 class="text-subheading mb-3">Visual Communication</h4>
                         <p class="skill-set mb-0">Branding · Visual Identity · Layout Design · Motion Design (After Effects) · Photography</p>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 text-center">
-                        <h3 class="h4 text-subheading mb-3">Project Management</h3>
+                        <h4 class="text-subheading mb-3">Project Management</h4>
                         <p class="skill-set mb-0">Team Coordination · Agile / Kanban · Client Communication · Double Diamond Process · Design Thinking · Lean Startup</p>
                     </div>
                 </div>
@@ -110,7 +119,7 @@
         </section>
 
         <!-- Tools & Software -->
-        <section class="py-5 tools-section">
+        <section class="py-5 tools-section" data-aos="fade-up" data-aos-duration="800">
             <div class="container">
                 <div class="row mb-4">
                     <div class="col-lg-8 mx-auto text-center">
@@ -123,19 +132,19 @@
                         <p class="mt-2 mb-0 tool-name">Figma</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
-                        <img src="img/tools/indesign.png" alt="Adobe Creative Cloud" class="img-fluid tool-logo" style="height: 40px" />
+                        <img src="img/tools/indesign.png" alt="Adobe InDesign" class="img-fluid tool-logo" style="height: 40px" />
                         <p class="mt-2 mb-0 tool-name">InDesign</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
-                        <img src="img/tools/photoshop.png" alt="Adobe Creative Cloud" class="img-fluid tool-logo" style="height: 40px" />
+                        <img src="img/tools/photoshop.png" alt="Adobe Photoshop" class="img-fluid tool-logo" style="height: 40px" />
                         <p class="mt-2 mb-0 tool-name">Photoshop</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
-                        <img src="img/tools/illustrator.png" alt="Adobe Creative Cloud" class="img-fluid tool-logo" style="height: 40px" />
+                        <img src="img/tools/illustrator.png" alt="Adobe Illustrator" class="img-fluid tool-logo" style="height: 40px" />
                         <p class="mt-2 mb-0 tool-name">Illustrator</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
-                        <img src="img/tools/after-effects.png" alt="Adobe Creative Cloud" class="img-fluid tool-logo" style="height: 40px" />
+                        <img src="img/tools/after-effects.png" alt="Adobe After Effects" class="img-fluid tool-logo" style="height: 40px" />
                         <p class="mt-2 mb-0 tool-name">After Effects</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
@@ -170,7 +179,7 @@
             </div>
         </section>
 
-        <section class="py-5 hobby-section">
+        <section class="py-5 hobby-section" data-aos="fade-up" data-aos-duration="800">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-lg-12 text-center">
@@ -180,24 +189,27 @@
                 </div>
 
                 <div class="hobby-grid">
-                    <div class="hobby-item span-3"><img src="img/hobbies/VBEAR1.png" alt="Creative Illustration" loading="lazy" /></div>
-                    <div class="hobby-item span-4"><img src="img/hobbies/JIN2.png" alt="Creative Illustration" loading="lazy" /></div>
-                    <div class="hobby-item span-2"><img src="img/hobbies/DRAWING1.png" alt="Creative Illustration" loading="lazy" /></div>
-                    <div class="hobby-item span-3"><img src="img/hobbies/DRAWING2.png" alt="Creative Illustration" loading="lazy" /></div>
-                    <div class="hobby-item span-2"><img src="img/hobbies/DRAWING3.png" alt="Creative Illustration" loading="lazy" /></div>
-                    <div class="hobby-item span-4"><img src="img/hobbies/DRAWING4.png" alt="Creative Illustration" loading="lazy" /></div>
-                    <div class="hobby-item span-2"><img src="img/hobbies/BL6.jpg" alt="Creative Photography" loading="lazy" /></div>
-                    <div class="hobby-item span-3"><img src="img/hobbies/JIN3.jpg" alt="Creative Photography" loading="lazy" /></div>
-                    <div class="hobby-item span-4"><img src="img/hobbies/JIN1.jpg" alt="Creative Photography" loading="lazy" /></div>
-                    <div class="hobby-item span-2"><img src="img/hobbies/BL5.jpg" alt="Creative Photography" loading="lazy" /></div>
-                    <div class="hobby-item span-3"><img src="img/hobbies/BL4.jpg" alt="Creative Photography" loading="lazy" /></div>
-                    <div class="hobby-item span-4"><img src="img/hobbies/BL3.jpg" alt="Creative Photography" loading="lazy" /></div>
-                    <div class="hobby-item span-3"><img src="img/hobbies/BL2.jpg" alt="Creative Photography" loading="lazy" /></div>
-                    <div class="hobby-item span-3"><img src="img/hobbies/BL1.jpg" alt="Creative Photography" loading="lazy" /></div>
-                    <div class="hobby-item span-2"><img src="img/hobbies/TAPES4.jpg" alt="Creative Art" loading="lazy" /></div>
-                    <div class="hobby-item span-4"><img src="img/hobbies/TAPES3.jpg" alt="Creative Art" loading="lazy" /></div>
-                    <div class="hobby-item span-2"><img src="img/hobbies/TAPES2.jpg" alt="Creative Art" loading="lazy" /></div>
-                    <div class="hobby-item span-3"><img src="img/hobbies/TAPES1.jpg" alt="Creative Art" loading="lazy" /></div>
+                    <div class="hobby-item span-3"><img src="img/hobbies/VBEAR1.png" alt="Digital drawing of a pink bear inspired by Friends by BTS V" loading="lazy" /></div>
+                    <div class="hobby-item span-4"><img src="img/hobbies/JIN2.png" alt="Digital drawing of Wooteo and RJ characters, a concert freebie for BTS Jin's Run Seokjin Tour" loading="lazy" /></div>
+                    <div class="hobby-item span-2"><img src="img/hobbies/DRAWING1.png" alt="Digital chibi drawing of friends made in Procreate" loading="lazy" /></div>
+                    <div class="hobby-item span-3"><img src="img/hobbies/DRAWING2.png" alt="Cute kawaii digital drawing of bunnies" loading="lazy" /></div>
+                    <div class="hobby-item span-2"><img src="img/hobbies/DRAWING3.png" alt="Kawaii digital Christmas card illustration" loading="lazy" /></div>
+                    <div class="hobby-item span-4"><img src="img/hobbies/DRAWING4.png" alt="Digital drawing inspired by BTS Spring Day" loading="lazy" /></div>
+                    <div class="hobby-item span-2"><img src="img/hobbies/BL6.jpg" alt="Handmade concert bracelets for BTS J-Hope's Hobipalooza at Lollapalooza" loading="lazy" /></div>
+                    <div class="hobby-item span-3"><img src="img/hobbies/JIN3.jpg" alt="Concert freebie sticker design for BTS Jin's Run Seokjin Tour" loading="lazy" /></div>
+                    <div class="hobby-item span-4"><img src="img/hobbies/JIN1.jpg" alt="Photo of concert freebie stickers for BTS Jin's Run Seokjin Tour" loading="lazy" /></div>
+                    <div class="hobby-item span-2"><img src="img/hobbies/BL5.jpg" alt="Festival friendship bracelets made for Milkshake Festival" loading="lazy" /></div>
+                    <div class="hobby-item span-3"><img src="img/hobbies/BL4.jpg" alt="Pride-themed festival friendship bracelets for Milkshake Festival" loading="lazy" /></div>
+                    <div class="hobby-item span-4"><img src="img/hobbies/BL3.jpg" alt="Handmade concert friendship bracelets" loading="lazy" /></div>
+                    <div class="hobby-item span-3"><img src="img/hobbies/BL2.jpg" alt="Handmade concert friendship bracelets" loading="lazy" /></div>
+                    <div class="hobby-item span-3"><img src="img/hobbies/BL1.jpg" alt="Handmade concert friendship bracelets" loading="lazy" /></div>
+                    <div class="hobby-item span-2"><img src="img/hobbies/TAPES4.jpg" alt="Sticker design inspired by Indigo by RM" loading="lazy" /></div>
+                    <div class="hobby-item span-4"><img src="img/hobbies/TAPES3.jpg" alt="Sticker design inspired by Layover by V" loading="lazy" /></div>
+                    <div class="hobby-item span-2"><img src="img/hobbies/TAPES2.jpg" alt="Sticker design inspired by Face by Jimin" loading="lazy" /></div>
+                    <div class="hobby-item span-3"><img src="img/hobbies/TAPES1.jpg" alt="Sticker designs inspired by BTS solo albums" loading="lazy" /></div>
+                </div>
+                <div class="text-center">
+                    <button class="hobby-refresh-btn" aria-label="Show different images">Shuffle &#x21bb;</button>
                 </div>
             </div>
         </section>
@@ -225,6 +237,8 @@
 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- AOS JS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <!-- Custom JS -->
         <script src="js/main.js"></script>
     </body>
