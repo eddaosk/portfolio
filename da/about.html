@@ -4,23 +4,32 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Om mig - Edda Ósk Óskarsdóttir</title>
+        <meta name="description" content="Om Edda Ósk Óskarsdóttir: baggrund, kompetencer, værktøjer og proces." />
+        <!-- Open Graph -->
+        <meta property="og:title" content="Om mig - Edda Ósk Óskarsdóttir" />
+        <meta property="og:description" content="Baggrund, kompetencer, værktøjer og proces." />
+        <meta property="og:image" content="https://eddaosk.dk/img/edda.jpg" />
+        <meta property="og:url" content="https://eddaosk.dk/da/about.html" />
+        <meta property="og:type" content="website" />
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Rubik:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+        <!-- AOS (Animate on Scroll) -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
         <!-- Custom CSS -->
         <link rel="stylesheet" href="../css/main.css" />
         <link rel="icon" href="../img/logo-gold.svg" type="image/svg+xml" />
     </head>
     <body>
         <nav class="navbar navbar-expand-lg">
-            <div class="container">
+            <div class="container-fluid px-4 px-lg-5">
                 <a class="navbar-brand" href="index.html">
                     <img src="../img/logo-gold.svg" alt="Edda Ósk logo" height="40" />
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Vis/skjul navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -29,16 +38,16 @@
                             <a class="nav-link" href="index.html">Forside</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="about.html">Om mig</a>
+                            <a class="nav-link" href="projects.html">Projekter</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="projects.html">Projekter</a>
+                            <a class="nav-link active" href="about.html">Om mig</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../about.html">🇬🇧 EN</a>
                         </li>
                         <li class="nav-item nav-cta">
-                            <a class="nav-link" href="https://www.linkedin.com/in/eddaoskarsdottir/" target="_blank" title="Forbind på LinkedIn">CONNECT</a>
+                            <a class="nav-link" href="https://www.linkedin.com/in/eddaoskarsdottir/" target="_blank" rel="noopener noreferrer" title="Forbind på LinkedIn">Connect</a>
                         </li>
                     </ul>
                 </div>
@@ -49,40 +58,41 @@
         <section class="py-5 about-intro">
             <div class="container">
                 <div class="row g-3 g-lg-5">
-                    <div class="col-md-5 text-center">
+                    <div class="col-md-5 text-center" data-aos="fade-up" data-aos-duration="800">
                         <img src="../img/edda.jpg" alt="Portræt af Edda Ósk Óskarsdóttir" class="img-fluid rounded-3 shadow-sm about-portrait" loading="lazy" />
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-7" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
                         <h1 class="mt-0">Om mig</h1>
-                        <p class="fs-5 mb-4">Hej, jeg hedder Edda, er islandsk københavner og læser til multimediedesigner på Zealand – Sjællands Erhvervsakademi.</p>
-                        <p class="fs-5 mb-4">Mit fokus ligger på UX research, visuelt design, frontend-udvikling og projektledelse. Min tilgang til design er metodisk og indsigtsbaseret. Med en bachelor i antropologi og en kandidat i turisme i bagagen, går jeg i dybden med at forstå menneskelig adfærd – og omsætter den viden til klare, innovative digitale løsninger.</p>
-                        <h2>How I work</h2>
-                        <p class="fs-5 mb-4">Gode digitale oplevelser opstår, når empati møder stærkt teamwork. Min baggrund sikrer, at ethvert projekt hviler på et fundament af reel brugerforståelse og strategisk overblik. Jeg tror på, at et effektivt workflow kræver åben kommunikation og struktur. Mit mål er altid at bidrage til løsninger, der er visuelt i balance, funktionelle og giver mening for de mennesker, der skal bruge dem.</p>
-                        <h2>What I can do</h2>
-                        <p class="fs-5">Jeg er en alsidig teamplayer, der kan løfte opgaver i hele produktets livscyklus. Jeg kombinerer strategisk analyse med hands-on eksekvering – lige fra dybdegående UX research, prototyping og UI til teknisk frontend-kode (HTML/SCSS/JS). Jeg går til alle opgaver med ro og overblik. Det er netop den blanding af kreative idéer og tekniske færdigheder, der gør, at jeg kan levere meningsfulde resultater til teamet.</p>
+                        <p class="fs-5 mb-4">Jeg hedder Edda og er islandsk digital designer med en bachelor i antropologi, en kandidat i turisme og en AP-grad i multimediedesign fra Zealand – Sjællands Erhvervsakademi. Jeg fandt vej til design gennem min nysgerrighed på mennesker, og blev for håndværket i at gøre komplekse ting brugbare. Jeg arbejder med UX research, visuelt design, front-end og projektledelse.</p>
+
+                        <h2>Sådan arbejder jeg</h2>
+                        <p class="fs-5 mb-4">Jeg starter med mennesker, ikke pixels. Før jeg designer noget, laver jeg research: interviews, brugertest og analyse. Min antropologiske baggrund gør, at jeg leder efter hvorfor ting sker, ikke kun hvad der bliver klikket på. Afhængigt af projektet bruger jeg Double Diamond, Design Thinking eller Lean Startup (fra research og informationsarkitektur til wireframes og testede prototyper), og jeg holder teamet på sporet med tydelig struktur og ærlig kommunikation.</p>
+
+                        <h2>Hvad jeg kan</h2>
+                        <p class="fs-5">Jeg researcher, designer og koder. Jeg bruger et antropologisk blik i brugerresearch, designer derefter responsive interfaces i Figma og bygger front-end i HTML, SCSS og JavaScript. Jeg bruger AI-værktøjer, når det giver mening og sparer tid, men jeg går stadig op i detaljerne. Jeg laver også illustration og motion design, og jeg har koordineret projekter i teams på op til ni personer med agile metoder.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- LinkedIn CTA -->
-        <section class="about-section bg-light py-5">
+        <section class="about-section bg-light py-5" data-aos="fade-up" data-aos-duration="800">
             <div class="container-xxl">
                 <div class="row align-items-center">
                     <div class="col-lg-9 col-xl-10">
-                        <h2 class="h3 mb-2">Sig hej!</h2>
+                        <h2 class="h3 mb-2">Sig hej</h2>
                         <p class="mb-0">
-                            Jeg mener, at de bedste indsigter kommer fra åben dialog og fra at udforske menneskelige rejser. <br />
-                            Find mig på LinkedIn – jeg er altid klar på en virtuel kaffe for at drøfte UX, antropologi eller den kreative&nbsp;proces.
+                            Jeg er åben for fuldtidsstillinger, studiejobs og samarbejder inden for UX og design. <br />
+                            Find mig på LinkedIn, hvis du vil snakke om en rolle eller et projekt.
                         </p>
                     </div>
-                    <div class="col-lg-3 col-xl-2 text-lg-end mt-3 mt-lg-0"><a href="https://www.linkedin.com/in/eddaoskarsdottir/" class="btn btn-primary">LET'S CONNECT</a></div>
+                    <div class="col-lg-3 col-xl-2 text-lg-end mt-3 mt-lg-0"><a href="https://www.linkedin.com/in/eddaoskarsdottir/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Connect</a></div>
                 </div>
             </div>
         </section>
 
         <!-- Skills -->
-        <section class="py-5 skill-section">
+        <section class="py-5 skill-section" data-aos="fade-up" data-aos-duration="800">
             <div class="container">
                 <div class="row mb-4">
                     <div class="col-lg-8 mx-auto text-center">
@@ -91,27 +101,27 @@
                 </div>
                 <div class="row g-4 mb-5">
                     <div class="col-md-6 col-lg-3 mb-4 text-center">
-                        <h3 class="h4 text-subheading mb-3">UX & Design</h3>
-                        <p class="skill-set mb-0">User Research · Personas · User Journeys · Informationsarkitektur· Figma Prototyping · Tilgængelighed</p>
+                        <h4 class="text-subheading mb-3">UX & Design</h4>
+                        <p class="skill-set mb-0">User Research · Personas · User Journeys · Informationsarkitektur · Figma Prototyping · Brugertest · Moodboards · Tilgængelighed</p>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 text-center">
-                        <h3 class="h4 text-subheading mb-3">Udvikling</h3>
-                        <p class="skill-set mb-0">Front-End Udvikling (HTML, SCSS, JavaScript, Bootstrap) · Interaktive prototyper</p>
+                        <h4 class="text-subheading mb-3">Udvikling</h4>
+                        <p class="skill-set mb-0">Front-end udvikling (HTML, SCSS, JavaScript, Bootstrap) · Interaktive prototyper · Responsive UI</p>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 text-center">
-                        <h3 class="h4 text-subheading mb-3">Visuel Kommunikation</h3>
-                        <p class="skill-set mb-0">Branding · Visuel identitet · Layoutdesign · Motion Design (After Effects) · Fotografi</p>
+                        <h4 class="text-subheading mb-3">Visuel Kommunikation</h4>
+                        <p class="skill-set mb-0">Branding · Visuel identitet · Layoutdesign · Illustration · Motion Design (After Effects) · Fotografi</p>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 text-center">
-                        <h3 class="h4 text-subheading mb-3">Projektledelse</h3>
-                        <p class="skill-set mb-0">Teamkoordinering · Agile / Kanban · Kunde- & Stakeholderkommunikation · Double Diamond Process · Design Thinking · Lean Startup</p>
+                        <h4 class="text-subheading mb-3">Projektledelse</h4>
+                        <p class="skill-set mb-0">Teamkoordinering · Agile / Kanban · Kunde- & Stakeholderkommunikation · Stakeholder Management · Double Diamond Process · Design Thinking · Lean Startup</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Tools & Software -->
-        <section class="py-5 tools-section">
+        <section class="py-5 tools-section" data-aos="fade-up" data-aos-duration="800">
             <div class="container">
                 <div class="row mb-4">
                     <div class="col-lg-8 mx-auto text-center">
@@ -124,44 +134,52 @@
                         <p class="mt-2 mb-0 tool-name">Figma</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
-                        <img src="../img/tools/indesign.png" alt="Adobe Creative Cloud" class="img-fluid tool-logo" style="height: 40px" />
-                        <p class="mt-2 mb-0 tool-name">InDesign</p>
-                    </div>
-                    <div class="col-6 col-md-3 text-center">
-                        <img src="../img/tools/photoshop.png" alt="Adobe Creative Cloud" class="img-fluid tool-logo" style="height: 40px" />
+                        <img src="../img/tools/photoshop.png" alt="Adobe Photoshop" class="img-fluid tool-logo" style="height: 40px" />
                         <p class="mt-2 mb-0 tool-name">Photoshop</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
-                        <img src="../img/tools/illustrator.png" alt="Adobe Creative Cloud" class="img-fluid tool-logo" style="height: 40px" />
+                        <img src="../img/tools/illustrator.png" alt="Adobe Illustrator" class="img-fluid tool-logo" style="height: 40px" />
                         <p class="mt-2 mb-0 tool-name">Illustrator</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
-                        <img src="../img/tools/after-effects.png" alt="Adobe Creative Cloud" class="img-fluid tool-logo" style="height: 40px" />
+                        <img src="../img/tools/indesign.png" alt="Adobe InDesign" class="img-fluid tool-logo" style="height: 40px" />
+                        <p class="mt-2 mb-0 tool-name">InDesign</p>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <img src="../img/tools/aftereffects.png" alt="Adobe After Effects" class="img-fluid tool-logo" style="height: 40px" />
                         <p class="mt-2 mb-0 tool-name">After Effects</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
-                        <img src="../img/tools/photoshop-lightroom.png" alt="Lightroom" class="img-fluid tool-logo" style="height: 40px" />
+                        <img src="../img/tools/lightroom.png" alt="Lightroom" class="img-fluid tool-logo" style="height: 40px" />
                         <p class="mt-2 mb-0 tool-name">Lightroom</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
-                        <img src="../img/tools/canva.jpeg" alt="Canva" class="img-fluid tool-logo" style="height: 40px" />
-                        <p class="mt-2 mb-0 tool-name">Canva</p>
+                        <img src="../img/tools/fresco.png" alt="Adobe Fresco" class="img-fluid tool-logo" style="height: 40px" />
+                        <p class="mt-2 mb-0 tool-name">Adobe Fresco</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
                         <img src="../img/tools/procreate.png" alt="Procreate" class="img-fluid tool-logo" style="height: 40px" />
                         <p class="mt-2 mb-0 tool-name">Procreate</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
+                        <img src="../img/tools/canva.jpeg" alt="Canva" class="img-fluid tool-logo" style="height: 40px" />
+                        <p class="mt-2 mb-0 tool-name">Canva</p>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
                         <img src="../img/tools/vsc.svg" alt="Visual studio code" class="img-fluid tool-logo" style="height: 40px" />
-                        <p class="mt-2 mb-0 tool-name">VSC</p>
+                        <p class="mt-2 mb-0 tool-name">VS Code</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
                         <img src="../img/tools/github-mark.svg" alt="GitHub" class="img-fluid tool-logo" style="height: 40px" />
                         <p class="mt-2 mb-0 tool-name">GitHub</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
-                        <img src="../img/tools/github.svg" alt="GitHub Copilot" class="img-fluid tool-logo" style="height: 40px" />
+                        <img src="../img/tools/copilot.webp" alt="GitHub Copilot" class="img-fluid tool-logo" style="height: 40px" />
                         <p class="mt-2 mb-0 tool-name">GitHub Copilot</p>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <img src="../img/tools/googleaistudio.png" alt="Google AI Studio" class="img-fluid tool-logo tool-logo--rounded" style="height: 40px" />
+                        <p class="mt-2 mb-0 tool-name">Google AI Studio</p>
                     </div>
                     <div class="col-6 col-md-3 text-center">
                         <img src="../img/tools/ai-logo.png" alt="Gen AI / LLMs" class="img-fluid tool-logo" style="height: 40px" />
@@ -171,41 +189,45 @@
             </div>
         </section>
 
-        <section class="py-5 hobby-section">
+        <section class="py-5 hobby-section" data-aos="fade-up" data-aos-duration="800">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-lg-12 text-center">
                         <h2 class="h2">Kreative hobbyer</h2>
-                        <p class="lead-in-home">I min fritid elsker jeg at være kreativ med at tegne og illustrere. Musik fylder meget i mit liv, og min passion kanaliserer jeg i fan art og små koncertgaver (freebies) som klistermærker og armbånd, der skaber forbindelser i det kreative fællesskab. Jeg laver også personlige illustrationer til venner og håndlavede armbånd som minder fra de events, vi oplever sammen.</p>
+                        <p class="lead-in-home">Når jeg ikke arbejder, lader jeg op ved at tegne og illustrere. Musik fylder meget i mit liv, så jeg laver ofte fan art og små koncert-freebies som klistermærker og armbånd. Det er en hyggelig måde at møde andre med samme interesse, og jeg kan også godt lide at lave illustrationer af venner og armbånd som små minder fra de koncerter, vi oplever sammen.</p>
                     </div>
                 </div>
 
                 <div class="hobby-grid">
-                    <div class="hobby-item span-3"><img src="../img/hobbies/VBEAR1.png" alt="Kreativ illustration" loading="lazy" /></div>
-                    <div class="hobby-item span-4"><img src="../img/hobbies/JIN2.png" alt="Kreativ illustration" loading="lazy" /></div>
-                    <div class="hobby-item span-2"><img src="../img/hobbies/DRAWING1.png" alt="Kreativ illustration" loading="lazy" /></div>
-                    <div class="hobby-item span-3"><img src="../img/hobbies/DRAWING2.png" alt="Kreativ illustration" loading="lazy" /></div>
-                    <div class="hobby-item span-2"><img src="../img/hobbies/DRAWING3.png" alt="Kreativ illustration" loading="lazy" /></div>
-                    <div class="hobby-item span-4"><img src="../img/hobbies/DRAWING4.png" alt="Kreativ illustration" loading="lazy" /></div>
-                    <div class="hobby-item span-2"><img src="../img/hobbies/BL6.jpg" alt="Kreativ fotografi" loading="lazy" /></div>
-                    <div class="hobby-item span-3"><img src="../img/hobbies/JIN3.jpg" alt="Kreativ fotografi" loading="lazy" /></div>
-                    <div class="hobby-item span-4"><img src="../img/hobbies/JIN1.jpg" alt="Kreativ fotografi" loading="lazy" /></div>
-                    <div class="hobby-item span-2"><img src="../img/hobbies/BL5.jpg" alt="Kreativ fotografi" loading="lazy" /></div>
-                    <div class="hobby-item span-3"><img src="../img/hobbies/BL4.jpg" alt="Kreativ fotografi" loading="lazy" /></div>
-                    <div class="hobby-item span-4"><img src="../img/hobbies/BL3.jpg" alt="Kreativ fotografi" loading="lazy" /></div>
-                    <div class="hobby-item span-3"><img src="../img/hobbies/BL2.jpg" alt="Kreativ fotografi" loading="lazy" /></div>
-                    <div class="hobby-item span-3"><img src="../img/hobbies/BL1.jpg" alt="Kreativ fotografi" loading="lazy" /></div>
-                    <div class="hobby-item span-2"><img src="../img/hobbies/TAPES4.jpg" alt="Kreativ kunst" loading="lazy" /></div>
-                    <div class="hobby-item span-4"><img src="../img/hobbies/TAPES3.jpg" alt="Kreativ kunst" loading="lazy" /></div>
-                    <div class="hobby-item span-2"><img src="../img/hobbies/TAPES2.jpg" alt="Kreativ kunst" loading="lazy" /></div>
-                    <div class="hobby-item span-3"><img src="../img/hobbies/TAPES1.jpg" alt="Kreativ kunst" loading="lazy" /></div>
+                    <div class="hobby-item span-3"><img src="../img/hobbies/VBEAR1.png" alt="Digital tegning af en pink bjørn inspireret af Friends af BTS V" loading="lazy" /></div>
+                    <div class="hobby-item span-4"><img src="../img/hobbies/JIN2.png" alt="Digital tegning af Wooteo og RJ, en koncert-freebie til BTS Jins Run Seokjin Tour" loading="lazy" /></div>
+                    <div class="hobby-item span-2"><img src="../img/hobbies/DRAWING1.png" alt="Digital chibi-tegning af venner lavet i Procreate" loading="lazy" /></div>
+                    <div class="hobby-item span-3"><img src="../img/hobbies/DRAWING2.png" alt="Sød kawaii digital tegning af kaniner" loading="lazy" /></div>
+                    <div class="hobby-item span-2"><img src="../img/hobbies/DRAWING3.png" alt="Kawaii digitalt julekort-illustration" loading="lazy" /></div>
+                    <div class="hobby-item span-4"><img src="../img/hobbies/DRAWING4.png" alt="Digital tegning inspireret af BTS Spring Day" loading="lazy" /></div>
+                    <div class="hobby-item span-2"><img src="../img/hobbies/BL6.jpg" alt="Håndlavede koncertarmbånd til BTS J-Hopes Hobipalooza på Lollapalooza" loading="lazy" /></div>
+                    <div class="hobby-item span-3"><img src="../img/hobbies/JIN3.jpg" alt="Koncert-freebie stickerdesign til BTS Jins Run Seokjin Tour" loading="lazy" /></div>
+                    <div class="hobby-item span-4"><img src="../img/hobbies/JIN1.jpg" alt="Foto af koncert-freebie stickers til BTS Jins Run Seokjin Tour" loading="lazy" /></div>
+                    <div class="hobby-item span-2"><img src="../img/hobbies/BL5.jpg" alt="Festival-venskabsarmbånd lavet til Milkshake Festival" loading="lazy" /></div>
+                    <div class="hobby-item span-3"><img src="../img/hobbies/BL4.jpg" alt="Pride-inspirerede festival-venskabsarmbånd til Milkshake Festival" loading="lazy" /></div>
+                    <div class="hobby-item span-4"><img src="../img/hobbies/BL3.jpg" alt="Håndlavede koncert-venskabsarmbånd" loading="lazy" /></div>
+                    <div class="hobby-item span-3"><img src="../img/hobbies/BL2.jpg" alt="Håndlavede koncert-venskabsarmbånd" loading="lazy" /></div>
+                    <div class="hobby-item span-3"><img src="../img/hobbies/BL1.jpg" alt="Håndlavede koncert-venskabsarmbånd" loading="lazy" /></div>
+                    <div class="hobby-item span-2"><img src="../img/hobbies/TAPES4.jpg" alt="Stickerdesign inspireret af Indigo af RM" loading="lazy" /></div>
+                    <div class="hobby-item span-4"><img src="../img/hobbies/TAPES3.jpg" alt="Stickerdesign inspireret af Layover af V" loading="lazy" /></div>
+                    <div class="hobby-item span-2"><img src="../img/hobbies/TAPES2.jpg" alt="Stickerdesign inspireret af Face af Jimin" loading="lazy" /></div>
+                    <div class="hobby-item span-3"><img src="../img/hobbies/TAPES1.jpg" alt="Stickerdesigns inspireret af BTS soloalbum" loading="lazy" /></div>
+                </div>
+                <div class="text-center">
+                    <button class="hobby-refresh-btn" aria-label="Vis andre billeder">Bland &#x21bb;</button>
                 </div>
             </div>
         </section>
 
         <!-- Lightbox Overlay -->
-        <div class="lightbox-overlay" aria-hidden="true" role="dialog" aria-label="Billedfremviser">
+        <div class="lightbox-overlay" aria-hidden="true" role="dialog" aria-labelledby="lightbox-title">
             <div class="lightbox-content">
+                <h2 id="lightbox-title" class="visually-hidden">Billedfremviser</h2>
                 <button class="lightbox-close" aria-label="Luk">&times;</button>
                 <img class="lightbox-img" src="" alt="Hobbybillede i fuld størrelse" />
             </div>
@@ -215,7 +237,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <a href="https://www.linkedin.com/in/eddaoskarsdottir/" target="_blank" class="social-link" title="LinkedIn-profil">
+                        <a href="https://www.linkedin.com/in/eddaoskarsdottir/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn-profil">
                             <i class="fab fa-linkedin"></i>
                         </a>
                         <p class="mt-3">&copy; <span class="js-current-year">2025</span> Edda Ósk Óskarsdóttir. Alle rettigheder forbeholdes.</p>
@@ -226,6 +248,8 @@
 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- AOS JS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <!-- Custom JS -->
         <script src="../js/main.js"></script>
     </body>
