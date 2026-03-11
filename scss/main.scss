@@ -538,8 +538,8 @@ blockquote {
 
 // Project Row — consistent treatment (no alternating)
 .project-row {
-    padding-bottom: 3rem;
-    margin-bottom: 3rem;
+    padding-bottom: 2.25rem;
+    margin-bottom: 2.25rem;
     border-bottom: 1px solid $color-border;
 
     // Remove alternating card style — consistent for all
@@ -547,8 +547,8 @@ blockquote {
         background-color: transparent;
         border-radius: 0;
         padding: 0;
-        padding-bottom: 3rem;
-        margin-bottom: 3rem;
+        padding-bottom: 2.25rem;
+        margin-bottom: 2.25rem;
         border-bottom: 1px solid $color-border;
         box-shadow: none;
     }
@@ -569,18 +569,18 @@ blockquote {
 
     @include media-breakpoint-down(lg) {
         padding: 0;
-        padding-bottom: 3rem;
-        margin-bottom: 3rem;
+        padding-bottom: 2.25rem;
+        margin-bottom: 2.25rem;
 
         &:nth-of-type(even) {
             padding: 0;
-            padding-bottom: 3rem;
-            margin-bottom: 3rem;
+            padding-bottom: 2.25rem;
+            margin-bottom: 2.25rem;
         }
     }
 
     @include media-breakpoint-down(sm) {
-        margin-bottom: 2.5rem;
+        margin-bottom: 2rem;
     }
 }
 
@@ -810,8 +810,8 @@ blockquote {
 // Details/summary toggle
 details.deep-dive {
     margin-top: 1.25rem;
-    border-top: 1px solid $color-border;
-    padding-top: 0.75rem;
+    border-top: none;
+    padding-top: 0;
 
     summary {
         list-style: none;
