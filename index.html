@@ -25,10 +25,25 @@
         <link rel="icon" href="img/logo-gold.svg" type="image/svg+xml" />
     </head>
     <body>
+        <!-- SVG filters for recoloring external SVG logo assets -->
+        <svg aria-hidden="true" width="0" height="0" style="position: absolute">
+            <filter id="logo-primary">
+                <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0.102  0 0 0 0 0.180  0 0 0 0 0.314  0 0 0 1 0"
+                />
+            </filter>
+            <filter id="logo-accent">
+                <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0.788  0 0 0 0 0.580  0 0 0 0 0.227  0 0 0 1 0"
+                />
+            </filter>
+        </svg>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid px-4 px-lg-5">
                 <a class="navbar-brand" href="index.html">
-                    <img src="img/logo-gold.svg" alt="Edda Ósk logo" height="40" />
+                    <img src="img/logo-gold.svg" alt="Edda Ósk logo" height="40" class="logo-filter-accent" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -74,7 +89,7 @@
                     I work across UX research, visual design, and front-end code to build digital products that make sense to real people.
                 </p>
                 <div class="intro-logo" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
-                    <img src="img/logo-indigo.svg" alt="Edda Ósk logo" class="intro-logo-img" />
+                    <img src="img/logo-indigo.svg" alt="Edda Ósk logo" class="intro-logo-img logo-filter-primary" />
                 </div>
                 <div class="text-center mt-3 mb-5" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
                     <a href="projects.html" class="btn btn-intro">View My Projects</a>
@@ -95,7 +110,7 @@
                     <div class="col-md-4">
                         <a href="projects.html#juicorganic" class="project-card">
                             <div class="project-card-img">
-                                <img src="img/JO1.png" alt="JuicOrganic kiosk interface" loading="lazy" />
+                                <img src="img/juicOrganic/JO1.png" alt="JuicOrganic kiosk interface" loading="lazy" />
                             </div>
                             <div class="project-card-body">
                                 <h3>JuicOrganic</h3>
@@ -107,7 +122,7 @@
                     <div class="col-md-4">
                         <a href="projects.html#econiq" class="project-card">
                             <div class="project-card-img">
-                                <img src="img/EC1.jpg" alt="Econiq SaaS dashboard prototype" loading="lazy" />
+                                <img src="img/econiq/EC1.jpg" alt="Econiq SaaS dashboard prototype" loading="lazy" />
                             </div>
                             <div class="project-card-body">
                                 <h3>Econiq</h3>
@@ -119,7 +134,7 @@
                     <div class="col-md-4">
                         <a href="projects.html#dkb" class="project-card">
                             <div class="project-card-img">
-                                <img src="img/DKB2.jpg" alt="Das Kleine Büro agency simulation" loading="lazy" />
+                                <img src="img/dkb/DKB2.jpg" alt="Das Kleine Büro agency simulation" loading="lazy" />
                             </div>
                             <div class="project-card-body">
                                 <h3>Das Kleine Büro</h3>
