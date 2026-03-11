@@ -29,7 +29,7 @@
                 <a class="navbar-brand" href="index.html">
                     <img src="../img/logo-gold.svg" alt="Edda Ósk logo" height="40" />
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Vis/skjul navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -47,7 +47,7 @@
                             <a class="nav-link" href="../about.html">🇬🇧 EN</a>
                         </li>
                         <li class="nav-item nav-cta">
-                            <a class="nav-link" href="https://www.linkedin.com/in/eddaoskarsdottir/" target="_blank" title="Forbind på LinkedIn">Connect</a>
+                            <a class="nav-link" href="https://www.linkedin.com/in/eddaoskarsdottir/" target="_blank" rel="noopener noreferrer" title="Forbind på LinkedIn">Connect</a>
                         </li>
                     </ul>
                 </div>
@@ -86,7 +86,7 @@
                             Find mig på LinkedIn — jeg hører gerne om dit projekt.
                         </p>
                     </div>
-                    <div class="col-lg-3 col-xl-2 text-lg-end mt-3 mt-lg-0"><a href="https://www.linkedin.com/in/eddaoskarsdottir/" class="btn btn-primary">Let’s Connect</a></div>
+                    <div class="col-lg-3 col-xl-2 text-lg-end mt-3 mt-lg-0"><a href="https://www.linkedin.com/in/eddaoskarsdottir/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Connect</a></div>
                 </div>
             </div>
         </section>
@@ -106,7 +106,7 @@
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 text-center">
                         <h4 class="text-subheading mb-3">Udvikling</h4>
-                        <p class="skill-set mb-0">Front-End Udvikling (HTML, SCSS, JavaScript, Bootstrap) · Interaktive prototyper · Responsive UI</p>
+                        <p class="skill-set mb-0">Front-end udvikling (HTML, SCSS, JavaScript, Bootstrap) · Interaktive prototyper · Responsive UI</p>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 text-center">
                         <h4 class="text-subheading mb-3">Visuel Kommunikation</h4>
@@ -225,8 +225,9 @@
         </section>
 
         <!-- Lightbox Overlay -->
-        <div class="lightbox-overlay" aria-hidden="true" role="dialog" aria-label="Billedfremviser">
+        <div class="lightbox-overlay" aria-hidden="true" role="dialog" aria-labelledby="lightbox-title">
             <div class="lightbox-content">
+                <h2 id="lightbox-title" class="visually-hidden">Billedfremviser</h2>
                 <button class="lightbox-close" aria-label="Luk">&times;</button>
                 <img class="lightbox-img" src="" alt="Hobbybillede i fuld størrelse" />
             </div>
@@ -236,7 +237,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <a href="https://www.linkedin.com/in/eddaoskarsdottir/" target="_blank" class="social-link" title="LinkedIn-profil">
+                        <a href="https://www.linkedin.com/in/eddaoskarsdottir/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn-profil">
                             <i class="fab fa-linkedin"></i>
                         </a>
                         <p class="mt-3">&copy; <span class="js-current-year">2025</span> Edda Ósk Óskarsdóttir. Alle rettigheder forbeholdes.</p>

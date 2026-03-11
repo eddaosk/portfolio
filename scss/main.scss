@@ -45,6 +45,14 @@ body {
     }
 }
 
+/* ==============================
+   Focus Styles
+============================== */
+:focus-visible {
+    outline: 3px solid $color-accent;
+    outline-offset: 3px;
+}
+
 h1,
 h2,
 h3,

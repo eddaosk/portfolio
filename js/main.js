@@ -98,24 +98,59 @@ document.addEventListener("DOMContentLoaded", function () {
         const overlayImg = overlay ? overlay.querySelector(".lightbox-img") : null;
         const overlayClose = overlay ? overlay.querySelector(".lightbox-close") : null;
 
+        let lastFocusedEl = null;
+
+        function isLightboxOpen() {
+            return !!(overlay && overlay.classList.contains("open"));
+        }
+
+        function setOverlayA11y(open) {
+            if (!overlay) return;
+            overlay.setAttribute("aria-hidden", open ? "false" : "true");
+            overlay.setAttribute("aria-modal", open ? "true" : "false");
+            overlay.tabIndex = open ? -1 : -1;
+        }
+
         function openLightbox(src, alt) {
             if (!overlay || !overlayImg) return;
+            lastFocusedEl = document.activeElement;
             overlayImg.src = src;
             overlayImg.alt = alt || "Full-size image";
             overlay.classList.add("open");
+            setOverlayA11y(true);
             document.body.style.overflow = "hidden";
+
+            if (overlayClose) {
+                overlayClose.focus();
+            } else {
+                overlay.focus();
+            }
         }
 
         function closeLightbox() {
             if (!overlay || !overlayImg) return;
             overlay.classList.remove("open");
+            setOverlayA11y(false);
             overlayImg.src = "";
             document.body.style.overflow = "";
+
+            if (lastFocusedEl && typeof lastFocusedEl.focus === "function") {
+                lastFocusedEl.focus();
+            }
         }
 
         hobbyGrid.querySelectorAll(".hobby-item img").forEach((img) => {
             img.addEventListener("click", () => openLightbox(img.src, img.alt));
             img.style.cursor = "zoom-in";
+            img.tabIndex = 0;
+            img.setAttribute("role", "button");
+            img.setAttribute("aria-label", `Open image: ${img.alt || "Hobby image"}`);
+            img.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    openLightbox(img.src, img.alt);
+                }
+            });
         });
 
         if (overlayClose) overlayClose.addEventListener("click", closeLightbox);
@@ -127,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") closeLightbox();
+            if (e.key === "Escape" && isLightboxOpen()) closeLightbox();
         });
     }
 });

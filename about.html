@@ -29,7 +29,7 @@
                 <a class="navbar-brand" href="index.html">
                     <img src="img/logo-gold.svg" alt="Edda Ósk logo" height="40" />
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -225,8 +225,9 @@
         </section>
 
         <!-- Lightbox Overlay -->
-        <div class="lightbox-overlay" aria-hidden="true" role="dialog" aria-label="Image viewer">
+        <div class="lightbox-overlay" aria-hidden="true" role="dialog" aria-labelledby="lightbox-title">
             <div class="lightbox-content">
+                <h2 id="lightbox-title" class="visually-hidden">Image viewer</h2>
                 <button class="lightbox-close" aria-label="Close">&times;</button>
                 <img class="lightbox-img" src="" alt="Full-size hobby image" />
             </div>

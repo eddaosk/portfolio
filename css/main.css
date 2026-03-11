@@ -30,6 +30,14 @@ body {
   }
 }
 
+/* ==============================
+   Focus Styles
+============================== */
+:focus-visible {
+  outline: 3px solid #c9943a;
+  outline-offset: 3px;
+}
+
 h1,
 h2,
 h3,
