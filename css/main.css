@@ -30,6 +30,11 @@ body {
   }
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 /* ==============================
    Focus Styles
 ============================== */
@@ -475,6 +480,50 @@ blockquote {
 /* ==============================
    Projects Page
 ============================== */
+@media (max-width: 575.98px) {
+  .projects {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+@media (max-width: 575.98px) {
+  .projects .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .projects .text-center.mb-5 {
+    margin-bottom: 2rem !important;
+  }
+}
+.projects h1 {
+  margin-bottom: 2rem;
+}
+@media (max-width: 575.98px) {
+  .projects h1 {
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .project-row {
+    padding-bottom: 1.75rem;
+    margin-bottom: 1.75rem;
+    --bs-gutter-x: 0;
+  }
+}
+
+.carousel-wrapper {
+  max-width: 100%;
+}
+
+.project-carousel,
+.project-carousel img,
+.project-carousel video {
+  max-width: 100%;
+}
+
 .projects h1 {
   font-family: var(--font-heading);
   font-weight: 600;
@@ -482,7 +531,7 @@ blockquote {
   letter-spacing: 0.02em;
   position: relative;
   display: inline-block;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   text-transform: none;
 }
 
@@ -570,6 +619,12 @@ blockquote {
   box-shadow: 0 8px 30px rgba(26, 46, 80, 0.08);
   overflow: hidden;
 }
+@media (max-width: 767.98px) {
+  .carousel-wrapper .carousel-control-prev,
+  .carousel-wrapper .carousel-control-next {
+    width: 15%;
+  }
+}
 @media (min-width: 992px) {
   .carousel-wrapper {
     position: sticky;
@@ -602,6 +657,12 @@ blockquote {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     margin-top: 1.5rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .textual {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 .textual h2 {

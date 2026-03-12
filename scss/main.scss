@@ -45,6 +45,11 @@ body {
     }
 }
 
+html,
+body {
+    overflow-x: hidden;
+}
+
 /* ==============================
    Focus Styles
 ============================== */
@@ -532,6 +537,52 @@ blockquote {
    Projects Page
 ============================== */
 .projects {
+    @include media-breakpoint-down(sm) {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    // Ensure consistent side margin on small screens
+    .container {
+        @include media-breakpoint-down(sm) {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+    }
+
+    .text-center.mb-5 {
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 2rem !important;
+        }
+    }
+
+    h1 {
+        margin-bottom: 2rem;
+
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 1.25rem;
+        }
+    }
+}
+
+.project-row {
+    @include media-breakpoint-down(sm) {
+        padding-bottom: 1.75rem;
+        margin-bottom: 1.75rem;
+        --bs-gutter-x: 0;
+    }
+}
+
+.carousel-wrapper {
+    max-width: 100%;
+}
+
+.project-carousel,
+.project-carousel img,
+.project-carousel video {
+    max-width: 100%;
+}
+.projects {
     h1 {
         font-family: var(--font-heading);
         font-weight: 600;
@@ -539,7 +590,7 @@ blockquote {
         letter-spacing: 0.02em;
         position: relative;
         display: inline-block;
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
         text-transform: none;
     }
 }
@@ -640,6 +691,14 @@ blockquote {
     box-shadow: 0 8px 30px rgba($color-primary, 0.08);
     overflow: hidden;
 
+    // Prevent carousel controls from creating side-scroll on small screens
+    @include media-breakpoint-down(md) {
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 15%;
+        }
+    }
+
     @include media-breakpoint-up(lg) {
         position: sticky;
         top: 100px;
@@ -671,6 +730,11 @@ blockquote {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         margin-top: 1.5rem;
+    }
+
+    @include media-breakpoint-down(sm) {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     h2 {
