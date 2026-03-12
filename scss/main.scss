@@ -45,9 +45,11 @@ body {
     }
 }
 
-html,
-body {
-    overflow-x: hidden;
+@include media-breakpoint-down(lg) {
+    html,
+    body {
+        overflow-x: hidden;
+    }
 }
 
 /* ==============================
@@ -565,6 +567,7 @@ blockquote {
     }
 }
 
+
 .project-row {
     @include media-breakpoint-down(sm) {
         padding-bottom: 1.75rem;
@@ -597,6 +600,12 @@ blockquote {
 
 // Project Row — consistent treatment (no alternating)
 .project-row {
+    // Make the row height follow the tallest column so the sticky carousel
+    // can remain sticky while scrolling long case study text (desktop).
+    @include media-breakpoint-up(lg) {
+        align-items: stretch;
+    }
+
     padding-bottom: 2.25rem;
     margin-bottom: 2.25rem;
     border-bottom: 1px solid $color-border;
@@ -701,7 +710,7 @@ blockquote {
 
     @include media-breakpoint-up(lg) {
         position: sticky;
-        top: 100px;
+        top: 110px;
     }
 }
 

@@ -4,23 +4,23 @@ A personal portfolio website showcasing my work as a multimedia designer. Built 
 
 ## 🚀 Features
 
--   Responsive design using Bootstrap 5
--   Clean and modern UI
--   SCSS for enhanced styling
--   Interactive elements and hover effects
--   Contact form
--   Project showcase section
--   Optimized for all devices
+- Responsive design using Bootstrap 5
+- Clean and modern UI
+- SCSS for enhanced styling
+- Interactive elements and hover effects
+- Contact form
+- Project showcase section
+- Optimized for all devices
 
 ## 🛠 Technologies Used
 
--   HTML5
--   CSS3/SCSS
--   JavaScript
--   Bootstrap 5
--   Font Awesome Icons
--   Google Fonts (Inter)
--   Node.js (development)
+- HTML5
+- CSS3/SCSS
+- JavaScript
+- Bootstrap 5
+- Font Awesome Icons
+- Google Fonts (Inter)
+- Node.js (development)
 
 ## 📦 Installation
 
@@ -32,15 +32,15 @@ git clone https://github.com/eddaosk/portfolio.git
 
 2. Navigate to the project directory:
 
-```bash
+````bash
 cd portfolio
-```
+```nom
 
 3. Install dependencies:
 
 ```bash
 npm install
-```
+````
 
 4. Start the development server:
 
@@ -76,8 +76,8 @@ portfolio/
 
 ## 🔧 Development
 
--   `npm run sass`: Watches for SCSS changes and compiles to CSS
--   `npm run start`: Starts the development server with live reload
+- `npm run sass`: Watches for SCSS changes and compiles to CSS
+- `npm run start`: Starts the development server with live reload
 
 ## 🌐 Deployment
 
@@ -89,4 +89,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Contact
 
--   LinkedIn: [Edda Ósk Óskarsdóttir](https://www.linkedin.com/in/eddaoskarsdottir/)
+- LinkedIn: [Edda Ósk Óskarsdóttir](https://www.linkedin.com/in/eddaoskarsdottir/)
