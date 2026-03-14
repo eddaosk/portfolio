@@ -1,0 +1,383 @@
+/* ══════════════════════════════════════════════════════
+   EXAM LANDING PAGE — "Soft editorial + a sprinkle of fun"
+   Pink · warm · human · professional
+   Scoped to .exam-page
+   ══════════════════════════════════════════════════════ */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&family=Caveat:wght@500&display=swap");
+
+.exam-page {
+    /* ── palette ── */
+    --ex-bg: #faf5f2;
+    --ex-surface: rgba(255, 255, 255, 0.8);
+    --ex-surface-solid: #ffffff;
+    --ex-border: rgba(30, 42, 58, 0.1);
+    --ex-text: #1e2a3a;
+    --ex-muted: rgba(30, 42, 58, 0.62);
+    --ex-soft: rgba(30, 42, 58, 0.45);
+    --ex-pink: #e8a0b4;
+    --ex-pink-deep: #d4849c;
+    --ex-warm: #d4a574;
+    --ex-blob-1: rgba(232, 160, 180, 0.14);
+    --ex-blob-2: rgba(212, 165, 116, 0.1);
+
+    background: radial-gradient(900px 600px at 10% 0%, var(--ex-blob-1), transparent 55%), radial-gradient(900px 600px at 90% 25%, var(--ex-blob-2), transparent 55%), var(--ex-bg);
+    font-family:
+        "DM Sans",
+        system-ui,
+        -apple-system,
+        sans-serif;
+    color: var(--ex-text);
+    line-height: 1.65;
+}
+
+/* ── Typography ── */
+.exam-page h1,
+.exam-page h2,
+.exam-page h3,
+.exam-page h4,
+.exam-page h5,
+.exam-page h6 {
+    font-family: "DM Serif Display", Georgia, serif;
+    color: var(--ex-text);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+}
+
+.exam-page .handwritten {
+    font-family: "Caveat", cursive;
+    font-size: 1.35em;
+    color: var(--ex-pink-deep);
+}
+
+/* ── Links & accents ── */
+.exam-page a {
+    color: var(--ex-text);
+}
+.exam-page .accent-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--ex-pink);
+    text-underline-offset: 4px;
+}
+
+/* ── Buttons ── */
+.exam-page .btn-pink {
+    background: var(--ex-pink);
+    color: #fff;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.65rem 1.6rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+.exam-page .btn-pink:hover {
+    background: var(--ex-pink-deep);
+    color: #fff;
+}
+
+.exam-page .btn-outline-dark {
+    background: transparent;
+    color: var(--ex-text);
+    border: 1.5px solid var(--ex-border);
+    border-radius: 2rem;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+.exam-page .btn-outline-dark:hover {
+    background: var(--ex-text);
+    color: #fff;
+    border-color: var(--ex-text);
+}
+
+/* ── Topbar ── */
+.exam-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    padding: 0.85rem 0;
+    background: rgba(250, 245, 242, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--ex-border);
+}
+.exam-topbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.exam-topbar__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+}
+.exam-topbar__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.exam-topbar__link {
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--ex-text);
+    text-decoration: none;
+}
+.exam-topbar__link:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--ex-pink);
+    text-underline-offset: 4px;
+}
+
+/* ── Hero ── */
+.exam-hero {
+    padding: 5rem 0 3rem;
+}
+.exam-eyebrow {
+    margin: 0 0 0.75rem;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ex-muted);
+    font-weight: 600;
+}
+.exam-title {
+    font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+    margin-bottom: 1.2rem;
+}
+.exam-title .pink {
+    color: var(--ex-pink-deep);
+}
+.exam-lead {
+    font-size: 1.1rem;
+    color: var(--ex-muted);
+    max-width: 58ch;
+}
+.exam-note {
+    margin-top: 1rem;
+    color: var(--ex-soft);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+.exam-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
+
+/* ── Team photo ── */
+.exam-team-photo {
+    border-radius: 1.2rem;
+    overflow: hidden;
+    border: 3px solid var(--ex-border);
+    transform: rotate(-1.5deg);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+.exam-team-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Sections ── */
+.exam-section {
+    padding: 3.5rem 0;
+}
+.exam-section,
+.exam-hero {
+    scroll-margin-top: 5rem;
+}
+.exam-section-title {
+    margin-bottom: 0.5rem;
+}
+.exam-section-lead {
+    margin: 0;
+    color: var(--ex-muted);
+    max-width: 60ch;
+}
+
+/* ── Cards ── */
+.exam-card {
+    background: var(--ex-surface);
+    border: 1px solid var(--ex-border);
+    border-radius: 1.1rem;
+    padding: 1.6rem;
+}
+.exam-card--warm {
+    background: linear-gradient(135deg, rgba(232, 160, 180, 0.08), rgba(212, 165, 116, 0.06));
+}
+
+/* ── Project cards ── */
+.exam-project {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 1.4rem;
+    border-radius: 1.1rem;
+    border: 1px solid var(--ex-border);
+    background: var(--ex-surface-solid);
+    transition: box-shadow 0.2s;
+}
+.exam-project:hover {
+    box-shadow: 0 4px 20px rgba(232, 160, 180, 0.15);
+}
+.exam-project__tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ex-pink-deep);
+    background: rgba(232, 160, 180, 0.12);
+    padding: 0.25rem 0.7rem;
+    border-radius: 1rem;
+    margin-bottom: 0.75rem;
+}
+.exam-project__title {
+    font-family: "DM Serif Display", serif;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+.exam-project__desc {
+    color: var(--ex-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+/* ── Team cards ── */
+.exam-team-card {
+    text-align: center;
+}
+.exam-team-card__photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.75rem;
+    border: 2.5px solid var(--ex-pink);
+}
+.exam-role {
+    color: var(--ex-pink-deep);
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+}
+
+/* ── Deliverables strip ── */
+.exam-deliverable {
+    text-align: center;
+    padding: 1.2rem 0.8rem;
+}
+.exam-deliverable__icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+.exam-deliverable__label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* ── Contact ── */
+.exam-contact-item {
+    border: 1px solid var(--ex-border);
+    border-radius: 0.9rem;
+    padding: 1rem;
+    background: var(--ex-surface-solid);
+}
+.exam-contact-item__label {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--ex-soft);
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+.exam-contact-item__value {
+    font-weight: 600;
+    color: var(--ex-text);
+    text-decoration: none;
+}
+.exam-contact-item__value:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--ex-pink);
+    text-underline-offset: 4px;
+}
+.exam-contact-item__sub {
+    margin-top: 0.35rem;
+    font-size: 0.9rem;
+}
+.exam-contact-item__sub a {
+    color: var(--ex-text);
+    text-decoration: underline;
+    text-decoration-color: var(--ex-pink);
+    text-underline-offset: 4px;
+}
+
+/* ── Misc ── */
+.exam-divider {
+    border: 0;
+    border-top: 1px solid var(--ex-border);
+    opacity: 1;
+    margin: 1.25rem 0;
+}
+.exam-small {
+    color: var(--ex-soft);
+    font-size: 0.9rem;
+}
+.exam-list {
+    padding-left: 1.1rem;
+    margin: 0;
+}
+.exam-list li {
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+}
+.exam-squiggle {
+    color: var(--ex-pink);
+}
+
+/* ── Footer ── */
+.exam-footer {
+    padding: 2.25rem 0;
+    border-top: 1px solid var(--ex-border);
+    background: rgba(255, 255, 255, 0.4);
+}
+.exam-footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.exam-footer__title {
+    font-weight: 700;
+}
+.exam-footer__small {
+    color: var(--ex-soft);
+    font-size: 0.9rem;
+}
+.exam-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+}
+.exam-footer__links a {
+    color: var(--ex-text);
+    text-decoration: underline;
+    text-decoration-color: var(--ex-pink);
+    text-underline-offset: 4px;
+}
+
+@media (max-width: 991.98px) {
+    .exam-hero {
+        padding-top: 3.5rem;
+    }
+    .exam-team-photo {
+        transform: rotate(0);
+    }
+}
