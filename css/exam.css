@@ -1,383 +1,760 @@
+@charset "UTF-8";
 /* ══════════════════════════════════════════════════════
-   EXAM LANDING PAGE — "Soft editorial + a sprinkle of fun"
-   Pink · warm · human · professional
+   EXAM LANDING PAGE — Option B: Pink + Soft Indigo
+   Pink · indigo · warm · human · professional
    Scoped to .exam-page
    ══════════════════════════════════════════════════════ */
-
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&family=Caveat:wght@500&display=swap");
-
-.exam-page {
-    /* ── palette ── */
-    --ex-bg: #faf5f2;
-    --ex-surface: rgba(255, 255, 255, 0.8);
-    --ex-surface-solid: #ffffff;
-    --ex-border: rgba(30, 42, 58, 0.1);
-    --ex-text: #1e2a3a;
-    --ex-muted: rgba(30, 42, 58, 0.62);
-    --ex-soft: rgba(30, 42, 58, 0.45);
-    --ex-pink: #e8a0b4;
-    --ex-pink-deep: #d4849c;
-    --ex-warm: #d4a574;
-    --ex-blob-1: rgba(232, 160, 180, 0.14);
-    --ex-blob-2: rgba(212, 165, 116, 0.1);
-
-    background: radial-gradient(900px 600px at 10% 0%, var(--ex-blob-1), transparent 55%), radial-gradient(900px 600px at 90% 25%, var(--ex-blob-2), transparent 55%), var(--ex-bg);
-    font-family:
-        "DM Sans",
-        system-ui,
-        -apple-system,
-        sans-serif;
-    color: var(--ex-text);
-    line-height: 1.65;
+/* ── Global ── */
+html {
+  scroll-behavior: smooth;
 }
 
-/* ── Typography ── */
+/* ══════════════════════════════════════════════════════
+   PAGE ROOT — everything scoped inside here
+   ══════════════════════════════════════════════════════ */
+.exam-page {
+  /* ── Palette ── */
+  --ex-bg: #f7f4ef;
+  --ex-surface: rgba(255, 255, 255, 0.8);
+  --ex-surface-solid: #ffffff;
+  --ex-border: rgba(28, 37, 48, 0.1);
+  --ex-text: #1c2530;
+  --ex-muted: rgba(28, 37, 48, 0.6);
+  --ex-soft: rgba(28, 37, 48, 0.42);
+  /* Action: dusty rose */
+  --ex-pink: #e8c4bc;
+  --ex-pink-deep: #c47b72;
+  /* Information: slate blue */
+  --ex-indigo: #8b9eb0;
+  --ex-indigo-deep: #6b8a9f;
+  /* Warmth: gold */
+  --ex-warm: #d4a574;
+  /* Blobs */
+  --ex-blob-pink: rgba(196, 123, 114, 0.09);
+  --ex-blob-warm: rgba(212, 165, 116, 0.09);
+  --ex-blob-indigo: rgba(139, 158, 176, 0.07);
+  position: relative;
+  background: var(--ex-bg);
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+  color: var(--ex-text);
+  line-height: 1.65;
+  /* Top accent gradient bar */
+}
+.exam-page::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ex-pink), var(--ex-indigo), var(--ex-warm));
+  z-index: 3000;
+}
+.exam-page {
+  /* Background blobs */
+}
+.exam-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("../img/backgrounds/exam-hero-bg.svg"), url("../img/backgrounds/exam-hero-bg.png"), radial-gradient(900px 600px at 10% 0%, var(--ex-blob-pink), transparent 55%), radial-gradient(900px 600px at 90% 25%, var(--ex-blob-warm), transparent 55%), radial-gradient(700px 500px at 50% 65%, var(--ex-blob-indigo), transparent 50%);
+  background-size: contain, contain, auto, auto, auto;
+  background-position: center, center, 10% 0%, 90% 25%, 50% 65%;
+  background-repeat: no-repeat;
+  transform: translateZ(0);
+}
+.exam-page > * {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  .exam-page::before {
+    position: absolute;
+    inset: 0;
+    background-size: cover, cover, auto, auto, auto;
+  }
+}
+.exam-page {
+  /* ── Focus styles — indigo ── */
+}
+.exam-page *:focus-visible {
+  outline: 2px solid var(--ex-indigo);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.exam-page {
+  /* ── Typography ── */
+}
 .exam-page h1,
 .exam-page h2,
 .exam-page h3,
 .exam-page h4,
 .exam-page h5,
 .exam-page h6 {
-    font-family: "DM Serif Display", Georgia, serif;
-    color: var(--ex-text);
-    letter-spacing: -0.01em;
-    line-height: 1.15;
+  font-family: "DM Serif Display", Georgia, serif;
+  color: var(--ex-text);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
 }
-
 .exam-page .handwritten {
-    font-family: "Caveat", cursive;
-    font-size: 1.35em;
-    color: var(--ex-pink-deep);
+  font-family: "Caveat", cursive;
+  font-size: 1.35em;
+  color: var(--ex-pink-deep);
 }
-
-/* ── Links & accents ── */
+.exam-page {
+  /* ── Links ── */
+}
 .exam-page a {
-    color: var(--ex-text);
+  color: var(--ex-text);
+  transition: color 0.2s;
 }
 .exam-page .accent-underline {
-    text-decoration: underline;
-    text-decoration-color: var(--ex-pink);
-    text-underline-offset: 4px;
+  text-decoration: underline;
+  text-decoration-color: var(--ex-pink);
+  text-underline-offset: 4px;
 }
-
-/* ── Buttons ── */
+.exam-page .accent-underline:hover {
+  text-decoration-color: var(--ex-pink-deep);
+}
+.exam-page {
+  /* ── Buttons — pink = action ── */
+}
 .exam-page .btn-pink {
-    background: var(--ex-pink);
-    color: #fff;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.65rem 1.6rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: background 0.2s;
+  display: inline-block;
+  background: var(--ex-pink);
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.65rem 1.6rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
 }
 .exam-page .btn-pink:hover {
-    background: var(--ex-pink-deep);
-    color: #fff;
+  background: var(--ex-pink-deep);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(232, 160, 180, 0.3);
 }
-
+.exam-page .btn-pink:active {
+  transform: translateY(0);
+}
 .exam-page .btn-outline-dark {
-    background: transparent;
-    color: var(--ex-text);
-    border: 1.5px solid var(--ex-border);
-    border-radius: 2rem;
-    padding: 0.6rem 1.5rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: all 0.2s;
+  display: inline-block;
+  background: transparent;
+  color: var(--ex-text);
+  border: 1.5px solid var(--ex-border);
+  border-radius: 2rem;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.25s;
 }
 .exam-page .btn-outline-dark:hover {
-    background: var(--ex-text);
-    color: #fff;
-    border-color: var(--ex-text);
+  background: var(--ex-indigo);
+  color: #fff;
+  border-color: var(--ex-indigo);
+  transform: translateY(-1px);
 }
-
-/* ── Topbar ── */
-.exam-topbar {
-    position: sticky;
-    top: 0;
-    z-index: 2000;
-    padding: 0.85rem 0;
-    background: rgba(250, 245, 242, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--ex-border);
+.exam-page .btn-outline-dark:active {
+  transform: translateY(0);
 }
-.exam-topbar__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.exam-page {
+  /* ══════════════════════════════════════════════
+     SKIP LINK (scoped)
+     ══════════════════════════════════════════════ */
 }
-.exam-topbar__brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    text-decoration: none;
+.exam-page .exam-skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--ex-text);
+  color: #fff;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
 }
-.exam-topbar__actions {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
+.exam-page .exam-skip-link:focus {
+  top: 0;
 }
-.exam-topbar__link {
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    color: var(--ex-text);
-    text-decoration: none;
+.exam-page {
+  /* ══════════════════════════════════════════════
+     TOPBAR (scoped)
+     ══════════════════════════════════════════════ */
 }
-.exam-topbar__link:hover {
-    text-decoration: underline;
-    text-decoration-color: var(--ex-pink);
-    text-underline-offset: 4px;
+.exam-page .exam-topbar {
+  position: sticky;
+  top: 3px;
+  z-index: 2000;
+  padding: 0.85rem 0;
+  background: rgba(250, 245, 242, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--ex-border);
 }
-
-/* ── Hero ── */
-.exam-hero {
-    padding: 5rem 0 3rem;
+.exam-page .exam-topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.exam-eyebrow {
-    margin: 0 0 0.75rem;
-    font-family: "DM Sans", sans-serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ex-muted);
-    font-weight: 600;
+.exam-page .exam-topbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
 }
-.exam-title {
-    font-size: clamp(2.4rem, 4.5vw, 3.5rem);
-    margin-bottom: 1.2rem;
+.exam-page .exam-topbar__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
 }
-.exam-title .pink {
-    color: var(--ex-pink-deep);
+.exam-page {
+  /* Nav links — indigo active/hover */
 }
-.exam-lead {
-    font-size: 1.1rem;
-    color: var(--ex-muted);
-    max-width: 58ch;
+.exam-page .exam-topbar__link {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--ex-text);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
 }
-.exam-note {
-    margin-top: 1rem;
-    color: var(--ex-soft);
-    font-size: 0.9rem;
-    font-style: italic;
+.exam-page .exam-topbar__link:hover, .exam-page .exam-topbar__link.is-active {
+  border-bottom-color: var(--ex-indigo);
 }
-.exam-cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 1.75rem;
+.exam-page {
+  /* Language switcher pill */
 }
-
-/* ── Team photo ── */
-.exam-team-photo {
-    border-radius: 1.2rem;
-    overflow: hidden;
-    border: 3px solid var(--ex-border);
-    transform: rotate(-1.5deg);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+.exam-page .exam-topbar__lang {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(30, 42, 58, 0.06);
+  border-radius: 2rem;
+  padding: 0.2rem;
 }
-.exam-team-photo img {
-    width: 100%;
-    height: auto;
-    display: block;
+.exam-page .exam-topbar__lang a,
+.exam-page .exam-topbar__lang span {
+  padding: 0.2rem 0.55rem;
+  border-radius: 2rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: rgba(30, 42, 58, 0.45);
+  transition: all 0.2s;
 }
-
-/* ── Sections ── */
-.exam-section {
-    padding: 3.5rem 0;
+.exam-page .exam-topbar__lang .is-active {
+  background: #fff;
+  color: var(--ex-text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
-.exam-section,
-.exam-hero {
-    scroll-margin-top: 5rem;
+.exam-page .exam-topbar__lang a:hover:not(.is-active) {
+  color: var(--ex-text);
 }
-.exam-section-title {
-    margin-bottom: 0.5rem;
+.exam-page {
+  /* Mobile toggle — HIDDEN on desktop */
 }
-.exam-section-lead {
-    margin: 0;
-    color: var(--ex-muted);
-    max-width: 60ch;
+.exam-page .exam-topbar__toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.4rem;
+  cursor: pointer;
+  color: var(--ex-text);
+  font-size: 1.2rem;
+  line-height: 1;
 }
-
-/* ── Cards ── */
-.exam-card {
-    background: var(--ex-surface);
-    border: 1px solid var(--ex-border);
-    border-radius: 1.1rem;
-    padding: 1.6rem;
+.exam-page {
+  /* Mobile menu — HIDDEN by default */
 }
-.exam-card--warm {
-    background: linear-gradient(135deg, rgba(232, 160, 180, 0.08), rgba(212, 165, 116, 0.06));
+.exam-page .exam-topbar__menu {
+  display: none;
 }
-
-/* ── Project cards ── */
-.exam-project {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    padding: 1.4rem;
-    border-radius: 1.1rem;
-    border: 1px solid var(--ex-border);
-    background: var(--ex-surface-solid);
-    transition: box-shadow 0.2s;
+.exam-page .exam-topbar__menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.exam-project:hover {
-    box-shadow: 0 4px 20px rgba(232, 160, 180, 0.15);
+.exam-page {
+  /* ══════════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════════ */
 }
-.exam-project__tag {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ex-pink-deep);
-    background: rgba(232, 160, 180, 0.12);
-    padding: 0.25rem 0.7rem;
-    border-radius: 1rem;
-    margin-bottom: 0.75rem;
+.exam-page .exam-hero {
+  padding: 4rem 0 4rem;
 }
-.exam-project__title {
-    font-family: "DM Serif Display", serif;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+.exam-page {
+  /* Eyebrow — indigo, visible above fold */
 }
-.exam-project__desc {
-    color: var(--ex-muted);
-    font-size: 0.95rem;
-    margin-bottom: 0.75rem;
+.exam-page .exam-eyebrow {
+  margin: 0 0 0.75rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ex-indigo-deep);
+  font-weight: 600;
 }
-
-/* ── Team cards ── */
-.exam-team-card {
-    text-align: center;
+.exam-page .exam-title {
+  font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+  margin-bottom: 1.2rem;
 }
-.exam-team-card__photo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 0.75rem;
-    border: 2.5px solid var(--ex-pink);
+.exam-page .exam-title .pink {
+  color: #c4738a;
 }
-.exam-role {
-    color: var(--ex-pink-deep);
-    font-weight: 600;
-    font-size: 0.85rem;
-    margin-bottom: 0.75rem;
+.exam-page .exam-lead {
+  font-size: 1.1rem;
+  color: var(--ex-muted);
+  max-width: 58ch;
 }
-
-/* ── Deliverables strip ── */
-.exam-deliverable {
-    text-align: center;
-    padding: 1.2rem 0.8rem;
+.exam-page .exam-note {
+  margin-top: 1rem;
+  color: var(--ex-soft);
+  font-size: 0.9rem;
+  font-style: italic;
 }
-.exam-deliverable__icon {
-    font-size: 1.6rem;
-    margin-bottom: 0.5rem;
+.exam-page .exam-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
 }
-.exam-deliverable__label {
-    font-weight: 600;
-    font-size: 0.9rem;
+.exam-page {
+  /* Team photo — indigo border hint */
 }
-
-/* ── Contact ── */
-.exam-contact-item {
-    border: 1px solid var(--ex-border);
-    border-radius: 0.9rem;
-    padding: 1rem;
-    background: var(--ex-surface-solid);
+.exam-page .exam-team-photo {
+  border-radius: 1.2rem;
+  overflow: hidden;
+  border: 3px solid rgba(139, 141, 189, 0.25);
+  transform: rotate(-1.5deg);
+  box-shadow: 0 8px 30px rgba(139, 141, 189, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
-.exam-contact-item__label {
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    color: var(--ex-soft);
-    margin-bottom: 0.25rem;
-    font-weight: 600;
+.exam-page .exam-team-photo:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 12px 40px rgba(139, 141, 189, 0.18);
+  border-color: var(--ex-indigo);
 }
-.exam-contact-item__value {
-    font-weight: 600;
-    color: var(--ex-text);
-    text-decoration: none;
+.exam-page .exam-team-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
-.exam-contact-item__value:hover {
-    text-decoration: underline;
-    text-decoration-color: var(--ex-pink);
-    text-underline-offset: 4px;
+.exam-page {
+  /* ══════════════════════════════════════════════
+     SECTIONS
+     ══════════════════════════════════════════════ */
 }
-.exam-contact-item__sub {
-    margin-top: 0.35rem;
-    font-size: 0.9rem;
+.exam-page .exam-section {
+  padding: 3.5rem 0;
 }
-.exam-contact-item__sub a {
-    color: var(--ex-text);
-    text-decoration: underline;
-    text-decoration-color: var(--ex-pink);
-    text-underline-offset: 4px;
+.exam-page .exam-section,
+.exam-page .exam-hero {
+  scroll-margin-top: 5rem;
 }
-
-/* ── Misc ── */
-.exam-divider {
-    border: 0;
-    border-top: 1px solid var(--ex-border);
+.exam-page .exam-section + .exam-section {
+  border-top: 1px solid rgba(30, 42, 58, 0.04);
+}
+.exam-page .exam-section-title {
+  margin-bottom: 0.5rem;
+}
+.exam-page .exam-section-lead {
+  margin: 0;
+  color: var(--ex-muted);
+  max-width: 60ch;
+}
+.exam-page {
+  /* ══════════════════════════════════════════════
+     DELIVERABLES — indigo hover
+     ══════════════════════════════════════════════ */
+}
+.exam-page .exam-deliverable {
+  border: 1px solid var(--ex-border);
+  border-radius: 1rem;
+  padding: 1.3rem 0.9rem;
+  background: rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.exam-page .exam-deliverable:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(139, 141, 189, 0.14);
+  background: rgba(255, 255, 255, 0.85);
+}
+.exam-page .exam-deliverable__icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.exam-page .exam-deliverable__label {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.exam-page .exam-deliverable__desc {
+  font-size: 0.8rem;
+  color: var(--ex-soft);
+  margin-top: 0.25rem;
+}
+.exam-page {
+  /* ══════════════════════════════════════════════
+     CARDS (generic)
+     ══════════════════════════════════════════════ */
+}
+.exam-page .exam-card {
+  background: var(--ex-surface);
+  border: 1px solid var(--ex-border);
+  border-radius: 1.1rem;
+  padding: 1.6rem;
+  transition: box-shadow 0.3s ease;
+}
+.exam-page {
+  /* Warm card — gold + indigo gradient */
+}
+.exam-page .exam-card--warm {
+  background: linear-gradient(135deg, rgba(212, 165, 116, 0.18), rgba(139, 141, 189, 0.1)), rgba(255, 255, 255, 0.85);
+  border-color: rgba(212, 165, 116, 0.22);
+}
+.exam-page {
+  /* ══════════════════════════════════════════════
+     PROJECT CARDS
+     ══════════════════════════════════════════════ */
+}
+.exam-page .exam-project {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 1.1rem;
+  border: 1px solid var(--ex-border);
+  background: var(--ex-surface-solid);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.exam-page .exam-project:hover {
+  box-shadow: 0 8px 28px rgba(139, 141, 189, 0.15);
+  transform: translateY(-2px);
+}
+.exam-page {
+  /* Default accent bar: pink → warm */
+}
+.exam-page .exam-project__accent {
+  height: 4px;
+  background: linear-gradient(90deg, var(--ex-pink), var(--ex-warm));
+  flex-shrink: 0;
+}
+.exam-page {
+  /* Indigo variant — for GradeAid */
+}
+.exam-page .exam-project--indigo .exam-project__accent {
+  background: linear-gradient(90deg, var(--ex-indigo), var(--ex-pink-deep));
+}
+.exam-page .exam-project--indigo:hover {
+  box-shadow: 0 8px 28px rgba(139, 141, 189, 0.2);
+}
+.exam-page .exam-project__body {
+  padding: 1.5rem;
+  flex: 1;
+}
+.exam-page .exam-project__footer {
+  padding: 0 1.5rem 1.5rem;
+}
+.exam-page {
+  /* Tags — indigo */
+}
+.exam-page .exam-project__tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ex-indigo-deep);
+  background: rgba(139, 141, 189, 0.12);
+  padding: 0.25rem 0.7rem;
+  border-radius: 1rem;
+  margin-bottom: 0.75rem;
+}
+.exam-page .exam-project__title {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.exam-page .exam-project__desc {
+  color: var(--ex-muted);
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+.exam-page {
+  /* ══════════════════════════════════════════════
+     TEAM CARDS — indigo hover
+     ══════════════════════════════════════════════ */
+}
+.exam-page .exam-team-card {
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.exam-page .exam-team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(139, 141, 189, 0.15);
+}
+.exam-page .exam-team-card:hover .exam-team-card__photo {
+  border-color: var(--ex-indigo);
+}
+.exam-page .exam-team-card__photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 999px;
+  border: 2.5px solid var(--ex-border);
+  margin-bottom: 0.9rem;
+  transition: border-color 0.3s ease;
+}
+.exam-page .exam-role {
+  color: var(--ex-muted);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+.exam-page {
+  /* ══════════════════════════════════════════════
+     LISTS — indigo bullets
+     ══════════════════════════════════════════════ */
+}
+.exam-page .exam-list {
+  padding-left: 1.1rem;
+  margin: 0;
+}
+.exam-page .exam-list li {
+  margin: 0 0 0.5rem;
+}
+.exam-page .exam-list li::marker {
+  color: var(--ex-indigo);
+}
+.exam-page {
+  /* ══════════════════════════════════════════════
+     CONTACT
+     ══════════════════════════════════════════════ */
+}
+.exam-page .exam-contact-item {
+  padding: 0.6rem 0;
+}
+.exam-page .exam-contact-item__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ex-soft);
+  margin-bottom: 0.2rem;
+}
+.exam-page {
+  /* Email = pink (action) */
+}
+.exam-page .exam-contact-item__value {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ex-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.exam-page .exam-contact-item__value:hover {
+  color: var(--ex-pink-deep);
+}
+.exam-page {
+  /* LinkedIn = indigo (navigational) */
+}
+.exam-page .exam-contact-item__sub {
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+}
+.exam-page .exam-contact-item__sub a {
+  color: var(--ex-indigo);
+  text-decoration: underline;
+  text-decoration-color: rgba(139, 141, 189, 0.4);
+  text-underline-offset: 3px;
+}
+.exam-page .exam-contact-item__sub a:hover {
+  color: var(--ex-indigo-deep);
+  text-decoration-color: var(--ex-indigo);
+}
+.exam-page {
+  /* ══════════════════════════════════════════════
+     DIVIDER & SMALL TEXT
+     ══════════════════════════════════════════════ */
+}
+.exam-page .exam-divider {
+  border: none;
+  border-top: 1px solid rgba(30, 42, 58, 0.08);
+  margin: 1.5rem 0;
+}
+.exam-page .exam-small {
+  font-size: 0.92rem;
+  color: var(--ex-muted);
+}
+.exam-page {
+  /* ══════════════════════════════════════════════
+     FOOTER — indigo link hovers
+     ══════════════════════════════════════════════ */
+}
+.exam-page .exam-footer {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(30, 42, 58, 0.08);
+}
+.exam-page .exam-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.exam-page .exam-footer__title {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.05rem;
+  color: var(--ex-text);
+}
+.exam-page .exam-footer__small {
+  font-size: 0.82rem;
+  color: var(--ex-soft);
+  margin-top: 0.15rem;
+}
+.exam-page .exam-footer__links {
+  display: flex;
+  gap: 1.25rem;
+}
+.exam-page .exam-footer__links a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ex-soft);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.exam-page .exam-footer__links a:hover {
+  color: var(--ex-indigo);
+}
+.exam-page {
+  /* ══════════════════════════════════════════════
+     SCROLL REVEAL
+     ══════════════════════════════════════════════ */
+}
+.exam-page .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: var(--delay, 0s);
+}
+.exam-page .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.exam-page {
+  /* ══════════════════════════════════════════════
+     REDUCED MOTION (a11y)
+     ══════════════════════════════════════════════ */
+}
+@media (prefers-reduced-motion: reduce) {
+  .exam-page .reveal {
     opacity: 1;
-    margin: 1.25rem 0;
+    transform: none;
+    transition: none;
+  }
+  .exam-page .exam-team-photo,
+  .exam-page .exam-deliverable,
+  .exam-page .exam-project,
+  .exam-page .exam-team-card,
+  .exam-page .btn-pink,
+  .exam-page .btn-outline-dark {
+    transition: none;
+  }
 }
-.exam-small {
-    color: var(--ex-soft);
-    font-size: 0.9rem;
+.exam-page {
+  /* ══════════════════════════════════════════════
+     RESPONSIVE
+     ══════════════════════════════════════════════ */
 }
-.exam-list {
-    padding-left: 1.1rem;
-    margin: 0;
+@media (max-width: 991px) {
+  .exam-page .exam-topbar__actions {
+    gap: 0.5rem;
+  }
+  .exam-page .exam-hero {
+    padding: 3.75rem 0 2.75rem;
+  }
 }
-.exam-list li {
-    margin: 0.4rem 0;
-    font-size: 0.95rem;
-}
-.exam-squiggle {
-    color: var(--ex-pink);
-}
-
-/* ── Footer ── */
-.exam-footer {
-    padding: 2.25rem 0;
-    border-top: 1px solid var(--ex-border);
-    background: rgba(255, 255, 255, 0.4);
-}
-.exam-footer__inner {
+@media (max-width: 768px) {
+  .exam-page .exam-topbar__toggle {
+    display: block;
+  }
+  .exam-page .exam-topbar__link,
+  .exam-page .exam-topbar__lang {
+    display: none;
+  }
+  .exam-page .exam-topbar__menu.is-open {
+    display: block;
+    padding: 0.75rem 0 0.25rem;
+    margin-top: 0.75rem;
+    border-top: 1px solid rgba(30, 42, 58, 0.08);
+  }
+  .exam-page .exam-topbar__menu-links {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-}
-.exam-footer__title {
-    font-weight: 700;
-}
-.exam-footer__small {
-    color: var(--ex-soft);
-    font-size: 0.9rem;
-}
-.exam-footer__links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.25rem;
-}
-.exam-footer__links a {
+    gap: 0;
+  }
+  .exam-page .exam-topbar__menu-links a {
+    display: block;
+    padding: 0.6rem 0;
+    font-weight: 600;
+    font-size: 0.95rem;
     color: var(--ex-text);
-    text-decoration: underline;
-    text-decoration-color: var(--ex-pink);
-    text-underline-offset: 4px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(30, 42, 58, 0.05);
+  }
+  .exam-page .exam-topbar__menu-links a:hover {
+    color: var(--ex-indigo-deep);
+  }
+  .exam-page .exam-topbar__menu-links .exam-topbar__menu-lang {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding-top: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(30, 42, 58, 0.45);
+  }
+  .exam-page .exam-topbar__menu-links .exam-topbar__menu-lang a {
+    display: inline;
+    padding: 0;
+    border: none;
+    font-size: 0.85rem;
+  }
+  .exam-page .exam-topbar__menu-links .exam-topbar__menu-lang .is-active {
+    color: var(--ex-text);
+    font-weight: 700;
+  }
+}
+@media (max-width: 575px) {
+  .exam-page .exam-title {
+    font-size: 2.25rem;
+  }
+  .exam-page .exam-footer__inner {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
-@media (max-width: 991.98px) {
-    .exam-hero {
-        padding-top: 3.5rem;
-    }
-    .exam-team-photo {
-        transform: rotate(0);
-    }
+/* end .exam-page */
+/* ── Smooth scroll override for reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
+
+/*# sourceMappingURL=exam.css.map */

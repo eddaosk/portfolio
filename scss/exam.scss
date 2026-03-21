@@ -1,0 +1,847 @@
+/* ══════════════════════════════════════════════════════
+   EXAM LANDING PAGE — Option B: Pink + Soft Indigo
+   Pink · indigo · warm · human · professional
+   Scoped to .exam-page
+   ══════════════════════════════════════════════════════ */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&family=Caveat:wght@500&display=swap");
+
+/* ── Global ── */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ══════════════════════════════════════════════════════
+   PAGE ROOT — everything scoped inside here
+   ══════════════════════════════════════════════════════ */
+
+.exam-page {
+    /* ── Palette ── */
+    --ex-bg: #f7f4ef;
+    --ex-surface: rgba(255, 255, 255, 0.8);
+    --ex-surface-solid: #ffffff;
+    --ex-border: rgba(28, 37, 48, 0.1);
+    --ex-text: #1c2530;
+    --ex-muted: rgba(28, 37, 48, 0.6);
+    --ex-soft: rgba(28, 37, 48, 0.42);
+
+    /* Action: dusty rose */
+    --ex-pink: #e8c4bc;
+    --ex-pink-deep: #c47b72;
+
+    /* Information: slate blue */
+    --ex-indigo: #8b9eb0;
+    --ex-indigo-deep: #6b8a9f;
+
+    /* Warmth: gold */
+    --ex-warm: #d4a574;
+
+    /* Blobs */
+    --ex-blob-pink: rgba(196, 123, 114, 0.09);
+    --ex-blob-warm: rgba(212, 165, 116, 0.09);
+    --ex-blob-indigo: rgba(139, 158, 176, 0.07);
+
+    position: relative;
+    background: var(--ex-bg);
+    font-family:
+        "DM Sans",
+        system-ui,
+        -apple-system,
+        sans-serif;
+    color: var(--ex-text);
+    line-height: 1.65;
+
+    /* Top accent gradient bar */
+    &::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--ex-pink), var(--ex-indigo), var(--ex-warm));
+        z-index: 3000;
+    }
+
+    /* Background blobs */
+    &::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image: url("../img/backgrounds/exam-hero-bg.svg"), url("../img/backgrounds/exam-hero-bg.png"), radial-gradient(900px 600px at 10% 0%, var(--ex-blob-pink), transparent 55%), radial-gradient(900px 600px at 90% 25%, var(--ex-blob-warm), transparent 55%), radial-gradient(700px 500px at 50% 65%, var(--ex-blob-indigo), transparent 50%);
+        background-size: contain, contain, auto, auto, auto;
+        background-position:
+            center,
+            center,
+            10% 0%,
+            90% 25%,
+            50% 65%;
+        background-repeat: no-repeat;
+        transform: translateZ(0);
+    }
+
+    > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+        &::before {
+            position: absolute;
+            inset: 0;
+            background-size: cover, cover, auto, auto, auto;
+        }
+    }
+
+    /* ── Focus styles — indigo ── */
+    *:focus-visible {
+        outline: 2px solid var(--ex-indigo);
+        outline-offset: 3px;
+        border-radius: 4px;
+    }
+
+    /* ── Typography ── */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "DM Serif Display", Georgia, serif;
+        color: var(--ex-text);
+        letter-spacing: -0.01em;
+        line-height: 1.15;
+    }
+
+    .handwritten {
+        font-family: "Caveat", cursive;
+        font-size: 1.35em;
+        color: var(--ex-pink-deep);
+    }
+
+    /* ── Links ── */
+    a {
+        color: var(--ex-text);
+        transition: color 0.2s;
+    }
+
+    .accent-underline {
+        text-decoration: underline;
+        text-decoration-color: var(--ex-pink);
+        text-underline-offset: 4px;
+
+        &:hover {
+            text-decoration-color: var(--ex-pink-deep);
+        }
+    }
+
+    /* ── Buttons — pink = action ── */
+    .btn-pink {
+        display: inline-block;
+        background: var(--ex-pink);
+        color: #fff;
+        border: none;
+        border-radius: 2rem;
+        padding: 0.65rem 1.6rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition:
+            background 0.25s,
+            transform 0.2s,
+            box-shadow 0.25s;
+
+        &:hover {
+            background: var(--ex-pink-deep);
+            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(232, 160, 180, 0.3);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+
+    .btn-outline-dark {
+        display: inline-block;
+        background: transparent;
+        color: var(--ex-text);
+        border: 1.5px solid var(--ex-border);
+        border-radius: 2rem;
+        padding: 0.6rem 1.5rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: all 0.25s;
+
+        &:hover {
+            background: var(--ex-indigo);
+            color: #fff;
+            border-color: var(--ex-indigo);
+            transform: translateY(-1px);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+
+    /* ══════════════════════════════════════════════
+       SKIP LINK (scoped)
+       ══════════════════════════════════════════════ */
+
+    .exam-skip-link {
+        position: absolute;
+        top: -100%;
+        left: 1rem;
+        z-index: 9999;
+        padding: 0.5rem 1rem;
+        background: var(--ex-text);
+        color: #fff;
+        border-radius: 0 0 0.5rem 0.5rem;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-decoration: none;
+
+        &:focus {
+            top: 0;
+        }
+    }
+
+    /* ══════════════════════════════════════════════
+       TOPBAR (scoped)
+       ══════════════════════════════════════════════ */
+
+    .exam-topbar {
+        position: sticky;
+        top: 3px;
+        z-index: 2000;
+        padding: 0.85rem 0;
+        background: rgba(250, 245, 242, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--ex-border);
+    }
+
+    .exam-topbar__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .exam-topbar__brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        text-decoration: none;
+    }
+
+    .exam-topbar__actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    /* Nav links — indigo active/hover */
+    .exam-topbar__link {
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: var(--ex-text);
+        text-decoration: none;
+        padding-bottom: 2px;
+        border-bottom: 2px solid transparent;
+        transition:
+            border-color 0.2s,
+            color 0.2s;
+
+        &:hover,
+        &.is-active {
+            border-bottom-color: var(--ex-indigo);
+        }
+    }
+
+    /* Language switcher pill */
+    .exam-topbar__lang {
+        display: inline-flex;
+        align-items: center;
+        background: rgba(30, 42, 58, 0.06);
+        border-radius: 2rem;
+        padding: 0.2rem;
+
+        a,
+        span {
+            padding: 0.2rem 0.55rem;
+            border-radius: 2rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            color: rgba(30, 42, 58, 0.45);
+            transition: all 0.2s;
+        }
+
+        .is-active {
+            background: #fff;
+            color: var(--ex-text);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        a:hover:not(.is-active) {
+            color: var(--ex-text);
+        }
+    }
+
+    /* Mobile toggle — HIDDEN on desktop */
+    .exam-topbar__toggle {
+        display: none;
+        background: none;
+        border: none;
+        padding: 0.4rem;
+        cursor: pointer;
+        color: var(--ex-text);
+        font-size: 1.2rem;
+        line-height: 1;
+    }
+
+    /* Mobile menu — HIDDEN by default */
+    .exam-topbar__menu {
+        display: none;
+    }
+
+    .exam-topbar__menu-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* ══════════════════════════════════════════════
+       HERO
+       ══════════════════════════════════════════════ */
+
+    .exam-hero {
+        padding: 4rem 0 4rem; // reduce bottom padding
+        // remove any min-height if one exists
+    }
+
+    /* Eyebrow — indigo, visible above fold */
+    .exam-eyebrow {
+        margin: 0 0 0.75rem;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.82rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ex-indigo-deep);
+        font-weight: 600;
+    }
+
+    .exam-title {
+        font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+        margin-bottom: 1.2rem;
+
+        .pink {
+            color: #c4738a; // 👈 updated — cooler, more pink at display size
+        }
+    }
+
+    .exam-lead {
+        font-size: 1.1rem;
+        color: var(--ex-muted);
+        max-width: 58ch;
+    }
+
+    .exam-note {
+        margin-top: 1rem;
+        color: var(--ex-soft);
+        font-size: 0.9rem;
+        font-style: italic;
+    }
+
+    .exam-cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.75rem;
+    }
+
+    /* Team photo — indigo border hint */
+    .exam-team-photo {
+        border-radius: 1.2rem;
+        overflow: hidden;
+        border: 3px solid rgba(139, 141, 189, 0.25);
+        transform: rotate(-1.5deg);
+        box-shadow: 0 8px 30px rgba(139, 141, 189, 0.1);
+        transition:
+            transform 0.4s ease,
+            box-shadow 0.4s ease,
+            border-color 0.4s ease;
+
+        &:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 0 12px 40px rgba(139, 141, 189, 0.18);
+            border-color: var(--ex-indigo);
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+
+    /* ══════════════════════════════════════════════
+       SECTIONS
+       ══════════════════════════════════════════════ */
+
+    .exam-section {
+        padding: 3.5rem 0;
+    }
+
+    .exam-section,
+    .exam-hero {
+        scroll-margin-top: 5rem;
+    }
+
+    .exam-section + .exam-section {
+        border-top: 1px solid rgba(30, 42, 58, 0.04);
+    }
+
+    .exam-section-title {
+        margin-bottom: 0.5rem;
+    }
+
+    .exam-section-lead {
+        margin: 0;
+        color: var(--ex-muted);
+        max-width: 60ch;
+    }
+
+    /* ══════════════════════════════════════════════
+       DELIVERABLES — indigo hover
+       ══════════════════════════════════════════════ */
+
+    .exam-deliverable {
+        border: 1px solid var(--ex-border);
+        border-radius: 1rem;
+        padding: 1.3rem 0.9rem;
+        background: rgba(255, 255, 255, 0.5);
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease,
+            background 0.3s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(139, 141, 189, 0.14);
+            background: rgba(255, 255, 255, 0.85);
+        }
+    }
+
+    .exam-deliverable__icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .exam-deliverable__label {
+        font-weight: 700;
+        font-size: 0.9rem;
+    }
+
+    .exam-deliverable__desc {
+        font-size: 0.8rem;
+        color: var(--ex-soft);
+        margin-top: 0.25rem;
+    }
+
+    /* ══════════════════════════════════════════════
+       CARDS (generic)
+       ══════════════════════════════════════════════ */
+
+    .exam-card {
+        background: var(--ex-surface);
+        border: 1px solid var(--ex-border);
+        border-radius: 1.1rem;
+        padding: 1.6rem;
+        transition: box-shadow 0.3s ease;
+    }
+
+    /* Warm card — gold + indigo gradient */
+    .exam-card--warm {
+        background: linear-gradient(135deg, rgba(212, 165, 116, 0.18), rgba(139, 141, 189, 0.1)), rgba(255, 255, 255, 0.85);
+        border-color: rgba(212, 165, 116, 0.22);
+    }
+
+    /* ══════════════════════════════════════════════
+       PROJECT CARDS
+       ══════════════════════════════════════════════ */
+
+    .exam-project {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        border-radius: 1.1rem;
+        border: 1px solid var(--ex-border);
+        background: var(--ex-surface-solid);
+        overflow: hidden;
+        transition:
+            box-shadow 0.3s ease,
+            transform 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 8px 28px rgba(139, 141, 189, 0.15);
+            transform: translateY(-2px);
+        }
+    }
+
+    /* Default accent bar: pink → warm */
+    .exam-project__accent {
+        height: 4px;
+        background: linear-gradient(90deg, var(--ex-pink), var(--ex-warm));
+        flex-shrink: 0;
+    }
+
+    /* Indigo variant — for GradeAid */
+    .exam-project--indigo {
+        .exam-project__accent {
+            background: linear-gradient(90deg, var(--ex-indigo), var(--ex-pink-deep));
+        }
+
+        &:hover {
+            box-shadow: 0 8px 28px rgba(139, 141, 189, 0.2);
+        }
+    }
+
+    .exam-project__body {
+        padding: 1.5rem;
+        flex: 1;
+    }
+
+    .exam-project__footer {
+        padding: 0 1.5rem 1.5rem;
+    }
+
+    /* Tags — indigo */
+    .exam-project__tag {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ex-indigo-deep);
+        background: rgba(139, 141, 189, 0.12);
+        padding: 0.25rem 0.7rem;
+        border-radius: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .exam-project__title {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .exam-project__desc {
+        color: var(--ex-muted);
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+    }
+
+    /* ══════════════════════════════════════════════
+       TEAM CARDS — indigo hover
+       ══════════════════════════════════════════════ */
+
+    .exam-team-card {
+        text-align: center;
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(139, 141, 189, 0.15);
+
+            .exam-team-card__photo {
+                border-color: var(--ex-indigo);
+            }
+        }
+    }
+
+    .exam-team-card__photo {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 999px;
+        border: 2.5px solid var(--ex-border);
+        margin-bottom: 0.9rem;
+        transition: border-color 0.3s ease;
+    }
+
+    .exam-role {
+        color: var(--ex-muted);
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    /* ══════════════════════════════════════════════
+       LISTS — indigo bullets
+       ══════════════════════════════════════════════ */
+
+    .exam-list {
+        padding-left: 1.1rem;
+        margin: 0;
+
+        li {
+            margin: 0 0 0.5rem;
+
+            &::marker {
+                color: var(--ex-indigo);
+            }
+        }
+    }
+
+    /* ══════════════════════════════════════════════
+       CONTACT
+       ══════════════════════════════════════════════ */
+
+    .exam-contact-item {
+        padding: 0.6rem 0;
+    }
+
+    .exam-contact-item__label {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ex-soft);
+        margin-bottom: 0.2rem;
+    }
+
+    /* Email = pink (action) */
+    .exam-contact-item__value {
+        display: block;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--ex-text);
+        text-decoration: none;
+        transition: color 0.2s;
+
+        &:hover {
+            color: var(--ex-pink-deep);
+        }
+    }
+
+    /* LinkedIn = indigo (navigational) */
+    .exam-contact-item__sub {
+        margin-top: 0.2rem;
+        font-size: 0.85rem;
+
+        a {
+            color: var(--ex-indigo);
+            text-decoration: underline;
+            text-decoration-color: rgba(139, 141, 189, 0.4);
+            text-underline-offset: 3px;
+
+            &:hover {
+                color: var(--ex-indigo-deep);
+                text-decoration-color: var(--ex-indigo);
+            }
+        }
+    }
+
+    /* ══════════════════════════════════════════════
+       DIVIDER & SMALL TEXT
+       ══════════════════════════════════════════════ */
+
+    .exam-divider {
+        border: none;
+        border-top: 1px solid rgba(30, 42, 58, 0.08);
+        margin: 1.5rem 0;
+    }
+
+    .exam-small {
+        font-size: 0.92rem;
+        color: var(--ex-muted);
+    }
+
+    /* ══════════════════════════════════════════════
+       FOOTER — indigo link hovers
+       ══════════════════════════════════════════════ */
+
+    .exam-footer {
+        padding: 2rem 0;
+        border-top: 1px solid rgba(30, 42, 58, 0.08);
+    }
+
+    .exam-footer__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .exam-footer__title {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.05rem;
+        color: var(--ex-text);
+    }
+
+    .exam-footer__small {
+        font-size: 0.82rem;
+        color: var(--ex-soft);
+        margin-top: 0.15rem;
+    }
+
+    .exam-footer__links {
+        display: flex;
+        gap: 1.25rem;
+
+        a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--ex-soft);
+            text-decoration: none;
+            transition: color 0.2s;
+
+            &:hover {
+                color: var(--ex-indigo);
+            }
+        }
+    }
+
+    /* ══════════════════════════════════════════════
+       SCROLL REVEAL
+       ══════════════════════════════════════════════ */
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition-delay: var(--delay, 0s);
+
+        &.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ══════════════════════════════════════════════
+       REDUCED MOTION (a11y)
+       ══════════════════════════════════════════════ */
+
+    @media (prefers-reduced-motion: reduce) {
+        .reveal {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+
+        .exam-team-photo,
+        .exam-deliverable,
+        .exam-project,
+        .exam-team-card,
+        .btn-pink,
+        .btn-outline-dark {
+            transition: none;
+        }
+    }
+
+    /* ══════════════════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════════════════ */
+
+    @media (max-width: 991px) {
+        .exam-topbar__actions {
+            gap: 0.5rem;
+        }
+        .exam-hero {
+            padding: 3.75rem 0 2.75rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .exam-topbar__toggle {
+            display: block;
+        }
+
+        .exam-topbar__link,
+        .exam-topbar__lang {
+            display: none;
+        }
+
+        .exam-topbar__menu.is-open {
+            display: block;
+            padding: 0.75rem 0 0.25rem;
+            margin-top: 0.75rem;
+            border-top: 1px solid rgba(30, 42, 58, 0.08);
+        }
+
+        .exam-topbar__menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+
+            a {
+                display: block;
+                padding: 0.6rem 0;
+                font-weight: 600;
+                font-size: 0.95rem;
+                color: var(--ex-text);
+                text-decoration: none;
+                border-bottom: 1px solid rgba(30, 42, 58, 0.05);
+
+                &:hover {
+                    color: var(--ex-indigo-deep);
+                }
+            }
+
+            .exam-topbar__menu-lang {
+                display: flex;
+                align-items: center;
+                gap: 0.4rem;
+                padding-top: 0.75rem;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: rgba(30, 42, 58, 0.45);
+
+                a {
+                    display: inline;
+                    padding: 0;
+                    border: none;
+                    font-size: 0.85rem;
+                }
+
+                .is-active {
+                    color: var(--ex-text);
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 575px) {
+        .exam-title {
+            font-size: 2.25rem;
+        }
+        .exam-footer__inner {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+} /* end .exam-page */
+
+/* ── Smooth scroll override for reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}

@@ -30,7 +30,8 @@ async function optimizeOnePath(inputPath, opts = {}) {
     try {
         meta = await sharp(inputPath).metadata();
     } catch (e) {
-        console.error(`Skipping ${file}: cannot read metadata (${e.message})`);
+        const fileName = path.basename(inputPath);
+        console.error(`Skipping ${fileName}: cannot read metadata (${e.message})`);
         return;
     }
 
@@ -52,7 +53,8 @@ async function optimizeOnePath(inputPath, opts = {}) {
         } else if (ext === ".png") {
             pipeline = base.png({ compressionLevel: pngCompression, palette: usePalette });
         } else {
-            console.warn(`Unsupported format for ${file}, skipping.`);
+            const fileName = path.basename(inputPath);
+            console.warn(`Unsupported format for ${fileName}, skipping.`);
             return;
         }
 

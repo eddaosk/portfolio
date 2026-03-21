@@ -5,18 +5,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Looking for a case partner — Fresia, Gayane & Edda</title>
         <meta name="description" content="Three multimedia design students looking for a real business to collaborate with on our final exam. We research, design, and code." />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="Looking for a case partner — Fresia, Gayane & Edda" />
         <meta property="og:description" content="Three multimedia design students who research, design, and code — looking for a case partner for our final exam." />
         <meta property="og:image" content="https://eddaosk.dk/img/edda.jpg" />
         <meta property="og:url" content="https://eddaosk.dk/exam.html" />
+        <meta name="twitter:card" content="summary_large_image" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-        <link rel="stylesheet" href="css/main.css" />
         <link rel="stylesheet" href="css/exam.css" />
         <link rel="icon" href="img/logo-gold.svg" type="image/svg+xml" />
     </head>
 
     <body class="exam-page">
+        <a class="exam-skip-link" href="#main-content">Skip to content</a>
+
         <!-- ═══ TOPBAR ═══ -->
         <header class="exam-topbar">
             <div class="container">
@@ -27,63 +30,88 @@
                     <div class="exam-topbar__actions">
                         <a class="exam-topbar__link" href="#work">Work</a>
                         <a class="exam-topbar__link" href="#team">Team</a>
-                        <a class="exam-topbar__link" href="da/exam.html" lang="da">DA</a>
+                        <div class="exam-topbar__lang">
+                            <span class="is-active">EN</span>
+                            <a href="da/exam.html" lang="da">DA</a>
+                        </div>
                         <a class="btn-pink" href="#contact">Get in touch</a>
+                        <button class="exam-topbar__toggle" aria-label="Open menu" aria-expanded="false">
+                            <i class="fas fa-bars"></i>
+                        </button>
                     </div>
                 </div>
+                <!-- Mobile menu -->
+                <nav class="exam-topbar__menu" aria-label="Mobile navigation">
+                    <ul class="exam-topbar__menu-links">
+                        <li><a href="#work">Work</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#contact">Get in touch</a></li>
+                        <li class="exam-topbar__menu-lang">
+                            <span class="is-active">EN</span> /
+                            <a href="da/exam.html" lang="da">DA</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </header>
 
         <!-- ═══ HERO ═══ -->
-        <header class="exam-hero" id="top">
+        <section class="exam-hero" id="top">
             <div class="container">
                 <div class="row align-items-center g-5">
                     <div class="col-lg-7">
-                        <p class="exam-eyebrow">Multimedia Design · Final exam 2026</p>
-                        <h1 class="exam-title">We're looking for a <span class="pink">case partner</span></h1>
-                        <p class="exam-lead">We're Fresia, Gayane, and Edda — three multimedia design students who research, design, and code. For our final exam, we want to work with a real business on a real challenge. You bring the problem; we bring the process, the design, and a working prototype.</p>
-                        <div class="exam-cta-row">
-                            <a class="btn-pink" href="#contact">Write us →</a>
+                        <p class="exam-eyebrow reveal">Multimedia Design · Final exam 2026</p>
+                        <h1 class="exam-title reveal" style="--delay: 0.05s">We'll solve a real problem for your business — <span class="pink">for free.</span></h1>
+                        <p class="exam-lead reveal" style="--delay: 0.1s">We're Fresia, Gayane, and Edda — three multimedia design students at Zealand. For our final exam, we're looking to work with a real business on a real challenge. A product idea, a broken customer experience, a service that needs rethinking. You bring the problem. We bring the research, the design, and a working prototype.</p>
+                        <div class="exam-cta-row reveal" style="--delay: 0.15s">
+                            <a class="btn-pink" href="#contact">Reach out→</a>
                             <a class="btn-outline-dark" href="#work">See what we've built</a>
                         </div>
-                        <p class="exam-note">The collaboration is free. We'd just like permission to show the result in our portfolios.</p>
+                        <p class="exam-note reveal" style="--delay: 0.2s">The collaboration is free. We'd just like permission to show the result in our portfolios.</p>
                     </div>
                     <div class="col-lg-5">
-                        <div class="exam-team-photo">
-                            <img src="img/exam/powerpuff.png" alt="Fresia Mae Membrere, Gayane Harutyunyan, and Edda Ósk Óskarsdóttir" loading="lazy" />
+                        <div class="exam-team-photo reveal" style="--delay: 0.15s">
+                            <img src="img/exam/hero.jpg" alt="Fresia, Gayane and Edda" loading="lazy" width="800" height="600" />
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
+        </section>
 
-        <main>
+        <main id="main-content">
             <!-- ═══ WHAT WE DELIVER ═══ -->
-            <section class="exam-section">
+            <section class="exam-section" id="deliver">
                 <div class="container">
+                    <div class="text-center mb-3 reveal">
+                        <p class="exam-eyebrow mb-0">What you get</p>
+                    </div>
                     <div class="row g-3 justify-content-center text-center">
-                        <div class="col-6 col-md-3">
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0s">
                             <div class="exam-deliverable">
                                 <div class="exam-deliverable__icon">🔍</div>
                                 <div class="exam-deliverable__label">UX Research</div>
+                                <div class="exam-deliverable__desc">Interviews, personas & insights</div>
                             </div>
                         </div>
-                        <div class="col-6 col-md-3">
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0.08s">
                             <div class="exam-deliverable">
                                 <div class="exam-deliverable__icon">🎨</div>
-                                <div class="exam-deliverable__label">Visual design & UI</div>
+                                <div class="exam-deliverable__label">Visual Design & UI</div>
+                                <div class="exam-deliverable__desc">Brand-aligned, polished layouts</div>
                             </div>
                         </div>
-                        <div class="col-6 col-md-3">
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0.16s">
                             <div class="exam-deliverable">
                                 <div class="exam-deliverable__icon">💻</div>
-                                <div class="exam-deliverable__label">Coded prototype</div>
+                                <div class="exam-deliverable__label">Coded Prototype</div>
+                                <div class="exam-deliverable__desc">HTML, SCSS, JS — responsive & real</div>
                             </div>
                         </div>
-                        <div class="col-6 col-md-3">
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0.24s">
                             <div class="exam-deliverable">
                                 <div class="exam-deliverable__icon">📣</div>
-                                <div class="exam-deliverable__label">Content & strategy</div>
+                                <div class="exam-deliverable__label">Content & Strategy</div>
+                                <div class="exam-deliverable__desc">SoMe, SEO & messaging</div>
                             </div>
                         </div>
                     </div>
@@ -94,16 +122,17 @@
             <section class="exam-section" id="work">
                 <div class="container">
                     <div class="row mb-4">
-                        <div class="col-lg-8">
+                        <div class="col-lg-8 reveal">
                             <h2 class="exam-section-title">What we've built together</h2>
                             <p class="exam-section-lead">Two recent projects where we were the same team. Here's what we did — and how we think.</p>
                         </div>
                     </div>
                     <div class="row g-4">
                         <!-- JuicOrganic -->
-                        <div class="col-md-6">
+                        <div class="col-md-6 reveal" style="--delay: 0.05s">
                             <div class="exam-project">
-                                <div>
+                                <div class="exam-project__accent"></div>
+                                <div class="exam-project__body">
                                     <span class="exam-project__tag">SaaS · Vending machine · Sustainability</span>
                                     <h3 class="exam-project__title">JuicOrganic</h3>
                                     <p class="exam-project__desc">An organic juice company wanted to go from B2B to B2C. We designed a smart vending machine concept with a touchscreen ordering system, a reusable bottle with barcode rewards, and a full SaaS management layer.</p>
@@ -114,16 +143,17 @@
                                         <li>Campaign video (After Effects) + SoMe content plan</li>
                                     </ul>
                                 </div>
-                                <div class="mt-3">
-                                    <a href="https://eddaosk.dk/JuicOrganic/" target="_blank" class="accent-underline" rel="noopener">View coded prototype →</a>
+                                <div class="exam-project__footer">
+                                    <a href="https://eddaosk.github.io/JuicOrganic/" target="_blank" class="accent-underline" rel="noopener">View coded prototype →</a>
                                 </div>
                             </div>
                         </div>
 
                         <!-- GradeAid -->
-                        <div class="col-md-6">
-                            <div class="exam-project">
-                                <div>
+                        <div class="col-md-6 reveal" style="--delay: 0.15s">
+                            <div class="exam-project exam-project--indigo">
+                                <div class="exam-project__accent"></div>
+                                <div class="exam-project__body">
                                     <span class="exam-project__tag">EdTech · Neuro-inclusive · AI</span>
                                     <h3 class="exam-project__title">GradeAid — The Deep Blue</h3>
                                     <p class="exam-project__desc">An AI learning platform needed a UX layer designed for neurodivergent children. We developed an ocean-themed concept grounded in Blue Mind theory — calming colors, non-human avatars, and age-adapted interfaces that reduce sensory overload.</p>
@@ -140,51 +170,90 @@
                 </div>
             </section>
 
+            <!-- ═══ HOW WE WORK ═══ -->
+            <section class="exam-section" id="process">
+                <div class="container">
+                    <div class="row mb-4">
+                        <div class="col-lg-8 reveal">
+                            <p class="exam-eyebrow">HOW WE WORK</p>
+                            <h2 class="exam-section-title">Research-first. Every time.</h2>
+                            <p class="exam-section-lead">Every design decision is backed by user testing, anthropological thinking, and logic — not just aesthetics. We work in person, challenge each other constantly, and move fast without cutting corners.</p>
+                        </div>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0s">
+                            <div class="exam-card">
+                                <h3 class="h6 mb-2">1. Understand</h3>
+                                <p class="exam-small">Stakeholder interviews, user research, context mapping</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0.08s">
+                            <div class="exam-card">
+                                <h3 class="h6 mb-2">2. Define</h3>
+                                <p class="exam-small">Problem statement, information architecture, user flows</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0.16s">
+                            <div class="exam-card">
+                                <h3 class="h6 mb-2">3. Design & Test</h3>
+                                <p class="exam-small">Wireframes → hi-fi UI, usability testing, iteration</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0.24s">
+                            <div class="exam-card">
+                                <h3 class="h6 mb-2">4. Build & Deliver</h3>
+                                <p class="exam-small">Coded prototype, documentation, handover</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- ═══ TEAM ═══ -->
             <section class="exam-section" id="team">
                 <div class="container">
                     <div class="row mb-4">
-                        <div class="col-lg-8">
+                        <div class="col-lg-8 reveal">
                             <h2 class="exam-section-title">The team</h2>
                             <p class="exam-section-lead">Same education, different strengths. That's what makes us work.</p>
                         </div>
                     </div>
                     <div class="row g-4">
-                        <div class="col-md-4">
+                        <div class="col-md-4 reveal" style="--delay: 0s">
                             <div class="exam-card exam-team-card">
-                                <img class="exam-team-card__photo" src="img/exam/fresia.png" alt="Fresia" loading="lazy" />
+                                <img class="exam-team-card__photo" src="img/exam/fresia.jpg" alt="Fresia" loading="lazy" />
                                 <h3 class="h5 mb-1">Fresia Mae Membrere</h3>
-                                <p class="exam-role">UI Design · Design Systems · Code</p>
+                                <p class="exam-role">UI DESIGN · VISUAL IDENTITY · FIGMA</p>
                                 <ul class="exam-list text-start">
-                                    <li>Business & competitor analysis</li>
-                                    <li>Design systems in Figma (components, variables)</li>
-                                    <li>Front-end code: HTML, SCSS, JavaScript</li>
+                                    <li>Translates research & wireframes into high-fidelity prototypes</li>
+                                    <li>Design systems in Figma (components, variables etc.)</li>
+                                    <li>Colour palette, typography, logo & visual identity design</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 reveal" style="--delay: 0.1s">
                             <div class="exam-card exam-team-card">
-                                <img class="exam-team-card__photo" src="img/exam/gayane.png" alt="Gayane" loading="lazy" />
+                                <img class="exam-team-card__photo" src="img/exam/gayane.jpg" alt="Gayane" loading="lazy" />
                                 <h3 class="h5 mb-1">Gayane Harutyunyan</h3>
-                                <p class="exam-role">Visual Identity · Illustration · Testing</p>
+                                <p class="exam-role">BRANDING · GRAPHIC DESIGN · STRATEGY</p>
                                 <ul class="exam-list text-start">
-                                    <li>Logo design, illustration, character direction</li>
-                                    <li>Think-aloud tests, A/B tests, usability feedback</li>
-                                    <li>Tone of voice, SoMe content, SEO</li>
+                                    <li>Brand guidelines & graphic & layout design in Adobe Illustrator & InDesign</li>
+                                    <li>Social media strategy & content planning</li>
+                                    <li>Drives team decisions, pitching & client communication</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 reveal" style="--delay: 0.2s">
                             <div class="exam-card exam-team-card">
-                                <img class="exam-team-card__photo" src="img/edda.jpg" alt="Edda" loading="lazy" />
+                                <img class="exam-team-card__photo" src="img/exam/edda.jpg" alt="Edda" loading="lazy" />
                                 <h3 class="h5 mb-1">Edda Ósk Óskarsdóttir</h3>
-                                <p class="exam-role">UX Research · IA · Code & Video</p>
+                                <p class="exam-role">UX RESEARCH · IA · CODE</p>
                                 <ul class="exam-list text-start">
-                                    <li>User interviews, personas, journey maps</li>
-                                    <li>Information architecture & flow design</li>
-                                    <li>HTML, SCSS, JS + After Effects video</li>
+                                    <li>Academic background in anthropology — behavioural & cultural depth to user research</li>
+                                    <li>Information architecture & lo-fi wireframing</li>
+                                    <li>Front-end development (HTML, SCSS, JavaScript + motion)</li>
                                 </ul>
                             </div>
                         </div>
@@ -196,55 +265,37 @@
             <section class="exam-section" id="brief">
                 <div class="container">
                     <div class="row g-4 align-items-stretch">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 reveal" style="--delay: 0s">
                             <div class="exam-card exam-card--warm h-100">
                                 <h2 class="h4 mb-3">What we need from you</h2>
                                 <ul class="exam-list">
-                                    <li>A real digital challenge you'd like to explore or improve</li>
-                                    <li>2–3 short check-ins during the project (online is fine)</li>
+                                    <li>A real challenge — a product idea, a service gap, or a customer experience that isn't working</li>
+                                    <li>2–3 short check-ins over ~8 weeks (online is fine)</li>
                                     <li>Some context: your goals, your users, what's not working</li>
+                                    <li>Even if the idea isn't fully formed — that's where we start</li>
                                 </ul>
-                                <p class="exam-small mt-3">Not sure what the "case" could be? We can help you define a focused problem from your current situation.</p>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 reveal" style="--delay: 0.1s">
                             <div class="exam-card h-100">
                                 <h2 class="h4 mb-3">It's a good fit if you want…</h2>
                                 <ul class="exam-list">
-                                    <li>A landing page or website that actually works for your audience</li>
-                                    <li>A concept we ideate, prototype, and test — not just "make us a site"</li>
-                                    <li>A small product or service prototype</li>
-                                    <li>Clearer digital communication and visuals</li>
-                                    <li>A coded demo you can test with real users</li>
+                                    <li>A digital product concept designed from real user needs</li>
+                                    <li>A broken customer experience rethought from the ground up</li>
+                                    <li>A concept for a new service or channel — designed and prototyped</li>
+                                    <li>A working prototype you can demo to stakeholders or investors</li>
+                                    <li>Research-backed strategy — not just a pretty deliverable</li>
                                 </ul>
+                                <p class="exam-small mt-3"><em>Not the right fit if you just need a brochure site or a visual refresh — we work best on problems with real depth.</em></p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ═══ TIMELINE ═══ -->
-            <section class="exam-section" id="timeline">
-                <div class="container">
-                    <div class="row g-4 align-items-stretch">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 reveal" style="--delay: 0.2s">
                             <div class="exam-card h-100">
                                 <h2 class="h4 mb-3">Timeline</h2>
                                 <ul class="exam-list">
-                                    <li><strong>Start:</strong> 27 March 2026</li>
-                                    <li><strong>Break:</strong> 1 week (Easter)</li>
-                                    <li><strong>Hand-in:</strong> 29 May 2026</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="exam-card h-100">
-                                <h2 class="h4 mb-3">About the exam</h2>
-                                <ul class="exam-list">
-                                    <li>Practice-near project with a real stakeholder</li>
-                                    <li>We define the problem statement (approved by our institution)</li>
-                                    <li>Written project + oral exam with external assessment</li>
-                                    <li>We apply methods from the full Multimedia Design programme</li>
+                                    <li><strong>Kick-off:</strong> Late March 2026</li>
+                                    <li><strong>Your involvement:</strong> 2–3 check-ins over ~8 weeks</li>
+                                    <li><strong>Final delivery:</strong> Late May 2026</li>
                                 </ul>
                             </div>
                         </div>
@@ -256,10 +307,35 @@
             <section class="exam-section" id="contact">
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-lg-9">
+                        <div class="col-lg-9 reveal">
                             <div class="exam-card" style="padding: 2rem">
                                 <h2 class="exam-section-title mb-2">Let's talk</h2>
                                 <p class="exam-section-lead mb-4">Send us a short message about your business and what you'd like to improve. We'll take it from there.</p>
+
+                                <form class="mb-4" action="https://formspree.io/f/mnjgyzoj" method="POST">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="contact-name">Name</label>
+                                            <input class="form-control" type="text" id="contact-name" name="name" required placeholder="Your name" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="contact-org">Business / organisation</label>
+                                            <input class="form-control" type="text" id="contact-org" name="organisation" required placeholder="Your company or organisation" />
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="contact-challenge">What's the challenge?</label>
+                                            <textarea class="form-control" id="contact-challenge" name="challenge" rows="4" required placeholder="Even a rough idea is fine — we'll figure it out together."></textarea>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="contact-email">Email</label>
+                                            <input class="form-control" type="email" id="contact-email" name="email" required placeholder="your@email.com" />
+                                        </div>
+                                        <div class="col-md-6 d-flex align-items-end">
+                                            <button class="btn-pink w-100" type="submit">Send message →</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <p class="exam-eyebrow mb-3">Or reach us directly:</p>
 
                                 <div class="row g-3">
                                     <div class="col-md-4">
@@ -320,5 +396,6 @@
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/exam.js"></script>
     </body>
 </html>

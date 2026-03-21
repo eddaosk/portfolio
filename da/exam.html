@@ -5,18 +5,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Vi søger en samarbejdspartner — Fresia, Gayane & Edda</title>
         <meta name="description" content="Tre multimediedesignstuderende søger en virksomhed til vores afsluttende eksamensprojekt. Vi researcher, designer og koder." />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="Vi søger en samarbejdspartner — Fresia, Gayane & Edda" />
         <meta property="og:description" content="Tre multimediedesignstuderende der researcher, designer og koder — søger en samarbejdspartner til vores afsluttende eksamen." />
         <meta property="og:image" content="https://eddaosk.dk/img/edda.jpg" />
-        <meta property="og:url" content="https://eddaosk.dk/exam.html" />
+        <meta property="og:url" content="https://eddaosk.dk/da/exam.html" />
+        <meta name="twitter:card" content="summary_large_image" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-        <link rel="stylesheet" href="../css/main.css" />
         <link rel="stylesheet" href="../css/exam.css" />
         <link rel="icon" href="../img/logo-gold.svg" type="image/svg+xml" />
     </head>
 
     <body class="exam-page">
+        <a class="exam-skip-link" href="#main-content">Spring til indhold</a>
+
         <!-- ═══ TOPBAR ═══ -->
         <header class="exam-topbar">
             <div class="container">
@@ -27,63 +30,88 @@
                     <div class="exam-topbar__actions">
                         <a class="exam-topbar__link" href="#work">Projekter</a>
                         <a class="exam-topbar__link" href="#team">Teamet</a>
-                        <a class="exam-topbar__link" href="../exam.html" lang="en">EN</a>
+                        <div class="exam-topbar__lang">
+                            <a href="../exam.html" lang="en">EN</a>
+                            <span class="is-active">DA</span>
+                        </div>
                         <a class="btn-pink" href="#contact">Kontakt os</a>
+                        <button class="exam-topbar__toggle" aria-label="Åbn menu" aria-expanded="false">
+                            <i class="fas fa-bars"></i>
+                        </button>
                     </div>
                 </div>
+                <!-- Mobilmenu -->
+                <nav class="exam-topbar__menu" aria-label="Mobilnavigation">
+                    <ul class="exam-topbar__menu-links">
+                        <li><a href="#work">Projekter</a></li>
+                        <li><a href="#team">Teamet</a></li>
+                        <li><a href="#contact">Kontakt os</a></li>
+                        <li class="exam-topbar__menu-lang">
+                            <a href="../exam.html" lang="en">EN</a> /
+                            <span class="is-active">DA</span>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </header>
 
         <!-- ═══ HERO ═══ -->
-        <header class="exam-hero" id="top">
+        <section class="exam-hero" id="top">
             <div class="container">
                 <div class="row align-items-center g-5">
                     <div class="col-lg-7">
-                        <p class="exam-eyebrow">Multimediedesign · Afsluttende eksamen 2026</p>
-                        <h1 class="exam-title">Vi søger en <span class="pink">samarbejds­partner</span></h1>
-                        <p class="exam-lead">Vi er Fresia, Gayane og Edda — tre multimediedesignstuderende der researcher, designer og koder. Til vores afsluttende eksamen vil vi gerne arbejde sammen med en rigtig virksomhed om en rigtig udfordring. I bringer problemet — vi bringer processen, designet og en fungerende prototype.</p>
-                        <div class="exam-cta-row">
+                        <p class="exam-eyebrow reveal">Multimediedesign · Afsluttende eksamen 2026</p>
+                        <h1 class="exam-title reveal" style="--delay: 0.05s">Vi løser et reelt problem for jeres virksomhed — <span class="pink">gratis.</span></h1>
+                        <p class="exam-lead reveal" style="--delay: 0.1s">Vi er Fresia, Gayane og Edda — tre multimediedesignstuderende på Zealand. Til vores afsluttende eksamen søger vi at arbejde med en rigtig virksomhed om en reel udfordring. En produktidé, en brugeroplevelse der ikke fungerer, en service der trænger til gentænkning. I bringer problemet. Vi bringer researchet, designet og en fungerende prototype.</p>
+                        <div class="exam-cta-row reveal" style="--delay: 0.15s">
                             <a class="btn-pink" href="#contact">Skriv til os →</a>
                             <a class="btn-outline-dark" href="#work">Se hvad vi har lavet</a>
                         </div>
-                        <p class="exam-note">Samarbejdet er gratis. Vi vil blot gerne have lov til at vise resultatet i vores portfolier.</p>
+                        <p class="exam-note reveal" style="--delay: 0.2s">Samarbejdet er gratis. Vi vil blot gerne have lov til at vise resultatet i vores portfolier.</p>
                     </div>
                     <div class="col-lg-5">
-                        <div class="exam-team-photo">
-                            <img src="../img/exam/powerpuff.png" alt="Fresia Mae Membrere, Gayane Harutyunyan, and Edda Ósk Óskarsdóttir" loading="lazy" />
+                        <div class="exam-team-photo reveal" style="--delay: 0.15s">
+                            <img src="../img/exam/hero.jpg" alt="Fresia, Gayane og Edda" loading="lazy" width="800" height="600" />
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
+        </section>
 
-        <main>
+        <main id="main-content">
             <!-- ═══ HVAD VI LEVERER ═══ -->
-            <section class="exam-section">
+            <section class="exam-section" id="deliver">
                 <div class="container">
+                    <div class="text-center mb-3 reveal">
+                        <p class="exam-eyebrow mb-0">Det I får</p>
+                    </div>
                     <div class="row g-3 justify-content-center text-center">
-                        <div class="col-6 col-md-3">
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0s">
                             <div class="exam-deliverable">
                                 <div class="exam-deliverable__icon">🔍</div>
                                 <div class="exam-deliverable__label">UX-research</div>
+                                <div class="exam-deliverable__desc">Interviews, personas & indsigter</div>
                             </div>
                         </div>
-                        <div class="col-6 col-md-3">
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0.08s">
                             <div class="exam-deliverable">
                                 <div class="exam-deliverable__icon">🎨</div>
                                 <div class="exam-deliverable__label">Visuelt design & UI</div>
+                                <div class="exam-deliverable__desc">Brand-tilpassede, polerede layouts</div>
                             </div>
                         </div>
-                        <div class="col-6 col-md-3">
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0.16s">
                             <div class="exam-deliverable">
                                 <div class="exam-deliverable__icon">💻</div>
                                 <div class="exam-deliverable__label">Kodet prototype</div>
+                                <div class="exam-deliverable__desc">HTML, SCSS, JS — responsivt & reelt</div>
                             </div>
                         </div>
-                        <div class="col-6 col-md-3">
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0.24s">
                             <div class="exam-deliverable">
                                 <div class="exam-deliverable__icon">📣</div>
                                 <div class="exam-deliverable__label">Indhold & strategi</div>
+                                <div class="exam-deliverable__desc">SoMe, SEO & budskaber</div>
                             </div>
                         </div>
                     </div>
@@ -94,16 +122,17 @@
             <section class="exam-section" id="work">
                 <div class="container">
                     <div class="row mb-4">
-                        <div class="col-lg-8">
+                        <div class="col-lg-8 reveal">
                             <h2 class="exam-section-title">Hvad vi har lavet sammen</h2>
                             <p class="exam-section-lead">To nylige projekter hvor vi var det samme team. Her er hvad vi lavede — og hvordan vi tænker.</p>
                         </div>
                     </div>
                     <div class="row g-4">
                         <!-- JuicOrganic -->
-                        <div class="col-md-6">
+                        <div class="col-md-6 reveal" style="--delay: 0.05s">
                             <div class="exam-project">
-                                <div>
+                                <div class="exam-project__accent"></div>
+                                <div class="exam-project__body">
                                     <span class="exam-project__tag">SaaS · Salgsautomat · Bæredygtighed</span>
                                     <h3 class="exam-project__title">JuicOrganic</h3>
                                     <p class="exam-project__desc">En økologisk juicevirksomhed ville gå fra B2B til B2C. Vi designede et smart vending machine-koncept med et touchskærm-bestillingssystem, en genbrugelig flaske med stregkode-belønninger og et fuldt SaaS-styringslag.</p>
@@ -114,16 +143,18 @@
                                         <li>Kampagnevideo (After Effects) + SoMe-indholdsplan</li>
                                     </ul>
                                 </div>
-                                <div class="mt-3">
-                                    <a href="https://eddaosk.dk/JuicOrganic/" target="_blank" class="accent-underline" rel="noopener">Se den kodede prototype →</a>
+                                <div class="exam-project__footer">
+                                    <a href="https://eddaosk.github.io/JuicOrganic/" target="_blank" class="accent-underline" rel="noopener">Se den kodede prototype →</a>
                                 </div>
                             </div>
                         </div>
 
                         <!-- GradeAid -->
-                        <div class="col-md-6">
-                            <div class="exam-project">
-                                <div>
+                        <!-- GradeAid -->
+                        <div class="col-md-6 reveal" style="--delay: 0.15s">
+                            <div class="exam-project exam-project--indigo">
+                                <div class="exam-project__accent"></div>
+                                <div class="exam-project__body">
                                     <span class="exam-project__tag">EdTech · Neuroinklusivt · AI</span>
                                     <h3 class="exam-project__title">GradeAid — The Deep Blue</h3>
                                     <p class="exam-project__desc">En AI-læringsplatform havde brug for et UX-lag designet til neurodivergente børn. Vi udviklede et havtema-koncept baseret på Blue Mind-teori — beroligende farver, ikke-menneskelige avatarer og alderstilpassede interfaces der reducerer sensorisk overbelastning.</p>
@@ -140,17 +171,56 @@
                 </div>
             </section>
 
+            <!-- ═══ HVORDAN VI ARBEJDER ═══ -->
+            <section class="exam-section" id="process">
+                <div class="container">
+                    <div class="row mb-4">
+                        <div class="col-lg-8 reveal">
+                            <p class="exam-eyebrow">SÅDAN ARBEJDER VI</p>
+                            <h2 class="exam-section-title">Research først. Altid.</h2>
+                            <p class="exam-section-lead">Hvert designvalg er underbygget af brugertest, antropologisk tænkning og logik — ikke bare æstetik. Vi arbejder fysisk sammen, udfordrer hinanden konstant og bevæger os hurtigt uden at gå på kompromis.</p>
+                        </div>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0s">
+                            <div class="exam-card">
+                                <h3 class="h6 mb-2">1. Forstå</h3>
+                                <p class="exam-small">Interessentinterviews, brugerresearch, kontekstkortlægning</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0.08s">
+                            <div class="exam-card">
+                                <h3 class="h6 mb-2">2. Definer</h3>
+                                <p class="exam-small">Problemformulering, informationsarkitektur, brugerflows</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0.16s">
+                            <div class="exam-card">
+                                <h3 class="h6 mb-2">3. Design & Test</h3>
+                                <p class="exam-small">Wireframes → hi-fi UI, usabilitytests, iteration</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 reveal" style="--delay: 0.24s">
+                            <div class="exam-card">
+                                <h3 class="h6 mb-2">4. Byg & Lever</h3>
+                                <p class="exam-small">Kodet prototype, dokumentation, overdragelse</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- ═══ TEAMET ═══ -->
             <section class="exam-section" id="team">
                 <div class="container">
                     <div class="row mb-4">
-                        <div class="col-lg-8">
+                        <div class="col-lg-8 reveal">
                             <h2 class="exam-section-title">Teamet</h2>
                             <p class="exam-section-lead">Samme uddannelse, forskellige styrker. Det er det, der får det til at fungere.</p>
                         </div>
                     </div>
                     <div class="row g-4">
-                        <div class="col-md-4">
+                        <div class="col-md-4 reveal" style="--delay: 0s">
                             <div class="exam-card exam-team-card">
                                 <img class="exam-team-card__photo" src="../img/exam/fresia.png" alt="Fresia" loading="lazy" />
                                 <h3 class="h5 mb-1">Fresia Mae Membrere</h3>
@@ -163,20 +233,22 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 reveal" style="--delay: 0.1s">
                             <div class="exam-card exam-team-card">
                                 <img class="exam-team-card__photo" src="../img/exam/gayane.png" alt="Gayane" loading="lazy" />
                                 <h3 class="h5 mb-1">Gayane Harutyunyan</h3>
-                                <p class="exam-role">Visuel identitet · Illustration · Test</p>
+                                <p class="exam-role">Visuel identitet · Branding · Illustration</p>
                                 <ul class="exam-list text-start">
-                                    <li>Logodesign, illustration, karakterretning</li>
+                                    <li>Visuel identitet: konceptudvikling, logodesign & brandmanualer</li>
+                                    <li>UI & grafisk design med fokus på æstetik</li>
+                                    <li>Branding: rød tråd i al kommunikation</li>
                                     <li>Think-aloud-tests, A/B-tests, usability-feedback</li>
-                                    <li>Tone of voice, SoMe-indhold, SEO</li>
+                                    <li>Pitch & formidling af designvalg</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 reveal" style="--delay: 0.2s">
                             <div class="exam-card exam-team-card">
                                 <img class="exam-team-card__photo" src="../img/edda.jpg" alt="Edda" loading="lazy" />
                                 <h3 class="h5 mb-1">Edda Ósk Óskarsdóttir</h3>
@@ -185,6 +257,9 @@
                                     <li>Brugerinterviews, personas, journey maps</li>
                                     <li>Informationsarkitektur & flowdesign</li>
                                     <li>HTML, SCSS, JS + After Effects-video</li>
+                                    <li>Usability-test & ekspertvalidering</li>
+                                    <li>Neuroinklusivt design & tilgængelighed</li>
+                                    <li>Agil teamkoordinering (op til 9 personer)</li>
                                 </ul>
                             </div>
                         </div>
@@ -196,55 +271,37 @@
             <section class="exam-section" id="brief">
                 <div class="container">
                     <div class="row g-4 align-items-stretch">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 reveal" style="--delay: 0s">
                             <div class="exam-card exam-card--warm h-100">
                                 <h2 class="h4 mb-3">Hvad vi har brug for fra jer</h2>
                                 <ul class="exam-list">
-                                    <li>En reel digital udfordring I gerne vil undersøge eller forbedre</li>
-                                    <li>2–3 korte check-ins undervejs i projektet (online er fint)</li>
-                                    <li>Lidt kontekst: jeres mål, jeres brugere, hvad der ikke fungerer</li>
+                                    <li>En reel udfordring — en produktidé, et servicegab eller en brugeroplevelse der ikke fungerer</li>
+                                    <li>2–3 korte check-ins over ~8 uger (online er fint)</li>
+                                    <li>Lidt kontekst: jeres mål, jeres brugere, hvad der ikke virker</li>
+                                    <li>Selv hvis idéen ikke er færdigformuleret — det er der, vi starter</li>
                                 </ul>
-                                <p class="exam-small mt-3">Ikke sikker på hvad "casen" kunne være? Vi kan hjælpe jer med at definere en fokuseret problemstilling ud fra jeres nuværende situation.</p>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 reveal" style="--delay: 0.1s">
                             <div class="exam-card h-100">
                                 <h2 class="h4 mb-3">Det er et godt match, hvis I vil have…</h2>
                                 <ul class="exam-list">
-                                    <li>En landingsside eller hjemmeside der faktisk virker for jeres målgruppe</li>
-                                    <li>Et koncept vi idéudvikler, prototyper og tester — ikke bare "lav os en side"</li>
-                                    <li>En lille produkt- eller serviceprototype</li>
-                                    <li>Tydeligere digital kommunikation og visuel identitet</li>
-                                    <li>En kodet demo I kan teste med rigtige brugere</li>
+                                    <li>Et digitalt produktkoncept designet ud fra reelle brugerbehov</li>
+                                    <li>En brugeroplevelse der ikke fungerer — gentænkt fra bunden</li>
+                                    <li>Et koncept for en ny service eller kanal — designet og prototypet</li>
+                                    <li>En fungerende prototype I kan demonstrere for interessenter eller investorer</li>
+                                    <li>Researchbaseret strategi — ikke bare en flot leverance</li>
                                 </ul>
+                                <p class="exam-small mt-3"><em>Ikke det rette match, hvis I bare har brug for en brochuresite eller et visuelt løft — vi arbejder bedst med problemer, der har reel dybde.</em></p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ═══ TIDSPLAN ═══ -->
-            <section class="exam-section" id="timeline">
-                <div class="container">
-                    <div class="row g-4 align-items-stretch">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 reveal" style="--delay: 0.2s">
                             <div class="exam-card h-100">
                                 <h2 class="h4 mb-3">Tidsplan</h2>
                                 <ul class="exam-list">
-                                    <li><strong>Start:</strong> 27. marts 2026</li>
-                                    <li><strong>Pause:</strong> 1 uge (påske)</li>
-                                    <li><strong>Aflevering:</strong> 29. maj 2026</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="exam-card h-100">
-                                <h2 class="h4 mb-3">Om eksamen</h2>
-                                <ul class="exam-list">
-                                    <li>Praksisnært projekt med en reel samarbejdspartner</li>
-                                    <li>Vi definerer problemformuleringen (godkendes af institutionen)</li>
-                                    <li>Skriftligt projekt + mundtlig eksamen med ekstern bedømmelse</li>
-                                    <li>Vi anvender metoder fra hele Multimediedesigneruddannelsen</li>
+                                    <li><strong>Kick-off:</strong> Ultimo marts 2026</li>
+                                    <li><strong>Jeres involvering:</strong> 2–3 check-ins over ~8 uger</li>
+                                    <li><strong>Afsluttende levering:</strong> Ultimo maj 2026</li>
                                 </ul>
                             </div>
                         </div>
@@ -256,10 +313,35 @@
             <section class="exam-section" id="contact">
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-lg-9">
+                        <div class="col-lg-9 reveal">
                             <div class="exam-card" style="padding: 2rem">
                                 <h2 class="exam-section-title mb-2">Lad os snakke</h2>
                                 <p class="exam-section-lead mb-4">Send os en kort besked om jeres virksomhed og hvad I gerne vil forbedre. Så tager vi den derfra.</p>
+
+                                <form class="mb-4" action="https://formspree.io/f/mnjgyzoj" method="POST">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="contact-name">Navn</label>
+                                            <input class="form-control" type="text" id="contact-name" name="name" required placeholder="Dit navn" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="contact-org">Virksomhed / organisation</label>
+                                            <input class="form-control" type="text" id="contact-org" name="organisation" required placeholder="Din virksomhed eller organisation" />
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="contact-challenge">Hvad er udfordringen?</label>
+                                            <textarea class="form-control" id="contact-challenge" name="challenge" rows="4" required placeholder="Selv en ru idé er fin — vi finder ud af det sammen."></textarea>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="contact-email">E-mail</label>
+                                            <input class="form-control" type="email" id="contact-email" name="email" required placeholder="din@email.dk" />
+                                        </div>
+                                        <div class="col-md-6 d-flex align-items-end">
+                                            <button class="btn-pink w-100" type="submit">Send besked →</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <p class="exam-eyebrow mb-3">Eller skriv direkte til os:</p>
 
                                 <div class="row g-3">
                                     <div class="col-md-4">
@@ -320,5 +402,6 @@
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../js/exam.js"></script>
     </body>
 </html>
