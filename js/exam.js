@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     touchStartY = e.touches[0].clientY;
                     isHorizontalSwipe = false;
                 },
-                { passive: true }
+                { passive: true },
             );
 
             track.addEventListener(
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         e.preventDefault(); // stop page scroll while swiping carousel
                     }
                 },
-                { passive: false }
+                { passive: false },
             );
 
             track.addEventListener("touchend", (e) => {

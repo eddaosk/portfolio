@@ -162,6 +162,36 @@ blockquote {
   border-color: #1a2e50;
 }
 
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid rgba(90, 80, 71, 0.25);
+  border-radius: 999px;
+  padding: 2px;
+  background-color: transparent;
+}
+
+.lang-option {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #5a5047;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.lang-option.active {
+  background-color: #e07b6a;
+  color: #ffffff;
+}
+.lang-option:not(.active):hover {
+  background-color: rgba(224, 123, 106, 0.1);
+  color: #2d2520;
+}
+
 /* ==============================
    Hero Section
 ============================== */
@@ -1245,3 +1275,5 @@ details.deep-dive .deep-content ul {
 .lightbox-close:hover {
   transform: scale(1.1);
 }
+
+/*# sourceMappingURL=main.css.map */
