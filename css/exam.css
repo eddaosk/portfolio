@@ -346,7 +346,8 @@ html {
   margin-bottom: 1.2rem;
 }
 .exam-page .exam-title .pink {
-  color: #c4738a;
+  color: var(--ex-warm);
+  font-style: italic;
 }
 .exam-page .exam-lead {
   font-size: 1.1rem;

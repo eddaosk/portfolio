@@ -387,7 +387,8 @@ html {
         margin-bottom: 1.2rem;
 
         .pink {
-            color: #c4738a; // 👈 updated — cooler, more pink at display size
+            color: var(--ex-warm);
+            font-style: italic;
         }
     }
 
