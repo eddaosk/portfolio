@@ -197,6 +197,39 @@ blockquote {
     }
 }
 
+// Language toggle
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid $color-border;
+    border-radius: 999px;
+    padding: 3px;
+    background-color: transparent;
+}
+
+.lang-option {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+    color: $color-muted;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &.active {
+        background-color: $color-primary;
+        color: $color-white;
+    }
+
+    &:not(.active):hover {
+        background-color: rgba($color-accent, 0.08);
+        color: $color-primary;
+    }
+}
+
 /* ==============================
    Hero Section
 ============================== */
