@@ -24,32 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ══════════════════════════════════════════════════
-       2. ACTIVE NAV — highlight link on scroll
-       ══════════════════════════════════════════════════ */
-    const navLinks = document.querySelectorAll(".exam-topbar__link[href^='#']");
-    const sections = document.querySelectorAll("section[id]");
-
-    function updateActiveNav() {
-        const scrollY = window.scrollY + 120;
-
-        let current = "";
-        sections.forEach((section) => {
-            if (scrollY >= section.offsetTop) {
-                current = section.getAttribute("id");
-            }
-        });
-
-        navLinks.forEach((link) => {
-            link.classList.toggle("is-active", link.getAttribute("href") === `#${current}`);
-        });
-    }
-
-    if (navLinks.length && sections.length) {
-        window.addEventListener("scroll", updateActiveNav, { passive: true });
-        updateActiveNav();
-    }
-
-    /* ══════════════════════════════════════════════════
        3. MOBILE MENU — toggle & auto-close
        ══════════════════════════════════════════════════ */
     const toggle = document.querySelector(".exam-topbar__toggle");

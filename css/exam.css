@@ -29,6 +29,8 @@ html {
   --ex-indigo: #8b9eb0;
   --ex-indigo-deep: #6b8a9f;
   --ex-indigo-accessible: #4f6e82; /* Text and links only — 5.2:1 on white, passes WCAG AA */
+  --ex-warm-accessible: #8a6535;
+  /* Text use only — 4.8:1 on white, passes WCAG AA */
   /* Warmth: gold */
   --ex-warm: #d4a574;
   /* Blobs */
@@ -80,15 +82,6 @@ html {
 }
 .exam-page {
   /* ── Focus styles — indigo ── */
-}
-.exam-page .exam-warm-callout {
-  margin-top: 1rem;
-  padding-left: 0.9rem;
-  border-left: 2px solid rgba(212, 165, 116, 0.5);
-  font-style: italic;
-  font-size: 0.88rem;
-  color: var(--ex-muted);
-  line-height: 1.55;
 }
 .exam-page *:focus-visible {
   outline: 2px solid var(--ex-indigo);
@@ -151,27 +144,6 @@ html {
   box-shadow: 0 4px 12px rgba(196, 123, 114, 0.35);
 }
 .exam-page .btn-pink:active {
-  transform: translateY(0);
-}
-.exam-page .btn-outline-dark {
-  display: inline-block;
-  background: transparent;
-  color: var(--ex-text);
-  border: 1.5px solid var(--ex-border);
-  border-radius: 2rem;
-  padding: 0.6rem 1.5rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: all 0.25s;
-}
-.exam-page .btn-outline-dark:hover {
-  background: var(--ex-indigo-accessible);
-  color: #fff;
-  border-color: var(--ex-indigo-accessible);
-  transform: translateY(-1px);
-}
-.exam-page .btn-outline-dark:active {
   transform: translateY(0);
 }
 .exam-page .btn-secondary {
@@ -328,7 +300,7 @@ html {
      ══════════════════════════════════════════════ */
 }
 .exam-page .exam-hero {
-  padding: 4rem 0 4rem;
+  padding: 4rem 0 2rem;
 }
 .exam-page {
   /* Eyebrow — moved below CTA, muted styling */
@@ -409,10 +381,12 @@ html {
   /* Team photo — indigo border hint */
 }
 .exam-page .exam-team-photo {
+  height: 100%;
+  min-height: 380px;
   border-radius: 1.2rem;
   overflow: hidden;
   border: 3px solid rgba(139, 141, 189, 0.25);
-  transform: rotate(-1.5deg);
+  transform: rotate(-0.75deg);
   box-shadow: 0 8px 30px rgba(139, 141, 189, 0.1);
   transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
@@ -423,8 +397,10 @@ html {
 }
 .exam-page .exam-team-photo img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
+  object-position: center top;
 }
 .exam-page {
   /* ══════════════════════════════════════════════
@@ -438,6 +414,9 @@ html {
   .exam-page .exam-section {
     padding: 2.5rem 0;
   }
+}
+.exam-page #deliver {
+  padding-top: 2rem;
 }
 .exam-page .exam-section,
 .exam-page .exam-hero {
@@ -469,7 +448,7 @@ html {
   border: 1px solid var(--ex-border);
   border-radius: 1rem;
   padding: 1.3rem 0.9rem;
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--ex-surface);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 .exam-page .exam-deliverable:hover {
@@ -494,6 +473,14 @@ html {
   margin-top: 0.25rem;
   text-align: center;
 }
+.exam-page .exam-deliverable-note {
+  text-align: center;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--ex-soft);
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
 .exam-page {
   /* ══════════════════════════════════════════════
      "IT'S A GOOD FIT" SECTION
@@ -504,27 +491,13 @@ html {
   background-color: rgba(28, 37, 48, 0.02);
   border-top: 1px solid rgba(196, 123, 114, 0.15);
   border-bottom: 1px solid rgba(196, 123, 114, 0.15);
+  padding: 4.5rem 0;
 }
 .exam-page {
   /* Inner content container */
 }
 .exam-page .exam-fit__content {
-  max-width: 860px;
   margin-inline: auto;
-}
-.exam-page {
-  /* Section label above heading */
-}
-.exam-page .section-label {
-  display: block;
-  font-family: "DM Sans", sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ex-pink-deep);
-  margin-bottom: 0.4rem;
-  opacity: 0.85;
 }
 .exam-page {
   /* Custom checkmark list */
@@ -534,13 +507,20 @@ html {
   padding-left: 0;
   margin: 0;
 }
+@media (min-width: 768px) {
+  .exam-page .fit-list {
+    columns: 2;
+    column-gap: 3rem;
+  }
+}
 .exam-page .fit-list li {
   padding-left: 1.5rem;
   position: relative;
-  margin-bottom: 0.65rem;
-  font-size: 0.95rem;
+  margin-bottom: 0.95rem;
+  font-size: 1rem;
   line-height: 1.55;
-  color: var(--ex-muted);
+  color: var(--ex-text);
+  break-inside: avoid;
 }
 .exam-page .fit-list li::before {
   content: "✓";
@@ -554,18 +534,27 @@ html {
   /* "Not the right fit" callout */
 }
 .exam-page .not-fit-callout {
-  margin-top: 2rem;
-  padding: 0.85rem 1.25rem;
-  border-left: 3px solid rgba(196, 123, 114, 0.45);
-  background: rgba(196, 123, 114, 0.05);
-  border-radius: 0 0.5rem 0.5rem 0;
+  margin-top: 2.5rem;
+  padding: 1.1rem 1.4rem;
+  border-left: 3px solid rgba(196, 123, 114, 0.7);
+  background: rgba(196, 123, 114, 0.08);
+  border-radius: 0 0.6rem 0.6rem 0;
 }
 .exam-page .exam-fit__disclaimer {
   margin: 0;
-  font-style: italic;
-  font-size: 0.88rem;
-  color: var(--ex-soft);
-  line-height: 1.55;
+  font-size: 0.92rem;
+  color: var(--ex-muted);
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+.exam-page .not-fit-marker {
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ex-pink-deep);
+  margin-top: 0.05rem;
 }
 .exam-page {
   /* ══════════════════════════════════════════════
@@ -588,77 +577,8 @@ html {
 }
 .exam-page {
   /* ══════════════════════════════════════════════
-     PROJECT CARDS
+     CASE STUDY CARDS
      ══════════════════════════════════════════════ */
-}
-.exam-page .exam-project {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  border-radius: 1.1rem;
-  border: 1px solid var(--ex-border);
-  background: var(--ex-surface-solid);
-  overflow: hidden;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-.exam-page .exam-project:hover {
-  box-shadow: 0 8px 28px rgba(139, 141, 189, 0.15);
-  transform: translateY(-2px);
-}
-.exam-page {
-  /* Default accent bar: pink → warm */
-}
-.exam-page .exam-project__accent {
-  height: 4px;
-  background: linear-gradient(90deg, var(--ex-pink), var(--ex-warm));
-  flex-shrink: 0;
-}
-.exam-page {
-  /* Indigo variant — for GradeAid */
-}
-.exam-page .exam-project--indigo .exam-project__accent {
-  background: linear-gradient(90deg, var(--ex-indigo), var(--ex-pink-deep));
-}
-.exam-page .exam-project--indigo:hover {
-  box-shadow: 0 8px 28px rgba(139, 141, 189, 0.2);
-}
-.exam-page .exam-project__body {
-  padding: 1.5rem;
-  flex: 1;
-}
-.exam-page .exam-project__footer {
-  padding: 0 1.5rem 1.5rem;
-}
-.exam-page {
-  /* Tags — indigo */
-}
-.exam-page .exam-project__tag {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ex-indigo-accessible);
-  background: rgba(139, 141, 189, 0.12);
-  padding: 0.25rem 0.7rem;
-  border-radius: 1rem;
-  margin-bottom: 0.75rem;
-}
-.exam-page .exam-case .exam-project__tag {
-  color: var(--case-accent);
-  background: rgba(0, 0, 0, 0.04);
-}
-.exam-page .exam-project__title {
-  font-family: "DM Serif Display", serif;
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-.exam-page .exam-project__desc {
-  color: var(--ex-muted);
-  font-size: 0.95rem;
-  margin-bottom: 0.75rem;
-}
-.exam-page {
   /* ══════════════════════════════════════════════
      CASE STUDY CARDS
      ══════════════════════════════════════════════ */
@@ -721,9 +641,9 @@ html {
 .exam-page .exam-case--visual {
   --case-accent: var(--ex-warm);
   --case-accent-deep: var(--ex-indigo);
-  --case-subtitle: var(--ex-warm);
+  --case-subtitle: var(--ex-warm-accessible);
   border-style: dashed;
-  background: linear-gradient(135deg, rgba(212, 165, 116, 0.05), rgba(139, 141, 189, 0.05));
+  background: var(--ex-surface-solid);
 }
 .exam-page .exam-case__header {
   display: grid;
@@ -767,6 +687,11 @@ html {
   display: block;
   pointer-events: none;
   user-select: none;
+}
+.exam-page .exam-case--visual .exam-case__slide img {
+  object-fit: contain;
+  object-position: center center;
+  background: rgba(28, 37, 48, 0.04);
 }
 .exam-page .exam-case__carousel-btn {
   position: absolute;
@@ -834,14 +759,6 @@ html {
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--case-subtitle);
-  margin: 0;
-}
-.exam-page .exam-case__skills {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--ex-soft);
   margin: 0;
 }
 .exam-page .exam-case__quote {
@@ -992,20 +909,7 @@ html {
   font-style: italic;
 }
 .exam-page .exam-visual-grid {
-  aspect-ratio: 4/3;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 3px;
-  overflow: hidden;
-  background: rgba(28, 37, 48, 0.04);
-}
-@media (max-width: 767px) {
-  .exam-page .exam-visual-grid {
-    aspect-ratio: 16/9;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
-  }
+  display: none;
 }
 .exam-page .exam-visual-grid__item {
   overflow: hidden;
@@ -1021,15 +925,10 @@ html {
   transform: scale(1.05);
 }
 .exam-page .exam-visual-categories {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.9rem 1.5rem;
-  margin-top: 0.35rem;
-}
-@media (max-width: 575px) {
-  .exam-page .exam-visual-categories {
-    grid-template-columns: 1fr;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
 }
 .exam-page .exam-visual-category h4 {
   font-family: "DM Sans", sans-serif;
@@ -1236,10 +1135,8 @@ html {
   }
   .exam-page .exam-team-photo,
   .exam-page .exam-deliverable,
-  .exam-page .exam-project,
   .exam-page .exam-team-card,
   .exam-page .btn-pink,
-  .exam-page .btn-outline-dark,
   .exam-page .btn-secondary {
     transition: none;
   }
