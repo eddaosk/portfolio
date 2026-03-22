@@ -394,7 +394,6 @@ html {
     .exam-lead {
         font-size: 1.1rem;
         color: var(--ex-muted);
-        max-width: 58ch;
     }
 
     .exam-note {
@@ -504,7 +503,10 @@ html {
     .exam-section-lead {
         margin: 0;
         color: var(--ex-muted);
-        max-width: 60ch;
+    }
+
+    .process-steps .exam-card {
+        height: 100%;
     }
 
     /* ══════════════════════════════════════════════

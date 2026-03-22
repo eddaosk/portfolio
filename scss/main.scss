@@ -202,31 +202,31 @@ blockquote {
     display: flex;
     align-items: center;
     gap: 0;
-    border: 1px solid rgba(90, 80, 71, 0.25);
+    border: 1px solid $color-border;
     border-radius: 999px;
-    padding: 2px;
+    padding: 3px;
     background-color: transparent;
 }
 
 .lang-option {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    padding: 4px 10px;
+    padding: 5px 12px;
     border-radius: 999px;
-    color: #5a5047;
+    color: $color-muted;
     text-decoration: none;
-    transition: background 0.15s ease, color 0.15s ease;
+    transition: all 0.2s ease;
 
     &.active {
-        background-color: #e07b6a;
-        color: #ffffff;
+        background-color: $color-primary;
+        color: $color-white;
     }
 
     &:not(.active):hover {
-        background-color: rgba(224, 123, 106, 0.1);
-        color: #2d2520;
+        background-color: rgba($color-accent, 0.08);
+        color: $color-primary;
     }
 }
 
