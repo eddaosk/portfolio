@@ -32,6 +32,7 @@ html {
     /* Information: slate blue */
     --ex-indigo: #8b9eb0;
     --ex-indigo-deep: #6b8a9f;
+    --ex-indigo-accessible: #4f6e82; /* Text and links only — 5.2:1 on white, passes WCAG AA */
 
     /* Warmth: gold */
     --ex-warm: #d4a574;
@@ -151,7 +152,7 @@ html {
     .btn-pink {
         display: inline-block;
         background: var(--ex-pink);
-        color: #fff;
+        color: var(--ex-text);
         border: none;
         border-radius: 2rem;
         padding: 0.65rem 1.6rem;
@@ -167,7 +168,7 @@ html {
             background: var(--ex-pink-deep);
             color: #fff;
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(232, 160, 180, 0.3);
+            box-shadow: 0 4px 12px rgba(196, 123, 114, 0.35);
         }
 
         &:active {
@@ -188,9 +189,9 @@ html {
         transition: all 0.25s;
 
         &:hover {
-            background: var(--ex-indigo);
+            background: var(--ex-indigo-accessible);
             color: #fff;
-            border-color: var(--ex-indigo);
+            border-color: var(--ex-indigo-accessible);
             transform: translateY(-1px);
         }
 
@@ -221,9 +222,9 @@ html {
             transform 0.2s;
 
         &:hover {
-            background: var(--ex-indigo);
+            background: var(--ex-indigo-accessible);
             color: #fff;
-            border-color: var(--ex-indigo);
+            border-color: var(--ex-indigo-accessible);
             transform: translateY(-1px);
         }
 
@@ -486,6 +487,10 @@ html {
 
     .exam-section {
         padding: 3.5rem 0;
+
+        @media (max-width: 767px) {
+            padding: 2.5rem 0;
+        }
     }
 
     .exam-section,
@@ -536,7 +541,9 @@ html {
     }
 
     .exam-deliverable__icon {
-        font-size: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+        display: block;
         margin-bottom: 0.5rem;
     }
 
@@ -699,7 +706,7 @@ html {
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: var(--ex-indigo-deep);
+        color: var(--ex-indigo-accessible);
         background: rgba(139, 141, 189, 0.12);
         padding: 0.25rem 0.7rem;
         border-radius: 1rem;
@@ -1287,13 +1294,13 @@ html {
         font-size: 0.85rem;
 
         a {
-            color: var(--ex-indigo);
+            color: var(--ex-indigo-accessible);
             text-decoration: underline;
             text-decoration-color: rgba(139, 141, 189, 0.4);
             text-underline-offset: 3px;
 
             &:hover {
-                color: var(--ex-indigo-deep);
+                color: var(--ex-indigo-accessible);
                 text-decoration-color: var(--ex-indigo);
             }
         }
@@ -1355,7 +1362,7 @@ html {
             transition: color 0.2s;
 
             &:hover {
-                color: var(--ex-indigo);
+                color: var(--ex-indigo-accessible);
             }
         }
     }
@@ -1423,6 +1430,10 @@ html {
             display: none;
         }
 
+        .exam-topbar__actions .btn-pink {
+            display: none;
+        }
+
         .exam-topbar__menu.is-open {
             display: block;
             padding: 0.75rem 0 0.25rem;
@@ -1445,7 +1456,7 @@ html {
                 border-bottom: 1px solid rgba(30, 42, 58, 0.05);
 
                 &:hover {
-                    color: var(--ex-indigo-deep);
+                    color: var(--ex-indigo-accessible);
                 }
             }
 
