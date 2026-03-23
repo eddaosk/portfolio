@@ -12,6 +12,10 @@ html {
     overflow-x: hidden;
 }
 
+body.exam-page {
+    overflow-x: hidden;
+}
+
 /* ══════════════════════════════════════════════════════
    PAGE ROOT — everything scoped inside here
    ══════════════════════════════════════════════════════ */
@@ -96,6 +100,7 @@ html {
             position: absolute;
             inset: 0;
             background-size: cover, cover, auto, auto, auto;
+            overflow: hidden;
         }
     }
 
@@ -444,6 +449,14 @@ html {
             transform: rotate(0deg) scale(1.02);
             box-shadow: 0 12px 40px rgba(139, 141, 189, 0.18);
             border-color: var(--ex-indigo);
+        }
+
+        @media (max-width: 767px) {
+            transform: none;
+
+            &:hover {
+                transform: none;
+            }
         }
 
         img {
