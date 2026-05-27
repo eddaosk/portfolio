@@ -13,7 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600&family=Syne:wght@300..900&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="/src/styles/main.css" />
+        <link rel="stylesheet" href="src/styles/main.css" />
     </head>
     <body class="page-home">
         <!--@include "partials/nav.html"-->
@@ -107,8 +107,8 @@
             <!-- Story 2.1: hero section -->
             <section id="hero" class="relative min-h-svh flex flex-col bg-ice-near px-6 md:px-[3.125rem] pt-[28svh] pb-[var(--space-section-y)]">
                 <!-- Video background — extends to viewport top (behind fixed nav); mix-blend-screen lightens video into the ice-near base -->
-                <video class="absolute -top-[5rem] left-0 right-0 bottom-0 h-[calc(100%+5rem)] w-full object-cover mix-blend-color-burn" autoplay muted loop playsinline poster="/images/hero-poster.jpg" aria-hidden="true">
-                    <source src="/images/hero-video.mp4" type="video/mp4" />
+                <video class="absolute -top-[5rem] left-0 right-0 bottom-0 h-[calc(100%+5rem)] w-full object-cover mix-blend-color-burn" autoplay muted loop playsinline poster="images/hero-poster.jpg" aria-hidden="true">
+                    <source src="images/hero-video.mp4" type="video/mp4" />
                 </video>
 
                 <!-- Blue tint overlay — bg-blue-mid at 38% opacity; opacity property is universally supported -->
@@ -129,30 +129,30 @@
                     <!-- Desktop: flex row with labels (hidden on mobile) -->
                     <div class="hidden md:flex items-end gap-6 mt-3">
                         <div class="flex flex-col items-center gap-2">
-                            <img src="/images/DTU.jpg" alt="DTU — Technical University of Denmark" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
+                            <img src="images/DTU.jpg" alt="DTU — Technical University of Denmark" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
                             <p class="text-picture-desc text-white-brand">DTU Sustain</p>
                         </div>
                         <div class="flex flex-col items-center gap-2">
-                            <img src="/images/IFD.jpeg" alt="Innofounder" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
+                            <img src="images/IFD.jpeg" alt="Innofounder" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
                             <p class="text-picture-desc text-white-brand">Innofounder</p>
                         </div>
                         <div class="flex flex-col items-center gap-2">
-                            <img src="/images/BII.png" alt="BII — British International Investment" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
+                            <img src="images/BII.png" alt="BII — British International Investment" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
                             <p class="text-picture-desc text-white-brand">Bio Innovation Institute</p>
                         </div>
                     </div>
                     <!-- Mobile: scroll-snap carousel with labels -->
                     <div class="backed-by-carousel md:hidden mt-3">
                         <div class="flex flex-col items-center gap-2 snap-start">
-                            <img src="/images/DTU.jpg" alt="DTU — Technical University of Denmark" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
+                            <img src="images/DTU.jpg" alt="DTU — Technical University of Denmark" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
                             <p class="text-picture-desc text-white-brand">DTU Sustain</p>
                         </div>
                         <div class="flex flex-col items-center gap-2 snap-start">
-                            <img src="/images/IFD.jpeg" alt="Innofounder" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
+                            <img src="images/IFD.jpeg" alt="Innofounder" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
                             <p class="text-picture-desc text-white-brand">Innofounder</p>
                         </div>
                         <div class="flex flex-col items-center gap-2 snap-start">
-                            <img src="/images/BII.png" alt="BII — British International Investment" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
+                            <img src="images/BII.png" alt="BII — British International Investment" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
                             <p class="text-picture-desc text-white-brand">Bio Innovation Institute</p>
                         </div>
                     </div>
@@ -172,8 +172,8 @@
                     <!-- AC4 & AC5: animated SVG chart lines with legend -->
                     <div class="gap-chart-container relative mt-10" style="min-height: 320px">
                         <div class="relative w-full" style="aspect-ratio: 3 / 1; min-height: 200px">
-                            <img src="/svgs/treatment-cost-line.svg" alt="" aria-hidden="true" class="gap-line-img absolute inset-0 w-full h-full object-contain" />
-                            <img src="/svgs/residual-COD-line.svg" alt="" aria-hidden="true" class="gap-line-img absolute inset-0 w-full h-full object-contain" />
+                            <img src="svgs/treatment-cost-line.svg" alt="" aria-hidden="true" class="gap-line-img absolute inset-0 w-full h-full object-contain" />
+                            <img src="svgs/residual-COD-line.svg" alt="" aria-hidden="true" class="gap-line-img absolute inset-0 w-full h-full object-contain" />
                         </div>
 
                         <!-- AC6: glass text panel overlaid on chart -->
@@ -261,7 +261,7 @@
             <!-- Story 5.3: targets are set section — id renamed from where-vasuqi-fits -->
             <section id="targets-are-set" class="relative py-[11rem] px-6 md:px-[3.125rem]">
                 <!-- AC9: organic blob background -->
-                <img src="/svgs/targets-blob.svg" alt="" aria-hidden="true" class="targets-blob-bg" loading="lazy" style="pointer-events: none" />
+                <img src="svgs/targets-blob.svg" alt="" aria-hidden="true" class="targets-blob-bg" loading="lazy" style="pointer-events: none" />
 
                 <div class="relative z-10 max-w-[var(--max-content-width)] mx-auto text-center">
                     <!-- AC11: mobile — only pronunciation label; no wordmark blob -->
@@ -287,8 +287,8 @@
                         <p class="wvfit-subheading">Designed for lower OPEX. Fewer steps. Cleaner water.</p>
                         <div class="wvfit-diagram mt-8">
                             <picture>
-                                <source media="(min-width: 768px)" srcset="/svgs/thefit.svg" />
-                                <img src="/svgs/thefitmobile.svg" alt="Process flow diagram showing where Vāsuqi fits in the wastewater treatment train — from upstream intake through primary, secondary, and tertiary treatment, into the Vāsuqi photocatalytic module, and out to discharge." class="wvfit-diagram-img" loading="lazy" />
+                                <source media="(min-width: 768px)" srcset="svgs/thefit.svg" />
+                                <img src="svgs/thefitmobile.svg" alt="Process flow diagram showing where Vāsuqi fits in the wastewater treatment train — from upstream intake through primary, secondary, and tertiary treatment, into the Vāsuqi photocatalytic module, and out to discharge." class="wvfit-diagram-img" loading="lazy" />
                             </picture>
                         </div>
                         <p class="wvfit-card-caption mt-8">Upstream treatment removes most of the burden. Vāsuqi is designed to sit at the downstream end, where residual organics still drive polishing, disposal, and complexity.</p>
@@ -318,7 +318,7 @@
                                 </text>
                             </svg>
                             <div class="benefit-blob-new__blob-wrap">
-                                <img src="/images/recovery-blob.png" alt="" aria-hidden="true" class="benefit-blob-new__blob-img" loading="lazy" />
+                                <img src="images/recovery-blob.png" alt="" aria-hidden="true" class="benefit-blob-new__blob-img" loading="lazy" />
                             </div>
                         </div>
 
@@ -333,7 +333,7 @@
                                 </text>
                             </svg>
                             <div class="benefit-blob-new__blob-wrap">
-                                <img src="/images/compliance-blob.png" alt="" aria-hidden="true" class="benefit-blob-new__blob-img" loading="lazy" />
+                                <img src="images/compliance-blob.png" alt="" aria-hidden="true" class="benefit-blob-new__blob-img" loading="lazy" />
                             </div>
                         </div>
 
@@ -348,7 +348,7 @@
                                 </text>
                             </svg>
                             <div class="benefit-blob-new__blob-wrap">
-                                <img src="/images/disposal-blob.png" alt="" aria-hidden="true" class="benefit-blob-new__blob-img" loading="lazy" />
+                                <img src="images/disposal-blob.png" alt="" aria-hidden="true" class="benefit-blob-new__blob-img" loading="lazy" />
                             </div>
                         </div>
 
@@ -363,7 +363,7 @@
                                 </text>
                             </svg>
                             <div class="benefit-blob-new__blob-wrap">
-                                <img src="/images/opex-blob.png" alt="" aria-hidden="true" class="benefit-blob-new__blob-img" loading="lazy" />
+                                <img src="images/opex-blob.png" alt="" aria-hidden="true" class="benefit-blob-new__blob-img" loading="lazy" />
                             </div>
                         </div>
                     </div>
@@ -374,7 +374,7 @@
             <!-- Story 5.4: How It Works section — annotated diagram + glass pollutant cards -->
             <section id="how-it-works" class="relative py-[var(--space-section-y)] px-6 md:px-[3.125rem]">
                 <!-- Blueprint SVG background: positioned behind HIW content and extends into footer (AC8) -->
-                <img src="/svgs/landingpage-bluebrint-background-footer.svg" aria-hidden="true" class="blueprint-footer-bg" alt="" />
+                <img src="svgs/landingpage-bluebrint-background-footer.svg" aria-hidden="true" class="blueprint-footer-bg" alt="" />
                 <!-- .hiw-panel: dark glass background panel centered within max-width canvas (AC4) -->
                 <div class="hiw-panel">
                     <!-- Heading and body text (AC1, AC2) -->
@@ -385,7 +385,7 @@
                     <div class="hiw-diagram mt-12">
                         <!-- Reactor image (centered) -->
                         <div class="hiw-diagram__image-wrap">
-                            <img src="/images/reactor-how-it-works.png" alt="Vasuqi photocatalytic reactor module — annotated diagram showing effluent inlet, LED light activation of photocatalyst, and cleaner water output" class="hiw-diagram__reactor" loading="lazy" />
+                            <img src="images/reactor-how-it-works.png" alt="Vasuqi photocatalytic reactor module — annotated diagram showing effluent inlet, LED light activation of photocatalyst, and cleaner water output" class="hiw-diagram__reactor" loading="lazy" />
                             <!-- LED pulse glow overlay (AC9) — triggered on .hiw-diagram:hover -->
                             <div class="hiw-glow-overlay" aria-hidden="true"></div>
                         </div>
@@ -462,7 +462,7 @@
                                     <div class="pollutant-card__blob pollutant-card__blob--b"></div>
                                     <div class="pollutant-card__blob pollutant-card__blob--c"></div>
                                 </div>
-                                <img src="/svgs/pharma.svg" alt="" aria-hidden="true" class="pollutant-card__icon" loading="lazy" />
+                                <img src="svgs/pharma.svg" alt="" aria-hidden="true" class="pollutant-card__icon" loading="lazy" />
                                 <p class="pollutant-card__body">Pharmaceutical residues, such as antibiotics, hormones, anti-depressants</p>
                             </div>
 
@@ -472,7 +472,7 @@
                                     <div class="pollutant-card__blob pollutant-card__blob--b"></div>
                                     <div class="pollutant-card__blob pollutant-card__blob--c"></div>
                                 </div>
-                                <img src="/svgs/Factory.svg" alt="" aria-hidden="true" class="pollutant-card__icon" loading="lazy" />
+                                <img src="svgs/Factory.svg" alt="" aria-hidden="true" class="pollutant-card__icon" loading="lazy" />
                                 <p class="pollutant-card__body">Industrial COD from dairy, brewery, and food processing wastewater</p>
                             </div>
 
@@ -482,7 +482,7 @@
                                     <div class="pollutant-card__blob pollutant-card__blob--b"></div>
                                     <div class="pollutant-card__blob pollutant-card__blob--c"></div>
                                 </div>
-                                <img src="/svgs/Dyes.svg" alt="" aria-hidden="true" class="pollutant-card__icon" loading="lazy" />
+                                <img src="svgs/Dyes.svg" alt="" aria-hidden="true" class="pollutant-card__icon" loading="lazy" />
                                 <p class="pollutant-card__body">Dyes, pesticides, and other recalcitrant organic compounds</p>
                             </div>
 
@@ -492,7 +492,7 @@
                                     <div class="pollutant-card__blob pollutant-card__blob--b"></div>
                                     <div class="pollutant-card__blob pollutant-card__blob--c"></div>
                                 </div>
-                                <img src="/svgs/EU%20drop.svg" alt="" aria-hidden="true" class="pollutant-card__icon" loading="lazy" />
+                                <img src="svgs/EU%20drop.svg" alt="" aria-hidden="true" class="pollutant-card__icon" loading="lazy" />
                                 <p class="pollutant-card__body">The same class of pollutants now mandated for removal under EU law</p>
                             </div>
                         </div>
@@ -503,6 +503,6 @@
             </section>
         </main>
         <!--@include "partials/footer.html"-->
-        <script type="module" src="/src/main.js"></script>
+        <script type="module" src="src/main.js"></script>
     </body>
 </html>
