@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>vāsuqi — Water, Polished with Light</title>
+        <meta name="description" content="A photocatalytic water treatment system that eliminates the final toxicity barrier — without chemistry, without compromise." />
+        <meta property="og:title" content="vāsuqi — Water, Polished with Light" />
+        <meta property="og:description" content="A photocatalytic water treatment system that eliminates the final toxicity barrier — without chemistry, without compromise." />
+        <meta property="og:image" content="https://eddaosk.dk/vasuqi/images/vasuqilogo.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://eddaosk.dk/vasuqi/" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600&family=Syne:wght@300..900&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="/src/styles/main.css" />
+    </head>
+    <body class="page-home">
+        <!--@include "partials/nav.html"-->
+        <main id="main-content">
+            <h1 class="sr-only">vāsuqi — photocatalytic water treatment technology</h1>
+
+            <!-- Story 2.3: floating light background — persistent ambient element; aria-hidden so screen readers skip it -->
+            <!-- Story 5.1 FLOATINGLIGHT-1/2/3: beams at left and right viewport edges only; Gradient A (blue) + Gradient B (cyan) -->
+            <div id="floating-light" aria-hidden="true" class="fixed inset-0 z-[1] pointer-events-none overflow-hidden">
+                <div class="fl-beam fl-beam--left-a"></div>
+                <div class="fl-beam fl-beam--left-b"></div>
+                <div class="fl-beam fl-beam--right-a"></div>
+                <div class="fl-beam fl-beam--right-b"></div>
+            </div>
+
+            <!-- Story 2.2: intro animation overlay — hidden from assistive tech by default -->
+            <section id="intro-animation" aria-hidden="true" style="display: none" class="fixed inset-0 z-[9999] grid place-items-center overflow-hidden">
+                <div class="intro__stage">
+                    <span class="intro__text" id="introText">The last 5%</span>
+
+                    <!-- Soft outer glow -->
+                    <div class="intro__glow" id="glow"></div>
+
+                    <!-- SPHERE — glass bubble -->
+                    <svg class="intro__sphere" id="sphere" viewBox="0 0 300 300">
+                        <defs>
+                            <filter id="wobble">
+                                <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="2" seed="4">
+                                    <animate attributeName="baseFrequency" dur="6s" values="0.014;0.022;0.014" repeatCount="indefinite" />
+                                </feTurbulence>
+                                <feDisplacementMap in="SourceGraphic" scale="20" id="displace" />
+                            </filter>
+
+                            <!-- Bloom: deep navy → light-filled glass -->
+                            <radialGradient id="bloom" cx="50%" cy="55%" r="55%">
+                                <stop offset="0%" stop-color="#0A1F44" id="b0" />
+                                <stop offset="35%" stop-color="#0A1F44" id="b1" />
+                                <stop offset="70%" stop-color="#0A1F44" id="b2" />
+                                <stop offset="100%" stop-color="#0A1F44" id="b3" />
+                            </radialGradient>
+
+                            <!-- Edge darkening for depth -->
+                            <radialGradient id="depth" cx="50%" cy="55%" r="55%">
+                                <stop offset="55%" stop-color="rgba(0,0,0,0)" />
+                                <stop offset="100%" stop-color="rgba(10,31,68,0.5)" id="d1" />
+                            </radialGradient>
+                        </defs>
+
+                        <g filter="url(#wobble)" id="sphereGroup">
+                            <circle cx="150" cy="150" r="120" fill="url(#bloom)" id="sphereMain" />
+                            <circle cx="150" cy="150" r="120" fill="url(#depth)" id="sphereDepth" />
+                        </g>
+                    </svg>
+
+                    <!-- Glass layers -->
+                    <div class="intro__iridescent" id="iris"></div>
+                    <div class="intro__highlight" id="hl"></div>
+                    <div class="intro__highlight2" id="hl2"></div>
+                    <div class="intro__rim" id="rim"></div>
+
+                    <!-- Light burst — centered on logo -->
+                    <div class="intro__lightburst" id="burst"></div>
+
+                    <!-- SNAKE LOGO — wraps AROUND the sphere -->
+                    <!-- !! DO NOT CHANGE viewBox !! Calibrated to align path visual center (72.26, 70.06) with sphere center. Verified pixel-perfect (0.12px diff). -->
+                    <svg class="intro__snake" id="snake" viewBox="-7.7 -9.9 160 160" preserveAspectRatio="xMidYMid meet">
+                        <defs>
+                            <mask id="snake-mask">
+                                <path id="snake-mask-wedge" fill="white" d="" />
+                            </mask>
+                            <!-- Fill-up clip rects: start fully below the shape, animate upward -->
+                            <clipPath id="clip-fill-mid">
+                                <rect id="clip-fill-mid-rect" x="-20" y="140" width="200" height="160" />
+                            </clipPath>
+                            <clipPath id="clip-fill-soft">
+                                <rect id="clip-fill-soft-rect" x="-20" y="140" width="200" height="160" />
+                            </clipPath>
+                        </defs>
+                        <path class="fill-soft" fill="#A8C5FF" clip-path="url(#clip-fill-soft)" d="M113.47,59.24c4.06,31.22-19.42,53.6-47.96,53.56-15.64-8.62-26.76-10.34-32.76-30.54-4.04-29.81-7.54-7.04,10.27-21.6,14.08-12.81,27.03,12.14,41.23,4.7,8.22-3.66,7.45-21.87,19.98-16.39,9.4,4.11,6.31,4.33,9.25,10.27Z" />
+                        <path class="fill-mid" fill="#6A93FF" clip-path="url(#clip-fill-mid)" d="M113.39,68.15c-2.59,20.8-3.37,28.26-23.14,39.77-.03.02-.06.03-.09.04-29.13,9.08-49.87-1.71-59.01-28.81-.15-.44.5-.69.75-.3,6.13,9.39,19.6-15.41,25.09-1.4,1.35,2.83,3.29,6.84,6.47,7.75,6.07,2.53,11.68-3.27,16.01-6.94,4.98-4.3,11.18-7.09,16.92-3.54,4.24,2.38,8.19,3.75,13.1.62.07-.05.14-.12.17-.2l2.94-7.2c.18-.45.86-.27.8.22Z" />
+                        <path
+                            class="body-fill"
+                            fill="#0044FF"
+                            mask="url(#snake-mask)"
+                            d="M27.51,69.52c.12,5.54,1.5,10.92,4.27,16.42.01.02.02.06.03.08,3.72,9.54,10.6,17.5,19.41,22.42l2.63,1.4s.06.03.08.04l3.55,1.5h.03c14.8,5.54,31.47,2.71,43.5-7.38,15-12.56,20.07-33.03,12.61-50.94-2.66-6.39-6.56-11.85-11.58-16.23-.2-.17-.46-.31-.63-.41-1.66-1.03-4.78-2.48-5.63-2.12h0c-.78.32-1.17,1.21-.87,2h0c.55,1.43,4.65,4.78,5.88,5.94,6.46,6.05,10.04,14.7,9.81,23.73-.09,4-.3,6.84-2.23,9.61-.57.82-1.51,1.49-2.5,2.2-2.07,1.5-4.67,3.36-4.5,7.5l.18,4.2c.08,1.93-1.37,3.33-2.75,4-2.53,1.23-5.54,1.25-8.03.08-.23-.11-.46-.22-.67-.35-.62-.36-1.2-.67-1.76-.92-5.27-2.47-7.94-.44-9.26,1.7-.71,1.15-1.67,2.9-2.16,4.62-.96,3.46-3.07,5.96-6.07,7.26-1.83.8-3.62.79-5.29,0-1.45-.67-2.79-1.95-3.87-3.67-.99-1.56-2.37-2.79-4-3.57-1.39-.65-2.93-.95-4.54-.89-2.05.07-3.58-.18-4.96-.83-.36-.17-.71-.37-1.06-.59-5.7-3.72-9.62-7.79-11.99-12.41-.52-1.02-.86-2.11-1.24-3.54-2.17-8.23-1.72-16.77,1.29-24.72,5.09-13.42,17.16-23.32,30.81-25.28l.32-.02c1.37.06,2.81.45,4.29,1.14,3.89,1.83,7.35,5.46,9.63,7.87,1.6,1.68,2.41,2.5,3.2,2.88.29.13.6.21.9.21.81.02,1.53-.29,2.02-.87,1.07-1.25.7-3.26.34-5.19-.1-.52-.2-1.01-.24-1.42-.39-3.36-2.27-5.92-5.43-7.41-4.28-2.01-10.25-1.78-14.65-1.21h-.45c-6.84-.8-13.39.93-19.46,5.16-5.3,3.67-9.99,9.11-13.55,15.75l-.02.04-2.01,4.29v.03c-2.36,5.83-3.5,11.84-3.38,17.87ZM81.22,31.73c.18-.37,1.07.03,1.44.21.37.18.52,1.01.34,1.38-.18.39-.61.16-.98-.01-.39-.18-.99-1.19-.8-1.58Z"
+                        />
+                    </svg>
+                </div>
+            </section>
+
+            <!-- Story 2.1: hero section -->
+            <section id="hero" class="relative min-h-svh flex flex-col bg-ice-near px-6 md:px-[3.125rem] pt-[28svh] pb-[var(--space-section-y)]">
+                <!-- Video background — extends to viewport top (behind fixed nav); mix-blend-screen lightens video into the ice-near base -->
+                <video class="absolute -top-[5rem] left-0 right-0 bottom-0 h-[calc(100%+5rem)] w-full object-cover mix-blend-color-burn" autoplay muted loop playsinline poster="/images/hero-poster.jpg" aria-hidden="true">
+                    <source src="/images/hero-video.mp4" type="video/mp4" />
+                </video>
+
+                <!-- Blue tint overlay — bg-blue-mid at 38% opacity; opacity property is universally supported -->
+                <div class="absolute -top-[5rem] left-0 right-0 bottom-0 h-[calc(100%+5rem)] pointer-events-none bg-blue-mid opacity-[0.38]" aria-hidden="true"></div>
+
+                <!-- Headline + body text — left-aligned, no glass panel -->
+                <div class="relative z-10 max-w-[37rem]">
+                    <h2 class="font-display text-white-brand" style="font-size: var(--text-h1-size); font-weight: var(--text-h1-weight); line-height: var(--text-h1-line-height)">Water,<br />polished by<br /><span class="text-cyan-light">light</span></h2>
+                    <p class="mt-6 font-body text-navy-deep" style="font-size: var(--text-h3-size); font-weight: var(--text-h3-weight); line-height: var(--text-body-line-height)">The last 5–10% of industrial wastewater is the hardest to clean. Pharmaceutical residues, dyes, recalcitrant organics that survive every step of conventional treatment. Vāsuqi is a visible-light polishing platform, designed to break them down. Built on DTU research, currently pre-seed.</p>
+                </div>
+
+                <!-- Spacer pushes logos to the bottom -->
+                <div class="flex-1"></div>
+
+                <!-- Backed by: institutional logos — UX-DR10, bottom right -->
+                <div class="relative z-10 self-end text-right">
+                    <p class="font-body text-white-brand" style="font-size: var(--text-h2-size); font-weight: var(--text-h2-weight); line-height: 1">Backed by:</p>
+                    <!-- Desktop: flex row with labels (hidden on mobile) -->
+                    <div class="hidden md:flex items-end gap-6 mt-3">
+                        <div class="flex flex-col items-center gap-2">
+                            <img src="/images/DTU.jpg" alt="DTU — Technical University of Denmark" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
+                            <p class="text-picture-desc text-white-brand">DTU Sustain</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <img src="/images/IFD.jpeg" alt="Innofounder" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
+                            <p class="text-picture-desc text-white-brand">Innofounder</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <img src="/images/BII.png" alt="BII — British International Investment" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
+                            <p class="text-picture-desc text-white-brand">Bio Innovation Institute</p>
+                        </div>
+                    </div>
+                    <!-- Mobile: scroll-snap carousel with labels -->
+                    <div class="backed-by-carousel md:hidden mt-3">
+                        <div class="flex flex-col items-center gap-2 snap-start">
+                            <img src="/images/DTU.jpg" alt="DTU — Technical University of Denmark" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
+                            <p class="text-picture-desc text-white-brand">DTU Sustain</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-2 snap-start">
+                            <img src="/images/IFD.jpeg" alt="Innofounder" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
+                            <p class="text-picture-desc text-white-brand">Innofounder</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-2 snap-start">
+                            <img src="/images/BII.png" alt="BII — British International Investment" width="64" height="64" class="w-16 h-16 rounded-full object-cover" />
+                            <p class="text-picture-desc text-white-brand">Bio Innovation Institute</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Story 5.2: the gap section -->
+            <section id="the-gap" class="relative py-[var(--space-section-y)] px-6 md:px-[3.125rem]">
+                <div class="relative z-10 max-w-[var(--max-content-width)] mx-auto">
+                    <!-- AC2: pronunciation label above h1 -->
+                    <p class="text-picture-desc text-center text-navy-deep mb-4">pronounced VAH-su-kee</p>
+
+                    <!-- AC1: corrected heading hierarchy -->
+                    <h1 class="section-heading text-navy-deep">The last fraction is the hardest</h1>
+                    <h2 class="section-subheading text-navy-deep mt-4">The last 5% of COD can consume more than 60% of a treatment plant's OPEX.</h2>
+
+                    <!-- AC4 & AC5: animated SVG chart lines with legend -->
+                    <div class="gap-chart-container relative mt-10" style="min-height: 320px">
+                        <div class="relative w-full" style="aspect-ratio: 3 / 1; min-height: 200px">
+                            <img src="/svgs/treatment-cost-line.svg" alt="" aria-hidden="true" class="gap-line-img absolute inset-0 w-full h-full object-contain" />
+                            <img src="/svgs/residual-COD-line.svg" alt="" aria-hidden="true" class="gap-line-img absolute inset-0 w-full h-full object-contain" />
+                        </div>
+
+                        <!-- AC6: glass text panel overlaid on chart -->
+                        <div class="gap-glass-panel" aria-label="Context: industrial wastewater treatment stages">
+                            <div style="max-width: 52ch; margin: 0 auto">
+                                <p class="text-navy-deep" style="font-family: var(--font-body); font-size: var(--text-caption-size); line-height: var(--text-caption-line-height)">Industrial wastewater is cleaned in stages. Biology, membranes, and thermal processes remove the bulk of the load.</p>
+                                <p class="text-navy-deep mt-4" style="font-family: var(--font-body); font-size: var(--text-caption-size); line-height: var(--text-caption-line-height)">What remains is the residual fraction. Small in volume, disproportionate in cost.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AC5: chart legend labels -->
+                    <div class="gap-chart-legend flex flex-col sm:flex-row gap-4 mt-6">
+                        <p class="text-picture-desc text-navy-deep flex items-center gap-2">
+                            <span class="gap-legend-swatch" style="background: var(--cyan-light)" aria-hidden="true"></span>
+                            Treatment cost rises sharply chasing the final fraction.
+                        </p>
+                        <p class="text-picture-desc text-navy-deep flex items-center gap-2">
+                            <span class="gap-legend-swatch" style="background: var(--blue-primary)" aria-hidden="true"></span>
+                            Residual COD falls as treatment intensifies.
+                        </p>
+                    </div>
+
+                    <!-- AC7: pill banner with light sweep animation -->
+                    <div class="gap-cta-row mt-24">
+                        <!-- Left cone: point at left edge, widens toward text -->
+                        <svg class="gap-cone gap-cone--left" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="cone-grad-left" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#0044FF" stop-opacity="0.75" />
+                                    <stop offset="100%" stop-color="#FAFCFF" stop-opacity="0.85" />
+                                </linearGradient>
+                                <radialGradient id="cone-pulse-left" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#FAFCFF" stop-opacity="1" />
+                                    <stop offset="100%" stop-color="#FAFCFF" stop-opacity="0" />
+                                </radialGradient>
+                                <filter id="cone-blur-left" x="-5%" y="-80%" width="110%" height="260%">
+                                    <feGaussianBlur stdDeviation="5" />
+                                </filter>
+                                <filter id="cone-pulse-blur-left" x="-60%" y="-60%" width="220%" height="220%">
+                                    <feGaussianBlur stdDeviation="9" />
+                                </filter>
+                            </defs>
+                            <!-- Cone: point at left (0,30), wide at right (200,0)–(200,60) -->
+                            <polygon points="0,30 200,0 200,60" fill="url(#cone-grad-left)" filter="url(#cone-blur-left)" />
+                            <!-- Pulse spot — travels left→right via animateTransform (SVG user units, scales with viewBox) -->
+                            <ellipse class="gap-cone-pulse" cx="-25" cy="30" rx="22" ry="18" fill="url(#cone-pulse-left)" filter="url(#cone-pulse-blur-left)">
+                                <animateTransform attributeName="transform" type="translate" values="0 0; 248 0; 248 0" keyTimes="0; 0.80; 1" dur="2.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0 0 1 1" />
+                                <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.06; 0.76; 0.88" dur="2.6s" repeatCount="indefinite" />
+                            </ellipse>
+                        </svg>
+
+                        <p class="gap-cta-text">THIS IS WHAT VĀSUQI IS BUILT FOR.</p>
+
+                        <!-- Right cone: point at right edge, widens toward text -->
+                        <svg class="gap-cone gap-cone--right" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="cone-grad-right" x1="100%" y1="0%" x2="0%" y2="0%">
+                                    <stop offset="0%" stop-color="#0044FF" stop-opacity="0.75" />
+                                    <stop offset="100%" stop-color="#FAFCFF" stop-opacity="0.85" />
+                                </linearGradient>
+                                <radialGradient id="cone-pulse-right" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#FAFCFF" stop-opacity="1" />
+                                    <stop offset="100%" stop-color="#FAFCFF" stop-opacity="0" />
+                                </radialGradient>
+                                <filter id="cone-blur-right" x="-5%" y="-80%" width="110%" height="260%">
+                                    <feGaussianBlur stdDeviation="5" />
+                                </filter>
+                                <filter id="cone-pulse-blur-right" x="-60%" y="-60%" width="220%" height="220%">
+                                    <feGaussianBlur stdDeviation="9" />
+                                </filter>
+                            </defs>
+                            <!-- Cone: point at right (200,30), wide at left (0,0)–(0,60) -->
+                            <polygon points="200,30 0,0 0,60" fill="url(#cone-grad-right)" filter="url(#cone-blur-right)" />
+                            <!-- Pulse spot — travels right→left -->
+                            <ellipse class="gap-cone-pulse" cx="225" cy="30" rx="22" ry="18" fill="url(#cone-pulse-right)" filter="url(#cone-pulse-blur-right)">
+                                <animateTransform attributeName="transform" type="translate" values="0 0; -248 0; -248 0" keyTimes="0; 0.80; 1" dur="2.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0 0 1 1" />
+                                <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.06; 0.76; 0.88" dur="2.6s" repeatCount="indefinite" />
+                            </ellipse>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Story 5.3: targets are set section — id renamed from where-vasuqi-fits -->
+            <section id="targets-are-set" class="relative py-[11rem] px-6 md:px-[3.125rem]">
+                <!-- AC9: organic blob background -->
+                <img src="/svgs/targets-blob.svg" alt="" aria-hidden="true" class="targets-blob-bg" loading="lazy" style="pointer-events: none" />
+
+                <div class="relative z-10 max-w-[var(--max-content-width)] mx-auto text-center">
+                    <!-- AC11: mobile — only pronunciation label; no wordmark blob -->
+                    <p class="text-picture-desc text-navy-deep mb-6 md:hidden">pronounced VAH-su-kee</p>
+
+                    <h1 class="section-heading text-navy-deep">The targets<br />are set</h1>
+                    <div class="mx-auto mt-6 w-full md:w-1/2">
+                        <p class="section-body text-navy-deep">In 2024, the EU revised its Urban Wastewater Treatment Directive — the first major update in over thirty years.</p>
+                        <p class="section-body text-navy-deep mt-4">80% removal of micropollutants from major plants. Interim targets from 2033. Full quaternary treatment by 2045. Under the polluter-pays principle, pharmaceutical and cosmetics companies cover 80% of the cost.</p>
+                        <p class="section-body text-navy-deep mt-4">Regulation, timeline, and funding are now in place. Vāsuqi is built for this moment — without the energy demand or chemical load of conventional upgrades.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Story 5.3: Where Vāsuqi Fits section — new section between targets-are-set and what-its-built-to-change -->
+            <!-- NOTE: NO overflow-hidden on this section — backdrop-filter breaks inside overflow:hidden ancestors -->
+            <!-- NOTE: NO overflow-hidden on this section — backdrop-filter breaks inside overflow:hidden ancestors -->
+            <section id="where-vasuqi-fits" class="relative py-[var(--space-section-y)] px-6 md:px-[3.125rem]">
+                <div class="relative z-10 max-w-[var(--max-content-width)] mx-auto">
+                    <h1 class="section-heading text-navy-deep">Where Vāsuqi Fits</h1>
+
+                    <div class="wvfit-card mt-10">
+                        <p class="wvfit-subheading">Designed for lower OPEX. Fewer steps. Cleaner water.</p>
+                        <div class="wvfit-diagram mt-8">
+                            <picture>
+                                <source media="(min-width: 768px)" srcset="/svgs/thefit.svg" />
+                                <img src="/svgs/thefitmobile.svg" alt="Process flow diagram showing where Vāsuqi fits in the wastewater treatment train — from upstream intake through primary, secondary, and tertiary treatment, into the Vāsuqi photocatalytic module, and out to discharge." class="wvfit-diagram-img" loading="lazy" />
+                            </picture>
+                        </div>
+                        <p class="wvfit-card-caption mt-8">Upstream treatment removes most of the burden. Vāsuqi is designed to sit at the downstream end, where residual organics still drive polishing, disposal, and complexity.</p>
+                    </div>
+                    <!-- /.wvfit-card -->
+
+                    <h2 class="mt-10 md:mt-16 text-center">Don't replace what works. Finish what conventional treatment can't.</h2>
+                </div>
+            </section>
+
+            <!-- Story 5.3: What Vāsuqi Is Built To Change section -->
+            <section id="what-its-built-to-change" class="relative py-[var(--space-section-y)] px-6 md:px-[3.125rem]">
+                <div class="relative z-10 max-w-[var(--max-content-width)] mx-auto">
+                    <!-- AC7: correct heading — sentence case, ā macron, colon at end -->
+                    <h1 class="section-heading text-navy-deep">What Vāsuqi is built to change:</h1>
+                    <!-- AC8: two free-standing body paragraphs removed -->
+
+                    <div class="wvbtc-grid mt-12">
+                        <!-- 01 Recovery -->
+                        <div class="benefit-blob-new wvbtc-blob--01">
+                            <svg class="benefit-blob-new__arch" viewBox="0 0 220 60" aria-hidden="true" focusable="false">
+                                <defs>
+                                    <path id="arch-01" d="M 10,55 A 100,100 0 0,1 210,55" />
+                                </defs>
+                                <text class="benefit-blob-new__arch-text" fill="var(--blue-primary)">
+                                    <textPath href="#arch-01" startOffset="50%" text-anchor="middle">01 RECOVERY</textPath>
+                                </text>
+                            </svg>
+                            <div class="benefit-blob-new__blob-wrap">
+                                <img src="/images/recovery-blob.png" alt="" aria-hidden="true" class="benefit-blob-new__blob-img" loading="lazy" />
+                            </div>
+                        </div>
+
+                        <!-- 02 Compliance -->
+                        <div class="benefit-blob-new wvbtc-blob--02">
+                            <svg class="benefit-blob-new__arch" viewBox="0 0 220 60" aria-hidden="true" focusable="false">
+                                <defs>
+                                    <path id="arch-02" d="M 10,55 A 100,100 0 0,1 210,55" />
+                                </defs>
+                                <text class="benefit-blob-new__arch-text" fill="var(--blue-primary)">
+                                    <textPath href="#arch-02" startOffset="50%" text-anchor="middle">02 COMPLIANCE</textPath>
+                                </text>
+                            </svg>
+                            <div class="benefit-blob-new__blob-wrap">
+                                <img src="/images/compliance-blob.png" alt="" aria-hidden="true" class="benefit-blob-new__blob-img" loading="lazy" />
+                            </div>
+                        </div>
+
+                        <!-- 03 Disposal -->
+                        <div class="benefit-blob-new wvbtc-blob--03">
+                            <svg class="benefit-blob-new__arch" viewBox="0 0 220 60" aria-hidden="true" focusable="false">
+                                <defs>
+                                    <path id="arch-03" d="M 10,55 A 100,100 0 0,1 210,55" />
+                                </defs>
+                                <text class="benefit-blob-new__arch-text" fill="var(--blue-primary)">
+                                    <textPath href="#arch-03" startOffset="50%" text-anchor="middle">03 DISPOSAL</textPath>
+                                </text>
+                            </svg>
+                            <div class="benefit-blob-new__blob-wrap">
+                                <img src="/images/disposal-blob.png" alt="" aria-hidden="true" class="benefit-blob-new__blob-img" loading="lazy" />
+                            </div>
+                        </div>
+
+                        <!-- 04 OPEX -->
+                        <div class="benefit-blob-new wvbtc-blob--04">
+                            <svg class="benefit-blob-new__arch" viewBox="0 0 220 60" aria-hidden="true" focusable="false">
+                                <defs>
+                                    <path id="arch-04" d="M 10,55 A 100,100 0 0,1 210,55" />
+                                </defs>
+                                <text class="benefit-blob-new__arch-text" fill="var(--blue-primary)">
+                                    <textPath href="#arch-04" startOffset="50%" text-anchor="middle">04 OPEX</textPath>
+                                </text>
+                            </svg>
+                            <div class="benefit-blob-new__blob-wrap">
+                                <img src="/images/opex-blob.png" alt="" aria-hidden="true" class="benefit-blob-new__blob-img" loading="lazy" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.wvbtc-grid -->
+                </div>
+            </section>
+
+            <!-- Story 5.4: How It Works section — annotated diagram + glass pollutant cards -->
+            <section id="how-it-works" class="relative py-[var(--space-section-y)] px-6 md:px-[3.125rem]">
+                <!-- Blueprint SVG background: positioned behind HIW content and extends into footer (AC8) -->
+                <img src="/svgs/landingpage-bluebrint-background-footer.svg" aria-hidden="true" class="blueprint-footer-bg" alt="" />
+                <!-- .hiw-panel: dark glass background panel centered within max-width canvas (AC4) -->
+                <div class="hiw-panel">
+                    <!-- Heading and body text (AC1, AC2) -->
+                    <h1 class="section-heading text-navy-deep">Light does the work</h1>
+                    <p class="section-body text-navy-deep mt-6">Pre-treated water enters a contained module. Visible blue LEDs activate an immobilized photocatalyst, developed from DTU research, designed to break down toxic organic compounds into CO₂, salts, and water. No chemicals added. No sludge generated.</p>
+
+                    <!-- Annotated diagram (AC3, AC9) -->
+                    <div class="hiw-diagram mt-12">
+                        <!-- Reactor image (centered) -->
+                        <div class="hiw-diagram__image-wrap">
+                            <img src="/images/reactor-how-it-works.png" alt="Vasuqi photocatalytic reactor module — annotated diagram showing effluent inlet, LED light activation of photocatalyst, and cleaner water output" class="hiw-diagram__reactor" loading="lazy" />
+                            <!-- LED pulse glow overlay (AC9) — triggered on .hiw-diagram:hover -->
+                            <div class="hiw-glow-overlay" aria-hidden="true"></div>
+                        </div>
+
+                        <!-- Desktop callouts (AC3) — absolutely positioned left/right of reactor -->
+                        <!-- Left upper: Effluent inlet -->
+                        <div class="hiw-callout hiw-callout--left hiw-callout--upper">
+                            <div class="hiw-callout__connector" aria-hidden="true"></div>
+                            <p class="hiw-callout__title">01. Effluent inlet</p>
+                            <p class="hiw-callout__body">After upstream treatment, pre-treated water enters the module.</p>
+                        </div>
+
+                        <!-- Right middle: Light does the work -->
+                        <div class="hiw-callout hiw-callout--right hiw-callout--middle">
+                            <div class="hiw-callout__connector" aria-hidden="true"></div>
+                            <p class="hiw-callout__title">02. Light does the work</p>
+                            <p class="hiw-callout__body">Blue light activates the catalyst, keeping the reaction concentrated where it belongs</p>
+                        </div>
+
+                        <!-- Left lower: Cleaner water out -->
+                        <div class="hiw-callout hiw-callout--left hiw-callout--lower">
+                            <div class="hiw-callout__connector" aria-hidden="true"></div>
+                            <p class="hiw-callout__title">03. Cleaner water out</p>
+                            <p class="hiw-callout__body">Residual organics are broken down before effluent exits.</p>
+                        </div>
+
+                        <!-- Right lower: Why a contained module -->
+                        <div class="hiw-callout hiw-callout--right hiw-callout--lower">
+                            <div class="hiw-callout__connector" aria-hidden="true"></div>
+                            <p class="hiw-callout__title">Why a contained module</p>
+                            <ul class="hiw-callout__list">
+                                <li>Sits inside the existing process flow</li>
+                                <li>Continuous contact with the active treatment surface</li>
+                                <li>No separate catalyst recovery step</li>
+                            </ul>
+                        </div>
+
+                        <!-- Mobile annotation list (AC3) — shown only on mobile, replaces absolute callouts -->
+                        <!-- Using <ul> because numbers are embedded in the <strong> text; <ol> would double-count -->
+                        <ul class="hiw-mobile-annotations">
+                            <li>
+                                <strong>01. Effluent inlet</strong>
+                                <p>After upstream treatment, pre-treated water enters the module.</p>
+                            </li>
+                            <li>
+                                <strong>02. Light does the work</strong>
+                                <p>Blue light activates the catalyst, keeping the reaction concentrated where it belongs</p>
+                            </li>
+                            <li>
+                                <strong>03. Cleaner water out</strong>
+                                <p>Residual organics are broken down before effluent exits.</p>
+                            </li>
+                            <li>
+                                <strong>Why a contained module</strong>
+                                <ul>
+                                    <li>Sits inside the existing process flow</li>
+                                    <li>Continuous contact with the active treatment surface</li>
+                                    <li>No separate catalyst recovery step</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Disclaimer text (AC5) -->
+                    <p class="hiw-disclaimer">*Technology under development. First prototypes expected later this year.</p>
+
+                    <!-- What Vāsuqi is built to address — glass pollutant cards (AC6, AC7) -->
+                    <div class="mt-16">
+                        <h3 class="text-navy-deep">What Vāsuqi is built to address:</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                            <div class="pollutant-card">
+                                <div class="pollutant-card__blobs" aria-hidden="true">
+                                    <div class="pollutant-card__blob pollutant-card__blob--a"></div>
+                                    <div class="pollutant-card__blob pollutant-card__blob--b"></div>
+                                    <div class="pollutant-card__blob pollutant-card__blob--c"></div>
+                                </div>
+                                <img src="/svgs/pharma.svg" alt="" aria-hidden="true" class="pollutant-card__icon" loading="lazy" />
+                                <p class="pollutant-card__body">Pharmaceutical residues, such as antibiotics, hormones, anti-depressants</p>
+                            </div>
+
+                            <div class="pollutant-card">
+                                <div class="pollutant-card__blobs" aria-hidden="true">
+                                    <div class="pollutant-card__blob pollutant-card__blob--a"></div>
+                                    <div class="pollutant-card__blob pollutant-card__blob--b"></div>
+                                    <div class="pollutant-card__blob pollutant-card__blob--c"></div>
+                                </div>
+                                <img src="/svgs/Factory.svg" alt="" aria-hidden="true" class="pollutant-card__icon" loading="lazy" />
+                                <p class="pollutant-card__body">Industrial COD from dairy, brewery, and food processing wastewater</p>
+                            </div>
+
+                            <div class="pollutant-card">
+                                <div class="pollutant-card__blobs" aria-hidden="true">
+                                    <div class="pollutant-card__blob pollutant-card__blob--a"></div>
+                                    <div class="pollutant-card__blob pollutant-card__blob--b"></div>
+                                    <div class="pollutant-card__blob pollutant-card__blob--c"></div>
+                                </div>
+                                <img src="/svgs/Dyes.svg" alt="" aria-hidden="true" class="pollutant-card__icon" loading="lazy" />
+                                <p class="pollutant-card__body">Dyes, pesticides, and other recalcitrant organic compounds</p>
+                            </div>
+
+                            <div class="pollutant-card">
+                                <div class="pollutant-card__blobs" aria-hidden="true">
+                                    <div class="pollutant-card__blob pollutant-card__blob--a"></div>
+                                    <div class="pollutant-card__blob pollutant-card__blob--b"></div>
+                                    <div class="pollutant-card__blob pollutant-card__blob--c"></div>
+                                </div>
+                                <img src="/svgs/EU%20drop.svg" alt="" aria-hidden="true" class="pollutant-card__icon" loading="lazy" />
+                                <p class="pollutant-card__body">The same class of pollutants now mandated for removal under EU law</p>
+                            </div>
+                        </div>
+                        <h2 class="mt-8 text-white-brand" style="font-family: var(--font-manrope); font-size: var(--text-body-size); font-weight: 600; line-height: var(--text-body-line-height)">We aim to break down the compounds that others concentrate, adsorb, or leave behind.</h2>
+                    </div>
+                </div>
+                <!-- /.hiw-panel -->
+            </section>
+        </main>
+        <!--@include "partials/footer.html"-->
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>

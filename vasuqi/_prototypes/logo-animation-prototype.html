@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Vāsuqi — Intro Animation</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <style>
+            :root {
+                --blue-primary: #0044ff;
+                --blue-deep: #0033cc;
+                --blue-mid: #6a93ff;
+                --blue-soft: #a8c5ff;
+                --cyan: #6a93ff;
+                --navy: #0a1f44;
+                --ice: #d6f8ff;
+                --pale: #e8f2ff;
+                --bg: #fafcff;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                font-family:
+                    "Syne",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
+                min-height: 100vh;
+                overflow: hidden;
+            }
+
+            .site {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                color: var(--navy);
+                text-align: center;
+                background: var(--bg);
+            }
+            .site h1 {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+            .site p {
+                opacity: 0.6;
+            }
+
+            /* Intro overlay with soft iridescent background */
+            .intro {
+                position: fixed;
+                inset: 0;
+                z-index: 9999;
+                display: grid;
+                place-items: center;
+                pointer-events: none;
+                overflow: hidden;
+                background: radial-gradient(ellipse 70% 55% at 30% 20%, rgba(168, 197, 255, 0.35), transparent 60%), radial-gradient(ellipse 60% 60% at 75% 80%, rgba(106, 147, 255, 0.18), transparent 65%), radial-gradient(ellipse 80% 80% at 50% 50%, var(--pale), var(--bg) 70%);
+            }
+
+            .intro__stage {
+                position: relative;
+                width: 520px;
+                height: 520px;
+            }
+
+            /* SPHERE — matches the snake outer ring so the body wraps around the bubble */
+            .intro__sphere {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 64%;
+                height: 64%;
+                transform: translate(-50%, -50%);
+            }
+
+            /* Soft outer glow under the bubble */
+            .intro__glow {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 80%;
+                height: 80%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(106, 147, 255, 0.3) 0%, rgba(0, 68, 255, 0.12) 35%, transparent 65%);
+                filter: blur(20px);
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            /* Iridescent shimmer — bigger, more vivid, soap-bubble vibe */
+            .intro__iridescent {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 58%;
+                height: 58%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                background: conic-gradient(from 0deg, rgba(0, 68, 255, 0.7), rgba(106, 147, 255, 0.85), rgba(168, 197, 255, 0.75), rgba(214, 232, 255, 0.9), rgba(106, 147, 255, 0.75), rgba(0, 68, 255, 0.85), rgba(0, 68, 255, 0.7));
+                mix-blend-mode: screen;
+                filter: blur(16px);
+                opacity: 0;
+                animation: irisSpin 12s linear infinite;
+                pointer-events: none;
+            }
+
+            /* Specular highlight — bright white spot, upper-left */
+            .intro__highlight {
+                position: absolute;
+                top: 29%;
+                left: 31%;
+                width: 18%;
+                height: 13%;
+                border-radius: 50%;
+                background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0) 70%);
+                filter: blur(4px);
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            /* Smaller secondary highlight for extra polish */
+            .intro__highlight2 {
+                position: absolute;
+                top: 35%;
+                left: 40%;
+                width: 7%;
+                height: 5%;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.9);
+                filter: blur(2px);
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            /* Bottom rim light — cyan reflection from the "table" */
+            .intro__rim {
+                position: absolute;
+                top: 63%;
+                left: 50%;
+                width: 50%;
+                height: 5%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                background: radial-gradient(ellipse at center, rgba(106, 147, 255, 0.6) 0%, rgba(0, 68, 255, 0) 70%);
+                filter: blur(4px);
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            @keyframes irisSpin {
+                to {
+                    transform: translate(-50%, -50%) rotate(360deg);
+                }
+            }
+
+            /* SNAKE — wraps the outside */
+            .intro__snake {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            }
+            .intro__snake .body-fill,
+            .intro__snake .fill-mid,
+            .intro__snake .fill-soft {
+                opacity: 0;
+            }
+
+            .intro__text {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-family: "Syne", sans-serif;
+                color: #ffffff;
+                font-size: 0.85rem;
+                letter-spacing: 0.3em;
+                text-transform: uppercase;
+                font-weight: 600;
+                opacity: 0;
+                white-space: nowrap;
+                z-index: 2;
+                text-shadow:
+                    0 0 12px rgba(0, 0, 0, 0.7),
+                    0 1px 3px rgba(0, 0, 0, 0.6),
+                    0 0 30px rgba(106, 147, 255, 0.6);
+            }
+
+            .intro__lightburst {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 240px;
+                height: 240px;
+                border-radius: 50%;
+                background: radial-gradient(circle, #ffffff 0%, var(--ice) 40%, var(--blue-mid) 70%, rgba(0, 68, 255, 0) 100%);
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+                filter: blur(2px);
+                pointer-events: none;
+                /* Burst is inside the stage, centered on the logo */
+            }
+
+            .replay {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 0.6rem 1rem;
+                background: var(--navy);
+                color: white;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                z-index: 10;
+                font-size: 0.85rem;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .intro {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="site">
+            <h1>Water, polished by light.</h1>
+            <p>Hero section — appears after intro.</p>
+        </div>
+
+        <div class="intro" id="intro" aria-hidden="true">
+            <div class="intro__stage">
+                <span class="intro__text" id="introText">The last 5%</span>
+
+                <!-- Soft outer glow -->
+                <div class="intro__glow" id="glow"></div>
+
+                <!-- SPHERE — glass bubble -->
+                <svg class="intro__sphere" id="sphere" viewBox="0 0 300 300">
+                    <defs>
+                        <filter id="wobble">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="2" seed="4">
+                                <animate attributeName="baseFrequency" dur="6s" values="0.014;0.022;0.014" repeatCount="indefinite" />
+                            </feTurbulence>
+                            <feDisplacementMap in="SourceGraphic" scale="20" id="displace" />
+                        </filter>
+
+                        <!-- Bloom: deep navy → light-filled glass -->
+                        <radialGradient id="bloom" cx="50%" cy="55%" r="55%">
+                            <stop offset="0%" stop-color="#0A1F44" id="b0" />
+                            <stop offset="35%" stop-color="#0A1F44" id="b1" />
+                            <stop offset="70%" stop-color="#0A1F44" id="b2" />
+                            <stop offset="100%" stop-color="#0A1F44" id="b3" />
+                        </radialGradient>
+
+                        <!-- Edge darkening for depth -->
+                        <radialGradient id="depth" cx="50%" cy="55%" r="55%">
+                            <stop offset="55%" stop-color="rgba(0,0,0,0)" />
+                            <stop offset="100%" stop-color="rgba(10,31,68,0.5)" id="d1" />
+                        </radialGradient>
+                    </defs>
+
+                    <g filter="url(#wobble)" id="sphereGroup">
+                        <circle cx="150" cy="150" r="120" fill="url(#bloom)" id="sphereMain" />
+                        <circle cx="150" cy="150" r="120" fill="url(#depth)" id="sphereDepth" />
+                    </g>
+                </svg>
+
+                <!-- Glass layers -->
+                <div class="intro__iridescent" id="iris"></div>
+                <div class="intro__highlight" id="hl"></div>
+                <div class="intro__highlight2" id="hl2"></div>
+                <div class="intro__rim" id="rim"></div>
+
+                <!-- Light burst — centered on logo -->
+                <div class="intro__lightburst" id="burst"></div>
+
+                <!-- SNAKE LOGO — wraps AROUND the sphere -->
+                <!-- !! DO NOT CHANGE viewBox !! Calibrated to align path visual center (72.26, 70.06) with sphere center. Verified pixel-perfect (0.12px diff). -->
+                <svg class="intro__snake" id="snake" viewBox="-7.7 -9.9 160 160" preserveAspectRatio="xMidYMid meet">
+                    <defs>
+                        <mask id="snake-mask">
+                            <path id="snake-mask-wedge" fill="white" d="" />
+                        </mask>
+                        <!-- Fill-up clip rects: start fully below the shape, animate upward -->
+                        <clipPath id="clip-fill-mid">
+                            <rect id="clip-fill-mid-rect" x="-20" y="140" width="200" height="160" />
+                        </clipPath>
+                        <clipPath id="clip-fill-soft">
+                            <rect id="clip-fill-soft-rect" x="-20" y="140" width="200" height="160" />
+                        </clipPath>
+                    </defs>
+                    <path class="fill-soft" fill="#A8C5FF" clip-path="url(#clip-fill-soft)" d="M113.47,59.24c4.06,31.22-19.42,53.6-47.96,53.56-15.64-8.62-26.76-10.34-32.76-30.54-4.04-29.81-7.54-7.04,10.27-21.6,14.08-12.81,27.03,12.14,41.23,4.7,8.22-3.66,7.45-21.87,19.98-16.39,9.4,4.11,6.31,4.33,9.25,10.27Z" />
+                    <path class="fill-mid" fill="#6A93FF" clip-path="url(#clip-fill-mid)" d="M113.39,68.15c-2.59,20.8-3.37,28.26-23.14,39.77-.03.02-.06.03-.09.04-29.13,9.08-49.87-1.71-59.01-28.81-.15-.44.5-.69.75-.3,6.13,9.39,19.6-15.41,25.09-1.4,1.35,2.83,3.29,6.84,6.47,7.75,6.07,2.53,11.68-3.27,16.01-6.94,4.98-4.3,11.18-7.09,16.92-3.54,4.24,2.38,8.19,3.75,13.1.62.07-.05.14-.12.17-.2l2.94-7.2c.18-.45.86-.27.8.22Z" />
+                    <path
+                        class="body-fill"
+                        fill="#0044FF"
+                        mask="url(#snake-mask)"
+                        d="M27.51,69.52c.12,5.54,1.5,10.92,4.27,16.42.01.02.02.06.03.08,3.72,9.54,10.6,17.5,19.41,22.42l2.63,1.4s.06.03.08.04l3.55,1.5h.03c14.8,5.54,31.47,2.71,43.5-7.38,15-12.56,20.07-33.03,12.61-50.94-2.66-6.39-6.56-11.85-11.58-16.23-.2-.17-.46-.31-.63-.41-1.66-1.03-4.78-2.48-5.63-2.12h0c-.78.32-1.17,1.21-.87,2h0c.55,1.43,4.65,4.78,5.88,5.94,6.46,6.05,10.04,14.7,9.81,23.73-.09,4-.3,6.84-2.23,9.61-.57.82-1.51,1.49-2.5,2.2-2.07,1.5-4.67,3.36-4.5,7.5l.18,4.2c.08,1.93-1.37,3.33-2.75,4-2.53,1.23-5.54,1.25-8.03.08-.23-.11-.46-.22-.67-.35-.62-.36-1.2-.67-1.76-.92-5.27-2.47-7.94-.44-9.26,1.7-.71,1.15-1.67,2.9-2.16,4.62-.96,3.46-3.07,5.96-6.07,7.26-1.83.8-3.62.79-5.29,0-1.45-.67-2.79-1.95-3.87-3.67-.99-1.56-2.37-2.79-4-3.57-1.39-.65-2.93-.95-4.54-.89-2.05.07-3.58-.18-4.96-.83-.36-.17-.71-.37-1.06-.59-5.7-3.72-9.62-7.79-11.99-12.41-.52-1.02-.86-2.11-1.24-3.54-2.17-8.23-1.72-16.77,1.29-24.72,5.09-13.42,17.16-23.32,30.81-25.28l.32-.02c1.37.06,2.81.45,4.29,1.14,3.89,1.83,7.35,5.46,9.63,7.87,1.6,1.68,2.41,2.5,3.2,2.88.29.13.6.21.9.21.81.02,1.53-.29,2.02-.87,1.07-1.25.7-3.26.34-5.19-.1-.52-.2-1.01-.24-1.42-.39-3.36-2.27-5.92-5.43-7.41-4.28-2.01-10.25-1.78-14.65-1.21h-.45c-6.84-.8-13.39.93-19.46,5.16-5.3,3.67-9.99,9.11-13.55,15.75l-.02.04-2.01,4.29v.03c-2.36,5.83-3.5,11.84-3.38,17.87ZM81.22,31.73c.18-.37,1.07.03,1.44.21.37.18.52,1.01.34,1.38-.18.39-.61.16-.98-.01-.39-.18-.99-1.19-.8-1.58Z"
+                    />
+                </svg>
+            </div>
+        </div>
+
+        <button class="replay" onclick="replayIntro()">Replay intro</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script>
+            let waveLoop1, waveLoop2, highlightDrift, snakeBreathe;
+
+            function runIntro() {
+                const intro = document.getElementById("intro");
+                intro.style.display = "grid";
+
+                if (waveLoop1) waveLoop1.kill();
+                if (waveLoop2) waveLoop2.kill();
+                if (highlightDrift) highlightDrift.kill();
+                if (snakeBreathe) snakeBreathe.kill();
+
+                const textEl = document.getElementById("introText");
+                textEl.textContent = "The last 5%";
+
+                gsap.set("#introText", { opacity: 0, y: 0 });
+                gsap.set("#iris", { opacity: 0 });
+                gsap.set("#hl, #hl2, #rim, #glow", { opacity: 0 });
+                gsap.set("#sphereGroup", { opacity: 1 });
+                gsap.set("#snake", { opacity: 0, scale: 0.96, transformOrigin: "50% 50%" });
+                gsap.set(".body-fill, .fill-mid, .fill-soft", { opacity: 1, y: 0 });
+                document.getElementById("clip-fill-mid-rect").setAttribute("y", "140");
+                document.getElementById("clip-fill-soft-rect").setAttribute("y", "140");
+                // Reset wedge mask to empty
+                document.getElementById("snake-mask-wedge").setAttribute("d", "");
+                gsap.set("#burst", { scale: 0, opacity: 0 });
+                gsap.set("#displace", { attr: { scale: 20 } });
+
+                gsap.set("#b0", { attr: { "stop-color": "#0A1F44" } });
+                gsap.set("#b1", { attr: { "stop-color": "#0A1F44" } });
+                gsap.set("#b2", { attr: { "stop-color": "#0A1F44" } });
+                gsap.set("#b3", { attr: { "stop-color": "#0A1F44" } });
+                gsap.set("#d1", { attr: { "stop-color": "rgba(10,31,68,0.5)" } });
+
+                const tl = gsap.timeline({
+                    onComplete: () => {
+                        intro.style.display = "none";
+                    },
+                });
+
+                // One continuous flow — each beat bleeds into the next, nothing stops
+
+                // Sphere rises
+                tl.from(".intro__sphere", { scale: 0.88, opacity: 0, duration: 1.8, ease: "sine.out", transformOrigin: "50% 50%" })
+                    // "The last 5%" glows in while sphere is still arriving — bubble stays dark
+                    .to("#introText", { opacity: 0.85, duration: 1.1, ease: "sine.out" }, "-=1.0")
+                    // "The last 5%" fades out while bubble is still fully dark navy
+                    .to("#introText", { opacity: 0, duration: 0.8, ease: "sine.inOut" }, "+=0.4")
+                    .call(() => {
+                        textEl.textContent = "polished by light";
+                    })
+                    // "polished by light" rises in — bubble still dark underneath
+                    .to("#introText", { opacity: 0.9, duration: 1.2, ease: "sine.out" }, "<+0.1")
+                    // Ignition begins shortly after "polished by light" is fully visible — brief beat on dark bubble
+                    .to("#b0", { attr: { "stop-color": "#FFFFFF" }, duration: 1.0, ease: "sine.inOut" }, "<+0.2")
+                    .to("#b1", { attr: { "stop-color": "#A8C5FF" }, duration: 1.8, ease: "sine.inOut" }, "<")
+                    .to("#b2", { attr: { "stop-color": "#6A93FF" }, duration: 2.2, ease: "sine.inOut" }, "<")
+                    .to("#b3", { attr: { "stop-color": "#6A93FF" }, duration: 2.4, ease: "sine.inOut" }, "<")
+                    .to("#d1", { attr: { "stop-color": "rgba(0,68,255,0.35)" }, duration: 2.2, ease: "sine.inOut" }, "<")
+                    .to("#displace", { attr: { scale: 4 }, duration: 2.4, ease: "sine.inOut" }, "<")
+                    // Text fades out while light is still blooming — viewer reads "polished by light" as bubble brightens
+                    .to("#introText", { opacity: 0, duration: 1.0, ease: "sine.inOut" }, "<+1.2")
+                    // Label placed at the end of the longest ignition tween (#displace / #b3, 2.4s)
+                    // text fade starts at ignition+1.2s and lasts 1.0s → ends at ignition+2.2s
+                    // #displace ends at ignition+2.4s → label is ">+0.2" after text fade end
+                    .addLabel("ignitionDone", ">+0.2")
+                    .to("#snake", { opacity: 1, scale: 1, duration: 0.01, ease: "none" }, "ignitionDone")
+                    .to(".body-fill", { opacity: 1, duration: 0.01, ease: "none" }, "<")
+                    .set(".fill-mid, .fill-soft", { opacity: 1 }, "<")
+                    // Glass layers settle in alongside the snake draw
+                    .to("#glow", { opacity: 1, duration: 1.4, ease: "sine.inOut" }, "<")
+                    .to("#iris", { opacity: 0.75, duration: 1.5, ease: "sine.inOut" }, "<+0.1")
+                    .to("#hl", { opacity: 1, duration: 1.2, ease: "sine.out" }, "<+0.15")
+                    .to("#hl2", { opacity: 0.9, duration: 1.0, ease: "sine.out" }, "<+0.1")
+                    .to("#rim", { opacity: 1, duration: 1.2, ease: "sine.out" }, "<")
+                    .to("#sphereGroup", { opacity: 0.85, duration: 1.4, ease: "sine.inOut" }, "<")
+                    .call(() => {
+                        highlightDrift = gsap.to("#hl", {
+                            x: 6,
+                            y: -4,
+                            duration: 6.0,
+                            ease: "sine.inOut",
+                            yoyo: true,
+                            repeat: -1,
+                        });
+                    });
+
+                const wedgeEl = document.getElementById("snake-mask-wedge");
+                const startAngle = 302;
+                const totalSweep = 359;
+                const sweepObj = { deg: 0 };
+                const cx = 72.26,
+                    cy = 70.06,
+                    r = 120;
+
+                function buildWedge(swept) {
+                    if (swept <= 0) return "";
+                    if (swept >= 360) {
+                        return `M${cx},${cy} m-${r},0 a${r},${r} 0 1,1 ${r * 2},0 a${r},${r} 0 1,1 -${r * 2},0`;
+                    }
+                    const toRad = (d) => (d * Math.PI) / 180;
+                    const a1 = toRad(startAngle),
+                        a2 = toRad(startAngle + swept);
+                    const x1 = cx + r * Math.cos(a1),
+                        y1 = cy + r * Math.sin(a1);
+                    const x2 = cx + r * Math.cos(a2),
+                        y2 = cy + r * Math.sin(a2);
+                    const large = swept > 180 ? 1 : 0;
+                    return `M${cx},${cy} L${x1},${y1} A${r},${r} 0 ${large},1 ${x2},${y2} Z`;
+                }
+
+                tl.to(
+                    sweepObj,
+                    {
+                        deg: totalSweep,
+                        duration: 1.4,
+                        ease: "sine.inOut",
+                        onUpdate: () => wedgeEl.setAttribute("d", buildWedge(sweepObj.deg)),
+                        onComplete: () => wedgeEl.setAttribute("d", buildWedge(360)),
+                    },
+                    "ignitionDone",
+                )
+                    // Change 1: Bubble fades immediately at ignitionDone — no dwell, straight to 0
+                    .to("#sphereGroup, .intro__sphere, #iris, #hl, #hl2, #rim, #glow", { opacity: 0, duration: 1.6, ease: "sine.inOut" }, "ignitionDone")
+                    .call(() => {
+                        snakeBreathe = gsap.to("#snake", {
+                            scale: 1.01,
+                            duration: 6.5,
+                            ease: "sine.inOut",
+                            yoyo: true,
+                            repeat: -1,
+                            transformOrigin: "50% 50%",
+                        });
+                    })
+                    // Change 2: Water rises slowly — mid first, soft follows 1.8s later
+                    .addLabel("waterStart", ">+0.2")
+                    .fromTo("#clip-fill-mid-rect", { attr: { y: 140 } }, { attr: { y: -20 }, duration: 5.0, ease: "power1.inOut" }, "waterStart")
+                    .fromTo("#clip-fill-soft-rect", { attr: { y: 140 } }, { attr: { y: -20 }, duration: 5.0, ease: "power1.inOut" }, "waterStart+=1.8")
+                    .addLabel("waterDone", "waterStart+=6.8")
+                    .call(() => {
+                        // Change 2: Slow idle wave loops — meditative bobbing
+                        waveLoop1 = gsap.to("#clip-fill-soft-rect", {
+                            attr: { y: -18.8 },
+                            duration: 8.0,
+                            ease: "sine.inOut",
+                            yoyo: true,
+                            repeat: -1,
+                        });
+                        waveLoop2 = gsap.to("#clip-fill-mid-rect", {
+                            attr: { y: -20.9 },
+                            duration: 7.0,
+                            ease: "sine.inOut",
+                            yoyo: true,
+                            repeat: -1,
+                            delay: 0.6,
+                        });
+                    }, [], "waterDone")
+                    // Change 3: Burst appears immediately when water fill completes — halo around logo
+                    .to("#burst", { opacity: 1, scale: 1, duration: 0.6, ease: "sine.out" }, "waterDone")
+                    .to("#snake, .intro__sphere, #iris, #hl, #hl2, #rim, #glow", { opacity: 0, duration: 0.9, ease: "sine.inOut" }, "<+0.1")
+                    .to("#burst", { scale: 25, duration: 1.4, ease: "power2.in" }, "<")
+                    .to(".intro", { opacity: 0, duration: 0.5, ease: "sine.out" }, "-=0.4");
+            }
+
+            function replayIntro() {
+                sessionStorage.removeItem("vasuqi_intro_seen");
+                runIntro();
+            }
+
+            if (!sessionStorage.getItem("vasuqi_intro_seen")) {
+                sessionStorage.setItem("vasuqi_intro_seen", "true");
+                runIntro();
+            } else {
+                document.getElementById("intro").style.display = "none";
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Procedural 3D Water Droplet</title>
+        <style>
+            body {
+                margin: 0;
+                overflow: hidden;
+                background-color: #fafcff;
+            }
+            canvas {
+                display: block;
+            }
+        </style>
+
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <script type="module">
+            import * as THREE from "three";
+            import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+            // 1. Core Setup
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+            camera.position.set(0, 0, 5);
+
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.4;
+            document.body.appendChild(renderer.domElement);
+
+            const controls = new OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+
+            // 2. Environment — all lighting baked into the shader, no geometric panels
+            const pmremGenerator = new THREE.PMREMGenerator(renderer);
+            const envScene = new THREE.Scene();
+
+            const bgGeo = new THREE.SphereGeometry(20, 64, 64);
+            const bgMat = new THREE.ShaderMaterial({
+                side: THREE.BackSide,
+                vertexShader: `
+                    varying vec3 vWorldPos;
+                    void main() {
+                        vWorldPos = (modelMatrix * vec4(position, 1.0)).xyz;
+                        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                    }
+                `,
+                fragmentShader: `
+                    varying vec3 vWorldPos;
+
+                    // Soft round light — no hard edges
+                    float softLight(vec3 dir, vec3 lightDir, float size) {
+                        return pow(max(dot(dir, normalize(lightDir)), 0.0), size);
+                    }
+
+                    void main() {
+                        vec3 dir = normalize(vWorldPos);
+                        float t = dir.y * 0.5 + 0.5;
+
+                        // Base gradient: bright overall — white top, light blue mid, slightly darker bottom
+                        vec3 white    = vec3(1.0, 1.0, 1.0);
+                        vec3 lightSky = vec3(0.82, 0.9, 1.0);
+                        vec3 midBlue  = vec3(0.45, 0.62, 0.88);
+                        vec3 deepBlue = vec3(0.08, 0.18, 0.42);
+
+                        vec3 col = mix(deepBlue, midBlue, smoothstep(0.0, 0.25, t));
+                        col = mix(col, lightSky, smoothstep(0.25, 0.55, t));
+                        col = mix(col, white, smoothstep(0.55, 0.85, t));
+
+                        // ---- Round soft lights (all procedural, no geometry) ----
+
+                        // Key light — bright, upper right — main specular highlight
+                        col += vec3(1.0, 0.98, 0.96) * softLight(dir, vec3(0.5, 0.7, 0.5), 80.0) * 12.0;
+                        // Key glow — broader halo around key
+                        col += vec3(0.9, 0.94, 1.0) * softLight(dir, vec3(0.5, 0.7, 0.5), 8.0) * 2.0;
+
+                        // Secondary key — slightly offset for a double-highlight (realistic)
+                        col += vec3(1.0) * softLight(dir, vec3(0.3, 0.85, 0.35), 200.0) * 8.0;
+
+                        // Rim light from behind — edge definition
+                        col += vec3(0.6, 0.78, 1.0) * softLight(dir, vec3(-0.3, 0.1, -0.9), 40.0) * 4.0;
+                        col += vec3(0.5, 0.7, 1.0) * softLight(dir, vec3(-0.3, 0.1, -0.9), 6.0) * 1.2;
+
+                        // Cyan accent (#00E5FF) — soft glow, lower left
+                        col += vec3(0.0, 0.9, 1.0) * softLight(dir, vec3(-0.6, -0.2, 0.7), 16.0) * 2.5;
+                        col += vec3(0.0, 0.7, 0.9) * softLight(dir, vec3(-0.6, -0.2, 0.7), 4.0) * 0.8;
+
+                        // Blue accent (#0044FF) — right side
+                        col += vec3(0.0, 0.27, 1.0) * softLight(dir, vec3(0.7, -0.4, -0.5), 20.0) * 2.0;
+
+                        // Bottom fill — prevents pure black underneath
+                        col += vec3(0.55, 0.7, 1.0) * softLight(dir, vec3(0.0, -1.0, 0.2), 6.0) * 1.0;
+
+                        // Upper-left fill — soft, wide
+                        col += vec3(0.85, 0.9, 1.0) * softLight(dir, vec3(-0.7, 0.6, 0.3), 5.0) * 1.5;
+
+                        // Dark contrast zone — crucial for making refraction visible
+                        // Creates dark area that the bright lights contrast against
+                        float darkZone1 = softLight(dir, vec3(0.4, -0.6, -0.7), 6.0);
+                        col = mix(col, deepBlue * 0.5, darkZone1 * 0.5);
+
+                        float darkZone2 = softLight(dir, vec3(-0.8, -0.4, -0.4), 8.0);
+                        col = mix(col, deepBlue * 0.3, darkZone2 * 0.3);
+
+                        gl_FragColor = vec4(col, 1.0);
+                    }
+                `,
+            });
+            envScene.add(new THREE.Mesh(bgGeo, bgMat));
+
+            // Only point lights (no planes — avoids rectangular reflections)
+            const pLight1 = new THREE.PointLight(0xffffff, 600, 50);
+            pLight1.position.set(6, 8, 6);
+            envScene.add(pLight1);
+
+            const pLight2 = new THREE.PointLight(0x00e5ff, 300, 50);
+            pLight2.position.set(-6, 3, -6);
+            envScene.add(pLight2);
+
+            const pLight3 = new THREE.PointLight(0xffffff, 200, 50);
+            pLight3.position.set(4, -5, 5);
+            envScene.add(pLight3);
+
+            // Generate env map — slightly more blur to soften everything
+            const envRT = pmremGenerator.fromScene(envScene, 0.04);
+            scene.environment = envRT.texture;
+            pmremGenerator.dispose();
+
+            // Clean up env scene resources (no longer needed)
+            bgGeo.dispose();
+            bgMat.dispose();
+            envScene.clear();
+
+            // Use a solid color background instead of the env map
+            scene.background = new THREE.Color(0xfafcff);
+
+            // 3. Geometry
+            const geometry = new THREE.SphereGeometry(1, 128, 128);
+
+            // 4. Material — clear water
+            const material = new THREE.MeshPhysicalMaterial({
+                color: new THREE.Color(0.94, 0.97, 1.0),
+                metalness: 0.0,
+                roughness: 0.0,
+                transmission: 0.97,
+                ior: 1.33,
+                thickness: 0.8,
+                specularIntensity: 1.0,
+                specularColor: new THREE.Color(0xffffff),
+                envMapIntensity: 2.0,
+                clearcoat: 1.0,
+                clearcoatRoughness: 0.0,
+                attenuationColor: new THREE.Color(0.25, 0.55, 0.95),
+                attenuationDistance: 1.8,
+                side: THREE.FrontSide,
+                forceSinglePass: true,
+            });
+
+            // 5. Shader Injection for smooth wobble
+            const customUniforms = { uTime: { value: 0 } };
+
+            material.customProgramCacheKey = () => "water-droplet-wobble";
+
+            material.onBeforeCompile = (shader) => {
+                shader.uniforms.uTime = customUniforms.uTime;
+
+                if (shader.vertexShader.includes("uniform float uTime")) return;
+
+                shader.vertexShader =
+                    `
+                uniform float uTime;
+                vec4 permute(vec4 x){return mod(((x*34.0)+1.0)*x, 289.0);}
+                vec4 taylorInvSqrt(vec4 r){return 1.79284291400159 - 0.85373472095314 * r;}
+                float snoise(vec3 v){
+                    const vec2 C = vec2(1.0/6.0, 1.0/3.0);
+                    const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+                    vec3 i  = floor(v + dot(v, C.yyy));
+                    vec3 x0 = v - i + dot(i, C.xxx);
+                    vec3 g = step(x0.yzx, x0.xyz);
+                    vec3 l = 1.0 - g;
+                    vec3 i1 = min(g.xyz, l.zxy);
+                    vec3 i2 = max(g.xyz, l.zxy);
+                    vec3 x1 = x0 - i1 + C.xxx;
+                    vec3 x2 = x0 - i2 + 2.0 * C.xxx;
+                    vec3 x3 = x0 - 1.0 + 3.0 * C.xxx;
+                    i = mod(i, 289.0);
+                    vec4 p = permute(permute(permute(
+                        i.z + vec4(0.0, i1.z, i2.z, 1.0))
+                        + i.y + vec4(0.0, i1.y, i2.y, 1.0))
+                        + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+                    float n_ = 1.0/7.0;
+                    vec3 ns = n_ * D.wyz - D.xzx;
+                    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+                    vec4 x_ = floor(j * ns.z);
+                    vec4 y_ = floor(j - 7.0 * x_);
+                    vec4 x = x_ * ns.x + ns.yyyy;
+                    vec4 y = y_ * ns.x + ns.yyyy;
+                    vec4 h = 1.0 - abs(x) - abs(y);
+                    vec4 b0 = vec4(x.xy, y.xy);
+                    vec4 b1 = vec4(x.zw, y.zw);
+                    vec4 s0 = floor(b0) * 2.0 + 1.0;
+                    vec4 s1 = floor(b1) * 2.0 + 1.0;
+                    vec4 sh = -step(h, vec4(0.0));
+                    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+                    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+                    vec3 p0 = vec3(a0.xy, h.x);
+                    vec3 p1 = vec3(a0.zw, h.y);
+                    vec3 p2 = vec3(a1.xy, h.z);
+                    vec3 p3 = vec3(a1.zw, h.w);
+                    vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2,p2), dot(p3,p3)));
+                    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+                    vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+                    m = m * m;
+                    return 42.0 * dot(m*m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));
+                }
+            ` + shader.vertexShader;
+
+                shader.vertexShader = shader.vertexShader.replace(
+                    "#include <begin_vertex>",
+                    `
+                #include <begin_vertex>
+                float noiseFrequency = 1.2;
+                float noiseAmplitude = 0.025;
+                float animationSpeed = 0.15;
+                vec3 noisePos = position * noiseFrequency + uTime * animationSpeed;
+                float noiseVal = snoise(noisePos);
+                transformed += normal * noiseVal * noiseAmplitude;
+                `,
+                );
+            };
+
+            const droplet = new THREE.Mesh(geometry, material);
+            scene.add(droplet);
+
+            // 6. Animation Loop
+            const clock = new THREE.Clock();
+
+            function animate() {
+                requestAnimationFrame(animate);
+                const elapsed = clock.getElapsedTime();
+                customUniforms.uTime.value = elapsed;
+                droplet.rotation.y = elapsed * 0.1;
+                droplet.rotation.z = elapsed * 0.05;
+                controls.update();
+                renderer.render(scene, camera);
+            }
+
+            window.addEventListener("resize", () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            animate();
+        </script>
+    </body>
+</html>

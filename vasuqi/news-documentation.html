@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News &amp; Documentation | vāsuqi</title>
+  <meta name="description" content="Latest news, press coverage, and downloadable documents from vāsuqi.">
+  <meta property="og:title" content="News &amp; Documentation | vāsuqi">
+  <meta property="og:description" content="Latest news, press coverage, and downloadable documents from vāsuqi.">
+  <meta property="og:image" content="/images/vasuqilogo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://eddaosk.dk/vasuqi/news-documentation.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600&family=Syne:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body class="page-news">
+  <!--@include "partials/nav.html"-->
+  <main id="main-content">
+
+    <!-- ─── Hero: layered founders photo composition (AC1, AC2) ──────────── -->
+    <section class="nd-hero" aria-label="Page header">
+      <!-- Layer 1: blurred base photo, full width, 80% opacity -->
+      <img
+        src="/images/contact-header.jpeg"
+        alt=""
+        class="nd-hero__photo-base"
+        aria-hidden="true"
+        loading="eager"
+      >
+      <!-- Layer 2: sharp photo, right 60%, no filter -->
+      <img
+        src="/images/contact-header.jpeg"
+        alt="vāsuqi founders"
+        class="nd-hero__photo-sharp"
+        loading="eager"
+      >
+      <!-- Text block: h1 + subheading, left column, above photo layers -->
+      <div class="nd-hero__text">
+        <h1 class="text-navy-deep">News &amp; Documentations</h1>
+        <p class="nd-hero__subheading">Read about vāsuqi in the news and on LinkedIn or download documents and logos.</p>
+      </div>
+    </section>
+
+    <!-- ─── Content sections wrapper with blueprint SVG background ─────── -->
+    <div class="nd-content-sections">
+
+      <!-- Blueprint SVG background layer (AC4) -->
+      <img
+        src="/svgs/news-blueprint-background.svg"
+        alt=""
+        aria-hidden="true"
+        class="news-blueprint-bg"
+      >
+
+      <!-- ─── News & Events section ──────────────────────────────────────── -->
+      <section id="section-news" class="nd-section mx-auto max-w-[var(--max-content-width)] px-6 py-12">
+        <h2 class="section-title-nd mb-8">News &amp; Events</h2>
+
+        <!-- Carousel container: overflow-x: auto + scroll-snap on the wrapper;
+             outer section clips overflow so the page does not scroll horizontally. -->
+        <div class="overflow-hidden">
+          <div
+            role="region"
+            aria-label="News and events"
+            class="news-carousel flex gap-6 overflow-x-auto scroll-smooth pb-4"
+          >
+
+            <!-- Card 1: LinkedIn -->
+            <a
+              href="https://www.linkedin.com/posts/vasuqi_vasuqi-first-watertech-startup-in-venture-activity-7437933204549959682-qleH"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="news-card flex-shrink-0 w-72 flex flex-col gap-3 p-5 no-underline"
+              aria-label="LinkedIn — vāsuqi: first WaterTech startup in Venture Lab"
+            >
+              <img
+                src="/images/linkedin-logo.png"
+                alt="LinkedIn"
+                style="height: 24px; width: auto; object-fit: contain;"
+                loading="lazy"
+              >
+              <p class="news-card__headline font-display font-semibold text-navy-deep" style="font-size: var(--text-h3-size); line-height: var(--text-h3-line-height);">vāsuqi: first WaterTech startup in Venture Lab</p>
+              <span
+                class="news-card__read-more font-body text-blue-primary"
+                style="font-size: var(--text-caption-size); margin-top: auto;"
+                aria-hidden="true"
+              >Read more →</span>
+            </a>
+
+            <!-- Card 2: CT Watch -->
+            <a
+              href="https://ctwatch.dk/nyheder/vand/article19095911.ece"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="news-card flex-shrink-0 w-72 flex flex-col gap-3 p-5 no-underline"
+              aria-label="CT Watch — Startup med Aquaporin-direktør bliver del af innovationshus — 10 March 2026"
+            >
+              <p class="news-card__source font-body text-steel" style="font-size: var(--text-caption-size);">CT Watch</p>
+              <p class="news-card__headline font-display font-semibold text-navy-deep" style="font-size: var(--text-h3-size); line-height: var(--text-h3-line-height);">Startup med Aquaporin-direktør bliver del af innovationshus</p>
+              <time class="news-card__date font-body text-steel" style="font-size: var(--text-caption-size);" datetime="2026-03-10">10 March 2026</time>
+              <span
+                class="news-card__read-more font-body text-blue-primary"
+                style="font-size: var(--text-caption-size); margin-top: auto;"
+                aria-hidden="true"
+              >Read more →</span>
+            </a>
+
+            <!-- Card 3: Bio Innovation Institute -->
+            <a
+              href="https://bii.dk/programs/venture-lab/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="news-card flex-shrink-0 w-72 flex flex-col gap-3 p-5 no-underline"
+              aria-label="Bio Innovation Institute — Venture Lab — vāsuqi"
+            >
+              <p class="news-card__source font-body text-steel" style="font-size: var(--text-caption-size);">Bio Innovation Institute</p>
+              <p class="news-card__headline font-display font-semibold text-navy-deep" style="font-size: var(--text-h3-size); line-height: var(--text-h3-line-height);">Venture Lab — vāsuqi</p>
+              <span
+                class="news-card__read-more font-body text-blue-primary"
+                style="font-size: var(--text-caption-size); margin-top: auto;"
+                aria-hidden="true"
+              >Read more →</span>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Documents section ──────────────────────────────────────────── -->
+      <section id="section-docs" class="nd-section mx-auto max-w-[var(--max-content-width)] px-6 py-12">
+        <h2 class="section-title-nd mb-8">Documents</h2>
+
+        <div class="nd-glass-card">
+          <div class="nd-doc-grid">
+
+            <!-- Pitch Deck -->
+            <a
+              href="/docs/vasuqi-pitch-deck.pdf"
+              download
+              class="nd-doc-item"
+              aria-label="Download Pitch Deck PDF"
+            >
+              <img
+                src="/images/brochure.jpg"
+                alt="Pitch Deck document preview"
+                class="nd-doc-item__thumb"
+                loading="lazy"
+              >
+              <span class="nd-doc-item__label">Pitch Deck</span>
+            </a>
+
+            <!-- Product Brochure -->
+            <a
+              href="/docs/vasuqi-product-brochure.pdf"
+              download
+              class="nd-doc-item"
+              aria-label="Download Product Brochure PDF"
+            >
+              <img
+                src="/images/brochure.jpg"
+                alt="Product Brochure document preview"
+                class="nd-doc-item__thumb"
+                loading="lazy"
+              >
+              <span class="nd-doc-item__label">Product Brochure</span>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Press & Brand section ──────────────────────────────────────── -->
+      <section id="section-press" class="nd-section mx-auto max-w-[var(--max-content-width)] px-6 py-12">
+        <h2 class="section-title-nd mb-8">Press &amp; Brand</h2>
+
+        <div class="nd-glass-card">
+          <div class="nd-doc-grid">
+
+            <!-- PR Document -->
+            <a
+              href="/docs/vasuqi-pr-document.pdf"
+              download
+              class="nd-doc-item"
+              aria-label="Download PR Document PDF"
+            >
+              <img
+                src="/images/logokit.jpeg"
+                alt="PR Document preview"
+                class="nd-doc-item__thumb"
+                loading="lazy"
+              >
+              <span class="nd-doc-item__label">PR Document</span>
+            </a>
+
+            <!-- Logo Kit -->
+            <a
+              href="/docs/vasuqi-logo-kit.zip"
+              download
+              class="nd-doc-item"
+              aria-label="Download Logo Kit ZIP"
+            >
+              <img
+                src="/images/logokit.jpeg"
+                alt="Logo Kit preview — vāsuqi brand assets"
+                class="nd-doc-item__thumb"
+                loading="lazy"
+              >
+              <span class="nd-doc-item__label">Logo Kit</span>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.nd-content-sections -->
+
+  </main>
+  <!--@include "partials/footer.html"-->
+  <script type="module" src="/src/news.js"></script>
+</body>
+</html>

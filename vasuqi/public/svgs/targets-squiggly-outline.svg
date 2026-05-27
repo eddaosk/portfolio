@@ -1,0 +1,18 @@
+<svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <path
+    d="M 120,250
+       C 100,160 140,60 260,40
+       C 360,22 430,80 510,60
+       C 600,38 700,90 730,180
+       C 760,270 720,370 650,420
+       C 580,470 480,460 400,470
+       C 300,482 200,480 150,420
+       C 90,350 140,340 120,250 Z"
+    stroke="var(--blue-primary)"
+    stroke-width="1.5"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.4"
+  />
+</svg>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | vāsuqi</title>
+  <meta name="description" content="Contact the vāsuqi team for investor inquiries, partnership opportunities, and general enquiries.">
+  <meta property="og:title" content="Contact | vāsuqi">
+  <meta property="og:description" content="Contact the vāsuqi team for investor inquiries, partnership opportunities, and general enquiries.">
+  <meta property="og:image" content="/images/vasuqilogo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://eddaosk.dk/vasuqi/contact.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600&family=Syne:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body class="page-contact">
+  <!--@include "partials/nav.html"-->
+  <main id="main-content">
+
+    <!-- Three-zone contact layout: photo panel | info column | form column (AC2) -->
+    <div class="contact-three-zone">
+
+      <!-- Zone 1 — Founders photo panel (AC3) -->
+      <div class="contact-photo-panel" aria-hidden="true">
+        <img src="/images/contact-header.jpeg" alt="" width="539" height="838">
+      </div>
+
+      <!-- Zone 2 — Info / enquiries column (AC4, AC6, AC7, AC8, AC9, AC10) -->
+      <section id="section-enquiries" class="contact-info-zone">
+
+        <h1 class="contact-heading">Contact</h1>
+
+        <!-- General inquiries block -->
+        <div class="contact-info-block">
+          <p class="contact-info-label">General inquiries</p>
+          <p><a href="mailto:ara@vasuqi.eu" class="contact-enquiries__link">ara@vasuqi.eu</a></p>
+          <p><a href="tel:+4553555514" class="contact-enquiries__link">+4553555514</a></p>
+        </div>
+
+        <!-- Address block (AC8) -->
+        <div class="contact-info-block">
+          <p class="contact-info-label">Adresse</p>
+          <p class="contact-info-text">Ole Maaløes Vej 3 / 2200 Copenhagen, Denmark</p>
+        </div>
+
+        <!-- Google Maps embed (AC9) -->
+        <div class="contact-map-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=Ole+Maal%C3%B8es+Vej+3%2C+2200+Copenhagen+N%2C+Denmark&output=embed&z=15"
+            width="100%"
+            height="220"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Vasuqi office location — Ole Maaløes Vej 3, Copenhagen"
+            style="border: 0;"
+            allowfullscreen=""
+          ></iframe>
+        </div>
+
+        <!-- Connect with us — LinkedIn only (AC10) -->
+        <div class="contact-info-block">
+          <p class="contact-info-label">Connect with us</p>
+          <div class="contact-social">
+            <a href="https://www.linkedin.com/company/vasuqi/posts/" target="_blank" rel="noopener noreferrer" aria-label="Vasuqi on LinkedIn" class="contact-social__link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false">
+                <rect width="28" height="28" rx="5" fill="#0044FF"/>
+                <path d="M8.5 11.5H11V20H8.5V11.5ZM9.75 10.25C8.92 10.25 8.25 9.58 8.25 8.75C8.25 7.92 8.92 7.25 9.75 7.25C10.58 7.25 11.25 7.92 11.25 8.75C11.25 9.58 10.58 10.25 9.75 10.25ZM13 11.5H15.4V12.6H15.44C15.78 11.96 16.6 11.28 17.82 11.28C20.35 11.28 20.82 12.96 20.82 15.14V20H18.32V15.65C18.32 14.72 18.3 13.52 17.02 13.52C15.72 13.52 15.52 14.54 15.52 15.58V20H13.02V11.5H13Z" fill="white"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Zone 3 — Form column (AC5, AC11–AC16) -->
+      <section id="section-form" class="contact-form-zone">
+
+        <!-- Invitation text (AC5) -->
+        <p class="contact-invite">If you are an investor, researcher, operator, or simply curious about what we are building, reach out.</p>
+
+        <!-- Success message (AC: aria-live) -->
+        <div id="form-success" hidden class="form-feedback form-feedback--success" aria-live="polite">
+          <p>Your message has been sent. We'll be in touch soon.</p>
+        </div>
+
+        <!-- Error message (AC: role=alert) -->
+        <div id="form-error" hidden class="form-feedback form-feedback--error" role="alert">
+          <p>Something went wrong. Please try again, or reach us directly at
+            <a href="mailto:ara@vasuqi.eu">ara@vasuqi.eu</a>.</p>
+        </div>
+
+        <!-- 5-row contact form (AC13) -->
+        <form id="contact-form" class="contact-form" novalidate>
+
+          <!-- Row 1: Name (required) -->
+          <div class="contact-form__field">
+            <label for="contact-name" class="sr-only">Name *</label>
+            <input type="text" id="contact-name" name="name" required autocomplete="name" placeholder="Name *">
+          </div>
+
+          <!-- Row 2: Email (required) -->
+          <div class="contact-form__field">
+            <label for="contact-email" class="sr-only">Email address *</label>
+            <input type="email" id="contact-email" name="email" required autocomplete="email" placeholder="Email address *">
+          </div>
+
+          <!-- Row 3: Company + Job title (optional, side-by-side on desktop) -->
+          <div class="contact-form__field contact-form__field--row">
+            <div class="contact-form__field">
+              <label for="contact-company" class="sr-only">Company name</label>
+              <input type="text" id="contact-company" name="company" autocomplete="organization" placeholder="Company name">
+            </div>
+            <div class="contact-form__field">
+              <label for="contact-jobtitle" class="sr-only">Job title</label>
+              <input type="text" id="contact-jobtitle" name="jobtitle" autocomplete="organization-title" placeholder="Job title">
+            </div>
+          </div>
+
+          <!-- Row 4: Phone (optional) -->
+          <div class="contact-form__field">
+            <label for="contact-phone" class="sr-only">Phone number</label>
+            <input type="tel" id="contact-phone" name="phone" autocomplete="tel" placeholder="Phone number">
+          </div>
+
+          <!-- Row 5: Message (optional) -->
+          <div class="contact-form__field">
+            <label for="contact-message" class="sr-only">Message</label>
+            <textarea id="contact-message" name="message" rows="5" placeholder="Message"></textarea>
+          </div>
+
+          <!-- Submit button (AC16) -->
+          <div class="contact-form__submit-wrap">
+            <button type="submit" class="contact-submit">Send message</button>
+          </div>
+
+        </form>
+
+      </section>
+
+    </div>
+
+  </main>
+  <!--@include "partials/footer.html"-->
+  <script type="module" src="/src/contact.js"></script>
+</body>
+</html>
