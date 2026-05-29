@@ -35,8 +35,15 @@
     aria-label="Main"
     class="nav-gradient-border glass-blur grid w-full max-w-4xl grid-cols-[1fr_auto_1fr] items-center px-6 py-3"
   >
-    <!-- Left: News & Documentations (hidden below md breakpoint) -->
-    <div class="flex items-center">
+    <!-- Left: Logo icon (mobile only) + News & Documentations -->
+    <div class="flex items-center gap-2">
+      <a
+        href="index.html"
+        aria-label="vāsuqi — return to homepage"
+        class="md:hidden flex items-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary"
+      >
+        <img src="svgs/vasuqilogo.svg" alt="Vāsuqi" height="28">
+      </a>
       <a
         href="news-documentation.html"
         class="inline-flex whitespace-nowrap rounded-full px-2 py-1 text-sm font-medium text-blue-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary"
