@@ -14,6 +14,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600&family=Syne:wght@400..800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="svgs/vasuqilogo.svg">
+  <style>
+    @media (max-width: 767px) {
+      #section-why { height: auto; }
+    }
+  </style>
   <script type="module" crossorigin src="/vasuqi/assets/about-C8ZoPPar.js"></script>
   <link rel="modulepreload" crossorigin href="/vasuqi/assets/ScrollTrigger-B4-dcV6B.js">
   <link rel="stylesheet" crossorigin href="/vasuqi/assets/ScrollTrigger-WidLXNJT.css">
@@ -50,15 +55,13 @@
     </a>
 
     <!-- Right: About us + Contact CTA (always visible) -->
-    <div class="flex items-center">
-      <div class="flex flex-1 justify-center">
-        <a
-          href="about.html"
-          class="whitespace-nowrap rounded-full px-2 py-1 text-sm font-medium text-blue-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary"
-        >
-          About us
-        </a>
-      </div>
+    <div class="flex items-center justify-end gap-2">
+      <a
+        href="about.html"
+        class="whitespace-nowrap rounded-full px-2 py-1 text-sm font-medium text-blue-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary"
+      >
+        About us
+      </a>
       <a
         href="contact.html"
         class="whitespace-nowrap rounded-full bg-blue-primary px-4 py-2 text-sm font-medium text-white-brand transition-colors duration-300 hover:bg-blue-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2"
@@ -86,7 +89,7 @@
       >
 
       <!-- Content constrained to reading width -->
-      <div class="max-w-4xl mx-auto px-6 md:px-[3.125rem] pt-52 pb-28">
+      <div class="max-w-4xl mx-auto px-6 md:px-[3.125rem] pt-20 pb-16 md:pt-52 md:pb-28">
         <h1 class="section-heading about-why-heading">Behind the<br>name vāsuqi</h1>
 
         <div class="about-why-body">
