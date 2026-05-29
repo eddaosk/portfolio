@@ -131,6 +131,20 @@ blockquote {
   padding: 0.25rem 0;
 }
 
+@media (min-width: 992px) {
+  .navbar .container-fluid {
+    position: relative;
+  }
+  .navbar-collapse .navbar-nav.mx-auto {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
+}
 .navbar .nav-item.nav-cta {
   margin-left: 1rem;
 }
