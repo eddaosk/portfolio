@@ -13,9 +13,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600&family=Syne:wght@300..900&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/vasuqi/assets/news-CezCFnvh.js"></script>
-  <link rel="modulepreload" crossorigin href="/vasuqi/assets/ScrollTrigger-xEL0353v.js">
-  <link rel="stylesheet" crossorigin href="/vasuqi/assets/ScrollTrigger-BA6ygWHD.css">
+  <link rel="icon" type="image/svg+xml" href="svgs/vasuqilogo.svg">
+  <script type="module" crossorigin src="/vasuqi/assets/news-CSM06Kk2.js"></script>
+  <link rel="modulepreload" crossorigin href="/vasuqi/assets/ScrollTrigger-t8hKYYor.js">
+  <link rel="stylesheet" crossorigin href="/vasuqi/assets/ScrollTrigger-CEVKl8-6.css">
 </head>
 <body class="page-news">
   <a
@@ -49,13 +50,15 @@
     </a>
 
     <!-- Right: About us + Contact CTA (always visible) -->
-    <div class="flex items-center justify-between gap-3 sm:gap-4">
-      <a
-        href="about.html"
-        class="whitespace-nowrap rounded-full px-2 py-1 text-sm font-medium text-blue-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary"
-      >
-        About us
-      </a>
+    <div class="flex items-center">
+      <div class="flex flex-1 justify-center">
+        <a
+          href="about.html"
+          class="whitespace-nowrap rounded-full px-2 py-1 text-sm font-medium text-blue-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary"
+        >
+          About us
+        </a>
+      </div>
       <a
         href="contact.html"
         class="whitespace-nowrap rounded-full bg-blue-primary px-4 py-2 text-sm font-medium text-white-brand transition-colors duration-300 hover:bg-blue-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2"
@@ -68,21 +71,12 @@
 
   <main id="main-content">
 
-    <!-- ─── Hero: layered founders photo composition (AC1, AC2) ──────────── -->
+    <!-- ─── Hero ──────────────────────────────────────────────────────────── -->
     <section class="nd-hero" aria-label="Page header">
-      <!-- Layer 1: blurred base photo, full width, 80% opacity -->
       <img
-        src="images/contact-header.jpeg"
-        alt=""
-        class="nd-hero__photo-base"
-        aria-hidden="true"
-        loading="eager"
-      >
-      <!-- Layer 2: sharp photo, right 60%, no filter -->
-      <img
-        src="images/contact-header.jpeg"
+        src="images/news-header.jpeg"
         alt="vāsuqi founders"
-        class="nd-hero__photo-sharp"
+        class="nd-hero__photo-base"
         loading="eager"
       >
       <!-- Text block: h1 + subheading, left column, above photo layers -->
@@ -107,73 +101,92 @@
       <section id="section-news" class="nd-section mx-auto max-w-[var(--max-content-width)] px-6 py-12">
         <h2 class="section-title-nd mb-8">News &amp; Events</h2>
 
-        <!-- Carousel container: overflow-x: auto + scroll-snap on the wrapper;
-             outer section clips overflow so the page does not scroll horizontally. -->
-        <div class="overflow-hidden">
-          <div
-            role="region"
-            aria-label="News and events"
-            class="news-carousel flex gap-6 overflow-x-auto scroll-smooth pb-4"
-          >
+        <!-- Carousel -->
+        <div class="nd-carousel" id="news-carousel" role="region" aria-label="News and events carousel">
+          <!-- Track -->
+          <div class="nd-carousel__track-wrap">
+            <div class="nd-carousel__track">
 
-            <!-- Card 1: LinkedIn -->
-            <a
-              href="https://www.linkedin.com/posts/vasuqi_vasuqi-first-watertech-startup-in-venture-activity-7437933204549959682-qleH"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="news-card flex-shrink-0 w-72 flex flex-col gap-3 p-5 no-underline"
-              aria-label="LinkedIn — vāsuqi: first WaterTech startup in Venture Lab"
-            >
-              <img
-                src="images/linkedin-logo.png"
-                alt="LinkedIn"
-                style="height: 24px; width: auto; object-fit: contain;"
-                loading="lazy"
-              >
-              <p class="news-card__headline font-display font-semibold text-navy-deep" style="font-size: var(--text-h3-size); line-height: var(--text-h3-line-height);">vāsuqi: first WaterTech startup in Venture Lab</p>
-              <span
-                class="news-card__read-more font-body text-blue-primary"
-                style="font-size: var(--text-caption-size); margin-top: auto;"
-                aria-hidden="true"
-              >Read more →</span>
-            </a>
+              <div class="nd-carousel__slide">
+                <a href="https://www.linkedin.com/posts/vasuqi_vasuqi-first-watertech-startup-in-venture-activity-7437933204549959682-qleH" target="_blank" rel="noopener noreferrer" class="news-card" aria-label="LinkedIn — vāsuqi: first WaterTech startup in Venture Lab">
+                  <div class="news-card__img-wrap"><img src="images/news-header.jpeg" alt="" class="news-card__img" loading="eager" aria-hidden="true"></div>
+                  <div class="news-card__body">
+                    <img src="images/linkedin-logo.png" alt="LinkedIn" class="news-card__source-logo">
+                    <p class="news-card__headline">vāsuqi: first WaterTech startup in Venture Lab</p>
+                    <span class="news-card__read-more" aria-hidden="true">Read more →</span>
+                  </div>
+                </a>
+              </div>
 
-            <!-- Card 2: CT Watch -->
-            <a
-              href="https://ctwatch.dk/nyheder/vand/article19095911.ece"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="news-card flex-shrink-0 w-72 flex flex-col gap-3 p-5 no-underline"
-              aria-label="CT Watch — Startup med Aquaporin-direktør bliver del af innovationshus — 10 March 2026"
-            >
-              <p class="news-card__source font-body text-steel" style="font-size: var(--text-caption-size);">CT Watch</p>
-              <p class="news-card__headline font-display font-semibold text-navy-deep" style="font-size: var(--text-h3-size); line-height: var(--text-h3-line-height);">Startup med Aquaporin-direktør bliver del af innovationshus</p>
-              <time class="news-card__date font-body text-steel" style="font-size: var(--text-caption-size);" datetime="2026-03-10">10 March 2026</time>
-              <span
-                class="news-card__read-more font-body text-blue-primary"
-                style="font-size: var(--text-caption-size); margin-top: auto;"
-                aria-hidden="true"
-              >Read more →</span>
-            </a>
+              <div class="nd-carousel__slide">
+                <a href="https://ctwatch.dk/nyheder/vand/article19095911.ece" target="_blank" rel="noopener noreferrer" class="news-card" aria-label="CT Watch — Startup med Aquaporin-direktør — 10 March 2026">
+                  <div class="news-card__img-wrap"><img src="images/contact-header.jpeg" alt="" class="news-card__img" loading="eager" aria-hidden="true"></div>
+                  <div class="news-card__body">
+                    <p class="news-card__source">CT Watch</p>
+                    <p class="news-card__headline">Startup med Aquaporin-direktør bliver del af innovationshus</p>
+                    <time class="news-card__date" datetime="2026-03-10">10 March 2026</time>
+                    <span class="news-card__read-more" aria-hidden="true">Read more →</span>
+                  </div>
+                </a>
+              </div>
 
-            <!-- Card 3: Bio Innovation Institute -->
-            <a
-              href="https://bii.dk/programs/venture-lab/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="news-card flex-shrink-0 w-72 flex flex-col gap-3 p-5 no-underline"
-              aria-label="Bio Innovation Institute — Venture Lab — vāsuqi"
-            >
-              <p class="news-card__source font-body text-steel" style="font-size: var(--text-caption-size);">Bio Innovation Institute</p>
-              <p class="news-card__headline font-display font-semibold text-navy-deep" style="font-size: var(--text-h3-size); line-height: var(--text-h3-line-height);">Venture Lab — vāsuqi</p>
-              <span
-                class="news-card__read-more font-body text-blue-primary"
-                style="font-size: var(--text-caption-size); margin-top: auto;"
-                aria-hidden="true"
-              >Read more →</span>
-            </a>
+              <div class="nd-carousel__slide">
+                <a href="https://bii.dk/programs/venture-lab/" target="_blank" rel="noopener noreferrer" class="news-card" aria-label="Bio Innovation Institute — Venture Lab — vāsuqi">
+                  <div class="news-card__img-wrap"><img src="images/BII.png" alt="" class="news-card__img" loading="eager" aria-hidden="true"></div>
+                  <div class="news-card__body">
+                    <p class="news-card__source">Bio Innovation Institute</p>
+                    <p class="news-card__headline">Venture Lab — vāsuqi</p>
+                    <span class="news-card__read-more" aria-hidden="true">Read more →</span>
+                  </div>
+                </a>
+              </div>
 
+              <div class="nd-carousel__slide">
+                <a href="https://www.linkedin.com/posts/vasuqi_vasuqi-first-watertech-startup-in-venture-activity-7437933204549959682-qleH" target="_blank" rel="noopener noreferrer" class="news-card" aria-label="LinkedIn — vāsuqi joins DTU Science Park">
+                  <div class="news-card__img-wrap"><img src="images/DTU.jpg" alt="" class="news-card__img" loading="eager" aria-hidden="true"></div>
+                  <div class="news-card__body">
+                    <img src="images/linkedin-logo.png" alt="LinkedIn" class="news-card__source-logo">
+                    <p class="news-card__headline">vāsuqi joins DTU Science Park innovation programme</p>
+                    <span class="news-card__read-more" aria-hidden="true">Read more →</span>
+                  </div>
+                </a>
+              </div>
+
+              <div class="nd-carousel__slide">
+                <a href="https://innovationsfonden.dk" target="_blank" rel="noopener noreferrer" class="news-card" aria-label="Innovation Fund Denmark — vāsuqi receives early-stage grant">
+                  <div class="news-card__img-wrap"><img src="images/IFD.jpeg" alt="" class="news-card__img" loading="eager" aria-hidden="true"></div>
+                  <div class="news-card__body">
+                    <p class="news-card__source">Innovation Fund Denmark</p>
+                    <p class="news-card__headline">vāsuqi receives early-stage Innobooster grant</p>
+                    <span class="news-card__read-more" aria-hidden="true">Read more →</span>
+                  </div>
+                </a>
+              </div>
+
+              <div class="nd-carousel__slide">
+                <a href="https://www.linkedin.com/company/vasuqi" target="_blank" rel="noopener noreferrer" class="news-card" aria-label="LinkedIn — Meet the team behind vāsuqi">
+                  <div class="news-card__img-wrap"><img src="images/joerg.webp" alt="" class="news-card__img" loading="eager" aria-hidden="true"></div>
+                  <div class="news-card__body">
+                    <img src="images/linkedin-logo.png" alt="LinkedIn" class="news-card__source-logo">
+                    <p class="news-card__headline">Meet the team behind vāsuqi's photocatalytic breakthrough</p>
+                    <span class="news-card__read-more" aria-hidden="true">Read more →</span>
+                  </div>
+                </a>
+              </div>
+
+            </div>
           </div>
+
+          <!-- Arrows -->
+          <button class="nd-carousel__btn nd-carousel__btn--prev" aria-label="Previous slide">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button class="nd-carousel__btn nd-carousel__btn--next" aria-label="Next slide">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+
+          <!-- Dots -->
+          <div class="nd-carousel__dots" aria-label="Carousel navigation"></div>
         </div>
       </section>
 
@@ -266,114 +279,72 @@
     </div><!-- /.nd-content-sections -->
 
   </main>
-  <footer class="text-white-brand" style="background: linear-gradient(to bottom, var(--white-brand) 0%, #748DCC 40%, var(--blue-deep) 75%, var(--navy-deep) 100%)">
-  <div class="mx-auto max-w-4xl px-6 py-16">
+  <footer class="text-white-brand" style="background: transparent; position: relative; z-index: 1">
+    <div class="mx-auto max-w-4xl px-6 py-16">
+        <!-- Two-column navigation grid -->
+        <div class="grid grid-cols-2 gap-8 sm:grid-cols-[1fr_1fr_auto]">
+            <!-- About column -->
+            <div>
+                <h3 class="font-display text-sm font-semibold uppercase tracking-widest text-white-brand/60">About</h3>
+                <ul class="mt-4 space-y-3" role="list">
+                    <li>
+                        <a href="about.html" class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"> About Us </a>
+                    </li>
+                    <li>
+                        <a href="news-documentation.html" class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"> News &amp; Documentation </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"> Contact </a>
+                    </li>
+                </ul>
+            </div>
 
-    <!-- Two-column navigation grid -->
-    <div class="grid grid-cols-2 gap-8 sm:grid-cols-[1fr_1fr_auto]">
+            <!-- Product column -->
+            <div>
+                <h3 class="font-display text-sm font-semibold uppercase tracking-widest text-white-brand/60">Product</h3>
+                <ul class="mt-4 space-y-3" role="list">
+                    <li>
+                        <a href="index.html#how-it-works" class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"> How It Works </a>
+                    </li>
+                    <li>
+                        <a href="index.html#targets-are-set" class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"> The Targets Are Set </a>
+                    </li>
+                    <li>
+                        <a href="index.html#where-vasuqi-fits" class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"> Where Vāsuqi Fits </a>
+                    </li>
+                    <li>
+                        <a href="index.html#the-gap" class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"> The Problem </a>
+                    </li>
+                </ul>
+            </div>
 
-      <!-- About column -->
-      <div>
-        <h3 class="font-display text-sm font-semibold uppercase tracking-widest text-white-brand/60">
-          About
-        </h3>
-        <ul class="mt-4 space-y-3" role="list">
-          <li>
-            <a href="about.html"
-               class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a href="news-documentation.html"
-               class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
-              News &amp; Documentation
-            </a>
-          </li>
-          <li>
-            <a href="contact.html"
-               class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
-              Contact
-            </a>
-          </li>
-        </ul>
-      </div>
+            <!-- Social icons (stacks below the two columns on small screens) -->
+            <div class="col-span-2 flex items-start gap-4 sm:col-span-1 sm:items-start sm:justify-end">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/company/vasuqi" target="_blank" rel="noopener noreferrer" aria-label="Vasuqi on LinkedIn" class="text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
+                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                </a>
 
-      <!-- Product column -->
-      <div>
-        <h3 class="font-display text-sm font-semibold uppercase tracking-widest text-white-brand/60">
-          Product
-        </h3>
-        <ul class="mt-4 space-y-3" role="list">
-          <li>
-            <a href="index.html#how-it-works"
-               class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
-              How It Works
-            </a>
-          </li>
-          <li>
-            <a href="index.html#targets-are-set"
-               class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
-              The Targets Are Set
-            </a>
-          </li>
-          <li>
-            <a href="index.html#where-vasuqi-fits"
-               class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
-              Where Vāsuqi Fits
-            </a>
-          </li>
-          <li>
-            <a href="index.html#the-gap"
-               class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
-              The Problem
-            </a>
-          </li>
-        </ul>
-      </div>
+                <!-- X (formerly Twitter) -->
+                <a href="https://x.com/vasuqi" target="_blank" rel="noopener noreferrer" aria-label="Vasuqi on X" class="text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
+                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.213 5.567L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
 
-      <!-- Social icons (stacks below the two columns on small screens) -->
-      <div class="col-span-2 flex items-start gap-4 sm:col-span-1 sm:items-start sm:justify-end">
-        <!-- LinkedIn -->
-        <a
-          href="https://www.linkedin.com/company/vasuqi"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Vasuqi on LinkedIn"
-          class="text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </a>
+        <!-- Divider -->
+        <div class="mt-12 border-t border-white-brand/10"></div>
 
-        <!-- X (formerly Twitter) -->
-        <a
-          href="https://x.com/vasuqi"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Vasuqi on X"
-          class="text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.213 5.567L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
-        </a>
-      </div>
+        <!-- Bottom bar: wordmark + copyright -->
+        <div class="mt-6 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <span class="font-display text-sm font-semibold text-white-brand/60">vāsuqi</span>
+            <p class="text-xs text-white-brand/50">&copy; 2026 Vasuqi ApS. All rights reserved.</p>
+        </div>
     </div>
-
-    <!-- Divider -->
-    <div class="mt-12 border-t border-white-brand/10"></div>
-
-    <!-- Bottom bar: wordmark + copyright -->
-    <div class="mt-6 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
-      <span class="font-display text-sm font-semibold text-white-brand/60">vāsuqi</span>
-      <p class="text-xs text-white-brand/50">
-        &copy; 2026 Vasuqi ApS. All rights reserved.
-      </p>
-    </div>
-
-  </div>
 </footer>
 
 </body>

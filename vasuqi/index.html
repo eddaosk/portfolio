@@ -13,9 +13,10 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600&family=Syne:wght@300..900&display=swap" rel="stylesheet" />
-      <script type="module" crossorigin src="/vasuqi/assets/main-BZkz7INE.js"></script>
-      <link rel="modulepreload" crossorigin href="/vasuqi/assets/ScrollTrigger-xEL0353v.js">
-      <link rel="stylesheet" crossorigin href="/vasuqi/assets/ScrollTrigger-BA6ygWHD.css">
+        <link rel="icon" type="image/svg+xml" href="svgs/vasuqilogo.svg" />
+      <script type="module" crossorigin src="/vasuqi/assets/main-C7R870UZ.js"></script>
+      <link rel="modulepreload" crossorigin href="/vasuqi/assets/ScrollTrigger-t8hKYYor.js">
+      <link rel="stylesheet" crossorigin href="/vasuqi/assets/ScrollTrigger-CEVKl8-6.css">
     </head>
     <body class="page-home">
         <a
@@ -49,13 +50,15 @@
     </a>
 
     <!-- Right: About us + Contact CTA (always visible) -->
-    <div class="flex items-center justify-between gap-3 sm:gap-4">
-      <a
-        href="about.html"
-        class="whitespace-nowrap rounded-full px-2 py-1 text-sm font-medium text-blue-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary"
-      >
-        About us
-      </a>
+    <div class="flex items-center">
+      <div class="flex flex-1 justify-center">
+        <a
+          href="about.html"
+          class="whitespace-nowrap rounded-full px-2 py-1 text-sm font-medium text-blue-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary"
+        >
+          About us
+        </a>
+      </div>
       <a
         href="contact.html"
         class="whitespace-nowrap rounded-full bg-blue-primary px-4 py-2 text-sm font-medium text-white-brand transition-colors duration-300 hover:bg-blue-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2"
@@ -156,7 +159,7 @@
             <!-- Story 2.1: hero section -->
             <section id="hero" class="relative min-h-svh flex flex-col bg-ice-near px-6 md:px-[3.125rem] pt-[28svh] pb-[var(--space-section-y)]">
                 <!-- Video background — extends to viewport top (behind fixed nav); mix-blend-screen lightens video into the ice-near base -->
-                <video class="absolute -top-[5rem] left-0 right-0 bottom-0 h-[calc(100%+5rem)] w-full object-cover mix-blend-color-burn" autoplay muted loop playsinline poster="images/hero-poster.jpg" aria-hidden="true">
+                <video class="absolute -top-[5rem] left-0 right-0 bottom-0 h-[calc(100%+5rem)] w-full object-cover mix-blend-color-burn" autoplay muted loop playsinline aria-hidden="true">
                     <source src="images/hero-video.mp4" type="video/mp4" />
                 </video>
 
@@ -420,8 +423,10 @@
                 </div>
             </section>
 
-            <!-- Story 5.4: How It Works section — annotated diagram + glass pollutant cards -->
-            <section id="how-it-works" class="relative py-[var(--space-section-y)] px-6 md:px-[3.125rem]">
+            <!-- Wrapper: clips the blueprint bg + gradient overlay that extend past #how-it-works into the footer -->
+        </main>
+        <div class="hiw-footer-wrap">
+            <section id="how-it-works" class="relative pt-[var(--space-section-y)] pb-0 px-6 md:px-[3.125rem]">
                 <!-- Blueprint SVG background: positioned behind HIW content and extends into footer (AC8) -->
                 <img src="svgs/landingpage-bluebrint-background-footer.svg" aria-hidden="true" class="blueprint-footer-bg" alt="" />
                 <!-- .hiw-panel: dark glass background panel centered within max-width canvas (AC4) -->
@@ -505,7 +510,7 @@
                     <div class="mt-16">
                         <h3 class="text-navy-deep">What Vāsuqi is built to address:</h3>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-                            <div class="pollutant-card">
+                            <div class="pollutant-card pollutant-card--01">
                                 <div class="pollutant-card__blobs" aria-hidden="true">
                                     <div class="pollutant-card__blob pollutant-card__blob--a"></div>
                                     <div class="pollutant-card__blob pollutant-card__blob--b"></div>
@@ -515,7 +520,7 @@
                                 <p class="pollutant-card__body">Pharmaceutical residues, such as antibiotics, hormones, anti-depressants</p>
                             </div>
 
-                            <div class="pollutant-card">
+                            <div class="pollutant-card pollutant-card--02">
                                 <div class="pollutant-card__blobs" aria-hidden="true">
                                     <div class="pollutant-card__blob pollutant-card__blob--a"></div>
                                     <div class="pollutant-card__blob pollutant-card__blob--b"></div>
@@ -525,7 +530,7 @@
                                 <p class="pollutant-card__body">Industrial COD from dairy, brewery, and food processing wastewater</p>
                             </div>
 
-                            <div class="pollutant-card">
+                            <div class="pollutant-card pollutant-card--03">
                                 <div class="pollutant-card__blobs" aria-hidden="true">
                                     <div class="pollutant-card__blob pollutant-card__blob--a"></div>
                                     <div class="pollutant-card__blob pollutant-card__blob--b"></div>
@@ -535,13 +540,13 @@
                                 <p class="pollutant-card__body">Dyes, pesticides, and other recalcitrant organic compounds</p>
                             </div>
 
-                            <div class="pollutant-card">
+                            <div class="pollutant-card pollutant-card--04">
                                 <div class="pollutant-card__blobs" aria-hidden="true">
                                     <div class="pollutant-card__blob pollutant-card__blob--a"></div>
                                     <div class="pollutant-card__blob pollutant-card__blob--b"></div>
                                     <div class="pollutant-card__blob pollutant-card__blob--c"></div>
                                 </div>
-                                <img src="svgs/EU%20drop.svg" alt="" aria-hidden="true" class="pollutant-card__icon" loading="lazy" />
+                                <img src="svgs/EUdrop.svg" alt="" aria-hidden="true" class="pollutant-card__icon" loading="lazy" />
                                 <p class="pollutant-card__body">The same class of pollutants now mandated for removal under EU law</p>
                             </div>
                         </div>
@@ -550,116 +555,75 @@
                 </div>
                 <!-- /.hiw-panel -->
             </section>
-        </main>
-        <footer class="text-white-brand" style="background: linear-gradient(to bottom, var(--white-brand) 0%, #748DCC 40%, var(--blue-deep) 75%, var(--navy-deep) 100%)">
-  <div class="mx-auto max-w-4xl px-6 py-16">
+            <footer class="text-white-brand" style="background: transparent; position: relative; z-index: 1">
+    <div class="mx-auto max-w-4xl px-6 py-16">
+        <!-- Two-column navigation grid -->
+        <div class="grid grid-cols-2 gap-8 sm:grid-cols-[1fr_1fr_auto]">
+            <!-- About column -->
+            <div>
+                <h3 class="font-display text-sm font-semibold uppercase tracking-widest text-white-brand/60">About</h3>
+                <ul class="mt-4 space-y-3" role="list">
+                    <li>
+                        <a href="about.html" class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"> About Us </a>
+                    </li>
+                    <li>
+                        <a href="news-documentation.html" class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"> News &amp; Documentation </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"> Contact </a>
+                    </li>
+                </ul>
+            </div>
 
-    <!-- Two-column navigation grid -->
-    <div class="grid grid-cols-2 gap-8 sm:grid-cols-[1fr_1fr_auto]">
+            <!-- Product column -->
+            <div>
+                <h3 class="font-display text-sm font-semibold uppercase tracking-widest text-white-brand/60">Product</h3>
+                <ul class="mt-4 space-y-3" role="list">
+                    <li>
+                        <a href="index.html#how-it-works" class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"> How It Works </a>
+                    </li>
+                    <li>
+                        <a href="index.html#targets-are-set" class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"> The Targets Are Set </a>
+                    </li>
+                    <li>
+                        <a href="index.html#where-vasuqi-fits" class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"> Where Vāsuqi Fits </a>
+                    </li>
+                    <li>
+                        <a href="index.html#the-gap" class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"> The Problem </a>
+                    </li>
+                </ul>
+            </div>
 
-      <!-- About column -->
-      <div>
-        <h3 class="font-display text-sm font-semibold uppercase tracking-widest text-white-brand/60">
-          About
-        </h3>
-        <ul class="mt-4 space-y-3" role="list">
-          <li>
-            <a href="about.html"
-               class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a href="news-documentation.html"
-               class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
-              News &amp; Documentation
-            </a>
-          </li>
-          <li>
-            <a href="contact.html"
-               class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
-              Contact
-            </a>
-          </li>
-        </ul>
-      </div>
+            <!-- Social icons (stacks below the two columns on small screens) -->
+            <div class="col-span-2 flex items-start gap-4 sm:col-span-1 sm:items-start sm:justify-end">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/company/vasuqi" target="_blank" rel="noopener noreferrer" aria-label="Vasuqi on LinkedIn" class="text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
+                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                </a>
 
-      <!-- Product column -->
-      <div>
-        <h3 class="font-display text-sm font-semibold uppercase tracking-widest text-white-brand/60">
-          Product
-        </h3>
-        <ul class="mt-4 space-y-3" role="list">
-          <li>
-            <a href="index.html#how-it-works"
-               class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
-              How It Works
-            </a>
-          </li>
-          <li>
-            <a href="index.html#targets-are-set"
-               class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
-              The Targets Are Set
-            </a>
-          </li>
-          <li>
-            <a href="index.html#where-vasuqi-fits"
-               class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
-              Where Vāsuqi Fits
-            </a>
-          </li>
-          <li>
-            <a href="index.html#the-gap"
-               class="text-sm text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
-              The Problem
-            </a>
-          </li>
-        </ul>
-      </div>
+                <!-- X (formerly Twitter) -->
+                <a href="https://x.com/vasuqi" target="_blank" rel="noopener noreferrer" aria-label="Vasuqi on X" class="text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded">
+                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.213 5.567L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
 
-      <!-- Social icons (stacks below the two columns on small screens) -->
-      <div class="col-span-2 flex items-start gap-4 sm:col-span-1 sm:items-start sm:justify-end">
-        <!-- LinkedIn -->
-        <a
-          href="https://www.linkedin.com/company/vasuqi"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Vasuqi on LinkedIn"
-          class="text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </a>
+        <!-- Divider -->
+        <div class="mt-12 border-t border-white-brand/10"></div>
 
-        <!-- X (formerly Twitter) -->
-        <a
-          href="https://x.com/vasuqi"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Vasuqi on X"
-          class="text-white-brand hover:text-white-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep rounded"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.213 5.567L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
-        </a>
-      </div>
+        <!-- Bottom bar: wordmark + copyright -->
+        <div class="mt-6 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <span class="font-display text-sm font-semibold text-white-brand/60">vāsuqi</span>
+            <p class="text-xs text-white-brand/50">&copy; 2026 Vasuqi ApS. All rights reserved.</p>
+        </div>
     </div>
-
-    <!-- Divider -->
-    <div class="mt-12 border-t border-white-brand/10"></div>
-
-    <!-- Bottom bar: wordmark + copyright -->
-    <div class="mt-6 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
-      <span class="font-display text-sm font-semibold text-white-brand/60">vāsuqi</span>
-      <p class="text-xs text-white-brand/50">
-        &copy; 2026 Vasuqi ApS. All rights reserved.
-      </p>
-    </div>
-
-  </div>
 </footer>
 
+        </div>
+        <!-- /.hiw-footer-wrap -->
     </body>
 </html>
