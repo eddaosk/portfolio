@@ -169,6 +169,7 @@ blockquote {
   border: 1px solid #e5e0d8;
   border-radius: 999px;
   padding: 3px;
+  margin-left: 1rem;
   background-color: transparent;
 }
 
