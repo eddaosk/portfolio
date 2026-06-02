@@ -220,7 +220,7 @@ blockquote {
     transition: all 0.2s ease;
 
     &.active {
-        background-color: $color-primary;
+        background-color: $color-accent;
         color: $color-white;
     }
 

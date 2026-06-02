@@ -28,16 +28,16 @@ SCSS must be compiled locally — there is no CI build step. Always commit both 
 
 SCSS variables in `scss/main.scss`:
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `$color-primary` | `#1a2e50` | Navy — headings, active states |
-| `$color-accent` | `#c9943a` | Gold — hovers, accents, CTAs |
-| `$color-subheading` | `#3d5a7c` | Muted blue — subtitles |
+| Token               | Value     | Usage                          |
+| ------------------- | --------- | ------------------------------ |
+| `$color-primary`    | `#1a2e50` | Navy — headings, active states |
+| `$color-accent`     | `#c9943a` | Gold — hovers, accents, CTAs   |
+| `$color-subheading` | `#3d5a7c` | Muted blue — subtitles         |
 | `$color-background` | `#faf8f5` | Warm off-white body background |
-| `$color-text` | `#2a2a2a` | Dark gray body text |
-| `$color-footer-bg` | `#f2ece3` | Warm beige footer |
-| `$color-border` | `#e5e0d8` | Subtle warm border |
-| `$color-muted` | `#8a8a8a` | De-emphasized text |
+| `$color-text`       | `#2a2a2a` | Dark gray body text            |
+| `$color-footer-bg`  | `#f2ece3` | Warm beige footer              |
+| `$color-border`     | `#e5e0d8` | Subtle warm border             |
+| `$color-muted`      | `#8a8a8a` | De-emphasized text             |
 
 CSS custom properties: `--font-body`, `--font-accent`, `--font-heading` (all Outfit).
 
@@ -49,6 +49,18 @@ CSS custom properties: `--font-body`, `--font-accent`, `--font-heading` (all Out
 - **Additional responsive rules** live in `css/responsive.css` (plain CSS, not SCSS-compiled)
 - **Images:** Use `loading="lazy"` attributes; project images and tool logos in `img/`
 - **Typography scaling:** Use `clamp()` for fluid font sizes
+
+## Voice & Text (Portfolio Voice Skill)
+
+When writing or editing **any visible text** on the site (headings, project descriptions, bio, CTAs — EN and DA), follow `.github/skills/portfolio-voice/SKILL.md`. Key rules:
+
+- **No superlatives or hype language** — no "innovative," "passionate," "cutting-edge," "award-winning"
+- **Team over individual** — use "we" for collaborative work, "I" only for your specific contribution
+- **Problem-first framing** — open with the challenge or question, not the solution
+- **Specific over vague** — methods, tools, team sizes, real outcomes; not adjectives
+- **Quiet competence** — let the work speak; no performative enthusiasm
+- **Danish text is native, not translated** — shorter sentences, du-form, Danish vocabulary where natural
+- **Røde tråd** — if background is mentioned, the connecting logic (anthropology → tourism → design) must be explicit
 
 ## Pitfalls
 

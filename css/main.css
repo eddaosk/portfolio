@@ -131,20 +131,6 @@ blockquote {
   padding: 0.25rem 0;
 }
 
-@media (min-width: 992px) {
-  .navbar .container-fluid {
-    position: relative;
-  }
-  .navbar-collapse .navbar-nav.mx-auto {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-  }
-  .navbar-collapse {
-    justify-content: flex-end;
-  }
-}
 .navbar .nav-item.nav-cta {
   margin-left: 1rem;
 }
@@ -198,7 +184,7 @@ blockquote {
   transition: all 0.2s ease;
 }
 .lang-option.active {
-  background-color: #1a2e50;
+  background-color: #c9943a;
   color: #ffffff;
 }
 .lang-option:not(.active):hover {
